@@ -4,8 +4,8 @@
         <title>Kelompok 3</title>
     </head>
 <body>
-<?php 
-$tes = "Saya Pergi Kerja";
+<?php <P>
+$tes = "Saya Pergi Kerja"</p>;
 // variabel tes di atas merupakan tipe data string karena berisi text atau kalimat.
 ?>
 <?php
@@ -26,8 +26,10 @@ $y = true;
 $anggota = array("Andi","Budi","Joni");
 //variabel anggota di atas adalah variabel yang bertipe data array karena memiliki banyak isi pada.
 ?>
-
-echo 
+<?php 
+echo'Tulisan ini tampil di browser menggunakan script PHP';
+echo'<p></p>$tes';
+?>
 
 </body>
 </html>
