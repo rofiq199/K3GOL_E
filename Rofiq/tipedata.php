@@ -2,10 +2,13 @@
 <html>
     <head>
         <title>Kelompok 3</title>
+        <style>
+            
+        </style>
     </head>
 <body>
-<?php <P>
-$tes = "Saya Pergi Kerja"</p>;
+<?php
+$tes = "Saya Pergi Kerja";
 // variabel tes di atas merupakan tipe data string karena berisi text atau kalimat.
 ?>
 <?php
@@ -28,7 +31,12 @@ $anggota = array("Andi","Budi","Joni");
 ?>
 <?php 
 echo'Tulisan ini tampil di browser menggunakan script PHP';
-echo'<p></p>$tes';
+echo "<h2></h2>.$tes";
+echo "<h2></h2>.$bilangan_pertama";
+echo "<h2></h2>.$bilangan_kedua";
+echo "<h2></h2>.$angka";
+echo "<h2></h2>.$x";
+echo "<h2></h2>.$y";
 ?>
 
 </body>
