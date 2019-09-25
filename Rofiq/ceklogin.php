@@ -12,6 +12,6 @@
         $_SESSION["username"]=$username;
         header("location:home.php");
     }else{
-        header("location:form_login.php?login_error");
+        header("location:Login.php?login_error");
     }
 ?>

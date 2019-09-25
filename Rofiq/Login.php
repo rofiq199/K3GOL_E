@@ -7,7 +7,7 @@
         
     <?php 
         if(isset($_GET["login_error"])){
-            echo "<h2 style='color:red';>Username atau password salah</h2>";
+            echo "<h2 style='color:red';>username dan password Salah!!!</h2>";
         }
     ?>
       <h1>Login to Web App</h1>
