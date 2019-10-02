@@ -1,22 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Login Form</title>
-</head>
-<body>
-        
-    <?php 
-        if(isset($_GET["login_error"])){
-            echo "<h2 style='color:red';>username dan password Salah!!!</h2>";
-        }
-    ?>
-      <h1>Login to Web App</h1>
-      <form method="post" action="ceklogin.php">
-        <p><input type="text" name="username" value="" placeholder="Username or Email"></p>
-        <p><input type="password" name="password" value="" placeholder="Password"></p>
-        <p class="submit"><input type="submit" name="commit" value="Login"></p>
-      </form>
-    </div>
-  
-</body>
-</html> 
+<?php
+$username = 'admin';
+$password = 'admin';
+if (isset($_POST['submit'])) {
+    if ($_POST['username'] == $username && $_POST['password'] == $password){
+        //Membuat Session
+        $_SESSION["username"] = $username; 
+        echo "Anda Berhasil Login $username";
+        /*Jika Ingin Pindah Ke Halaman Lain*/
+        // header("Location: admin.php"); //Pindahkan Kehalaman Admin
+    } else {
+        // Tampilkan Pesan Error
+        display_login_form();
+        echo '<p>Username Atau Password Tidak Benar</p>';
+    }
+}    
+else { 
+    display_login_form();
+}
+function display_login_form(){ ?>
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method='post'>
+    <label for="username">username</label>
+    <input type="text" name="username" id="username">
+    <label for="password">password</label>
+    <input type="password" name="password" id="password">
+    <input type="submit" name="submit" value="submit">
+    </form>    
+<?php } ?>
