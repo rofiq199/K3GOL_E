@@ -8,8 +8,18 @@
  
 	<div class="kotak_login">
 		<p class="tulisan_login">Silahkan login</p>
- 
-		<form>
+		<?php 
+	if(isset($_GET['pesan'])){
+		if($_GET['pesan'] == "gagal"){
+			echo "Login gagal! username dan password salah!";
+		}else if($_GET['pesan'] == "logout"){
+			echo "Anda telah berhasil logout";
+		}else if($_GET['pesan'] == "belum_login"){
+			echo "Anda harus login untuk mengakses halaman admin";
+		}
+	}
+	?>
+		<form method=post action= "ceklogin.php"> 
 			<label>Username</label>
 			<input type="text" name="username" class="form_login" placeholder="Username atau email ..">
  
@@ -21,7 +31,7 @@
 			<br/>
 			<br/>
 			<center>
-                <a class="link" href="">kembali</a>
+                <a class="link" href="https://www.google.com">kembali</a>
                 <br/>
 			</center>
         </form>
