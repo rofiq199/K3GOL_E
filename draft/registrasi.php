@@ -1,6 +1,6 @@
 <?php 
     include "koneksi.php";
-    $cek_user=mysql_num_rows(mysql_query("SELECT * FROM tb_user WHERE id='$_POST[id]'"));
+    $cek_user=mysqli_num_rows(mysqli_query("SELECT * FROM users WHERE id='$_POST[id]'"));
     if ($cek_user > 0) {
         echo '<script language="javascript">
               alert ("id Sudah Ada Yang Menggunakan");
@@ -10,8 +10,7 @@
     }
     else {
         $password    =md5('$_POST[password]');
-        mysql_query("INSERT INTO tb_user (id, username, password)
-        VALUES ('$_POST[id]', '$_POST[username]', '$password')");
+        mysqli_query("INSERT INTO users (id, username, password) VALUES ('$_POST[id]', '$_POST[username]', '$password')");
         
         echo '<script language="javascript">
               alert ("Registrasi Berhasil Di Lakukan!");
