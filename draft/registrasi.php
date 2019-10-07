@@ -1,6 +1,6 @@
 <?php 
     include "koneksi.php";
-    $cek_user=mysqli_num_rows(mysqli_query("SELECT * FROM users WHERE id='$_POST[id]'"));
+    $cek_user=mysqli_num_rows(mysqli_query($koneksi,"SELECT * FROM tb_user WHERE id='$_POST[id]'"));
     if ($cek_user > 0) {
         echo '<script language="javascript">
               alert ("id Sudah Ada Yang Menggunakan");
@@ -9,8 +9,10 @@
               exit();
     }
     else {
+        $id = $_POST['id'];
+        $username = $_POST['username'];
         $password    =md5('$_POST[password]');
-        mysqli_query("INSERT INTO users VALUES ('$_POST[id]', '$_POST[username]', '$password')");
+        mysqli_query($koneksi,"INSERT INTO tb_user VALUES ('$id', '$username', '$password')");
         
         echo '<script language="javascript">
               alert ("Registrasi Berhasil Di Lakukan!");
