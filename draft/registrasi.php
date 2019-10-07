@@ -10,7 +10,7 @@
     }
     else {
         $password    =md5('$_POST[password]');
-        mysqli_query("INSERT INTO users (id, username, password) VALUES ('$_POST[id]', '$_POST[username]', '$password')");
+        mysqli_query("INSERT INTO users VALUES ('$_POST[id]', '$_POST[username]', '$password')");
         
         echo '<script language="javascript">
               alert ("Registrasi Berhasil Di Lakukan!");
