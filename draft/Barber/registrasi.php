@@ -1,6 +1,6 @@
 <?php 
     include "koneksi.php";
-    $cek_user=mysqli_num_rows(mysqli_query($koneksi,"SELECT * FROM tb_user WHERE id='$_POST[id]'"));
+    $cek_user=mysqli_num_rows(mysqli_query($koneksi,"SELECT * FROM login_barbershop WHERE username='$_POST[username]'"));
     if ($cek_user > 0) {
         echo '<script language="javascript">
               alert ("id Sudah Ada Yang Menggunakan");
@@ -9,10 +9,10 @@
               exit();
     }
     else {
-        $id = $_POST['id'];
         $username = $_POST['username'];
+        $email = $_POST['email'];
         $password    =md5('$_POST[password]');
-        mysqli_query($koneksi,"INSERT INTO tb_user VALUES ('$id', '$username', '$password')");
+        mysqli_query($koneksi,"INSERT INTO login_barbershop VALUES ('$username', '$email', '$password','1')");
         
         echo '<script language="javascript">
               alert ("Registrasi Berhasil Di Lakukan!");

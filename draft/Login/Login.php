@@ -82,7 +82,7 @@
 							Not a member?
 						</span>
 
-						<a href="#" class="txt2 bo1">
+						<a href="/K3GOL_E/draft/barber/signup.php" class="txt2 bo1">
 							Sign up now
 						</a>
 					</div>
