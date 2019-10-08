@@ -6,6 +6,7 @@ if (isset($_POST['submit'])) {
         //Membuat Session
         $_SESSION["username"] = $username; 
         echo "Anda Berhasil Login $username";
+        echo "<br>Selamat Datang di situs kami</br>";
         /*Jika Ingin Pindah Ke Halaman Lain*/
         // header("Location: admin.php"); //Pindahkan Kehalaman Admin
     } else {
