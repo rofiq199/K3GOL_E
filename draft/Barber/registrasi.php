@@ -13,7 +13,6 @@
         $email = $_POST['email'];
         $password    =md5('$_POST[password]');
         mysqli_query($koneksi,"INSERT INTO login_barbershop VALUES ('$username', '$email', '$password','1')");
-        
         echo '<script language="javascript">
               alert ("Registrasi Berhasil Di Lakukan!");
               window.location="signup.php";
