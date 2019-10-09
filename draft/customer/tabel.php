@@ -19,15 +19,14 @@
 <?php  
 // Perintah untuk menampilkan data
 
-$hasil= mysqli_query ($koneksi,"SELECT * FROM login_customer") ;
+$hasil= mysqli_query ($koneksi,"SELECT * FROM data_customer") ;
 
 // perintah untuk membaca dan mengambil data dalam bentuk array
 while ($data = mysqli_fetch_array ($hasil)){
  echo "    
         <tr>
         <td>".$data['username_cs']."</td>
-        <td>".$data['email']."</td>
-        <td>".$data['password']."</td>
+        <td>".$data['email_cs']."</td>
         </tr> 
         ";
         

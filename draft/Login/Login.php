@@ -82,7 +82,7 @@
 							Not a member?
 						</span>
 
-						<a href="/K3GOL_E/draft/customer/signup.php" class="txt2 bo1">
+						<a href="/K3GOL_E/dodhy/web/pendaftaran.html" class="txt2 bo1">
 							Sign up now
 						</a>
 					</div>
