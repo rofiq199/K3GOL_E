@@ -34,21 +34,6 @@
 .katalog{
     border-bottom: 10px solid white;
 }
-.jumbotron::after{
-    content:'';
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
-    position: absolute;
-    bottom : 0;
-
-}
-.jumbotron .container{
-    position: relative;
-    z-index: 1;
-    margin-top: -50px;
-}
 
 h5{
     color: white;
@@ -56,11 +41,7 @@ h5{
 
 /* akhir Jumbotron */
 /* Dropdown */
-.dropdown{
-    font-family: Haettenschweiler;
-    margin-top: 10px;
-}
 /* akhir Dropdown */
 body{
-    background-color: #B0AAA9;;
+    background-color: #B0AAA9;
 }

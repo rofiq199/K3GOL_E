@@ -27,13 +27,13 @@
 
 
 .barber{
-    color: white;
+    color: black;
 }
 
 .card{
-    background-color: black;
+    background-color: transparent;
 }
 
 body{
-    background-color: #B0AAA9;
+    background-color:  white;
 }
