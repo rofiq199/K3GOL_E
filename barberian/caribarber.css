@@ -1,6 +1,6 @@
 /* Navbar */
 .navbar{
-    background-color: rgb(92, 89, 86);
+    background-color: #323131;
     opacity: 100%;
 }
 .navbar-brand{
@@ -9,8 +9,8 @@
     color: white !important;
 }
 .nav-link{
-    font-family: Haettenschweiler;
-    font-size: 26px;
+    font-family: 'Titillium Web';
+    font-size: 20px;
     margin-right: 27px;
     font-style: normal;
     color: white !important;
@@ -24,17 +24,16 @@
     margin-bottom: -3px;
 }
 /* akhir Navbar */
-/* card */
 
-/* akhir card */
-/* Dropdown */
-.dropdown{
-    font-family: Haettenschweiler;
-    margin-top: 10px;
+
+.barber{
+    color: white;
 }
-/* akhir dropdown */
-/* pagination */
-.pagination{
-    align-content: center;
+
+.card{
+    background-color: black;
 }
-/* akhir pagination */
+
+body{
+    background-color: #B0AAA9;
+}
