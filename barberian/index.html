@@ -124,6 +124,7 @@
   aria-hidden="true">
   <div class="modal-dialog form-dark" role="document">
     <!--Content-->
+    <form action="/K3GOL_E/barberian/Login/ceklogin.php " method="POST">
     <div class="modal-content card card-image" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/pricing-table%20(7).jpg');">
       <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
         <!--Header-->
@@ -138,12 +139,12 @@
         <div class="modal-body">
           <!--Body-->
           <div class="md-form mb-5">
-            <input type="email" id="Form-email5" class="form-control validate white-text">
+            <input type="email" name="email" class="form-control validate white-text">
             <label data-error="wrong" data-success="right" for="Form-email5">Your email</label>
           </div>
 
           <div class="md-form pb-3">
-            <input type="password" id="Form-pass5" class="form-control validate white-text">
+            <input type="password" name="password" class="form-control validate white-text">
             <label data-error="wrong" data-success="right" for="Form-pass5">Your password</label>
             <div class="form-group mt-4">
               <input class="form-check-input" type="checkbox" id="checkbox624">
@@ -157,7 +158,7 @@
 
             <!--Grid column-->
             <div class="text-center mb-3 col-md-12">
-              <button type="button" class="btn btn-success btn-block btn-rounded z-depth-1">Sign up</button>
+              <button type="submit" class="btn btn-success btn-block btn-rounded z-depth-1">Sign up</button>
             </div>
             <!--Grid column-->
 
@@ -180,6 +181,7 @@
         </div>
       </div>
     </div>
+    </form>
     <!--/.Content-->
   </div>
 </div>
