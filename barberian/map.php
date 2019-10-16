@@ -1,11 +1,9 @@
 <html>
 <head>
    <meta charset="utf-8">
-
+   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
-     integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-     crossorigin="">
+
    <style>
        #map{ height: 100% }
    </style>
@@ -24,6 +22,13 @@
         var marker = L.marker([-8.15880,113.72319]).addTo(map)
                     .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
                     .openPopup();
+        var popup = L.popup();
+        function onMapClick(e) {
+            popup
+		.setLatLng(e.latlng)
+		.setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(mymap);}
+        mymap.on('click', onMapClick);
     </script>
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
      integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
