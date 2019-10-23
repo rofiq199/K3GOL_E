@@ -19,7 +19,9 @@
   <body>
 
   <!--Navbar-->
+  
   <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
       <a class="navbar-brand" href="#">Barberian</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -28,12 +30,21 @@
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link " href="index.html">Home <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="#">Tentang Kami</a>
-          <a class="nav-item nav-link" href="katalog.html">Katalog</a>
-          <a class="nav-item nav-link" href="caribarber.html">Cari Barbershop</a>
-          <a class="nav-item nav-link" href="" data-toggle="modal" data-target="#darkModalForm">Masuk</a>
+          <a class="nav-item nav-link " href="katalog.html">Katalog</a>
+          <a class="nav-item nav-link " href="caribarber.html">Cari Barbershop</a>
+    </div>
+    <div class="dropdown">
+        <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Masuk
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="" data-toggle="modal" data-target="#darkModalForm">Masuk Sebagai Customer</a>
+                <a class="dropdown-item" href="caribarber.html">Masuk Sebagai Barbershop</a>
+                <a class="dropdown-item" href="halaman_order.html">Masuk Sebagai Barberman</a>
+              </div>
         </div>
       </div>
-      </div>
+    </div>
     </nav>
   <!-- akhir Navbar -->
   <!-- Jumbotron -->
@@ -95,70 +106,71 @@ while($rows=mysqli_fetch_object($result)){
 <!-- Section: Blog v.3 -->
   <!-- akhir Jumbotron -->
 <!-- Modal -->
-<div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-aria-hidden="true">
-<div class="modal-dialog form-dark" role="document">
-  <!--Content-->
-  <div class="modal-content card card-image" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/pricing-table%20(7).jpg');">
-    <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
-      <!--Header-->
-      <div class="modal-header text-center pb-4">
-        <h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel"><strong>SIGN</strong> <a
-            class="green-text font-weight-bold"><strong> UP</strong></a></h3>
-        <button type="button" class="close white-text" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <!--Body-->
-      <div class="modal-body">
-        <!--Body-->
-        <div class="md-form mb-5">
-          <input type="email" id="Form-email5" class="form-control validate white-text">
-          <label data-error="wrong" data-success="right" for="Form-email5">Your email</label>
+<!-- Modal -->
+<form action="Login/cekloginbs.php" method="POST">
+  <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-
-        <div class="md-form pb-3">
-          <input type="password" id="Form-pass5" class="form-control validate white-text">
-          <label data-error="wrong" data-success="right" for="Form-pass5">Your password</label>
-          <div class="form-group mt-4">
-            <input class="form-check-input" type="checkbox" id="checkbox624">
-            <label for="checkbox624" class="white-text form-check-label">Accept the<a href="#" class="green-text font-weight-bold">
-                Terms and Conditions</a></label>
+        <div class="modal-body mx-3">
+          <div class="md-form mb-5">
+            <i class="fas fa-envelope prefix grey-text"></i>
+            <input type="username" id="defaultForm-email" class="form-control validate" name="username">
+            <label data-error="wrong" data-success="right" for="defaultForm-email">Username</label>
           </div>
-        </div>
-
-        <!--Grid row-->
-        <div class="row d-flex align-items-center mb-4">
-
-          <!--Grid column-->
-          <div class="text-center mb-3 col-md-12">
-            <button type="button" class="btn btn-success btn-block btn-rounded z-depth-1">Sign up</button>
+  
+          <div class="md-form mb-4">
+            <i class="fas fa-lock prefix grey-text"></i>
+            <input type="password" id="defaultForm-pass" class="form-control validate" name="password" >
+            <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
           </div>
-          <!--Grid column-->
-
+  
         </div>
-        <!--Grid row-->
-
-        <!--Grid row-->
-        <div class="row">
-
-          <!--Grid column-->
-          <div class="col-md-12">
-            <p class="font-small white-text d-flex justify-content-end">Have an account? <a href="#" class="green-text ml-1 font-weight-bold">
-                Log in</a></p>
-          </div>
-          <!--Grid column-->
-
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="submit" class="btn btn-default">Login</button>
         </div>
-        <!--Grid row-->
-
       </div>
     </div>
   </div>
-  <!--/.Content-->
-</div>
-</div>
-<!-- Modal -->
+  </form>
+  <form action="Login/cekloginbm.php" method="POST">
+  <div class="modal fade" id="modalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body mx-3">
+          <div class="md-form mb-5">
+            <i class="fas fa-envelope prefix grey-text"></i>
+            <input type="username" id="defaultForm-email" class="form-control validate" name="username" >
+            <label data-error="wrong" data-success="right" for="defaultForm-email">Username</label>
+          </div>
+  
+          <div class="md-form mb-4">
+            <i class="fas fa-lock prefix grey-text"></i>
+            <input type="password" id="defaultForm-pass" class="form-control validate" name="password" >
+            <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
+          </div>
+  
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="submit" class="btn btn-default">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>
         <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

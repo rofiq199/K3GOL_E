@@ -15,14 +15,13 @@
     font-style: normal;
     color: white !important;
 }
-.nav-link:hover::after{
-    content: '';
-    display: block;
-    border-bottom: 3px solid white;
-    width: 50%;
-    margin: auto;
-    margin-bottom: -3px;
+.nav-link:hover{
+        content: '';
+        display: block;
+        background: black;
+    
 }
+
 /* akhir Navbar */
 
 
@@ -36,4 +35,9 @@
 
 body{
     background-color:  white;
+}
+#popup{
+    background-image: url('tim-mossholder-q49oU8NeOHQ-unsplash.jpg');
+    background-size: cover;
+    
 }
