@@ -14,8 +14,8 @@
         $email = $_POST['email'];
         $no = $_POST['no'];
         $alamat = $_POST['alamat'];
-        $password    =md5('$_POST[password]');
-        mysqli_query($koneksi,"INSERT INTO data_customer VALUES ('$username','$email', '$nama','$alamat','$no','$password')");
+        $password    =$_POST[password];
+        mysqli_query($koneksi,"INSERT INTO data_customer VALUES ('$username', '$nama','$email','$no','$alamat','$password')");
         
         echo '<script language="javascript">
              alert ("Registrasi Berhasil Di Lakukan!");
