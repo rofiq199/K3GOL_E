@@ -40,8 +40,8 @@
                           </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                               <a class="dropdown-item" href="" data-toggle="modal" data-target="#darkModalForm">Masuk Sebagai Customer</a>
-                            <a class="dropdown-item" href="caribarber.html">Masuk Sebagai Barbershop</a>
-                            <a class="dropdown-item" href="halaman_order.html">Masuk Sebagai Barberman</a>
+                            <a class="dropdown-item" data-toggle="modal" data-target="#modalLoginForm">Masuk Sebagai Barbershop</a>
+                            <a class="dropdown-item" data-toggle="modal" data-target="#modalForm">Masuk Sebagai Barberman</a>
                           </div>
                     </div>
             </div>
@@ -107,12 +107,16 @@
                   occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est 
                   laborum.</text>
         </div>
+        <div class="container">
+        <button type="button" class="btn btn-primary mt-3 ">Ambil Antrian</button>
+        <button type="button" class="btn btn-success mt-3 " href="#teamkami">Order</button>
+      </div>
         <!-- Section: Team v.1 -->
 <div class="container">
 <section class="team-section text-center my-5">
 
         <!-- Section heading -->
-        <h2 class="h1-responsive font-weight-bold my-5">Our amazing team</h2>
+        <h2 class="h1-responsive font-weight-bold my-5" id="teamkami">Our amazing team</h2>
         <!-- Section description -->
         <p class="grey-text w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
           Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam
@@ -123,30 +127,24 @@
         
       
           <!-- Grid column -->
-          <div class="col-lg-3 col-md-6 mb-lg-0 mb-5">
-            <div class="avatar mx-auto">
-              <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" class="rounded-circle z-depth-1"
-                alt="Sample avatar" name="foto">
+          <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-success">Order</a>
             </div>
-            <h5 class="font-weight-bold mt-4 mb-3">John Doe</h5>
-            <p class="text-uppercase blue-text"><strong>Web developer</strong></p>
-            <p class="grey-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem ipsa accusantium
-              doloremque rem laudantium totam aperiam.</p>
-              <button type="button" class="btn btn-success mt-4" name="tombol">ORDER</button>
           </div>
           <!-- Grid column -->
       
           <!-- Grid column -->
-          <div class="col-lg-3 col-md-6 mb-md-0 mb-5">
-            <div class="avatar mx-auto">
-              <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg" class="rounded-circle z-depth-1"
-                alt="Sample avatar" name="foto">
+          <div class="card ml-5" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-success">Order</a>
             </div>
-            <h5 class="font-weight-bold mt-4 mb-3">Maria Smith</h5>
-            <p class="text-uppercase blue-text"><strong>Photographer</strong></p>
-            <p class="grey-text">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-              mollit anim est fugiat nulla id eu laborum.</p>
-              <button type="button" class="btn btn-success mt-4" name="tombol">ORDER</button>
           </div>
           <!-- Grid column -->
       
@@ -238,72 +236,92 @@
 </div>
 <!-- Modal -->
 <form action="Login/cekloginbs.php" method="POST">
-<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <i class="fas fa-envelope prefix grey-text"></i>
-          <input type="username" id="defaultForm-email" class="form-control validate" name="username">
-          <label data-error="wrong" data-success="right" for="defaultForm-email">Username</label>
+  <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-
-        <div class="md-form mb-4">
-          <i class="fas fa-lock prefix grey-text"></i>
-          <input type="password" id="defaultForm-pass" class="form-control validate" name="password" >
-          <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
+        <div class="modal-body mx-3">
+          <div class="md-form mb-5">
+            <i class="fas fa-envelope prefix grey-text"></i>
+            <input type="username" id="defaultForm-email" class="form-control validate" name="username">
+            <label data-error="wrong" data-success="right" for="defaultForm-email">Username</label>
+          </div>
+  
+          <div class="md-form mb-4">
+            <i class="fas fa-lock prefix grey-text"></i>
+            <input type="password" id="defaultForm-pass" class="form-control validate" name="password" >
+            <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
+          </div>
+  
         </div>
-
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <button type="submit" class="btn btn-default">Login</button>
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="submit" class="btn btn-default">Login</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-</form>
-<form action="Login/cekloginbm.php" method="POST">
-<div class="modal fade" id="modalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <i class="fas fa-envelope prefix grey-text"></i>
-          <input type="username" id="defaultForm-email" class="form-control validate" name="username" >
-          <label data-error="wrong" data-success="right" for="defaultForm-email">Username</label>
+  </form>
+  <form action="Login/cekloginbm.php" method="POST">
+  <div class="modal fade" id="modalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-
-        <div class="md-form mb-4">
-          <i class="fas fa-lock prefix grey-text"></i>
-          <input type="password" id="defaultForm-pass" class="form-control validate" name="password" >
-          <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
+        <div class="modal-body mx-3">
+          <div class="md-form mb-5">
+            <i class="fas fa-envelope prefix grey-text"></i>
+            <input type="username" id="defaultForm-email" class="form-control validate" name="username" >
+            <label data-error="wrong" data-success="right" for="defaultForm-email">Username</label>
+          </div>
+  
+          <div class="md-form mb-4">
+            <i class="fas fa-lock prefix grey-text"></i>
+            <input type="password" id="defaultForm-pass" class="form-control validate" name="password" >
+            <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
+          </div>
+  
         </div>
-
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <button type="submit" class="btn btn-default">Login</button>
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="submit" class="btn btn-default">Login</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-</form>
+  </form>
+  
+  <!-- barang -->
+  <div class="container">
+    <section class="team-section text-center my-5">
+    
+            <!-- Section heading -->
+            <h2 class="h1-responsive font-weight-bold my-5">Lihat Juga Barang Kami</h2>
+            <!-- Section description -->
+          
+            <!-- Grid row -->
+            <div class="row">
+
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                  </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/6b0af4bcb3.js" crossorigin="anonymous"></script>
     </body>
+    </html>
