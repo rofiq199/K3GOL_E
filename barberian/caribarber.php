@@ -31,7 +31,7 @@
           <a class="nav-item nav-link " href="index.html">Home <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="#">Tentang Kami</a>
           <a class="nav-item nav-link " href="katalog.html">Katalog</a>
-          <a class="nav-item nav-link " href="caribarber.html">Cari Barbershop</a>
+          <a class="nav-item nav-link " href="caribarber.php">Cari Barbershop</a>
     </div>
     <div class="dropdown">
         <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
