@@ -48,7 +48,7 @@
   session_start();
   $username = $_SESSION['username'];
   $query = mysqli_query($koneksi, "SELECT * FROM data_customer ORDER BY username_cs = $username");
-  $data = mysqli_fetch_array($query){
+  while ($data = mysqli_fetch_array($query)){
   ?>
     <form action="cekdaftar.php" method="post" name="form1">
     <div class="container">
@@ -65,7 +65,7 @@
             <div class="form-group row">
               <label for="username" class="col-sm-2 col-form-label">Username</label>
               <div class="col-sm-10">
-                <a type="text" class="form-control" name="username"> <?php echo $_SESSION['username']; ?></a>
+                <a type="text" class="form-control" name="username"> <?php echo $data['username']; ?></a>
               </div>
             </div>
             <div class="form-group row">
