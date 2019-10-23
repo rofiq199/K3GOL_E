@@ -29,3 +29,6 @@ body{
     background-size: cover;
     
  }
+ .card{
+     background: transparent;
+ }
