@@ -16,13 +16,6 @@
     <title>Barberian</title>
   </head>
   <body>
-<?php
-  include "koneksi.php";
-  session_start();
-  $username = $_SESSION['username'];
-  $query = mysqli_query($koneksi, "SELECT * FROM data_customer ORDER BY username_cs = $username");
-  $data = mysqli_fetch_array($query);
-?>
   <!--Navbar-->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container">
@@ -50,6 +43,13 @@
       </div>
     </nav>
     <!-- Form -->
+  <?php
+  include "koneksi.php";
+  session_start();
+  $username = $_SESSION['username'];
+  $query = mysqli_query($koneksi, "SELECT * FROM data_customer ORDER BY username_cs = $username");
+  $data = mysqli_fetch_array($query){
+  ?>
     <form action="cekdaftar.php" method="post" name="form1">
     <div class="container">
         <h3>Registration Form</h3>
@@ -110,6 +110,9 @@
             </div>
           </form>
     </div>
+<?php
+}
+?>
     <!-- akhir Form -->
 
   <!-- akhir Navbar -->
