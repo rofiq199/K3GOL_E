@@ -44,7 +44,7 @@
       </div>
     </nav>
     <!-- Form -->
-    <form action="psimpan.php" method="post" name="form1" enctype="multipart/form-data">
+    <form action="psimpanbs.php" method="post" name="form1" enctype="multipart/form-data">
     <div class="container">
         <h3>Registration Form</h3>
 
