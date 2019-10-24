@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -34,6 +37,7 @@
           <a class="nav-item nav-link js-scroll-trigger" href="#tentang_kami">Tentang Kami</a>
           <a class="nav-item nav-link js-scroll-trigger" href="katalog.html">Katalog</a>
           <a class="nav-item nav-link js-scroll-trigger" href="caribarber.php">Cari Barbershop</a>
+          <?php if(!isset($_SESSION['username'])){ ?>
           <div class="dropdown">
             <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Masuk
@@ -44,9 +48,23 @@
                     <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalForm">Masuk Sebagai Barberman</a>
                   </div>
             </div>
+            <?php }else{
+          ?>
+          <div class="dropdown">
+            <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Anda masuk
+                  </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="" >Profil</a>
+                  <a class="dropdown-item" href="" >Masuk Sebagai Barbershop</a>
+                  <a class="dropdown-item" href="logout.php" >Logout</a>
+                </div>
+            </div>
+            <?php }
+            ?>
+          </div>
         </div>
-      </div>
-      </div>
+    </div>
     </nav>
   <!-- akhir Navbar -->
 

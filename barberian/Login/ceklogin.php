@@ -19,8 +19,8 @@ $cek = mysqli_num_rows($data);
 if($cek > 0){
 	$_SESSION['username'] = $username;
 	$_SESSION['status'] = "login";
-	header("location:/K3GOL_E/barberian/caribarber.php");
+	header("location:/K3GOL_E/barberian/index.php");
 }else{
-	echo "salah!!!! ";
+	header("location:/K3GOL_E/barberian/index.php");
 }
 ?>
