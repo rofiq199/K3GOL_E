@@ -6,21 +6,21 @@ session_start();
 include 'koneksi.php';
 
 // menangkap data yang dikirim dari form
-$username = $_POST['email'];
+$username = $_POST['username'];
 $pass = $_POST['password'];
 
 
 // menyeleksi data admin dengan username dan password yang sesuai
-$data = mysqli_query($koneksi,"select * from data_barber where email_bs='$username' and password_bs='$pass'");
+$data = mysqli_query($koneksi,"select * from data_customer where username_cs='$username' and password_cs='$pass'");
 
 // menghitung jumlah data yang ditemukan
 $cek = mysqli_num_rows($data);
 
 if($cek > 0){
-	$_SESSION['email'] = $username;
+	$_SESSION['username'] = $username;
 	$_SESSION['status'] = "login";
-	header("location:/K3GOL_E/barberian/katalog.html");
+	header("location:/K3GOL_E/barberian/index.php");
 }else{
-	echo "salah!!!! ";
+	header("location:/K3GOL_E/barberian/index.php");
 }
 ?>

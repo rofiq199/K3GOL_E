@@ -6,7 +6,6 @@
 .navbar{
     position: relative;
     z-index: 1;
-    margin-left: 20px;
 
 }
 
@@ -72,23 +71,16 @@ html{
         font-style: normal;
         color: white !important;
     }
-    .nav-link:hover::after{
+    .nav-link:hover{
         content: '';
         display: block;
-        border-bottom: 3px solid white;
-        width: 50%;
-        margin: auto;
-        margin-bottom: -3px;
+        background: black;
     }
     .jumbotron{
         background-image: url(Background.jpg);
         background-size: cover;
         height: 617px;
         margin-top: -70px;
-    }
-    .dropdown{
-        font-family: Haettenschweiler;
-        margin-top: 10px;
     }
 
     .fitur{
@@ -108,5 +100,10 @@ html{
         visibility: visible;
     }
     /* akhir */
-
+    #popup{
+    background-image: url('tim-mossholder-q49oU8NeOHQ-unsplash.jpg');
+    background-size: cover;
+    
+    }
+    
 }
