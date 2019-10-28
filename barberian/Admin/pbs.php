@@ -1,6 +1,7 @@
 <html>
 <head>
 	<title></title>
+	<link rel="stylesheet" href="pbs.css">
 </head>
 <body>
 	<h1>Ubah Data barber</h1>
@@ -25,6 +26,9 @@
 	
 	<form method="post" action="pubahbs.php?username=<?php echo $username; ?>" enctype="multipart/form-data">
 	<table cellpadding="8">
+	<b>
+		<center><img  valign='bottom' src="img/<?php echo $data['foto']; ?>"></center>
+	</b>
 	<tr>
 		<td>Username</td>
 		<td><?php echo $data['username_bs']; ?></td>

@@ -61,7 +61,11 @@
 <section class="my-5 barber">
   <hr class="my-4">
 <?php
-include "koneksi.php";
+$koneksi = mysqli_connect("localhost","root","","barberian");
+// Check connection
+if (mysqli_connect_errno()){
+	echo "Koneksi database gagal : " . mysqli_connect_error();
+}
 $query=" SELECT * from  data_barber ";
 $result=mysqli_query($koneksi,$query) or die(mysqli_error());
 $no=1;
@@ -78,7 +82,7 @@ while($rows=mysqli_fetch_object($result)){
 
       <!-- Featured image -->
       <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
-        <img class="img-fluid" src="localhost/K3GOL_E/barberian/admin/img/<?php echo $rows['foto']; ?>" alt="Sample image">
+        <img class="img-fluid" src="img/<?php echo $rows['foto']; ?>" alt="">
         <a>
           <div class="mask rgba-white-slight"></div>
         </a>

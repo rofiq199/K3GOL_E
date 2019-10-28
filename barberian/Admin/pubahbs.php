@@ -48,7 +48,7 @@ if(isset($_POST['ubah_foto'])){ // Jika user menceklis checkbox yang ada di form
 
 		if($sql){ // Cek jika proses simpan ke database sukses atau tidak
 			// Jika Sukses, Lakukan :
-			header("location: /K3GOL_E/barberian/index.html"); // Redirect ke halaman index.php
+			header("location: /K3GOL_E/barberian/index.php"); // Redirect ke halaman index.php
 		}else{
 			// Jika Gagal, Lakukan :
 			echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
