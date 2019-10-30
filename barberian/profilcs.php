@@ -53,7 +53,7 @@
     $data = mysqli_fetch_array($sql); // Ambil data dari hasil eksekusi $sql
     ?>
     <!-- Form -->
-    <form action="cekdaftar.php" method="post" name="form1">
+    <form action="pprofilcs.php" method="post" name="form1">
     <div class="container">
         <h3>Registration Form</h3>
 
