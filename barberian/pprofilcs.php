@@ -1,15 +1,9 @@
 <?php
-// Load file koneksi.php
-$koneksi = mysqli_connect("localhost","root","","barberian");
-	
-// Check connection
-if (mysqli_connect_errno()){
-	echo "Koneksi database gagal : " . mysqli_connect_error();
-}
+include "koneksi.php";
   session_start();
   if(!isset($_SESSION['username']))header("location: K3GOL_E/barberian/index.php");
-// Ambil data NIS yang dikirim oleh form_ubah.php melalui URL
-$username = $_SESSION['username'];
+// Ambil data Username yang dikirim oleh profilcs.php 
+$username = $_POST['username'];
 
 // Ambil Data yang Dikirim dari Form
 $nama = $_POST['nama'];
@@ -17,9 +11,6 @@ $email = $_POST['email'];
 $alamat = $_POST['alamat'];
 $no = $_POST['no'];
 $password =  $_POST['password'];
-
-// Cek apakah user ingin mengubah fotonya atau tidak
-//if(isset($_POST['ubah_foto'])){ // Jika user menceklis checkbox yang ada di form ubah, lakukan :
 	// Ambil data foto yang dipilih dari form
 	$foto = $_FILES['foto']['name'];
 	$tmp = $_FILES['foto']['tmp_name'];
@@ -42,7 +33,7 @@ $password =  $_POST['password'];
 			unlink("img/".$data['foto_cs']); // Hapus file foto sebelumnya yang ada di folder images
 		
 		// Proses ubah data ke Database
-		$query = "UPDATE data_customer SET nama_cs='".$nama."', email_cs='".$email."',, alamat_cs='".$alamat."', password_cs='".$password."', foto_cs='".$fotobaru."' WHERE username_bs='".$username."'";
+		$query = "UPDATE data_customer SET nama_cs='".$nama."', email_cs='".$email."', alamat_cs='".$alamat."', password_cs='".$password."', foto_cs='".$fotobaru."' WHERE username_cs='".$username."'";
 		$sql = mysqli_query($koneksi, $query); // Eksekusi/ Jalankan query dari variabel $query
 
 		if($sql){ // Cek jika proses simpan ke database sukses atau tidak
@@ -51,25 +42,11 @@ $password =  $_POST['password'];
 		}else{
 			// Jika Gagal, Lakukan :
 			echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
-			echo "<br><a href='profil.php?username=".$_SESSION['username']."'>Kembali Ke Form</a>";
+			echo "<br><a href='profilcs.php'>Kembali Ke Form</a>";
 		}
 		}else{
 		// Jika gambar gagal diupload, Lakukan :
 		echo "Maaf, Gambar gagal untuk diupload.";
-		echo "<br><a href='profil.php?username=".$_SESSION['username']."'>Kembali Ke Form</a>";
+		echo "<br><a href='profilcs.php'>Kembali Ke Form</a>";
 	}
-/*}else{ // Jika user tidak menceklis checkbox yang ada di form ubah, lakukan :
-	// Proses ubah data ke Database
-	$query = "UPDATE data_barber SET nama_bs='".$nama."', email_bs='".$email."', jam_buka='".$jambuka."', jam_tutup='".$jamtutup."', alamat_bs='".$alamat."' WHERE username_bs='".$username."'";
-	$sql = mysqli_query($koneksi, $query); // Eksekusi/ Jalankan query dari variabel $query
-
-	if($sql){ // Cek jika proses simpan ke database sukses atau tidak
-		// Jika Sukses, Lakukan :
-		header("location: index.hphp"); // Redirect ke halaman index.php
-	}else{
-		// Jika Gagal, Lakukan :
-		echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
-		echo "<br><a href='profil.php?username=".$_SESSION['username']."'>Kembali Ke Form</a>";
-	}
-}*/
 ?>

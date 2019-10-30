@@ -37,3 +37,9 @@ form .container{
 .form-group {
     margin-top: 20px;
 }
+img {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+ }

@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet">
 
     <!--My CSS-->
-    <link rel="stylesheet" href="pendaftaran.css">
+    <link rel="stylesheet" href="profilcs.css">
     <title>Barberian</title>
   </head>
   <body>
@@ -53,14 +53,17 @@
     $data = mysqli_fetch_array($sql); // Ambil data dari hasil eksekusi $sql
     ?>
     <!-- Form -->
-    <form action="pprofilcs.php" method="post" name="form1">
+    <form action="pprofilcs.php" method="POST" name="form1" enctype="multipart/form-data" >
     <div class="container">
         <h3>Registration Form</h3>
+            <div class="gambar">
+            <center><img  valign='bottom' src="img/<?php echo $data['foto_cs']; ?>"></center>
+            </div>
 
             <div class="form-group row">
                 <label for="foto" class="col-sm-2 col-form-label">Upload Foto</label>
                 <div class="col-sm-10">
-                  <input type="file" class="form-control-plaintext" id="foto">
+                  <input type="file" class="form-control-plaintext" name="foto" id="foto">
                 </div>
             </div>
         
@@ -79,7 +82,7 @@
             <div class="form-group row">
               <label for="email" class="col-sm-2 col-form-label">Email</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="email" value="<?php echo $data['nama_cs']; ?>">
+                <input type="text" class="form-control" name="email" value="<?php echo $data['email_cs']; ?>">
               </div>
             </div>
             <div class="form-group row">
