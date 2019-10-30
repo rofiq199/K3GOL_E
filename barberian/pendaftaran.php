@@ -1,4 +1,6 @@
 <!doctype html>
+<?php include "koneksi.php" ;
+?>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -43,6 +45,13 @@
       </div>
       </div>
     </nav>
+    <?php 
+    session_start ();
+    $username = $_SESSION['username']; 
+    $query = "SELECT * FROM data_customer  WHERE username_cs='".$username."'";
+    $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
+    $data = mysqli_fetch_array($sql); // Ambil data dari hasil eksekusi $sql
+    ?>
     <!-- Form -->
     <form action="cekdaftar.php" method="post" name="form1">
     <div class="container">
@@ -58,37 +67,37 @@
             <div class="form-group row">
               <label for="username" class="col-sm-2 col-form-label">Username</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="username" placeholder="Username">
+                <input type="text" class="form-control" name="username" value="<?php echo $data['username_cs']; ?>" >
               </div>
             </div>
             <div class="form-group row">
               <label for="nama" class="col-sm-2 col-form-label">Nama Lengkap</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap">
+                <input type="text" class="form-control" name="nama" value="<?php echo $data['nama_cs']; ?>">
               </div>
             </div>
             <div class="form-group row">
               <label for="email" class="col-sm-2 col-form-label">Email</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="email" placeholder="Alamat Email">
+                <input type="text" class="form-control" name="email" value="<?php echo $data['nama_cs']; ?>">
               </div>
+            </div>
+            <div class="form-group row">
+                    <label for="alamat"  class="col-sm-2 col-form-label">Alamat Rumah</label>
+                    <div class="col-sm-10">
+                    <textarea class="form-control" type="text" name="alamat" rows="3"><?php echo $data['alamat_cs']; ?></textarea>
+                    </div>
             </div>
             <div class="form-group row">
                     <label for="no" class="col-sm-2 col-form-label">Nomor Telepon</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="no" placeholder="Nomor Telepon">
+                      <input type="text" class="form-control" name="no" value="<?php echo $data['no_cs']; ?>">
                     </div>
                   </div>
             <div class="form-group row">
-                    <label for="alamat"  class="col-sm-2 col-form-label">Alamat Rumah</label>
-                    <div class="col-sm-10">
-                    <textarea class="form-control" type="text" name="alamat" rows="3"></textarea>
-                    </div>
-            </div>
-            <div class="form-group row">
                     <label for="password" class="col-sm-2 col-form-label">Password</label>
                     <div class="col-sm-10">
-                      <input type="password" class="form-control" name="password" placeholder="Password" value='' data-bv-notempty='true' data-bv-notempty-message='The password is required and cannot be empty' data-bv-identical='true' data-bv-identical-field='password_confirmation' data-bv-identical-message='The password and its confirmation are not the same'>
+                      <input type="password" class="form-control" name="password"  value='<?php echo $data['password_cs']; ?>' data-bv-notempty='true' data-bv-notempty-message='The password is required and cannot be empty' data-bv-identical='true' data-bv-identical-field='password_confirmation' data-bv-identical-message='The password and its confirmation are not the same'>
                     </div>
             </div>
             <div class="form-group row"> 
