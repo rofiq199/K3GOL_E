@@ -12,8 +12,24 @@
     <title>HALAMAN LIHAT PROFIL</title>
   </head>
   <body>
+  <?php
+	// Load file koneksi.php 
+	$koneksi = mysqli_connect("localhost","root","","barberian");
+	
+	// Check connection
+	if (mysqli_connect_errno()){
+		echo "Koneksi database gagal : " . mysqli_connect_error();
+	}
+	session_start();
+	// Ambil data NIS yang dikirim oleh index.php melalui URL
+	$username = $_SESSION['username'];
+	// Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
+	$query = "SELECT * FROM data_barberman  WHERE username_bm='".$username."'";
+	$sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
+	$data = mysqli_fetch_array($sql); // Ambil data dari hasil eksekusi $sql
+	?>
     <nav class="navbar navbar-expand-lg navbar-light bg-warning fixed-top">
-        <a class="navbar-brand" href="file:///C:/xampp/htdocs/template_admin/Admin_Barberman.html">BARBERIAN</a>
+        <a class="navbar-brand" href="../index.php">BARBERIAN</a>
         
           <form class="form-inline my-2 my-lg-0 ml-auto">
             
@@ -61,7 +77,7 @@
               <div class="form-group">
               <div class="form-group col col-md-6">
                 <label for="inputEmail4">NAMA LENGKAP</label>
-                <input type="text" class="form-control" id="inputname" disabled placeholder="Masukkan Nama Lengkap">
+                <input type="text" class="form-control" id="inputname" value="<?php echo $data['nama_bm']; ?>" >
               </div>
               <div class="form-group col-md-6">
                 <label for="inputPassword4">E-MAIL</label>

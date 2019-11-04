@@ -24,7 +24,7 @@ $password =  $_POST['password'];
 	// Proses upload
 	if(move_uploaded_file($tmp, $path)){ // Cek apakah gambar berhasil diupload atau tidak
 		// Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
-		$query = "SELECT * FROM data_customer WHERE username_cs='".$username."'";
+		$query = "SELECT * FROM data_barberman WHERE username_bm='".$username."'";
 		$sql = mysqli_query($koneksi, $query); // Eksekusi/Jalankan query dari variabel $query
 		$data = mysqli_fetch_array($sql); // Ambil data dari hasil eksekusi $sql
 
@@ -33,20 +33,20 @@ $password =  $_POST['password'];
 			unlink("img/".$data['foto_cs']); // Hapus file foto sebelumnya yang ada di folder images
 		
 		// Proses ubah data ke Database
-		$query = "UPDATE data_customer SET nama_cs='".$nama."', email_cs='".$email."', no_cs='".$no."', alamat_cs='".$alamat."', password_cs='".$password."', foto_cs='".$fotobaru."' WHERE username_cs='".$username."'";
+		$query = "UPDATE data_barberman SET nama_bm='".$nama."', email_bm='".$email."', alamat_bm='".$alamat."', password_bm='".$password."', foto_bm='".$fotobaru."' WHERE username_bm='".$username."'";
 		$sql = mysqli_query($koneksi, $query); // Eksekusi/ Jalankan query dari variabel $query
 
 		if($sql){ // Cek jika proses simpan ke database sukses atau tidak
 			// Jika Sukses, Lakukan :
-			header("location: index.php"); // Redirect ke halaman index.php
+			header("location: profilbm.php"); // Redirect ke halaman index.php
 		}else{
 			// Jika Gagal, Lakukan :
 			echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
-			echo "<br><a href='profilcs.php'>Kembali Ke Form</a>";
+			echo "<br><a href='profilbm.php'>Kembali Ke Form</a>";
 		}
 		}else{
 		// Jika gambar gagal diupload, Lakukan :
 		echo "Maaf, Gambar gagal untuk diupload.";
-		echo "<br><a href='profilcs.php'>Kembali Ke Form</a>";
+		echo "<br><a href='profilbm.php'>Kembali Ke Form</a>";
 	}
 ?>
