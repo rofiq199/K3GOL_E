@@ -19,7 +19,7 @@ $cek = mysqli_num_rows($data);
 if($cek > 0){
 	$_SESSION['username'] = $username;
 	$_SESSION['status'] = "login";
-	header("location:/K3GOL_E/barberian/admin/pbs.php?username=".$_SESSION['username']."");
+	header("location:/K3GOL_E/barberian/admin/lihatbm.php");
 }else{
 	echo "salah!!!! ";
 }

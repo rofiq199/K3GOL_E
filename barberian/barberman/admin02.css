@@ -9,6 +9,9 @@
 .navbar-brand{
     font-weight: bold;
 }
+.fas fa-sign-out-alt mr-3{
+    color: black;
+}
 
 .nav{
     height: 540px;

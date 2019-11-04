@@ -26,21 +26,17 @@
 	// Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
 	$query = "SELECT * FROM data_barberman  WHERE username_bm='".$username."'";
 	$sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
-	$data = mysqli_fetch_array($sql); // Ambil data dari hasil eksekusi $sql
+  $data = mysqli_fetch_array($sql); // Ambil data dari hasil eksekusi $sql
+  $bs =$data['username_bs'];
+  $query1 = "SELECT * FROM data_barber  WHERE username_bs='".$bs."'";
+	$sql1 = mysqli_query($koneksi, $query1);  // Eksekusi/Jalankan query dari variabel $query
+  $data1 = mysqli_fetch_array($sql1); // Ambil data dari hasil eksekusi $sql
 	?>
     <nav class="navbar navbar-expand-lg navbar-light bg-warning fixed-top">
         <a class="navbar-brand" href="../index.php">BARBERIAN</a>
-        
-          <form class="form-inline my-2 my-lg-0 ml-auto">
-            
-          </form>
-          <div class="icon ml-4">
-              <h5>
-                  <i class="fas fa-sign-out-alt mr-3" data-toggle="tooltip" title="Sign Out"></i>
-              </h5>
-
+          <div class="navbar-brand" >
+                  <a class="fas fa-sign-out-alt mr-3"  href="../logout.php" >keluar</a>
           </div>
-        </div>
       </nav>
 
       <div class="row no-gutters mt-5">
@@ -61,32 +57,47 @@
         <div class="col-md-8 p-5 pt-2">
           <h3><i class="fas fa-user-edit mr-2"></i>LIHAT PROFIL</h3><hr>
 
-            <form class="md-form">
+            <form class="md-form" method="POST" action="pprofilbm.php" enctype="multipart/form-data" >
               <div class="file-field">
                 <div class="mb-4">
-                  <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg"
-                    width = 240px height = 240px class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar">
+                  <center><img src="img/<?php echo $data['foto_bm']; ?>"
+                    width = 240px height = 240px class="rounded-circle z-depth-1-half avatar-pic" ><center>
                 </div>
                 <div class="d-flex justify-content-center">
                   <div class="btn btn-mdb-color btn-rounded float-left">
                     <span>Add photo</span>
-                    <input type="file">
+                    <input type="file" name="foto">
                   </div>
                 </div>
               </div>
               <div class="form-group">
+              <div class="form-group col-md-6">
+                <label for="inputemail4">USERNAME BARBERMAN</label>
+                <input type="email" class="form-control" id="inputEmail14" disabled value="<?php echo $data['username_bm'] ?>">
+              </div>              
+              <div class="form-group col-md-6">
+                <label for="email">BARBERSHOP</label>
+                <input type="email" class="form-control" id="inputEmail14" disabled value="<?php echo $data1['nama_bs']; ?>">
+              </div>
               <div class="form-group col col-md-6">
                 <label for="inputEmail4">NAMA LENGKAP</label>
-                <input type="text" class="form-control" id="inputname" value="<?php echo $data['nama_bm']; ?>" >
+                <input type="text" class="form-control" id="inputname" name="nama" value="<?php echo $data['nama_bm']; ?>" >
               </div>
               <div class="form-group col-md-6">
-                <label for="inputPassword4">E-MAIL</label>
-                <input type="email" class="form-control" id="inputEmail14" disabled placeholder="Masukkan Email">
+                <label for="email">E-MAIL</label>
+                <input type="email" class="form-control" id="inputEmail14" name="email" value="<?php echo $data['email_bm']; ?>">
               </div>
-            </div>
+              <div class="form-group col-md-6">
+                <label for="inputCity">ALAMAT</label>
+                <input type="text" class="form-control" id="inputAddress2" name="alamat" value="<?php echo $data['alamat_bm']; ?>">
+              </div>
+              <div class="form-group col-md-6">
+              <label for="inputAddress2">NOMOR TELEPON</label>
+              <input type="text" class="form-control" id="inputZip" name="no" value="<?php echo $data['no_bm']; ?>">
+              </div>
             <div class="form-group col-md-6">
                 <label for="inputPassword6">PASSWORD</label>
-                <input type="password" id="inputPassword6" class="form-control" placeholder="Masukkan Password Baru">
+                <input type="password" id="inputPassword6" class="form-control" name="password" value="<?php echo $data['password_bm']; ?>">
                 <small id="passwordHelpInline" class="text-muted">
                   Harus Terdiri Dari 5-10 Karakter
                 </small>
@@ -96,21 +107,6 @@
                 <small id="passwordHelpInline" class="text-muted">
                   Konfirmasi Password
                 </small>
-            </div>
-            <div class="form-group col-md-6">
-              <label for="inputAddress2">NOMOR TELEPON</label>
-              <input type="text" class="form-control" id="inputZip" disabled placeholder="Nomor Telepon">
-            </div>
-            <div class="form-group">
-              <div class="form-group col-md-6">
-                <label for="inputCity">ALAMAT</label>
-                <input type="text" class="form-control" id="inputAddress2" disabled placeholder="Alamat">
-              </div>
-            <div class="form-group col-md-6">
-              <div class="form-check">
-
-                </label>
-              </div>
             </div>
             <div class="form-group col-md-6">
             <button type="submit" class="btn btn-primary">SIMPAN PERUBAHAN</button>
