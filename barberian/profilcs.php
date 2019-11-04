@@ -70,7 +70,7 @@
             <div class="form-group row">
               <label for="username" class="col-sm-2 col-form-label">Username</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="username" value="<?php echo $data['username_cs']; ?>" >
+                <input type="text" class="form-control" disabled name="username" value="<?php echo $data['username_cs']; ?>" >
               </div>
             </div>
             <div class="form-group row">
