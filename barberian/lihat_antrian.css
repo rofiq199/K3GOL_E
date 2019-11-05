@@ -21,20 +21,11 @@
         background: black;
     
 }
-
-
-
 form .container{
     font-family: Viga;
     position :relative;
     margin-top: 40px;
 }
-.form-group {
-    margin-top: 20px;
+label{
+    font-size: 40px;
 }
-img {
-    width: 200px;
-    height: 200px;
-    overflow: hidden;
-    border-radius: 50%;
- }

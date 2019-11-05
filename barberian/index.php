@@ -57,6 +57,7 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href='profilcs.php'>Profil</a>
                   <a class="dropdown-item" href="" >History Order</a>
+                  <a class="dropdown-item" href="" >Lihat Antrian</a>
                   <a class="dropdown-item" href="logout.php" >Logout</a>
                 </div>
             </div>
