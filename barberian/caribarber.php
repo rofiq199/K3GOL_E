@@ -78,7 +78,7 @@ while($rows=mysqli_fetch_object($result)){
 
       <!-- Featured image -->
       <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
-        <img class="img-fluid" src="localhost/K3GOL_E/barberian/admin/img/<?php echo $rows['foto']; ?>" alt="Sample image">
+        <img class="img-fluid" src="admin/img/<?=$rows -> foto;?>" alt="Sample image">
         <a>
           <div class="mask rgba-white-slight"></div>
         </a>

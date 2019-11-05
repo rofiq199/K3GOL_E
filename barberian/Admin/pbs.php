@@ -16,7 +16,7 @@
 	}
 	session_start();
 	// Ambil data NIS yang dikirim oleh index.php melalui URL
-	$username = $_GET['username'];
+	$username = $_SESSION['username'];
 	
 	// Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
 	$query = "SELECT * FROM data_barber  WHERE username_bs='".$username."'";
@@ -67,7 +67,7 @@
 	</table>
 	
 	<input type="submit" value="Ubah">
-	<a href="index.php"><input type="button" value="Batal"></a>
+	<a href="../logout.php"><input type="button" value="Batal"></a>
 	</form>
 </body>
 </html>
