@@ -12,6 +12,9 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
 
     <!--My CSS-->
     <link rel="stylesheet" href="profilcs.css">
@@ -20,31 +23,50 @@
   <body>
 
   <!--Navbar-->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top sticky">
     <div class="container">
       <a class="navbar-brand" href="#">Barberian</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="collapse navbar-collapse" id="navbarResponsive">
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link js-scroll-trigger" href="#">Home <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link js-scroll-trigger" href="#tentang_kami">Tentang Kami</a>
           <a class="nav-item nav-link js-scroll-trigger" href="katalog.html">Katalog</a>
-          <a class="nav-item nav-link js-scroll-trigger" href="caribarber.html">Cari Barbershop</a>
-          <div class="dropdown ml-auto">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Masuk
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item " href="/K3GOL_E/barberian/Login/Login.php">Masuk sebagai Pelanggan</a>
-              <a class="dropdown-item " href="/draft/login.php">Masuk sebagai Barbershop</a>
+          <a class="nav-item nav-link js-scroll-trigger" href="caribarber.php">Cari Barbershop</a>
+          <?php if(!isset($_SESSION['username'])){ ?>
+          <div class="dropdown">
+            <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Masuk
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="" data-toggle="modal" data-target="#darkModalForm">Masuk Sebagai Customer</a>
+                    <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalLoginForm">Masuk Sebagai Barbershop</a>
+                    <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalForm">Masuk Sebagai Barberman</a>
+                  </div>
             </div>
+            <?php }else{
+          ?>
+          <div class="dropdown">
+            <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <?php echo $_SESSION['username']?>
+                  </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href='profilcs.php'>Profil</a>
+                  <a class="dropdown-item" href="" >History Order</a>
+                  <a class="dropdown-item" href="" >Lihat Antrian</a>
+                  <a class="dropdown-item" href="logout.php" >Logout</a>
+                </div>
+            </div>
+            <?php }
+            ?>
           </div>
         </div>
-      </div>
-      </div>
+    </div>
     </nav>
+  <!-- akhir Navbar -->
+
     <?php 
     session_start ();
     $username = $_SESSION['username']; 
@@ -97,21 +119,9 @@
                       <input type="text" class="form-control" name="no" value="<?php echo $data['no_cs']; ?>">
                     </div>
                   </div>
-            <div class="form-group row">
-                    <label for="password" class="col-sm-2 col-form-label">Password</label>
-                    <div class="col-sm-10">
-                      <input type="password" class="form-control" name="password"  value='<?php echo $data['password_cs']; ?>' data-bv-notempty='true' data-bv-notempty-message='The password is required and cannot be empty' data-bv-identical='true' data-bv-identical-field='password_confirmation' data-bv-identical-message='The password and its confirmation are not the same'>
-                    </div>
-            </div>
-            <div class="form-group row"> 
-                <label for="ConPassword" class="col-sm-2 col-form-label">Konfirmasi Password</label> 
-                <div class="col-sm-10"> 
-                    <input type="password" id="konpassWord" class="form-control" placeholder="Konfirmasi Password" name="password_confirmation" value="" data-bv-notempty='true' data-bv-notempty-message='The password confirmation is required and cannot be empty' data-bv-identical='true' data-bv-identical-field='password' data-bv-identical-message='The password and its confirmation are not the same' /> 
-                    <small class="form-text text-muted">Ulangi password diatas sekali lagi.</small> 
-                </div> 
-            </div>
             <div class="col-sm-10 offset-sm-2">
-                    <button type="submit" class="btn btn-primary mb-2">Daftar</button>
+                    <button type="submit" class="btn btn-primary mb-2">Ubah</button>
+                    <button type="submit" class="btn btn-danger mb-2">Batal</button>
             </div>
           </form>
     </div>
