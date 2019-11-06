@@ -1,0 +1,40 @@
+.navbar{
+    background-color: #323131;
+    opacity: 100%;
+}
+.navbar-brand{
+    color: white !important;
+    font-family: Viga;
+    font-size: 32px;
+}
+
+.nav-link{
+    font-family: 'Titillium Web';
+    font-size: 20px;
+    margin-right: 27px;
+    font-style: normal;
+    color: white !important;
+}
+    .nav-link:hover{
+        content: '';
+        display: block;
+        background: black;
+    
+}
+
+
+
+form .container{
+    font-family: Viga;
+    position :relative;
+    margin-top: 40px;
+}
+.form-group {
+    margin-top: 20px;
+}
+img {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+ }

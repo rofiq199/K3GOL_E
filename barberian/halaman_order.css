@@ -1,0 +1,22 @@
+/* Navbar */
+.navbar{
+    background-color: #323131;
+    opacity: 100%;
+}
+.navbar-brand{
+    font-family: Viga;
+    font-size: 32px;
+    color: white !important;
+}
+.nav-link{
+    font-family: 'Titillium Web';
+    font-size: 20px;
+    margin-right: 27px;
+    font-style: normal;
+    color: white !important;
+}
+.nav-link:hover{
+    content: '';
+    display: block;
+    background: black;
+}

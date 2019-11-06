@@ -69,7 +69,7 @@ $no=1;
 while($rows=mysqli_fetch_object($result)){
 ?>
   <!-- Grid row -->
-  <div class="card">
+  <div class="mt-3 card">
   <div class="card-body">
   <div class="row">
 
@@ -96,8 +96,9 @@ while($rows=mysqli_fetch_object($result)){
       <p class="Deskripsi"><?=$rows -> alamat_bs;?><br>
       <?=$rows -> jam_buka;?>-<?=$rows -> jam_tutup;?></p>
       <!-- Read more button -->
-      <a class="btn btn-primary btn-md">Read more</a>
-
+      <button type="button" class="btn btn-outline-primary btn-rounded waves-effect">Lihat Detail</button>
+      <div class="border"></div>
+      <p class="mt-5 status">status<br>
     </div>
     <!-- Grid column -->
   </div>  
