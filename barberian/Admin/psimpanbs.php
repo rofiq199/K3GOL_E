@@ -34,7 +34,6 @@ $cek_user=mysqli_num_rows(mysqli_query($koneksi,"SELECT * FROM data_barber WHERE
 				$path = "img/".$fotobaru;
 				if($password!=$password1) {
 					echo "<script>alert('PASSWORD TIDAK SAMA');history.go(-1);</script>";
-
 				}
 				// Proses upload
 				else if(move_uploaded_file($tmp, $path)){ // Cek apakah gambar berhasil diupload atau tidak
@@ -52,8 +51,7 @@ $cek_user=mysqli_num_rows(mysqli_query($koneksi,"SELECT * FROM data_barber WHERE
 					}
 				}else{
 					// Jika gambar gagal diupload, Lakukan :
-					echo "Maaf, Gambar gagal untuk diupload.";
-					echo "<br><a href='regadmin.php'>Kembali Ke Form</a>";
+					echo "<script>alert('MASUKKAN FOTO YANG AKAN DIJADIKAN PROFIL');history.go(-1);</script>";
 				}
 			}
 ?>
