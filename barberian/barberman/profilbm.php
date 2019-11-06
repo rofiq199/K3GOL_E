@@ -98,12 +98,9 @@
             <div class="form-group col-md-6">
                 <label for="inputPassword6">PASSWORD</label>
                 <input type="password" id="inputPassword6" class="form-control" name="password" value="<?php echo $data['password_bm']; ?>">
-                <small id="passwordHelpInline" class="text-muted">
-                  Harus Terdiri Dari 5-10 Karakter
-                </small>
                 <div></div>
-                <label for="inputPassword6">PASSWORD</label>
-                <input type="password" id="inputPassword6" class="form-control" placeholder="Masukkan Ulang Password Baru">
+                <label for="inputPassword6"> Konfirmasi Password</label>
+                <input type="password" id="inputPassword6" class="form-control" name="password1"placeholder="Masukkan Ulang Password Baru">
                 <small id="passwordHelpInline" class="text-muted">
                   Konfirmasi Password
                 </small>

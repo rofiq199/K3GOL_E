@@ -99,19 +99,23 @@
                 <input type="time" class="form-control" name="jamtutup" value="<?php echo $data['jam_tutup']; ?>">
               </div>  
             <div class="form-group col-md-6">
-              <label for="inputAddress2">NOMOR TELEPON</label>
+              <label for="inputAddress2">Nomor telepon</label>
               <input type="text" class="form-control" name="no" value="<?php echo $data['no_bs']; ?>">
             </div>
             <div class="form-group">
               <div class="form-group col-md-6">
-                <label for="addres2">ALAMAT</label>
+                <label for="addres2">Alamat</label>
                 <input type="text" class="form-control"  name="alamat" value="<?php echo $data['alamat_bs']; ?>">
               </div>
               <div class="form-group col-md-6">
-                <label for="inputPassword6">PASSWORD</label>
+                <label for="inputPassword6">Password</label>
                 <input type="password" id="inputPassword6" class="form-control" name="password" value="<?php echo $data['password_bs']; ?>">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword6">Konfirmasi Password</label>
+                <input type="password" id="inputPassword6" class="form-control" name="password1" value="<?php echo $data['password_bs']; ?>">
                 <small id="passwordHelpInline" class="text-muted">
-                  Harus Terdiri Dari 5-10 Karakter
+                  Harus sama dengan password
                 </small>
             </div>
             <div class="form-group col-md-6">

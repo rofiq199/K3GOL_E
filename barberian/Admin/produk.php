@@ -35,7 +35,7 @@
           </form>
           <div class="icon ml-4">
               <h5>
-                  <i class="fas fa-sign-out-alt mr-3" data-toggle="tooltip" title="Sign Out"></i>
+                  <i href="../index.php" class="fas fa-sign-out-alt mr-3" data-toggle="tooltip" title="Sign Out"></i>
               </h5>
 
           </div>
