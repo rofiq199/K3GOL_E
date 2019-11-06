@@ -1,6 +1,7 @@
 .navbar{
     background-color: #323131;
     opacity: 100%;
+    position: relative;
 }
 .navbar-brand{
     font-family: Viga;
@@ -25,6 +26,7 @@
 }
 
 .card{
+    margin-top: 20px;
     background-color: transparent;
 }
 

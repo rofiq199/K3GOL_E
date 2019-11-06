@@ -68,7 +68,7 @@
     </div>
     </nav>
   <!-- akhir Navbar -->
-
+  
 <!-- Section: Features v.1 -->
 <!-- akhir Fitur -->
 <!-- Modal -->
@@ -140,49 +140,37 @@
 
 <!-- Body -->
 <div class="container">
-<section class="my-5 barber">
-  <hr class="my-4">
-<?php
-include "koneksi.php";
-$query=" SELECT * from  data_barber ";
-$result=mysqli_query($koneksi,$query) or die(mysqli_error());
-$no=1;
-//proses menampilkan data
-while($rows=mysqli_fetch_object($result)){
-?>
-  <!-- Grid row -->
   <div class="card">
-  <div class="card-body">
-  <div class="row">
-
-    <!-- Grid column -->
-    <div class="col-lg-5 col-xl-4">
-
-      
-      <!-- Excerpt -->
-      <p class="kode"><?=$rows -> alamat_bs;?><br>
-      <p class="tanggal_order"><?=$rows -> alamat_bs;?><br>
-      <a class="btn btn-flat red-text p-1 my-1 mr-0 mml-1 deep-purple-text collapsed" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Lihat Detail</a>
-      <!-- collapse -->
-  <div class="collapse" id="collapseExample">
-    <p class="barbershop">Nama Barbershop</p>
-    <p class="barbershop">Nama Barberman</p>
-    <p class="tanggal_order"><?=$rows -> alamat_bs;?><br>
-    <p class="Detail Order">Detail Order :</p>
+    <div class="card-body">
+      <h5 class="card-title">Kode Transaksi</h5>
+      <p class="card-text">Harga : Rp 200.000</p>
+      <p class="card-text">Tanggal : 12-12-2019</p>
+      <a href="#collapseExample" class="btn btn-primary" data-toggle="collapse" >Button</a>
+    </div>
+    <div class="collapse" id="collapseExample">
+      <div class="collapse-content">
+        <p id="collapseExample">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
+      </div>
+    </div>
   </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Kode Transaksi</h5>
+      <p class="card-text">Harga : Rp 200.000</p>
+      <p class="card-text">Tanggal : 12-12-2019</p>
+      <a href="#collapseExample<?php $data['kode order'] ?>" class="btn btn-primary" data-toggle="collapse" >Button</a>
+    </div>
+    <div class="collapse" id="collapseExample1">
+      <div class="collapse-content">
+        <p id="collapseExample1">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- collapse -->
-    </div>
-    <!-- Grid column -->
-  </div>  
-  </div>
-  </div>
-  <!-- Grid row -->
-<?php
-}
-?>
-</section>
-</div>
+
+<!-- collapse -->
 <!-- body -->
 <!-- Modal -->
 <form action="Login/cekloginbs.php" method="POST">
