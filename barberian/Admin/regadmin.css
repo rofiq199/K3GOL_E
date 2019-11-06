@@ -1,5 +1,6 @@
 .navbar{
-    background-color: black;
+    background-color: #323131;
+    opacity: 100%;
     position: relative;
 }
 .navbar-brand{
@@ -9,25 +10,20 @@
 }
 
 .nav-link{
-    font-family: Haettenschweiler;
+    font-family: 'Titillium Web';
+    font-size: 20px;
+    margin-right: 27px;
     font-style: normal;
     color: white !important;
-    margin-right : 27px;
-    font-size: 26px;
 }
-.nav-link:hover::after{
-    content: '';
-    display: block;
-    border-bottom: 3px solid white;
-    width: 50%;
-    margin: auto;
-    margin-bottom: -3px;
+    .nav-link:hover{
+        content: '';
+        display: block;
+        background: black;
+    
 }
 
-.dropdown{
-    font-family: Viga;
-    margin-top: 10px;
-}
+
 
 form .container{
     font-family: Viga;

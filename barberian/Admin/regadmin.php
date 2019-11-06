@@ -10,6 +10,9 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
 
     <!--My CSS-->
     <link rel="stylesheet" href="regadmin.css">
@@ -18,30 +21,48 @@
   <body>
 
   <!--Navbar-->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <!--Navbar-->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top sticky">
     <div class="container">
       <a class="navbar-brand" href="#">Barberian</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="collapse navbar-collapse" id="navbarResponsive">
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link js-scroll-trigger" href="#">Home <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link js-scroll-trigger" href="#tentang_kami">Tentang Kami</a>
           <a class="nav-item nav-link js-scroll-trigger" href="katalog.html">Katalog</a>
-          <a class="nav-item nav-link js-scroll-trigger" href="caribarber.html">Cari Barbershop</a>
-          <div class="dropdown ml-auto">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Masuk
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item " href="/K3GOL_E/barberian/Login/Login.php">Masuk sebagai Pelanggan</a>
-              <a class="dropdown-item " href="/draft/login.php">Masuk sebagai Barbershop</a>
+          <a class="nav-item nav-link js-scroll-trigger" href="caribarber.php">Cari Barbershop</a>
+          <?php if(!isset($_SESSION['username'])){ ?>
+          <div class="dropdown">
+            <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Masuk
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="" data-toggle="modal" data-target="#darkModalForm">Masuk Sebagai Customer</a>
+                    <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalLoginForm">Masuk Sebagai Barbershop</a>
+                    <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalForm">Masuk Sebagai Barberman</a>
+                  </div>
             </div>
+            <?php }else{
+          ?>
+          <div class="dropdown">
+            <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <?php echo $_SESSION['username']?>
+                  </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href='profilcs.php'>Profil</a>
+                  <a class="dropdown-item" href="" >History Order</a>
+                  <a class="dropdown-item" href="" >Lihat Antrian</a>
+                  <a class="dropdown-item" href="logout.php" >Logout</a>
+                </div>
+            </div>
+            <?php }
+            ?>
           </div>
         </div>
-      </div>
-      </div>
+    </div>
     </nav>
     <!-- Form -->
     <form action="psimpanbs.php" method="post" name="form1" enctype="multipart/form-data">
@@ -111,7 +132,8 @@
                 </div> 
             </div>
             <div class="col-sm-10 offset-sm-2">
-                    <button type="submit" class="btn btn-primary mb-2">Daftar</button>
+              <button type="submit" class="btn btn-outline-primary waves-effect">SIMPAN</button>
+              <button type="button" class="btn btn-outline-danger waves-effect">KELUAR</button>
             </div>
           </form> 
     </div>
