@@ -23,6 +23,7 @@ $cek_user=mysqli_num_rows(mysqli_query($koneksi,"SELECT * FROM data_barber WHERE
 			$jam_tutup = $_POST['jam_tutup'];
 			$alamat = $_POST['alamat'];
 			$password = $_POST['password'];
+			$password1 = $_POST['password1'];
 			$foto = $_FILES['foto']['name'];
 			$tmp = $_FILES['foto']['tmp_name'];
 					
@@ -31,16 +32,19 @@ $cek_user=mysqli_num_rows(mysqli_query($koneksi,"SELECT * FROM data_barber WHERE
 
 				// Set path folder tempat menyimpan fotonya
 				$path = "img/".$fotobaru;
+				if($password!=$password1) {
+					echo "<script>alert('PASSWORD TIDAK SAMA');history.go(-1);</script>";
 
+				}
 				// Proses upload
-				if(move_uploaded_file($tmp, $path)){ // Cek apakah gambar berhasil diupload atau tidak
+				else if(move_uploaded_file($tmp, $path)){ // Cek apakah gambar berhasil diupload atau tidak
 					// Proses simpan ke Database
-					$query = "INSERT INTO data_barber VALUES('".$username."', '".$nama."', '".$email."', '".$jam_buka."', '".$jam_tutup."','".$alamat."','".$password."', '".$fotobaru."')";
+					$query = "INSERT INTO data_barber VALUES('".$username."', '".$nama."', '".$email."', '".$jam_buka."', '".$jam_tutup."','".$no."','".$alamat."','".$password."', '".$fotobaru."')";
 					$sql = mysqli_query($koneksi, $query); // Eksekusi/ Jalankan query dari variabel $query
 
 					if($sql){ // Cek jika proses simpan ke database sukses atau tidak
 						// Jika Sukses, Lakukan :
-						header("location: admin1.html"); // Redirect ke halaman index.php
+						header("location: ../index.php"); // Redirect ke halaman index.php
 					}else{
 						// Jika Gagal, Lakukan :
 						echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";

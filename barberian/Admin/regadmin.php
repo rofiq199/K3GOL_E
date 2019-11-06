@@ -106,14 +106,14 @@
             <div class="form-group row"> 
                 <label for="ConPassword" class="col-sm-2 col-form-label">Konfirmasi Password</label> 
                 <div class="col-sm-10"> 
-                    <input type="password" id="konpassWord" class="form-control" placeholder="Konfirmasi Password" name="password_confirmation" value="" data-bv-notempty='true' data-bv-notempty-message='The password confirmation is required and cannot be empty' data-bv-identical='true' data-bv-identical-field='password' data-bv-identical-message='The password and its confirmation are not the same' /> 
+                    <input type="password" id="konpassWord" class="form-control" placeholder="Konfirmasi Password" name="password1" value="" data-bv-notempty='true' data-bv-notempty-message='The password confirmation is required and cannot be empty' data-bv-identical='true' data-bv-identical-field='password' data-bv-identical-message='The password and its confirmation are not the same' /> 
                     <small class="form-text text-muted">Ulangi password diatas sekali lagi.</small> 
                 </div> 
             </div>
             <div class="col-sm-10 offset-sm-2">
                     <button type="submit" class="btn btn-primary mb-2">Daftar</button>
             </div>
-          </form>
+          </form> 
     </div>
     <!-- akhir Form -->
 

@@ -239,7 +239,7 @@
           <input type="password" id="defaultForm-pass" class="form-control validate" name="password" >
           <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
         </div>
-
+        <label>Don't have account?</label><a href="admin/regadmin.php">Sign Up</a>
       </div>
       <div class="modal-footer d-flex justify-content-center">
         <button type="submit" class="btn btn-default">Login</button>

@@ -121,7 +121,7 @@
                   </div>
             <div class="col-sm-10 offset-sm-2">
                     <button type="submit" class="btn btn-primary mb-2">Ubah</button>
-                    <button type="submit" class="btn btn-danger mb-2">Batal</button>
+                    <button type="reset" class="btn btn-danger mb-2">Batal</button>
             </div>
           </form>
     </div>

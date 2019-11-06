@@ -52,7 +52,7 @@
                           <a class="nav-link text-white" href="#"><i class="fas fa-store mr-2"></i>LIHAT BARBERMAN</a><hr class="bg-secondary">
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link text-white" href="#"><i class="fas fa-user-edit mr-2"></i>UBAH PROFIL</a><hr class="bg-secondary">
+                          <a class="nav-link text-white" href="profil.php"><i class="fas fa-user-edit mr-2"></i>UBAH PROFIL</a><hr class="bg-secondary">
                         </li>
                         <li class="nav-item">
                           <a class="nav-link text-white" href="file:///E:/instalan/xamp/htdocs/template_admin2/ANTRIAN_ADMIN.html"><i class="fas fa-money-check mr-2"></i>LIHAT ANTRIAN</a><hr class="bg-secondary">
@@ -75,21 +75,19 @@
             </thead>
             <tbody>
               <?php $no=1;
-               while ($data = mysqli_fetch_array($sql)){ ?>
+               while ($data = mysqli_fetch_assoc($sql)){ ?>
               <tr>
-                <td><?php echo $no++; ?></td>
+                <td><?php echo $no++?></td>
                 <td><img src= "img/<?php echo $data['foto_produk'];?>" width = 50px height = 50px ></td>
                 <td><?php echo $data['nama_produk'];?></td>
                 <td>RP <?php echo $data['harga_produk'];?></td>
-                <td><i class="fas fa-edit bg-success p-2 text-white rounded" data-toggle="modal" data-target="#modalLoginForm" title="Edit"></i></td>
+                <td><i class="fas fa-edit bg-success p-2 text-white rounded" data-toggle="modal" data-target="#modaledit" title="Edit"></i></td>
                 <td><i class="fas fa-trash-alt bg-danger p-2 text-white rounded" data-toggle="tooltip" title="Delete"></i></td>
               </tr>
-              <?php }?>  
-            </tbody>
-          </table>
+
           <!-- Modal -->
-      <form action="Login/cekloginbs.php" method="POST" enctype="multipart/form-data">
-      <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+      <form action="eproduk.php" method="POST" enctype="multipart/form-data">
+      <div class="modal fade" id="modaledit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -99,21 +97,27 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
+            <?php $kd = $data['kode_produk']; 
+              $query_edit = mysqli_query($koneksi,"SELECT * FROM produk WHERE kode_produk='$kd'");
+              while ($row = mysqli_fetch_array($query_edit)) { ?>
             <div class="modal-body mx-3">
+            <div class="md-form mb-5">
+                <input type="hidden" value="<?php echo $row['kode_produk'];?>" name="kode">
+              </div>
               <div class="md-form mb-5">
                 <label data-error="wrong" data-success="right" for="defaultForm-email">Nama Produk</label>
-                <input type="username" id="defaultForm-email" class="form-control validate" name="nama">
+                <input type="username" id="defaultForm-email" class="form-control validate" value="<?php echo $row['nama_produk'];?>" name="nama">
               </div>
               <div class="md-form mb-5">
                 <label data-error="wrong" data-success="right" for="defaultForm-email">Harga Produk</label>
-                <input type="username" id="defaultForm-email" class="form-control validate" name="harga">
+                <input type="username" id="defaultForm-email" class="form-control validate" value="<?php echo $row['harga_produk'];?>" name="harga">
               </div>
               <div class="md-form mb-4">
               <label data-error="wrong" data-success="right" for="defaultForm-email">Foto</label>
                <br>
                 <input type="file" name="foto" >
               </div>
-
+          <?php }?>
             </div>
             <div class="modal-footer d-flex justify-content-center">
               <button type="submit" class="btn btn-default">Edit</button>
@@ -122,6 +126,9 @@
         </div>
       </div>
       </form>
+      <?php }?>  
+    </tbody>
+    </table>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -12,6 +12,22 @@
     <title>HALAMAN UBAH PROFIL</title>
   </head>
   <body>
+      <?php
+      // Load file koneksi.php 
+      $koneksi = mysqli_connect("localhost","root","","barberian");
+      
+      // Check connection
+      if (mysqli_connect_errno()){
+        echo "Koneksi database gagal : " . mysqli_connect_error();
+      }
+      session_start();
+      // Ambil data NIS yang dikirim oleh index.php melalui URL
+      $username = $_SESSION['username'];
+      // Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
+      $query = "SELECT * FROM data_barber  WHERE username_bs='".$username."'";
+      $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
+      $data = mysqli_fetch_array($sql); // Ambil data dari hasil eksekusi $sql
+      ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-warning fixed-top">
         <a class="navbar-brand" href="#">BARBERSHOP</a>
         
@@ -31,10 +47,10 @@
         <div class="col-md-2,5 bg-dark mt-2 pr-3 pt-4">
                 <ul class="nav flex-column ml-3 mb-5">
                         <li class="nav-item">
-                          <a class="nav-link active text-white" href="file:///E:/instalan/xamp/htdocs/template_admin2/tambah_produk.html"><i class="fas fa-tags mr-2"></i>LIHAT PRODUK</a><hr class="bg-secondary">
+                          <a class="nav-link active text-white" href="produk.php"><i class="fas fa-tags mr-2"></i>LIHAT PRODUK</a><hr class="bg-secondary">
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link text-white" href="#"><i class="fas fa-store mr-2"></i>LIHAT BARBERMAN</a><hr class="bg-secondary">
+                          <a class="nav-link text-white" href="lihatbm.php"><i class="fas fa-store mr-2"></i>LIHAT BARBERMAN</a><hr class="bg-secondary">
                         </li>
                         <li class="nav-item">
                           <a class="nav-link text-white" href="#"><i class="fas fa-user-edit mr-2"></i>UBAH PROFIL</a><hr class="bg-secondary">
@@ -48,52 +64,57 @@
         <div class="col-md-8 p-5 pt-2">
           <h3><i class="fas fa-user-edit mr-2"></i>UBAH PROFIL</h3><hr>
 
-            <form class="md-form">
+            <form class="md-form" method="POST" action="pprofil.php" enctype="multipart/form-data">
               <div class="file-field">
                 <div class="mb-4">
-                  <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg"
-                    class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar">
+                  <center><img  src="img/<?php echo $data['foto']; ?>" height="250px" width="250px"
+                    class="rounded-circle z-depth-1-half avatar-pic"><center>
                 </div>
                 <div class="d-flex justify-content-center">
                   <div class="btn btn-mdb-color btn-rounded float-left">
                     <span>Add photo</span>
-                    <input type="file">
+                    <input type="file" name="foto">
                   </div>
                 </div>
               </div>
               <div class="form-group">
               <div class="form-group col col-md-6">
-                <label for="inputEmail4">NAMA LENGKAP</label>
-                <input type="text" class="form-control" id="inputname" placeholder="nama">
+                <label for="inputEmail4">Username</label>
+                <input type="text" class="form-control" name="username"value="<?php echo $data['username_bs']; ?>">
               </div>
               <div class="form-group col-md-6">
-                <label for="inputPassword4">E-MAIL</label>
-                <input type="email" class="form-control" id="inputEmail14" placeholder="alamat email">
+                <label for="inputnama">Nama Barbershop</label>
+                <input type="text" class="form-control" name="nama" value="<?php echo $data['nama_bs']; ?>"">
               </div>
-            </div>
+              <div class="form-group col-md-6">
+                <label for="inputemail">Email Barbershop</label>
+                <input type="email" class="form-control" name="email" value="<?php echo $data['email_bs']; ?>">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputemail">Jam Buka</label>
+                <input type="time" class="form-control" name="jambuka" value="<?php echo $data['jam_buka']; ?>">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputemail">Jam Tutup</label>
+                <input type="time" class="form-control" name="jamtutup" value="<?php echo $data['jam_tutup']; ?>">
+              </div>  
             <div class="form-group col-md-6">
+              <label for="inputAddress2">NOMOR TELEPON</label>
+              <input type="text" class="form-control" name="no" value="<?php echo $data['no_bs']; ?>">
+            </div>
+            <div class="form-group">
+              <div class="form-group col-md-6">
+                <label for="addres2">ALAMAT</label>
+                <input type="text" class="form-control"  name="alamat" value="<?php echo $data['alamat_bs']; ?>">
+              </div>
+              <div class="form-group col-md-6">
                 <label for="inputPassword6">PASSWORD</label>
-                <input type="password" id="inputPassword6" class="form-control" placeholder="password">
+                <input type="password" id="inputPassword6" class="form-control" name="password" value="<?php echo $data['password_bs']; ?>">
                 <small id="passwordHelpInline" class="text-muted">
                   Harus Terdiri Dari 5-10 Karakter
                 </small>
             </div>
             <div class="form-group col-md-6">
-              <label for="inputAddress2">NOMOR TELEPON</label>
-              <input type="text" class="form-control" id="inputZip" placeholder="masukkan nomor">
-            </div>
-            <div class="form-group">
-              <div class="form-group col-md-6">
-                <label for="inputCity">ALAMAT</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="alamat lengkap">
-              </div>
-            <div class="form-group col-md-6">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                  INGAT SAYA SELALU
-                </label>
-              </div>
             </div>
             <div class="form-group col-md-6">
             <button type="submit" class="btn btn-primary">SIMPAN PERUBAHAN</button>
