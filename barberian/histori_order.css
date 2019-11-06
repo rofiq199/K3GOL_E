@@ -1,0 +1,38 @@
+.navbar{
+    background-color: #323131;
+    opacity: 100%;
+}
+.navbar-brand{
+    font-family: Viga;
+    font-size: 32px;
+    color: white !important;
+}
+.nav-link{
+    font-family: 'Titillium Web';
+    font-size: 20px;
+    margin-right: 27px;
+    font-style: normal;
+    color: white !important;
+}
+.nav-link:hover{
+    content: '';
+    display: block;
+    background: black;
+}
+
+.barber{
+    color: black;
+}
+
+.card{
+    background-color: transparent;
+}
+
+body{
+    background-color:  white;
+}
+#popup{
+    background-image: url('tim-mossholder-q49oU8NeOHQ-unsplash.jpg');
+    background-size: cover;
+    
+}

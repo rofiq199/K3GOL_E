@@ -24,14 +24,20 @@
 
 /* akhir Navbar */
 
+img{
+    width: 1080px;
+}
 
 .barber{
     color: black;
 }
 
 .card{
-    background-color: transparent;
+    background-color: whitesmoke;
+    font-family: 'Titillium Web';
+    height: auto;
 }
+
 
 body{
     background-color:  white;
@@ -40,6 +46,14 @@ body{
     background-image: url('tim-mossholder-q49oU8NeOHQ-unsplash.jpg');
     background-size: cover;
     
+}
+
+.border{
+    margin-top: 20px;
+    background-color:black ;
+}
+.status{
+    border: gray;
 }
 .input-group.md-form.form-sm.form-1 input{
     border: 1px solid #bdbdbd;

@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
 
     <!--My CSS-->
-    <link rel="stylesheet" href="profilcs.css">
+    <link rel="stylesheet" href="regcustomer.css">
     <title>Barberian</title>
   </head>
   <body>
@@ -77,7 +77,7 @@
     <!-- Form -->
     <form action="pprofilcs.php" method="POST" name="form1" enctype="multipart/form-data" >
     <div class="container">
-        <h3>Registration Form</h3>
+        <h3>Form Pendaftaran</h3>
             <div class="gambar">
             <center><img  valign='bottom' src="img/<?php echo $data['foto_cs']; ?>"></center>
             </div>
@@ -92,7 +92,7 @@
             <div class="form-group row">
               <label for="username" class="col-sm-2 col-form-label">Username</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" disabled name="username" value="<?php echo $data['username_cs']; ?>" >
+                <input type="text" class="form-control" name="username" value="<?php echo $data['username_cs']; ?>" >
               </div>
             </div>
             <div class="form-group row">
@@ -119,12 +119,11 @@
                       <input type="text" class="form-control" name="no" value="<?php echo $data['no_cs']; ?>">
                     </div>
                   </div>
-            <div class="border"></div>
             <div class="form-group row">
-              <label for="password" class="col-sm-2 col-form-label">Password</label>
-                <div class="col-sm-10">
-                  <input type="password" class="form-control" id="passWord" placeholder="Password" value='' data-bv-notempty='true' data-bv-notempty-message='The password is required and cannot be empty' data-bv-identical='true' data-bv-identical-field='password_confirmation' data-bv-identical-message='The password and its confirmation are not the same'>
-                </div>
+                <label for="password" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-10">
+                      <input type="password" class="form-control" id="passWord" placeholder="Password" value='' data-bv-notempty='true' data-bv-notempty-message='The password is required and cannot be empty' data-bv-identical='true' data-bv-identical-field='password_confirmation' data-bv-identical-message='The password and its confirmation are not the same'>
+                    </div>
             </div>
             <div class="form-group row"> 
                 <label for="ConPassword" class="col-sm-2 col-form-label">Konfirmasi Password</label> 
@@ -132,10 +131,9 @@
                     <input type="password" id="konpassWord" class="form-control" placeholder="Konfirmasi Password" name="password_confirmation" value="" data-bv-notempty='true' data-bv-notempty-message='The password confirmation is required and cannot be empty' data-bv-identical='true' data-bv-identical-field='password' data-bv-identical-message='The password and its confirmation are not the same' /> 
                     <small class="form-text text-muted">Ulangi password diatas sekali lagi.</small> 
                 </div> 
-            </div>
+            </div>  
             <div class="col-sm-10 offset-sm-2">
-                    <button type="submit" class="btn btn-primary mb-2">Ubah</button>
-                    <button type="submit" class="btn btn-danger mb-2">Batal</button>
+                    <button type="submit" class="btn btn-success mb-2">Simpan</button>
             </div>
           </form>
     </div>
