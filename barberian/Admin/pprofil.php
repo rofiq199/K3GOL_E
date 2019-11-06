@@ -19,6 +19,7 @@ $jamtutup = $_POST['jamtutup'];
 $alamat = $_POST['alamat'];
 $no = $_POST['no'];
 $password =  $_POST['password'];
+$password1 =  $_POST['password1'];
 
 	$foto = $_FILES['foto']['name'];
 	$tmp = $_FILES['foto']['tmp_name'];
@@ -28,9 +29,11 @@ $password =  $_POST['password'];
 	
 	// Set path folder tempat menyimpan fotonya
 	$path = "img/".$fotobaru;
-
+	if($password!=$password1){
+		echo "<script>alert('PASSWORD TIDAK SAMA');history.go(-1);</script>";
+	}
 	// Proses upload
-	if(move_uploaded_file($tmp, $path)){ // Cek apakah gambar berhasil diupload atau tidak
+	elseif(move_uploaded_file($tmp, $path)){ // Cek apakah gambar berhasil diupload atau tidak
 		// Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
 		$query = "SELECT * FROM data_barber WHERE username_bs='".$username."'";
 		$sql = mysqli_query($koneksi, $query); // Eksekusi/Jalankan query dari variabel $query
@@ -46,18 +49,19 @@ $password =  $_POST['password'];
 
 		if($sql){ // Cek jika proses simpan ke database sukses atau tidak
 			// Jika Sukses, Lakukan :
-			header("location: profil.php"); // Redirect ke halaman index.php
+			echo "<script>alert('Data berhasil di rubah');
+			window.location='profil.php'</script>";
 		}else{
 			// Jika Gagal, Lakukan :
 			echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
 			echo "<br><a href='profil.php'>Kembali Ke Form</a>";
 		}
-		}else{
-        // Jika gambar gagal diupload, Lakukan :
-        		// Proses ubah data ke Database
+	}else{
+    	// Jika gambar gagal diupload, Lakukan :
+    	// Proses ubah data ke Database
 		$query = "UPDATE data_barber SET nama_bs='".$nama."', email_bs='".$email."', jam_buka='".$jambuka."', jam_tutup='".$jamtutup."', alamat_bs='".$alamat."',no_bs='".$no."' WHERE username_bs='".$username."'";
 		$sql = mysqli_query($koneksi, $query); // Eksekusi/ Jalankan query dari variabel $query
-		echo "berhasil simpan";
-		echo "<br><a href='profil.php'>Kembali Ke Form</a>";
+		echo "<script>alert('Data berhasil di ubah');
+		window.location='profil.php'</script>";
 	}
 ?>

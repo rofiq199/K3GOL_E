@@ -92,7 +92,7 @@
             <div class="form-group row">
               <label for="username" class="col-sm-2 col-form-label">Username</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" disabled name="username" value="<?php echo $data['username_cs']; ?>" >
+                <input type="text" class="form-control" name="username" value="<?php echo $data['username_cs']; ?>" >
               </div>
             </div>
             <div class="form-group row">
@@ -123,13 +123,13 @@
             <div class="form-group row">
               <label for="password" class="col-sm-2 col-form-label">Password</label>
                 <div class="col-sm-10">
-                  <input type="password" class="form-control" id="passWord" placeholder="Password" value='' data-bv-notempty='true' data-bv-notempty-message='The password is required and cannot be empty' data-bv-identical='true' data-bv-identical-field='password_confirmation' data-bv-identical-message='The password and its confirmation are not the same'>
+                  <input type="password" class="form-control" name="password" id="passWord" placeholder="Password" value=<?php echo $data['password_cs']; ?> data-bv-notempty='true' data-bv-notempty-message='The password is required and cannot be empty' data-bv-identical='true' data-bv-identical-field='password_confirmation' data-bv-identical-message='The password and its confirmation are not the same'>
                 </div>
             </div>
             <div class="form-group row"> 
                 <label for="ConPassword" class="col-sm-2 col-form-label">Konfirmasi Password</label> 
                 <div class="col-sm-10"> 
-                    <input type="password" id="konpassWord" class="form-control" placeholder="Konfirmasi Password" name="password_confirmation" value="" data-bv-notempty='true' data-bv-notempty-message='The password confirmation is required and cannot be empty' data-bv-identical='true' data-bv-identical-field='password' data-bv-identical-message='The password and its confirmation are not the same' /> 
+                    <input type="password" id="konpassWord" class="form-control" placeholder="Konfirmasi Password" name="password1" value="<?php echo $data['password_cs']; ?>" data-bv-notempty='true' data-bv-notempty-message='The password confirmation is required and cannot be empty' data-bv-identical='true' data-bv-identical-field='password' data-bv-identical-message='The password and its confirmation are not the same' /> 
                     <small class="form-text text-muted">Ulangi password diatas sekali lagi.</small> 
                 </div> 
             </div>

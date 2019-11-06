@@ -11,6 +11,7 @@ $email = $_POST['email'];
 $alamat = $_POST['alamat'];
 $no = $_POST['no'];
 $password =  $_POST['password'];
+$password1 =  $_POST['password1'];
 	// Ambil data foto yang dipilih dari form
 	$foto = $_FILES['foto']['name'];
 	$tmp = $_FILES['foto']['tmp_name'];
@@ -20,9 +21,15 @@ $password =  $_POST['password'];
 	
 	// Set path folder tempat menyimpan fotonya
 	$path = "img/".$fotobaru;
-
+	if($password!=$password1){
+		echo "<script>alert('PASSWORD TIDAK SAMA');history.go(-1);</script>";
+	}
 	// Proses upload
-	if(move_uploaded_file($tmp, $path)){ // Cek apakah gambar berhasil diupload atau tidak
+	elseif( mysqli_num_rows(mysqli_query($koneksi,"SELECT * FROM data_customer WHERE username_cs='$username'")) < 1 ){
+		echo "<script>alert('USERNAME TIDAK BOLEH DIGANTII!!!!');
+			window.location='profilcs.php';	
+			</script>";
+	}else if(move_uploaded_file($tmp, $path)){ // Cek apakah gambar berhasil diupload atau tidak
 		// Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
 		$query = "SELECT * FROM data_customer WHERE username_cs='".$username."'";
 		$sql = mysqli_query($koneksi, $query); // Eksekusi/Jalankan query dari variabel $query
@@ -31,22 +38,22 @@ $password =  $_POST['password'];
 		// Cek apakah file foto sebelumnya ada di folder images
 		if(is_file("img/".$data['foto_cs'])) // Jika foto ada
 			unlink("img/".$data['foto_cs']); // Hapus file foto sebelumnya yang ada di folder images
-		
 		// Proses ubah data ke Database
 		$query = "UPDATE data_customer SET nama_cs='".$nama."', email_cs='".$email."', no_cs='".$no."', alamat_cs='".$alamat."', password_cs='".$password."', foto_cs='".$fotobaru."' WHERE username_cs='".$username."'";
 		$sql = mysqli_query($koneksi, $query); // Eksekusi/ Jalankan query dari variabel $query
-
 		if($sql){ // Cek jika proses simpan ke database sukses atau tidak
 			// Jika Sukses, Lakukan :
-			header("location: index.php"); // Redirect ke halaman index.php
+			header("location: profilcs.php"); // Redirect ke halaman index.php
 		}else{
 			// Jika Gagal, Lakukan :
 			echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
 			echo "<br><a href='profilcs.php'>Kembali Ke Form</a>";
 		}
-		}else{
-		// Jika gambar gagal diupload, Lakukan :
-		echo "Maaf, Gambar gagal untuk diupload.";
-		echo "<br><a href='profilcs.php'>Kembali Ke Form</a>";
+	}else{
+	// Jika gambar gagal diupload, Lakukan :
+	$query = "UPDATE data_customer SET nama_cs='".$nama."', email_cs='".$email."', no_cs='".$no."', alamat_cs='".$alamat."', password_cs='".$password."' WHERE username_cs='".$username."'";
+	$sql = mysqli_query($koneksi, $query); // Eksekusi/ Jalankan query dari variabel $query
+		echo "<script>alert('Data berhasil di ubah');
+		window.location='profilcs.php'</script>";
 	}
 ?>
