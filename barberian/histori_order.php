@@ -137,13 +137,22 @@
     <!--/.Content-->
   </div>
 </div>
-
+<?php 
+  include "koneksi.php";
+   $username = $_SESSION['username'];
+   // Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
+   $query = "SELECT * FROM order  WHERE username_cs='".$username."'";
+   $sql = mysqli_query($koneksi, $query)  // Eksekusi/Jalankan query dari variabel $query
+?>
 <!-- Body -->
 <div class="container">
+  <?php 
+  while
+  ?>
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title">Kode Transaksi</h5>
-      <p class="card-text">Harga : Rp 200.000</p>
+      <h5 class="card-title">Kode Transaksi : <?php echo $data['kode_order']; ?></h5>
+      <p class="card-text">Harga : Rp 200.000 <?php echo $data['alamat_order']; ?> </p>
       <p class="card-text">Tanggal : 12-12-2019</p>
       <a href="#collapseExample" class="btn btn-primary" data-toggle="collapse" >Button</a>
     </div>
@@ -153,12 +162,13 @@
       </div>
     </div>
   </div>
+  <?php } ?>
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Kode Transaksi</h5>
       <p class="card-text">Harga : Rp 200.000</p>
       <p class="card-text">Tanggal : 12-12-2019</p>
-      <a href="#collapseExample<?php $data['kode order'] ?>" class="btn btn-primary" data-toggle="collapse" >Button</a>
+      <a href="#collapseExample" class="btn btn-primary" data-toggle="collapse" >Button</a>
     </div>
     <div class="collapse" id="collapseExample1">
       <div class="collapse-content">

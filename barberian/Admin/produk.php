@@ -62,7 +62,7 @@
         </div>
         <div class="col-md-8 p-5 pt-2">
           <h3><i class="fas fa-tags mr-2"></i> LIHAT PRODUK</h3><hr>
-          <a href="#" class="btn btn-primary mb-3"><i class="fas fa-plus-square mr-2"></i>TAMBAH BARANG</a>
+          <a class="btn btn-primary mb-3"data-toggle="modal" data-target="#modalplus" title="plus" ><i class="fas fa-plus-square mr-2"></i>Tambah Produk</a>
           <table class="table table-striped table-bordered">
             <thead>
               <tr>
@@ -85,7 +85,7 @@
                 <td><i class="fas fa-trash-alt bg-danger p-2 text-white rounded" data-toggle="tooltip" title="Delete"></i></td>
               </tr>
 
-          <!-- Modal -->
+          <!-- Modal edit barang -->
       <form action="eproduk.php" method="POST" enctype="multipart/form-data">
       <div class="modal fade" id="modaledit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
@@ -117,7 +117,6 @@
                <br>
                 <input type="file" name="foto" >
               </div>
-          <?php }?>
             </div>
             <div class="modal-footer d-flex justify-content-center">
               <button type="submit" class="btn btn-default">Edit</button>
@@ -126,7 +125,47 @@
         </div>
       </div>
       </form>
-      <?php }?>  
+      <?php }?> 
+
+        <!-- Modal tambah barang -->
+      <form action="tproduk.php" method="POST" enctype="multipart/form-data">
+      <div class="modal fade" id="modalplus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <h4 class="modal-title w-100 font-weight-bold">Tambah Produk
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body mx-3">
+            <div class="md-form mb-5">
+                <label>Kode Produk</label>
+                <input type="text" class="form-control validate" name="kode1">
+              </div>
+              <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="defaultForm-email">Nama Produk</label>
+                <input type="username" id="defaultForm-email" class="form-control validate"  name="nama1">
+              </div>
+              <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="defaultForm-email">Harga Produk</label>
+                <input type="username" id="defaultForm-email" class="form-control validate" name="harga1">
+              </div>
+              <div class="md-form mb-4">
+              <label data-error="wrong" data-success="right" for="defaultForm-email">Foto</label>
+               <br>
+                <input type="file" name="foto1" >
+              </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+              <button type="submit" class="btn btn-default">Tambah</button>
+            </div>
+              <?php }?>
+          </div>
+        </div>
+      </div>
+      </form>  
     </tbody>
     </table>
 
