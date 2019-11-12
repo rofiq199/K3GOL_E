@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="admin02.css">
+    <link rel="stylesheet" type="text/css" href="admin1.css">
     <script src="https://kit.fontawesome.com/ef8e8d5793.js" crossorigin="anonymous"></script>
     <title>HALAMAN LIHAT PROFIL</title>
   </head>
@@ -32,25 +32,34 @@
 	$sql1 = mysqli_query($koneksi, $query1);  // Eksekusi/Jalankan query dari variabel $query
   $data1 = mysqli_fetch_array($sql1); // Ambil data dari hasil eksekusi $sql
 	?>
-    <nav class="navbar navbar-expand-lg navbar-light bg-warning fixed-top">
-        <a class="navbar-brand" href="../index.php">BARBERIAN</a>
-          <div class="navbar-brand" >
-                  <a class="fas fa-sign-out-alt mr-3"  href="../logout.php" >keluar</a>
-          </div>
-      </nav>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <a class="navbar-brand text-white" href="../index.php">BARBERIAN</a>
+        <form class="form-inline my-2 my-lg-0 ml-auto">
+            
+            </form>
+            <div class="icon ml-4">
+                <h5>
+                    <i class="fas fa-sign-out-alt mr-3 text-white" data-toggle="tooltip" title="Sign Out"></i>
+                </h5>
+  
+            </div>
+        </nav>
 
-      <div class="row no-gutters mt-5">
+      <div class="row no-gutters">
         <div class="col-md-2,5 bg-dark mt-2 pr-3 pt-4">
                 <ul class="nav flex-column ml-3 mb-5">
-                        <li class="nav-item">
-                          <a class="nav-link active text-white" href="ORDERAN.html"><i class="fas fa-tags mr-2"></i>LIHAT ORDERAN</a><hr class="bg-secondary">
+                <li class="nav-item">
+                        <a class="nav-link active text-white" href="Orderan.html"><i class="fas fa-tags mr-2"></i>DASHBOARD</a><hr class="bg-secondary">
+                        </li>
+                <li class="nav-item">
+                          <a class="nav-link active text-white" href="Orderan.html"><i class="fas fa-tags mr-2"></i>LIHAT ORDERAN</a><hr class="bg-secondary">
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link text-white" href="Lihat_Profil.html"><i class="fas fa-user-edit mr-2"></i>LIHAT PROFIL</a><hr class="bg-secondary">
+                          <a class="nav-link active text-white" href="profilbm.php"><i class="fas fa-user mr-2"></i>LIHAT PROFIL</a><hr class="bg-secondary">
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link text-white" href="History.html"><i class="fas fa-money-check mr-2"></i>HISTORY ORDER</a><hr class="bg-secondary">
-                        </li>
+                          <a class="nav-link text-white" href="History.html"><i class="fas fa-history mr-2"></i>HISTORY ORDER</a><hr class="bg-secondary">
+</li>
                        
                       </ul>
         </div>
