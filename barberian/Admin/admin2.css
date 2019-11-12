@@ -1,5 +1,5 @@
 .nav-link:hover {
-    background-color: grey;
+    background-color: gray;
 }
 
 .card-text{
@@ -8,4 +8,8 @@
 
 .navbar-brand{
     font-weight: bold;
+}
+
+.navbar{
+    background-color:gray;
 }

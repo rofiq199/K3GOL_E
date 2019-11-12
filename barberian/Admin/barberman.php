@@ -27,15 +27,15 @@
       $query = "SELECT * FROM data_barberman  WHERE username_bs='".$username."'";
       $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
       ?>
-    <nav class="navbar navbar-expand-lg navbar-light bg-warning fixed-top">
-        <a class="navbar-brand" href="../index.php">BARBERSHOP</a>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <a class="navbar-brand text-white" href="../index.php">BARBERSHOP</a>
         
           <form class="form-inline my-2 my-lg-0 ml-auto">
             
           </form>
           <div class="icon ml-4">
               <h5>
-                  <i class="fas fa-sign-out-alt mr-3" data-toggle="tooltip" title="Sign Out"></i>
+                  <i class="fas fa-sign-out-alt mr-3 text-white" data-toggle="tooltip" title="Sign Out"></i>
               </h5>
 
           </div>
