@@ -9,9 +9,9 @@
     session_start();
     if(!isset($_SESSION['username']))header("location: K3GOL_E/barberian/index.php");
 
-      $kd=$_POST['kode2'];
+      $username=$_POST['username'];
 
-    mysqli_query($koneksi,"DELETE FROM produk WHERE kode_produk='$kd'");
+    mysqli_query($koneksi,"DELETE FROM data_barberman WHERE username_bm='$username'");
  
-    header("location:produk.php");
+    header("location:barberman.php");
   ?>

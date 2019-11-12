@@ -24,7 +24,7 @@ $password = $_POST['password'];
 	$fotobaru = date('dmYHis').$foto;
 	
 	// Set path folder tempat menyimpan fotonya
-	$path = "img/".$fotobaru;
+	$path = "../barberman/img/".$fotobaru;
 
 	// Proses upload
 	if(move_uploaded_file($tmp, $path)){ // Cek apakah gambar berhasil diupload atau tidak
@@ -43,16 +43,16 @@ $password = $_POST['password'];
 
 		if($sql){ // Cek jika proses simpan ke database sukses atau tidak
 			// Jika Sukses, Lakukan :
-			header("location: produk.php"); // Redirect ke halaman index.php
+			header("location: barberman.php"); // Redirect ke halaman index.php
 		}else{
 			// Jika Gagal, Lakukan :
 			echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
-			echo "<br><a href='produk.php'>Kembali Ke Form</a>";
+			echo "<br><a href='barberman.php'>Kembali Ke Form</a>";
 		}
 		}else{
         // Jika gambar gagal diupload, Lakukan :
-        $query = "UPDATE produk SET nama_produk='".$nama."', harga_produk='".$harga."' WHERE kode_produk='".$kode."'";
+        $query =  "UPDATE data_barberman SET nama_bm='".$nama."', email_bm='".$email."',alamat_bm='".$alamat."',no_bm='".$no."',password_bm='".$password."'	 WHERE username_bm='".$username."'";
         $sql = mysqli_query($koneksi, $query); // Eksekusi/ Jalankan query dari variabel $query
-        header("location: produk.php");
+        header("location: barberman.php");
 	}
 ?>

@@ -91,7 +91,7 @@
                 <td><i class="fas fa-trash-alt bg-danger p-2 text-white rounded" data-toggle="modal" data-target=#modalhapus<?php echo $no ?> title="Delete"></i></td>
               </tr>
                   <!-- Modal hapus barang -->
-                <form action="produkh.php" method="POST">
+                <form action="barbermanh.php" method="POST">
                 <div class="modal" id="modalhapus<?php echo $no ?>"tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
@@ -114,7 +114,7 @@
               </div>
               </form>
             <!-- Modal edit barang -->
-            <form action="produke.php" method="POST" enctype="multipart/form-data">
+            <form action="barbermane.php" method="POST" enctype="multipart/form-data">
             <div class="modal fade" id="modaledit<?php echo $no?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
               aria-hidden="true">
               <div class="modal-dialog" role="document">
@@ -165,13 +165,13 @@
             </form> 
 
             <!-- Modal tambah barang -->
-          <form action="produkt.php" method="POST" enctype="multipart/form-data">
+          <form action="barbermant.php" method="POST" enctype="multipart/form-data">
           <div class="modal fade" id="modalplus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header text-center">
-                  <h4 class="modal-title w-100 font-weight-bold">Tambah Produk
+                  <h4 class="modal-title w-100 font-weight-bold">Tambah Barberman
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -179,24 +179,37 @@
                 <div class="modal-body mx-3">
                 <div class="md-form mb-5">
                     <label>Username</label>
-                    <input type="text" class="form-control validate" name="kode1">
+                    <input type="text" class="form-control validate" name="username">
                   </div>
                   <div class="md-form mb-5">
                     <label data-error="wrong" data-success="right" for="defaultForm-email">Nama Barberman</label>
-                    <input type="username" id="defaultForm-email" class="form-control validate"  name="nama1">
+                    <input type="text" id="defaultForm-name" class="form-control validate"  name="nama">
                   </div>
                   <div class="md-form mb-5">
                     <label data-error="wrong" data-success="right" for="defaultForm-email">E-Mail</label>
-                    <input type="username" id="defaultForm-email" class="form-control validate" name="harga1">
+                    <input type="text" id="defaultForm-email" class="form-control validate" name="email">
+                  </div>
+                  <div class="md-form mb-5">
+                    <label data-error="wrong" data-success="right" for="defaultForm-email">Alamat</label>
+                    <input type="text" id="defaultForm-address" class="form-control validate" name="alamat">
+                  </div>
+                  <div class="md-form mb-5">
+                    <label data-error="wrong" data-success="right" for="defaultForm-email">Nomor Telepon</label>
+                    <input type="text" id="defaultForm-numbr" class="form-control validate" name="no">
+                  </div>
+                  <div class="md-form mb-5">
+                    <label data-error="wrong" data-success="right" for="defaultForm-email">Password</label>
+                    <input type="password" id="defaultForm-password" class="form-control validate" name="password">
                   </div>
                   <div class="md-form mb-4">
                   <label data-error="wrong" data-success="right" for="defaultForm-email">Foto</label>
                   <br>
-                    <input type="file" name="foto1" >
+                    <input type="file" name="foto" >
                   </div>
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
                   <button type="submit" class="btn btn-primary">Tambah</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                 </div>
               </div>
             </div>
