@@ -49,7 +49,7 @@
                           <a class="nav-link active text-white" href="#"><i class="fas fa-tags mr-2"></i>LIHAT PRODUK</a><hr class="bg-secondary">
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link text-white" href="#"><i class="fas fa-store mr-2"></i>LIHAT BARBERMAN</a><hr class="bg-secondary">
+                          <a class="nav-link text-white" href="barberman.php"><i class="fas fa-store mr-2"></i>LIHAT BARBERMAN</a><hr class="bg-secondary">
                         </li>
                         <li class="nav-item">
                           <a class="nav-link text-white" href="profil.php"><i class="fas fa-user-edit mr-2"></i>UBAH PROFIL</a><hr class="bg-secondary">
@@ -81,13 +81,36 @@
                 <td><img src= "img/<?php echo $data['foto_produk'];?>" width = 50px height = 50px ></td>
                 <td><?php echo $data['nama_produk'];?></td>
                 <td>RP <?php echo $data['harga_produk'];?></td>
-                <td><i class="fas fa-edit bg-success p-2 text-white rounded" data-toggle="modal" data-target="#modaledit" title="Edit"></i></td>
-                <td><i class="fas fa-trash-alt bg-danger p-2 text-white rounded" data-toggle="tooltip" title="Delete"></i></td>
+                <td><i class="fas fa-edit bg-success p-2 text-white rounded" data-toggle="modal" data-target="#modaledit<?php echo $no?>" title="Edit"></i></td>
+                <td><i class="fas fa-trash-alt bg-danger p-2 text-white rounded" data-toggle="modal" data-target="#modalhapus<?php echo $no ?>"title="Delete"></i></td>
               </tr>
-
+          
+          <!-- Modal hapus barang -->
+        <form action="produkh.php" method="POST">
+        <div class="modal" id="modalhapus<?php echo $no ?>"tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Hapus</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Apakah anda ingin menghapus produk ini?</p>
+              <input type="hidden" value="<?php echo $data['kode_produk'];?>" name="kode2">
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary" >Hapus </button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </form>
           <!-- Modal edit barang -->
-      <form action="eproduk.php" method="POST" enctype="multipart/form-data">
-      <div class="modal fade" id="modaledit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+      <form action="produke.php" method="POST" enctype="multipart/form-data">
+      <div class="modal fade" id="modaledit<?php echo $no?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -97,20 +120,17 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <?php $kd = $data['kode_produk']; 
-              $query_edit = mysqli_query($koneksi,"SELECT * FROM produk WHERE kode_produk='$kd'");
-              while ($row = mysqli_fetch_array($query_edit)) { ?>
             <div class="modal-body mx-3">
             <div class="md-form mb-5">
-                <input type="hidden" value="<?php echo $row['kode_produk'];?>" name="kode">
+                <input type="hidden" value="<?php echo $data['kode_produk'];?>" name="kode">
               </div>
               <div class="md-form mb-5">
                 <label data-error="wrong" data-success="right" for="defaultForm-email">Nama Produk</label>
-                <input type="username" id="defaultForm-email" class="form-control validate" value="<?php echo $row['nama_produk'];?>" name="nama">
+                <input type="username" id="defaultForm-email" class="form-control validate" value="<?php echo $data['nama_produk'];?>" name="nama">
               </div>
               <div class="md-form mb-5">
                 <label data-error="wrong" data-success="right" for="defaultForm-email">Harga Produk</label>
-                <input type="username" id="defaultForm-email" class="form-control validate" value="<?php echo $row['harga_produk'];?>" name="harga">
+                <input type="username" id="defaultForm-email" class="form-control validate" value="<?php echo $data['harga_produk'];?>" name="harga">
               </div>
               <div class="md-form mb-4">
               <label data-error="wrong" data-success="right" for="defaultForm-email">Foto</label>
@@ -124,11 +144,10 @@
           </div>
         </div>
       </div>
-      </form>
-      <?php }?> 
+      </form> 
 
         <!-- Modal tambah barang -->
-      <form action="tproduk.php" method="POST" enctype="multipart/form-data">
+      <form action="produkt.php" method="POST" enctype="multipart/form-data">
       <div class="modal fade" id="modalplus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -161,11 +180,11 @@
             <div class="modal-footer d-flex justify-content-center">
               <button type="submit" class="btn btn-default">Tambah</button>
             </div>
-              <?php }?>
           </div>
         </div>
       </div>
       </form>  
+      <?php }?>
     </tbody>
     </table>
 
