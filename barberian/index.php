@@ -35,7 +35,7 @@
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link js-scroll-trigger" href="index.php">Home <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link js-scroll-trigger" href="#tentang_kami">Tentang Kami</a>
-          <a class="nav-item nav-link js-scroll-trigger" href="katalog.html">Katalog</a>
+          <a class="nav-item nav-link js-scroll-trigger" href="katalog.php">Katalog</a>
           <a class="nav-item nav-link js-scroll-trigger" href="caribarber.php">Cari Barbershop</a>
           <a class="nav-item nav-link " href="halproduk.php">Produk</a>
           <?php if(!isset($_SESSION['username'])){ ?>
@@ -177,11 +177,6 @@
           <div class="md-form pb-3">
             <input type="password" name="password" class="form-control validate white-text">
             <label data-error="wrong" data-success="right" for="Form-pass5">Your password</label>
-            <div class="form-group mt-4">
-              <input class="form-check-input" type="checkbox" id="checkbox624">
-              <label for="checkbox624" class="white-text form-check-label">Accept the<a href="#" class="green-text font-weight-bold">
-                  Terms and Conditions</a></label>
-            </div>
           </div>
 
           <!--Grid row-->

@@ -42,7 +42,7 @@
         </div>
       </nav>
 
-      <div class="row no-gutters mt-5">
+      <div class="row no-gutters">
         <div class="col-md-2,5 bg-dark mt-2 pr-3 pt-4">
                 <ul class="nav flex-column ml-3 mb-5">
                         <li class="nav-item">
@@ -62,7 +62,7 @@
         </div>
         <div class="col-md-8 p-5 pt-2">
           <h3><i class="fas fa-store mr-2"></i> LIHAT BARBERMAN</h3><hr>
-          <a class="btn btn-primary mb-3"data-toggle="modal" data-target="#modalplus" title="plus" ><i class="fas fa-plus-square mr-2"></i>Tambah Barberman</a>
+          <a class="btn btn-primary mb-3" data-toggle="modal" data-target="#modalplus" title="plus" ><i class="fas fa-plus-square mr-2"></i>Tambah Barberman</a>
           <table class="table table-striped table-bordered">
             <thead>
               <tr>
