@@ -27,7 +27,7 @@
       $query = "SELECT * FROM data_barberman  WHERE username_bs='".$username."'";
       $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
       ?>
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand text-white" href="../index.php">BARBERSHOP</a>
         
           <form class="form-inline my-2 my-lg-0 ml-auto">
