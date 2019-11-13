@@ -27,7 +27,7 @@
   <!--Navbar-->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top sticky">
     <div class="container">
-      <a class="navbar-brand" href="#">Barberian</a>
+      <a class="navbar-brand" href="index.php">Barberian</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -37,6 +37,7 @@
           <a class="nav-item nav-link js-scroll-trigger" href="#tentang_kami">Tentang Kami</a>
           <a class="nav-item nav-link js-scroll-trigger" href="katalog.php">Katalog</a>
           <a class="nav-item nav-link js-scroll-trigger" href="caribarber.php">Cari Barbershop</a>
+          <a class="nav-item nav-link " href="halproduk.php">Produk</a>
           <?php if(!isset($_SESSION['username'])){ ?>
           <div class="dropdown">
             <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
