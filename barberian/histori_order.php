@@ -138,19 +138,21 @@
   </div>
 </div>
 <?php 
-  include "koneksi.php";
+  $koneksi = mysqli_connect("localhost","root","","barberian");
+  // Check connection
+  if (mysqli_connect_errno()){
+    echo "Koneksi database gagal : " . mysqli_connect_error();
+  }
    $username = $_SESSION['username'];
    // Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
-   $query = "SELECT * FROM order  WHERE username_cs='".$username."'";
+   $query = "SELECT * FROM order  WHERE username_cs='$username'";
    $sql = mysqli_query($koneksi, $query)  // Eksekusi/Jalankan query dari variabel $query
 ?>
 <!-- Body -->
 <div class="container">
-  <?php 
-  while
-  ?>
-  <div class="card">
-    <div class="card-body">
+<?php while($data = mysqli_fetch_array($sql)){?>
+  <div class="card<?php echo $data['kode_order']?>">
+    <div class="card-body<?php echo $data['kode_order']?>">
       <h5 class="card-title">Kode Transaksi : <?php echo $data['kode_order']; ?></h5>
       <p class="card-text">Harga : Rp 200.000 <?php echo $data['alamat_order']; ?> </p>
       <p class="card-text">Tanggal : 12-12-2019</p>
@@ -162,7 +164,7 @@
       </div>
     </div>
   </div>
-  <?php } ?>
+<?php }?>
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Kode Transaksi</h5>

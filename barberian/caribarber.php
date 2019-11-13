@@ -96,7 +96,7 @@ while($rows=mysqli_fetch_object($result)){
       <p class="Deskripsi"><?=$rows -> alamat_bs;?><br>
       <?=$rows -> jam_buka;?>-<?=$rows -> jam_tutup;?></p>
       <!-- Read more button -->
-      <button type="button" class="btn btn-outline-primary btn-rounded waves-effect">Lihat Detail</button>
+      <button type="button" class="btn btn-outline-primary btn-rounded waves-effect" href="detailbarber.php">Lihat Detail</button>
       <div class="border"></div>
       <p class="mt-5 status">status<br>
     </div>
