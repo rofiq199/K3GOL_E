@@ -156,9 +156,9 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Kode Transaksi : <?php echo $data['kode_jual']; ?></h5>
-      <p class="card-text">Harga : Rp <?php echo $data['total_harga']; ?></p>
+      <p class="card-text">Total Harga : Rp <?php echo $data['total_harga']; ?></p>
       <p class="card-text">Tanggal : <?php echo $data['tanggal_jual']; ?></p>
-      <a href="#collapseExample<?php echo $data['kode_jual']; ?>" class="btn btn-primary" data-toggle="collapse" >Button</a>
+      <a href="#collapseExample<?php echo $data['kode_jual']; ?>" class="btn btn-primary" data-toggle="collapse" >Lihat Detail</a>
     </div>
     <div class="collapse" id="collapseExample<?php echo $data['kode_jual']; ?>">
       <div class="collapse-content">
@@ -166,6 +166,7 @@
         <table>
         <tr>
         <th>Nama Produk</th>
+        <th>Toko</th>
         <th>Harga Produk</th>
         </tr>
      <?php   
@@ -175,6 +176,7 @@
     ?>
         <tr>
         <th><?php echo $data1['nama_produk']; ?></th>
+        <th><?php echo $data1['username_bs']; ?></th>
         <th>Rp.<?php echo $data1['harga_produk']; ?></th>
         </tr>
     <?php }?>
