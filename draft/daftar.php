@@ -5,43 +5,40 @@
 	<link rel="stylesheet" type="text/css" href="style2.css">
 </head>
 <body>
-<form>
-  <div class="form-row">
-    <div class="form-group">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Masukkan Email">
-    </div>
-    <div class="form-group">
-      <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Masukkan Password">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputAddress">Alamat</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="Masukkan alamat">
-  </div>
-  <div class="form-group">
-    <label for="inputAddress2">No HP</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Masukkan No Hp">
-  </div>
-  <div class="form-group">
-      <label for="JenisKelamin">Jenis Kelamin</label>
-      <select id="JenisKelamin" class="form-control">
-        <option selected>Perempuan</option>
-        <option>Laki-Laki</option>
-      </select>
-    </div>
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        Apabila Anda Setuju Dengan Pendaftaran Ini Silahkan Klik Centang
-      </label>
-    </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Batal</button>
-  <button type="submit" class="btn btn-primary">Daftar</button>
-</form>
-
+<?php
+      // Load file koneksi.php 
+      $koneksi = mysqli_connect("localhost","root","","barberian");
+      
+      // Check connection
+      if (mysqli_connect_errno()){
+        echo "Koneksi database gagal : " . mysqli_connect_error();
+      }
+      // Ambil data NIS yang dikirim oleh index.php melalui URL
+      // Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
+      $query = "SELECT * FROM penjualan where username_cs='dodhy' ";
+      $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
+      ?>
+<table>
+  <thead>
+  <tr>
+  <th>kode order</th>
+  <th>nama bs</th>
+  <th>nama bm</th>
+  <th>nama cs </th>
+  </tr>
+  </thead>
+<tbody>
+<?php
+while($data= mysqli_fetch_assoc($sql)){ 
+?>
+      <tr>
+      <th><?php echo $data['kode_jual']; ?></th>
+      <th><?php echo $data['username_cs']; ?></th>
+      <th><?php echo $data['tanggal_jual']; ?></th>
+      <th><?php echo $data['total_harga']; ?></th>
+      </tr>
+<?php }?>
+</tbody>
+</table>
 </body>
 </html>

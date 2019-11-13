@@ -36,11 +36,12 @@
           </form>
           <div class="icon ml-4">
               <h5>
-                  <i class="fas fa-sign-out-alt mr-3 text-white" data-toggle="tooltip" title="Sign Out"></i>
+                  <i class="fas fa-sign-out-alt mr-3 text-white" href="../index.php" title="Sign Out"></i>
               </h5>
 
           </div>
         </div>
+        <a class="navbar-brand text-white" href="../logout.php">Logout</a>
       </nav>
 
       <div class="row no-gutters mt-5">
@@ -50,7 +51,7 @@
                           <a class="nav-link active text-white" href="produk.php"><i class="fas fa-tags mr-2"></i>LIHAT PRODUK</a><hr class="bg-secondary">
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link text-white" href="lihatbm.php"><i class="fas fa-store mr-2"></i>LIHAT BARBERMAN</a><hr class="bg-secondary">
+                          <a class="nav-link text-white" href="barberman.php"><i class="fas fa-store mr-2"></i>LIHAT BARBERMAN</a><hr class="bg-secondary">
                         </li>
                         <li class="nav-item">
                           <a class="nav-link text-white" href="#"><i class="fas fa-user-edit mr-2"></i>UBAH PROFIL</a><hr class="bg-secondary">

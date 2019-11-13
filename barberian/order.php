@@ -22,17 +22,16 @@
   
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand" href="index.php">Barberian</a>
+      <a class="navbar-brand" href="#">Barberian</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link " href="index.php">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="index.php#tentang_kami">Tentang Kami</a>
+          <a class="nav-item nav-link " href="index.html">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="#">Tentang Kami</a>
           <a class="nav-item nav-link " href="katalog.html">Katalog</a>
           <a class="nav-item nav-link " href="caribarber.php">Cari Barbershop</a>
-          <a class="nav-item nav-link " href="halproduk.php">Produk</a>
     </div>
     <div class="dropdown">
         <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -50,13 +49,12 @@
   <!-- akhir Navbar -->
   <!-- Jumbotron -->
   <!-- Section: Blog v.3 -->
-<?php include "koneksi.php";?>
+<form action="caribarber.php" method="post">
 <div class="container">
-<form method="post" action="caribarber.php">
-<div  type="text" name="search" class="input-group md-form form-sm form-2 pl-0 my-5">
-  <input class="form-control my-0 py-1 amber-border" type="text" name="search" placeholder="cari disini" >
+<div class="input-group md-form form-sm form-2 pl-0 my-5">
+  <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search" name="search"aria-label="Search">
   <div class="input-group-append">
-    <button type="submit" value="search" class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search text-grey"
+    <button type="submit" class="input-group-text amber lighten-3" id="basic-text1" value="search" ><i class="fas fa-search text-grey"
         aria-hidden="true"></i></button>
   </div>
 </div>
@@ -64,15 +62,10 @@
 <section class="my-5 barber">
   <hr class="my-4">
 <?php
-if(isset($_POST['search'])){
-$search = $_POST['search'];
-$query=" SELECT * from  data_barber where nama_bs like '%$search%' ";
+include "koneksi.php";
+$query=" SELECT * from  data_barber";
 $result=mysqli_query($koneksi,$query) or die(mysqli_error());
 $no=1;
-}else{
-  $query= "SELECT * from  data_barber ";
-  $result=mysqli_query($koneksi,$query) or die(mysqli_error());
-}
 //proses menampilkan data
 while($rows=mysqli_fetch_object($result)){
 ?>

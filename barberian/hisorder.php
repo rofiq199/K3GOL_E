@@ -1,4 +1,9 @@
 <?php
+  $koneksi = mysqli_connect("localhost","root","","barberian");
+  // Check connection
+  if (mysqli_connect_errno()){
+    echo "Koneksi database gagal : " . mysqli_connect_error();
+  }
   session_start();
 ?>
 <!doctype html>
@@ -138,41 +143,55 @@
   </div>
 </div>
 <?php 
-  $koneksi = mysqli_connect("localhost","root","","barberian");
-  // Check connection
-  if (mysqli_connect_errno()){
-    echo "Koneksi database gagal : " . mysqli_connect_error();
-  }
    $username = $_SESSION['username'];
    // Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
-   $query = "SELECT * FROM order  WHERE username_cs='$username'";
+   $query ="SELECT * FROM penjualan  WHERE username_cs='".$username."'";
    $sql = mysqli_query($koneksi, $query)  // Eksekusi/Jalankan query dari variabel $query
+   //$query ="SELECT * penjualan ";
+   //$sql = mysqli_query($koneksi, $query)  // Eksekusi/Jalankan query dari variabel $query
 ?>
 <!-- Body -->
 <div class="container">
 <?php while($data = mysqli_fetch_array($sql)){?>
-  <div class="card<?php echo $data['kode_order']?>">
-    <div class="card-body<?php echo $data['kode_order']?>">
-      <h5 class="card-title">Kode Transaksi : <?php echo $data['kode_order']; ?></h5>
-      <p class="card-text">Harga : Rp 200.000 <?php echo $data['alamat_order']; ?> </p>
-      <p class="card-text">Tanggal : 12-12-2019</p>
-      <a href="#collapseExample" class="btn btn-primary" data-toggle="collapse" >Button</a>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Kode Transaksi : <?php echo $data['kode_jual']; ?></h5>
+      <p class="card-text">Harga : Rp <?php echo $data['total_harga']; ?></p>
+      <p class="card-text">Tanggal : <?php echo $data['tanggal_jual']; ?></p>
+      <a href="#collapseExample<?php echo $data['kode_jual']; ?>" class="btn btn-primary" data-toggle="collapse" >Button</a>
     </div>
-    <div class="collapse" id="collapseExample">
+    <div class="collapse" id="collapseExample<?php echo $data['kode_jual']; ?>">
       <div class="collapse-content">
-        <p id="collapseExample">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
+        <p id="collapseExample">Detail Pembelian </p>
+        <table>
+        <tr>
+        <th>Nama Produk</th>
+        <th>Harga Produk</th>
+        </tr>
+     <?php   
+     $query1 ="SELECT * FROM detail_penjualan inner join produk on detail_penjualan.kode_produk=produk.kode_produk where kode_jual='".$data['kode_jual']."' ";
+    $sql1 = mysqli_query($koneksi, $query1);  // Eksekusi/Jalankan query dari variabel $query
+    while($data1 = mysqli_fetch_array($sql1)){
+    ?>
+        <tr>
+        <th><?php echo $data1['nama_produk']; ?></th>
+        <th>Rp.<?php echo $data1['harga_produk']; ?></th>
+        </tr>
+    <?php }?>
+        </table>
       </div>
     </div>
+
   </div>
-<?php }?>
+  <?php }?>
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Kode Transaksi</h5>
       <p class="card-text">Harga : Rp 200.000</p>
       <p class="card-text">Tanggal : 12-12-2019</p>
-      <a href="#collapseExample" class="btn btn-primary" data-toggle="collapse" >Button</a>
+      <a href="#collapseExample2" class="btn btn-primary" data-toggle="collapse" >Button</a>
     </div>
-    <div class="collapse" id="collapseExample1">
+    <div class="collapse" id="collapseExample2">
       <div class="collapse-content">
         <p id="collapseExample1">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
       </div>
