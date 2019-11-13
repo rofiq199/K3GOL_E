@@ -24,7 +24,7 @@
 
   <!--Navbar-->
   <!--Navbar-->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top sticky">
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
       <a class="navbar-brand" href="#">Barberian</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,9 +32,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link js-scroll-trigger" href="#">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link js-scroll-trigger" href="#tentang_kami">Tentang Kami</a>
-          <a class="nav-item nav-link js-scroll-trigger" href="katalog.html">Katalog</a>
+          <a class="nav-item nav-link js-scroll-trigger" href="index.php">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link js-scroll-trigger" href="index.php">Tentang Kami</a>
+          <a class="nav-item nav-link js-scroll-trigger" href="katalog.php">Katalog</a>
           <a class="nav-item nav-link js-scroll-trigger" href="caribarber.php">Cari Barbershop</a>
           <?php if(!isset($_SESSION['username'])){ ?>
           <div class="dropdown">
@@ -68,7 +68,7 @@
     </nav>
   <!-- akhir Navbar -->
     <!-- Form -->
-    <form action="pprofilcs.php" method="POST" name="form1" enctype="multipart/form-data" >
+    <form action="pprofilcs.php" method="POST" name="form1" enctype="multipart/form-data" class="mt-5" >
     <div class="container">
            <div class="form-group row">
               <label for="nomor" class="col-sm-2 col-form-label">Nomor Antrianmu :</label>
@@ -96,6 +96,198 @@
     </form>
     <!-- akhir Form -->
 
+     <!-- Modal -->
+<div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+<div class="modal-dialog form-dark" role="document">
+  <!--Content-->
+  <div class="modal-content card card-image">
+    <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
+      <!--Header-->
+      <div class="modal-header text-center pb-4">
+        <h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel"><strong>SIGN</strong> <a
+            class="green-text font-weight-bold"><strong> UP</strong></a></h3>
+        <button type="button" class="close white-text" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!--Body-->
+      <div class="modal-body">
+        <!--Body-->
+        <div class="md-form mb-5">
+          <input type="email" id="Form-email5" class="form-control validate white-text">
+          <label data-error="wrong" data-success="right" for="Form-email5">Your email</label>
+        </div>
+
+        <div class="md-form pb-3">
+          <input type="password" id="Form-pass5" class="form-control validate white-text">
+          <label data-error="wrong" data-success="right" for="Form-pass5">Your password</label>
+          <div class="form-group mt-4">
+            <input class="form-check-input" type="checkbox" id="checkbox624">
+            <label for="checkbox624" class="white-text form-check-label">Accept the<a href="#" class="green-text font-weight-bold">
+                Terms and Conditions</a></label>
+          </div>
+        </div>
+
+        <!--Grid row-->
+        <div class="row d-flex align-items-center mb-4">
+
+          <!--Grid column-->
+          <div class="text-center mb-3 col-md-12">
+            <button type="button" class="btn btn-success btn-block btn-rounded z-depth-1">Sign up</button>
+          </div>
+          <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+        <!--Grid row-->
+        <div class="row">
+
+          <!--Grid column-->
+          <div class="col-md-12">
+            <p class="font-small white-text d-flex justify-content-end">Have an account? <a href="#" class="green-text ml-1 font-weight-bold">
+                Log in</a></p>
+          </div>
+          <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+      </div>
+    </div>
+  </div>
+  <!--/.Content-->
+</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog form-dark" role="document">
+    <!--Content-->
+    <form action="/K3GOL_E/barberian/Login/ceklogin.php " method="POST">
+    <div class="modal-content card card-image" id="popup">
+      <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
+        <!--Header-->
+        <div class="modal-header text-center pb-4">
+          <h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel"><strong>SIGN</strong> <a
+              class="green-text font-weight-bold"><strong> IN</strong></a></h3>
+          <button type="button" class="close white-text" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <!--Body-->
+        <div class="modal-body">
+          <!--Body-->
+          <div class="md-form mb-5">
+            <input type="username" name="username" class="form-control validate white-text">
+            <label data-error="wrong" data-success="right" for="Form-email5">Your email</label>
+          </div>
+
+          <div class="md-form pb-3">
+            <input type="password" name="password" class="form-control validate white-text">
+            <label data-error="wrong" data-success="right" for="Form-pass5">Your password</label>
+          </div>
+
+          <!--Grid row-->
+          <div class="row d-flex align-items-center mb-4">
+
+            <!--Grid column-->
+            <div class="text-center mb-3 col-md-12">
+              <button type="submit" class="btn btn-success btn-block btn-rounded z-depth-1">Sign In</button>
+            </div>
+            <!--Grid column-->
+
+          </div>
+          <!--Grid row-->
+
+          <!--Grid row-->
+          <div class="row">
+
+            <!--Grid column-->
+            <div class="col-md-12">
+              <p class="font-small white-text d-flex justify-content-end">Don't Have an account? <a href="#" class="green-text ml-1 font-weight-bold">
+                  Sign Up</a></p>
+            </div>
+            <!--Grid column-->
+
+          </div>
+          <!--Grid row-->
+
+        </div>
+      </div>
+    </div>
+    </form>
+    <!--/.Content-->
+  </div>
+</div>
+<!-- Modal -->
+<form action="Login/cekloginbs.php" method="POST">
+<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <i class="fas fa-envelope prefix grey-text"></i>
+          <input type="username" id="defaultForm-email" class="form-control validate" name="username">
+          <label data-error="wrong" data-success="right" for="defaultForm-email">Username</label>
+        </div>
+
+        <div class="md-form mb-4">
+          <i class="fas fa-lock prefix grey-text"></i>
+          <input type="password" id="defaultForm-pass" class="form-control validate" name="password" >
+          <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
+        </div>
+        <label>Don't have account?</label><a href="admin/regadmin.php">Sign Up</a>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="submit" class="btn btn-default">Login</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+<form action="Login/cekloginbm.php" method="POST">
+<div class="modal fade" id="modalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <i class="fas fa-envelope prefix grey-text"></i>
+          <input type="username" id="defaultForm-email" class="form-control validate" name="username" >
+          <label data-error="wrong" data-success="right" for="defaultForm-email">Username</label>
+        </div>
+
+        <div class="md-form mb-4">
+          <i class="fas fa-lock prefix grey-text"></i>
+          <input type="password" id="defaultForm-pass" class="form-control validate" name="password" >
+          <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
+        </div>
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="submit" class="btn btn-default">Login</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+<!-- Modal -->
   <!-- akhir Navbar -->
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

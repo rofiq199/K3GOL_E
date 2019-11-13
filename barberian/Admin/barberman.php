@@ -27,22 +27,22 @@
       $query = "SELECT * FROM data_barberman  WHERE username_bs='".$username."'";
       $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
       ?>
-    <nav class="navbar navbar-expand-lg navbar-light bg-warning fixed-top">
-        <a class="navbar-brand" href="../index.php">BARBERSHOP</a>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <a class="navbar-brand text-white" href="../index.php">BARBERSHOP</a>
         
           <form class="form-inline my-2 my-lg-0 ml-auto">
             
           </form>
           <div class="icon ml-4">
               <h5>
-                  <i class="fas fa-sign-out-alt mr-3" data-toggle="tooltip" title="Sign Out"></i>
+                  <i class="fas fa-sign-out-alt mr-3 text-white" data-toggle="tooltip" title="Sign Out"></i>
               </h5>
 
           </div>
         </div>
       </nav>
 
-      <div class="row no-gutters mt-5">
+      <div class="row no-gutters">
         <div class="col-md-2,5 bg-dark mt-2 pr-3 pt-4">
                 <ul class="nav flex-column ml-3 mb-5">
                         <li class="nav-item">
@@ -62,7 +62,7 @@
         </div>
         <div class="col-md-8 p-5 pt-2">
           <h3><i class="fas fa-store mr-2"></i> LIHAT BARBERMAN</h3><hr>
-          <a class="btn btn-primary mb-3"data-toggle="modal" data-target="#modalplus" title="plus" ><i class="fas fa-plus-square mr-2"></i>Tambah Barberman</a>
+          <a class="btn btn-primary mb-3" data-toggle="modal" data-target="#modalplus" title="plus" ><i class="fas fa-plus-square mr-2"></i>Tambah Barberman</a>
           <table class="table table-striped table-bordered">
             <thead>
               <tr>
