@@ -58,9 +58,9 @@
       //proses menampilkan data
       while($rows=mysqli_fetch_object($result)){
       ?>
-        <div class="col-sm-4 mt-2" style="width: 18rem;">
+        <div class="col-sm-4 mt-2" >
           <div class="card">
-              <img src="admin/img/<?=$rows -> foto_produk;?>" class="card-img-top" alt="...">
+              <img src="admin/img/<?=$rows -> foto_produk;?>"class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title"><?=$rows -> nama_produk;?></h5>
               <p class="card-text"><?=$rows -> harga_produk;?></p>
