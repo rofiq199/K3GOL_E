@@ -113,20 +113,28 @@
                 <h5 class="font-weight-bold mt-4 mb-3">BALD</h5>
               </div>
             </div>
-        
-        <nav aria-label="Page navigation example">
+            <!-- Grid row -->
+            <div class="row">
+            <nav aria-label="Page navigation example">
+  <ul class="pagination">
   <ul class="pagination justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><<</a>
-    </li>
-    <li class="page-item"><a class="page-link" href="katalog.php">1</a></li>
-    <li class="page-item"><a class="page-link" href="katalog2.php">2</a></li>
-    <li class="page-item"><a class="page-link" href="katalog3.php">3</a></li>
     <li class="page-item">
-      <a class="page-link" href="katalog2.php">>></a>
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
     </li>
   </ul>
 </nav>
+            </section>
+        </div>
     <!-- akhir Jumbotron -->
     <!-- Modal -->
 <div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
