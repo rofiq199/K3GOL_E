@@ -75,55 +75,50 @@
           <h1 class="display-4 katalog">KATALOG</h1>
           <h1 class="display-4">#CARIGAYARAMBUTMUDISINI</h1>
           <section class="team-section text-center my-5">
-
             <!-- Grid row -->
             <div class="row">
           
               <!-- Grid column -->
               <div class="col-lg-3 col-md-6 mb-lg-0 mb-5">
                 <div class="avatar mx-auto">
-                  <!-- Masukkan Gambar disini -->
-                  <img src="spike.png" width="240px" height="250px" class="rounded-circle z-depth-1"
+                  <img src="fading.png" width="240px" height="250px" class="rounded-circle z-depth-1"
                     alt="Sample avatar">
-                  <!--  -->
                 </div>
-                <h5 class="font-weight-bold mt-4 mb-3">SPIKE</h5>
+                <h5 class="font-weight-bold mt-4 mb-3">FADING</h5>
               </div>
               <div class="col-lg-3 col-md-6 mb-lg-0 mb-5">
                 <div class="avatar mx-auto">
-                  <img src="undercut.png" width="240px" height="250px" class="rounded-circle z-depth-1"
-                    alt="sample avatar">
+                  <img src="messy.png" width="240px" height="250px" class="rounded-circle z-depth-1"
+                    alt="Sample avatar">
                 </div>
-                <h5 class="font-weight-bold mt-4 mb-3">UNDERCUT</h5>
+                <h5 class="font-weight-bold mt-4 mb-3">MESSY</h5>
               </div>
               <div class="col-lg-3 col-md-6 mb-lg-0 mb-5">
                 <div class="avatar mx-auto">
-                  <!-- Masukkan gambar disini -->
-                  <img src="army.png" width="240px" height="250px" class="rounded-circle z-depth-1"
+                  <img src="mohawk.png" width="240px" height="250px" class="rounded-circle z-depth-1"
                     alt="Sample avatar">
-                  <!--  -->
                 </div>
-                <h5 class="font-weight-bold mt-4 mb-3">ARMY</h5>
+                <h5 class="font-weight-bold mt-4 mb-3">MOHAWK</h5>
               </div>
               <div class="col-lg-3 col-md-6 mb-lg-0 mb-5">
                 <div class="avatar mx-auto">
-                  <img src="bald.png" width="240px" height="250px" class="rounded-circle z-depth-1"
+                  <img src="pompadour.png" width="240px" height="250px" class="rounded-circle z-depth-1"
                     alt="Sample avatar">
                 </div>
-                <h5 class="font-weight-bold mt-4 mb-3">BALD</h5>
+                <h5 class="font-weight-bold mt-4 mb-3">POMPADOUR</h5>
               </div>
             </div>
-        
+            
         <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><<</a>
+    <li class="page-item">
+      <a class="page-link" href="katalog.php" tabindex="-1" aria-disabled="true"><<</a>
     </li>
     <li class="page-item"><a class="page-link" href="katalog.php">1</a></li>
     <li class="page-item"><a class="page-link" href="katalog2.php">2</a></li>
     <li class="page-item"><a class="page-link" href="katalog3.php">3</a></li>
     <li class="page-item">
-      <a class="page-link" href="katalog2.php">>></a>
+      <a class="page-link" href="katalog3.php">>></a>
     </li>
   </ul>
 </nav>

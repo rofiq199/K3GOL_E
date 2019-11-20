@@ -173,9 +173,9 @@
 
           for (var i in mycart) { //tampilkan data dari local storage mycart, template bisa anda sesuaikan
             var item = mycart[i];
-            var row = '<div class="media"><div class="media-left media-top"></div><div class="media-body"><div class="col-lg-12"><div class="col-lg-10"><p>Nama Product <span style="padding-left:0.8em">: </span>'
-                        + item.Nama +'</p><p>Jumlah <span style="padding-left:4em">:</span> '+ item.Qty +'</p><p>Harga <span style="padding-left:4.5em">:</span> '+ item.Price +'</p></div><div class="col-lg-2"><br><button class="btn btn-danger btn-circle" onclick="deleteItem(' 
-                              + i + ')"><i class="fa fa-trash"  > </i></button></div></div></div></div><hr>' ;
+            var row = '<div class="media"><div class="media-left media-top"></div><div class="media-body"><div class="col-lg-12"><div class="col-lg-10"><p>Nama Produk <span style="padding-left:0.8em">: </span>'
+                        + item.Nama +'</p><p>Jumlah <span style="padding-left:4em">:</span> '+ item.Qty +'</p><p>Harga <span style="padding-left:4.5em">:</span> '+ item.Price +'</p></div><div class="col-lg-2"><p>Subtotal <span style="padding-left:4em">:</span> '+ item.Subtotal +'</p><br><button class="btn btn-danger btn-circle" onclick="deleteItem(' 
+                              + i + ')"><i class="fa fa-trash"  > </i>hapus</button></div></div></div></div><hr>' ;
     
             $("#cartBody").append(row); //append ul dengan id cartbody
           }
@@ -185,10 +185,24 @@
           for(var i = 0; i < mycart.length; i++) {
               total += mycart[i].Subtotal; //jumlahkan keseluruhan row subtotal dari mycart untuk mendapatkan total
           }
-          totalCart.innerHTML='<label>Total Belanja Anda : '+total+'  </label><br><br><br>'; 
+          totalCart.innerHTML='<label>Total Belanja Anda : '+total+'  </label><br><br><button class="cekout">Chekout</button><br>'; 
           //isikan div dengan id totalcart dengan nilai diatas
         }
 </script>
-
+      <script type="text/javascript">
+      $(document).ready(function(){
+        $(".cekout").click(function(){
+          var data = $('.item').serialize();
+          $.ajax({
+            type: 'POST',
+            url: "aksi.php",
+            data: data,
+            success: function() {
+              $('.tampildata').load("tampil.php");
+            }
+          });
+        });
+      });
+      </script>
     </body>
   </html>
