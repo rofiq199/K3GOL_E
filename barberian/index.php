@@ -89,7 +89,7 @@
   <!-- Tentang Kami -->
     <div class="row workingspace">
       <div class="col">
-        <img src="logo.jpg" alt="workingspace" class="img-fluid">
+        <img src="logo barber.png" alt="workingspace" class="img-fluid">
       </div>
       <div class="col">
         <h2 class="tentangkami">Tentang Kami</h2>
