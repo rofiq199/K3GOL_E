@@ -17,10 +17,9 @@
     <title>Barberian</title>
   </head>
   <body>
-
-  <!--Navbar-->
+ <!--Navbar-->
   
-  <nav class="navbar navbar-expand-lg navbar-light">
+ <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
       <a class="navbar-brand" href="index.php">Barberian</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,9 +29,16 @@
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link " href="index.html">Home <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="#">Tentang Kami</a>
-          <a class="nav-item nav-link " href="katalog.html">Katalog</a>
-          <a class="nav-item nav-link " href="caribarber.php">Cari Barbershop</a>
-          <a class="nav-item nav-link " href="halproduk.php">Produk</a>
+          <div class="dropdown">
+            <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Fitur Kami
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="katalog.php">Katalog</a>
+                    <a class="dropdown-item" href="caribarber.php">Cari Barbershop</a>
+                    <a class="dropdown-item" href="halproduk.php">Produk</a>
+                  </div>
+              </div>
     </div>
     <div class="dropdown">
         <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -47,6 +53,7 @@
       </div>
     </div>
     </nav>
+<!-- akhir navbar -->
 <div class="container">
 
     <div class="mt-5 row">

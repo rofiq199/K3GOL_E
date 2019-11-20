@@ -117,7 +117,7 @@
                   laborum.</text>
         </div>
         <div class="container">
-        <button type="button" class="btn btn-primary mt-3 ">Ambil Antrian</button>
+        <button type="button" class="btn btn-primary mt-3 " data-toggle="modal"data-target="#antrian" >Ambil Antrian</button>
         <button type="button" class="btn btn-success mt-3 " href="#teamkami">Order</button>
       </div>
         <!-- Section: Team v.1 -->
@@ -308,7 +308,41 @@
     </div>
   </div>
   </form>
+  <!-- modal -->
+  <form action="Login/cekloginbm.php" method="POST">
+  <div class="modal fade" id="antrian" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body mx-3">
+          <div class="md-form mb-5">
+            <label data-error="wrong" data-success="right" for="defaultForm-email">Kode Antrian</label>
+            <input type="username" id="defaultForm-email" class="form-control validate" name="kode_antrian" >
+          </div>
+          <div class="md-form mb-5">
+            <label data-error="wrong" data-success="right" for="defaultForm-email">Tanggal</label>
+            <input type="date" id="defaultForm-email" class="form-control validate" name="tanggal" >
+          </div>
+          <div class="md-form mb-4">
+           <label data-error="wrong" data-success="right" for="defaultForm-pass">Nomor Antrian</label>
+            <input type="text" id="defaultForm-pass" class="form-control validate" name="no" >
+          </div>
   
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="submit" class="btn btn-default">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>
+  <!-- akhir modal -->
   <!-- barang -->
   <div class="container">
     <section class="team-section text-center my-5">

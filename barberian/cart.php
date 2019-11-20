@@ -28,7 +28,7 @@ if(isset($_GET['id']) && !isset($_POST['update']))  {
 	$index = -1;
 	$cart = unserialize(serialize($_SESSION['cart'])); // set $cart as an array, unserialize() converts a string into array
 	for($i=0; $i<count($cart);$i++)
-		if ($cart[$i]->kode_produk == $_GET['kode_produk']){ 
+		if ($cart[$i]->id == $_GET['id']){ 
 			$index = $i;
 			break;
 		}
