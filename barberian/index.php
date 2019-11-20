@@ -89,16 +89,11 @@
   <!-- Tentang Kami -->
     <div class="row workingspace">
       <div class="col">
-        <img src="logo barber.png" alt="workingspace" class="img-fluid">
+        <img src="logo barber.png" alt="workingspace" height="250x">
       </div>
       <div class="col">
         <h2 class="tentangkami">Tentang Kami</h2>
-        <text class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-          ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
-          occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est 
-          laborum.</text>
+        <text class="text">Barberian adalah sistem informasi berbasis web yang bertema tempat potong rambut khusus pria atau yang biasa disebut "barbershop". tujuan dari SI web Barberian ini adalah untuk memudahkan pelanggan maupun pihak barber. Adapaun bebrapa fitur yang ada pada SI web Barberian ini adalah fitur cari barber, order, dan katalog.</text>
       </div>
     </div>
   
@@ -120,8 +115,7 @@
     <div class="col-md-4" id="gambar">
       <img src="" alt="">
       <h5 class="font-weight-bold my-4">Cari Barber</h5>
-      <p class="grey-text mb-md-0 mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit
-        maiores aperiam minima assumenda deleniti hic.
+      <p class="grey-text mb-md-0 mb-5">Fitur cari barber bertujuan memudahkan pelanggan untuk menemukan barber mana yang akan didatangi maupun order barberman.
       </p>
 
     </div>
@@ -132,8 +126,7 @@
 
       <img src="" alt="">
       <h5 class="font-weight-bold my-4">Katalog</h5>
-      <p class="grey-text mb-md-0 mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit
-        maiores aperiam minima assumenda deleniti hic.
+      <p class="grey-text mb-md-0 mb-5">Fitur katalog adalah fitur yang menyediakan berbagai gaya rambut, tujuan dari fitur ini adalah memudahkan pelanggan untuk mencari referensi tentang gaya rambut apa yang ingin dicari.
       </p>
 
     </div>
@@ -144,8 +137,7 @@
 
       <img src="" alt="">
       <h5 class="font-weight-bold my-4">Order</h5>
-      <p class="grey-text mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores
-        aperiam minima assumenda deleniti hic.
+      <p class="grey-text mb-0">Fitur order adalah fitur untuk memanggil barberman untuk datang ke kediaman pelanggang, sehingga pelanggan tidak perlu datang ke barbershop langsung untuk potong rambut dll. Fitur oerder ini sangatlah cocok untuk para perkerja yang tidak memiliki banyak waktu untuk pergi memotong rambut.
       </p>
 
     </div>
