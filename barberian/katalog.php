@@ -119,7 +119,9 @@
     <li class="page-item disabled">
       <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><<</a>
     </li>
-    <li class="page-item"><a class="page-link" href="katalog.php">1</a></li>
+    <li class="page-item active" aria-current="page">
+      <a class="page-link" href="katalog.php">1 <span class="sr-only">(current)</span></a>
+    </li>
     <li class="page-item"><a class="page-link" href="katalog2.php">2</a></li>
     <li class="page-item"><a class="page-link" href="katalog3.php">3</a></li>
     <li class="page-item">
