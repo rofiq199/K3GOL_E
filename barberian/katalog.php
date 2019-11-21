@@ -80,34 +80,34 @@
             <div class="row">
           
               <!-- Grid column -->
-              <div class="col-lg-3 col-md-6 mb-lg-0 mb-5">
+              <div class="col-lg-6 col-md-6 mb-lg-0 mb-5">
                 <div class="avatar mx-auto">
                   <!-- Masukkan Gambar disini -->
-                  <img src="spike.png" width="240px" height="250px" class="rounded-circle z-depth-1"
+                  <img src="spike.png" width="400px" height="410px" class="rounded-circle z-depth-1"
                     alt="Sample avatar">
                   <!--  -->
                 </div>
                 <h5 class="font-weight-bold mt-4 mb-3">SPIKE</h5>
               </div>
-              <div class="col-lg-3 col-md-6 mb-lg-0 mb-5">
+              <div class="col-lg-6 col-md-6 mb-lg-0 mb-5">
                 <div class="avatar mx-auto">
-                  <img src="undercut.png" width="240px" height="250px" class="rounded-circle z-depth-1"
+                  <img src="undercut.png" width="400px" height="410px" class="rounded-circle z-depth-1"
                     alt="sample avatar">
                 </div>
                 <h5 class="font-weight-bold mt-4 mb-3">UNDERCUT</h5>
               </div>
-              <div class="col-lg-3 col-md-6 mb-lg-0 mb-5">
+              <div class="col-lg-6 col-md-6 mb-lg-0 mb-5">
                 <div class="avatar mx-auto">
                   <!-- Masukkan gambar disini -->
-                  <img src="army.png" width="240px" height="250px" class="rounded-circle z-depth-1"
+                  <img src="army.png" width="400px" height="410px" class="rounded-circle z-depth-1"
                     alt="Sample avatar">
                   <!--  -->
                 </div>
                 <h5 class="font-weight-bold mt-4 mb-3">ARMY</h5>
               </div>
-              <div class="col-lg-3 col-md-6 mb-lg-0 mb-5">
+              <div class="col-lg-6 col-md-6 mb-lg-0 mb-5">
                 <div class="avatar mx-auto">
-                  <img src="bald.png" width="240px" height="250px" class="rounded-circle z-depth-1"
+                  <img src="bald.png" width="400px" height="410px" class="rounded-circle z-depth-1"
                     alt="Sample avatar">
                 </div>
                 <h5 class="font-weight-bold mt-4 mb-3">BALD</h5>

@@ -80,30 +80,30 @@
             <div class="row">
           
                 <!-- Grid column -->
-                <div class="col-lg-3 col-md-6 mb-lg-0 mb-5">
+                <div class="col-lg-6 col-md-6 mb-lg-0 mb-5">
                   <div class="avatar mx-auto">
-                    <img src="sidepart.png" width="240px" height="250px" class="rounded-circle z-depth-1"
+                    <img src="sidepart.png" width="400px" height="410px" class="rounded-circle z-depth-1"
                       alt="Sample avatar">
                   </div>
                   <h5 class="font-weight-bold mt-4 mb-3">SIDEPART</h5>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-lg-0 mb-5">
+                <div class="col-lg-6 col-md-6 mb-lg-0 mb-5">
                   <div class="avatar mx-auto">
-                    <img src="twoblocks.png" width="240px" height="250px" class="rounded-circle z-depth-1"
+                    <img src="twoblocks.png" width="400px" height="410px" class="rounded-circle z-depth-1"
                       alt="Sample avatar">
                   </div>
                   <h5 class="font-weight-bold mt-4 mb-3">TWOBLOCKS</h5>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-lg-0 mb-5">
+                <div class="col-lg-6 col-md-6 mb-lg-0 mb-5">
                     <div class="avatar mx-auto">
-                      <img src="kim.png" width="240px" height="250px" class="rounded-circle z-depth-1"
+                      <img src="kim.png" width="400px" height="410px" class="rounded-circle z-depth-1"
                         alt="Sample avatar">
                     </div>
                     <h5 class="font-weight-bold mt-4 mb-3">KIM JONG UN HARICUT</h5>
                   </div>
-                  <div class="col-lg-3 col-md-6 mb-lg-0 mb-5">
+                  <div class="col-lg-6 col-md-6 mb-lg-0 mb-5">
                     <div class="avatar mx-auto">
-                      <img src="quiff.png" width="240px" height="250px" class="rounded-circle z-depth-1"
+                      <img src="quiff.png" width="400px" height="410px" class="rounded-circle z-depth-1"
                         alt="Sample avatar">
                     </div>
                     <h5 class="font-weight-bold mt-4 mb-3">QUIFF</h5>

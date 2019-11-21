@@ -79,30 +79,30 @@
             <div class="row">
           
               <!-- Grid column -->
-              <div class="col-lg-3 col-md-6 mb-lg-0 mb-5">
+              <div class="col-lg-6 col-md-6 mb-lg-0 mb-5">
                 <div class="avatar mx-auto">
-                  <img src="fading.png" width="240px" height="250px" class="rounded-circle z-depth-1"
+                  <img src="fading.png" width="400px" height="410px" class="rounded-circle z-depth-1"
                     alt="Sample avatar">
                 </div>
                 <h5 class="font-weight-bold mt-4 mb-3">FADING</h5>
               </div>
-              <div class="col-lg-3 col-md-6 mb-lg-0 mb-5">
+              <div class="col-lg-6 col-md-6 mb-lg-0 mb-5">
                 <div class="avatar mx-auto">
-                  <img src="messy.png" width="240px" height="250px" class="rounded-circle z-depth-1"
+                  <img src="messy.png" width="400px" height="410px" class="rounded-circle z-depth-1"
                     alt="Sample avatar">
                 </div>
                 <h5 class="font-weight-bold mt-4 mb-3">MESSY</h5>
               </div>
-              <div class="col-lg-3 col-md-6 mb-lg-0 mb-5">
+              <div class="col-lg-6 col-md-6 mb-lg-0 mb-5">
                 <div class="avatar mx-auto">
-                  <img src="mohawk.png" width="240px" height="250px" class="rounded-circle z-depth-1"
+                  <img src="mohawk.png" width="400px" height="410px" class="rounded-circle z-depth-1"
                     alt="Sample avatar">
                 </div>
                 <h5 class="font-weight-bold mt-4 mb-3">MOHAWK</h5>
               </div>
-              <div class="col-lg-3 col-md-6 mb-lg-0 mb-5">
+              <div class="col-lg-6 col-md-6 mb-lg-0 mb-5">
                 <div class="avatar mx-auto">
-                  <img src="pompadour.png" width="240px" height="250px" class="rounded-circle z-depth-1"
+                  <img src="pompadour.png" width="400px" height="410px" class="rounded-circle z-depth-1"
                     alt="Sample avatar">
                 </div>
                 <h5 class="font-weight-bold mt-4 mb-3">POMPADOUR</h5>
