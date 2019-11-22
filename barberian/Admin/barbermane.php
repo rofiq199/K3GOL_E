@@ -34,8 +34,8 @@ $password = $_POST['password'];
 		$data = mysqli_fetch_array($sql); // Ambil data dari hasil eksekusi $sql
 
 		// Cek apakah file foto sebelumnya ada di folder images
-		if(is_file("img/".$data['foto_produk'])) // Jika foto ada
-			unlink("img/".$data['foto_produk']); // Hapus file foto sebelumnya yang ada di folder images
+		if(is_file("img/".$data['foto_bm'])) // Jika foto ada
+			unlink("img/".$data['foto_bm']); // Hapus file foto sebelumnya yang ada di folder images
 		
 		// Proses ubah data ke Database
 		$query = "UPDATE data_barberman SET nama_bm='".$nama."', email_bm='".$email."',alamat_bm='".$alamat."',no_bm='".$no."',password_bm='".$password."',foto_bm='".$fotobaru."' WHERE username_bm='".$username."'";

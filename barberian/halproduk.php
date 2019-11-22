@@ -55,7 +55,7 @@
     </nav>
 <!-- akhir navbar -->
 <div class="container">
-
+<p>kerAnjang anda <?php "pcarte.php" ?></p>
     <div class="mt-5 row">
     <?php
       include "koneksi.php";
@@ -73,6 +73,7 @@
               <p class="card-text">Rp. <?=number_format($rows -> harga_produk);?></p>
               <h6 class="card-title"><?=$rows -> nama_bs;?></h6>
               <p><a href="cart.php?id=<?php echo $rows->kode_produk; ?>&action=add">Order Now</a></p>
+              <p><a href="pcart.php?act=add&amp;barang_id=<?=$rows->kode_produk?>&amp;ref=halproduk.php">belii</a></p>
               <button class="add btn btn-success" data-id="<?=$rows -> kode_produk?>" data-nama="<?=$rows -> nama_produk?>" data-qty="1" data-price="<?=$rows -> harga_produk?>"><i class="fa fa-shopping-cart" aria-hidden="true" ></i> Add</button>
             </div>
           </div>

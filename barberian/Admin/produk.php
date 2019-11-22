@@ -62,6 +62,7 @@
         </div>
         <div class="col-md-8 p-5 pt-2">
           <h3><i class="fas fa-tags mr-2"></i> LIHAT PRODUK</h3><hr>
+          <p id="pesan">halo</p>
           <a class="btn btn-primary mb-3"data-toggle="modal" data-target="#modalplus" title="plus" ><i class="fas fa-plus-square mr-2"></i>Tambah Produk</a>
           <table class="table table-striped table-bordered">
             <thead>
@@ -147,7 +148,7 @@
       </form> 
 
         <!-- Modal tambah barang -->
-      <form action="produkt.php" method="POST" enctype="multipart/form-data">
+      <form  action="produkt.php" method="POST" enctype="multipart/form-data">
       <div class="modal fade" id="modalplus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -161,15 +162,15 @@
             <div class="modal-body mx-3">
             <div class="md-form mb-5">
                 <label>Kode Produk</label>
-                <input type="text" class="form-control validate" name="kode1">
+                <input type="text" id="kode" class="form-control validate" name="kode1">
               </div>
               <div class="md-form mb-5">
                 <label data-error="wrong" data-success="right" for="defaultForm-email">Nama Produk</label>
-                <input type="username" id="defaultForm-email" class="form-control validate"  name="nama1">
+                <input type="username" id="nama" class="form-control validate"  name="nama1">
               </div>
               <div class="md-form mb-5">
                 <label data-error="wrong" data-success="right" for="defaultForm-email">Harga Produk</label>
-                <input type="username" id="defaultForm-email" class="form-control validate" name="harga1">
+                <input type="username" id="harga" class="form-control validate" name="harga1">
               </div>
               <div class="md-form mb-4">
               <label data-error="wrong" data-success="right" for="defaultForm-email">Foto</label>

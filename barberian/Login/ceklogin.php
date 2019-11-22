@@ -20,7 +20,9 @@ if($cek > 0){
 	$_SESSION['username'] = $username;
 	$_SESSION['status'] = "login";
 	header("location:/K3GOL_E/barberian/index.php");
+	echo ('yes');
 }else{
 	header("location:/K3GOL_E/barberian/index.php");
+	echo("no");
 }
 ?>

@@ -19,7 +19,7 @@
 
     <!--My CSS-->
     <link rel="stylesheet" href="style.css">
-  
+
     <title>Barberian</title>
   </head>
   <body>
@@ -154,7 +154,7 @@
   aria-hidden="true">
   <div class="modal-dialog form-dark" role="document">
     <!--Content-->
-    <form action="/K3GOL_E/barberian/Login/ceklogin.php " method="POST">
+    <form action="login/ceklogin.php" method="POST">
     <div class="modal-content card card-image" id="popup">
       <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
         <!--Header-->
@@ -170,12 +170,12 @@
           <!--Body-->
           <div class="md-form mb-5">
             <input type="username" name="username" class="form-control validate white-text">
-            <label data-error="wrong" data-success="right" for="Form-email5">Your email</label>
+            <label data-error="wrong" data-success="right" id="username" value=""for="Form-email5">Your email</label>
           </div>
 
           <div class="md-form pb-3">
             <input type="password" name="password" class="form-control validate white-text">
-            <label data-error="wrong" data-success="right" for="Form-pass5">Your password</label>
+            <label data-error="wrong" data-success="right" id="password" value=""for="Form-pass5">Your password</label>
           </div>
 
           <!--Grid row-->
@@ -183,7 +183,7 @@
 
             <!--Grid column-->
             <div class="text-center mb-3 col-md-12">
-              <button type="submit" class="btn btn-success btn-block btn-rounded z-depth-1">Sign In</button>
+              <button type="submit" id="tombollogin" class="btn btn-success btn-block btn-rounded z-depth-1">Sign In</button>
             </div>
             <!--Grid column-->
 
@@ -215,7 +215,7 @@
   aria-hidden="true">
   <div class="modal-dialog form-dark" role="document">
     <!--Contect-->
-    <form action="K3GOL_E/barberian/Login/cekloginbs.php" method="POST">
+    <form action="Login/cekloginbs.php" method="POST">
     <div class="modal-content card card-image" id="popupp">
       <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
     <!--Header-->
@@ -340,5 +340,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/6b0af4bcb3.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="login.js"></script>
   </body>
 </html>

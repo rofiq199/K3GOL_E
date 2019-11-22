@@ -15,13 +15,13 @@ $nama = $_POST['nama1'];
 $harga = $_POST['harga1'];
 $foto = $_FILES['foto1']['name'];
 $tmp = $_FILES['foto1']['tmp_name'];
+$result['pesan']="";
 	
 // Rename nama fotonya dengan menambahkan tanggal dan jam upload
 $fotobaru = date('dmYHis').$foto;
 
 // Set path folder tempat menyimpan fotonya
 $path = "img/".$fotobaru;
-
 // Proses upload
 if(move_uploaded_file($tmp, $path)){ // Cek apakah gambar berhasil diupload atau tidak
 	// Proses simpan ke Database
