@@ -1,0 +1,44 @@
+/* navbar */
+.navbar{
+    background-color: #323131;
+    opacity: 100%;
+}
+.navbar-brand{
+    font-family: Viga;
+    font-size: 32px;
+    color: white !important;
+}
+.nav-link{
+    font-family: 'Titillium Web';
+    font-size: 20px;
+    margin-right: 27px;
+    font-style: normal;
+    color: white !important;
+}
+.nav-link:hover{
+    content: '';
+    display: block;
+    background: black;
+}
+/* akhir navbar */
+/* Jumbotron */
+.display-4{
+    color: white !important;
+    font-family: Haettenschweiler;
+    font-size: 62px;
+    text-align: center;
+}
+.katalog{
+    border-bottom: 10px solid white;
+}
+
+h5{
+    color: white;
+}
+
+/* akhir Jumbotron */
+/* Dropdown */
+/* akhir Dropdown */
+body{
+    background-color: #B0AAA9;
+}
