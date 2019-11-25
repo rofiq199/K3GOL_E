@@ -10,12 +10,11 @@
 	$username = $_SESSION['username'];
 
 // Ambil Data yang Dikirim dari Form
-$kode = $_POST['kode1'];
 $nama = $_POST['nama1'];
 $harga = $_POST['harga1'];
 $foto = $_FILES['foto1']['name'];
 $tmp = $_FILES['foto1']['tmp_name'];
-$result['pesan']="";
+$stok = $_POST['stok1'];
 	
 // Rename nama fotonya dengan menambahkan tanggal dan jam upload
 $fotobaru = date('dmYHis').$foto;
@@ -25,7 +24,7 @@ $path = "img/".$fotobaru;
 // Proses upload
 if(move_uploaded_file($tmp, $path)){ // Cek apakah gambar berhasil diupload atau tidak
 	// Proses simpan ke Database
-	$query = "INSERT INTO produk VALUES('".$kode."', '".$_SESSION['username']."', '".$nama."', '".$harga."', '".$fotobaru."')";
+	$query = "INSERT INTO produk VALUES(null, '".$_SESSION['username']."', '".$nama."', '".$harga."', '".$fotobaru."', '".$stok."')";
 	$sql = mysqli_query($koneksi, $query); // Eksekusi/ Jalankan query dari variabel $query
 
 	if($sql){ // Cek jika proses simpan ke database sukses atau tidak
@@ -39,7 +38,7 @@ if(move_uploaded_file($tmp, $path)){ // Cek apakah gambar berhasil diupload atau
 }else{
 	// Jika gambar gagal diupload, Lakukan :
 		// Proses simpan ke Database
-		$query = "INSERT INTO produk VALUES( kode_produk ='".$kode."',username_bs='".$username."', nama_produk='".$nama."',harga_produk= '".$harga."')";
+		$query = "INSERT INTO produk VALUES( null,username_bs='".$username."', nama_produk='".$nama."',harga_produk= '".$harga."',stokk= '".$stok."')";
 		$sql = mysqli_query($koneksi, $query); // Eksekusi/ Jalankan query dari variabel $query
 	echo "Maaf, Gambar gagal untuk diupload.";
 	echo "<br><a href='produk.php'>Kembali Ke Form</a>";

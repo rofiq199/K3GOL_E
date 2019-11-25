@@ -26,7 +26,7 @@
     <td align="right"><?php echo number_format($rs['harga_produk']); ?></td>
     <td align="right"><?php echo number_format($val); ?></td>
     <td align="right"><?php echo number_format($jumlah_harga); ?></td>
-    <td align="right"><a href="pcart.php?act=plus&amp;barang_id=<?php echo $key; ?>&amp;ref=pcarte.php">+</a> | <a href="cart.php?act=min&amp;barang_id=<?php echo $key; ?>&amp;ref=halproduk.php">-</a> | <a href="cart.php?act=del&amp;barang_id=<?php echo $key; ?>&amp;ref=index.php">Hapus</a></td>
+    <td align="right"><a href="pcart.php?act=plus&amp;barang_id=<?php echo $key; ?>&amp;ref=pcarte.php">+</a> | <a href="pcart.php?act=min&amp;barang_id=<?php echo $key; ?>&amp;ref=pcarte.php">-</a> | <a href="pcart.php?act=del&amp;barang_id=<?php echo $key; ?>&amp;ref=pcarte.php">Hapus</a></td>
   </tr>
   <?php
         }

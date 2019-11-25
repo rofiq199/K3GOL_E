@@ -71,6 +71,7 @@
                 <th scope="col">FOTO PRODUK</th>
                 <th scope="col">NAMA BARANG</th>
                 <th scope="col">HARGA</th>
+                <th scope="col">STOK</th>
                 <th colspan="3" scope="col">AKSI</th>
               </tr>
             </thead>
@@ -82,6 +83,7 @@
                 <td><img src= "img/<?php echo $data['foto_produk'];?>" width = 50px height = 50px ></td>
                 <td><?php echo $data['nama_produk'];?></td>
                 <td>RP <?php echo $data['harga_produk'];?></td>
+                <td><?php echo $data['stok'];?></td>
                 <td><i class="fas fa-edit bg-success p-2 text-white rounded" data-toggle="modal" data-target="#modaledit<?php echo $no?>" title="Edit"></i></td>
                 <td><i class="fas fa-trash-alt bg-danger p-2 text-white rounded" data-toggle="modal" data-target="#modalhapus<?php echo $no ?>"title="Delete"></i></td>
               </tr>
@@ -133,6 +135,10 @@
                 <label data-error="wrong" data-success="right" for="defaultForm-email">Harga Produk</label>
                 <input type="username" id="defaultForm-email" class="form-control validate" value="<?php echo $data['harga_produk'];?>" name="harga">
               </div>
+              <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="defaultForm-email">stok Produk</label>
+                <input type="text" id="defaultForm-email" class="form-control validate" value="<?php echo $data['stok'];?>" name="harga">
+              </div>
               <div class="md-form mb-4">
               <label data-error="wrong" data-success="right" for="defaultForm-email">Foto</label>
                <br>
@@ -140,13 +146,13 @@
               </div>
             </div>
             <div class="modal-footer d-flex justify-content-center">
-              <button type="submit" class="btn btn-default">Edit</button>
+              <button type="submit" class="btn btn-primary">Edit</button>
             </div>
           </div>
         </div>
       </div>
       </form> 
-
+      <?php }?>
         <!-- Modal tambah barang -->
       <form  action="produkt.php" method="POST" enctype="multipart/form-data">
       <div class="modal fade" id="modalplus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -160,10 +166,6 @@
               </button>
             </div>
             <div class="modal-body mx-3">
-            <div class="md-form mb-5">
-                <label>Kode Produk</label>
-                <input type="text" id="kode" class="form-control validate" name="kode1">
-              </div>
               <div class="md-form mb-5">
                 <label data-error="wrong" data-success="right" for="defaultForm-email">Nama Produk</label>
                 <input type="username" id="nama" class="form-control validate"  name="nama1">
@@ -171,6 +173,10 @@
               <div class="md-form mb-5">
                 <label data-error="wrong" data-success="right" for="defaultForm-email">Harga Produk</label>
                 <input type="username" id="harga" class="form-control validate" name="harga1">
+              </div>
+              <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="defaultForm-email">stok</label>
+                <input type="text" id="harga" class="form-control validate" name="stok1">
               </div>
               <div class="md-form mb-4">
               <label data-error="wrong" data-success="right" for="defaultForm-email">Foto</label>
@@ -185,7 +191,6 @@
         </div>
       </div>
       </form>  
-      <?php }?>
     </tbody>
     </table>
 

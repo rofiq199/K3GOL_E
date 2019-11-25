@@ -55,7 +55,7 @@
     </nav>
 <!-- akhir navbar -->
 <div class="container">
-<p>kerAnjang anda <?php "pcarte.php" ?></p>
+<a href="pcarte.php">keranjang </a>
     <div class="mt-5 row">
     <?php
       include "koneksi.php";

@@ -14,6 +14,7 @@ $kode = $_POST['kode'];
 // Ambil Data yang Dikirim dari Form
 $nama = $_POST['nama'];
 $harga = $_POST['harga'];
+$stok = $_POST['stok'];
 	// Ambil data foto yang dipilih dari form
 	$foto = $_FILES['foto']['name'];
 	$tmp = $_FILES['foto']['tmp_name'];
@@ -36,7 +37,7 @@ $harga = $_POST['harga'];
 			unlink("img/".$data['foto_produk']); // Hapus file foto sebelumnya yang ada di folder images
 		
 		// Proses ubah data ke Database
-		$query = "UPDATE produk SET nama_produk='".$nama."', harga_produk='".$harga."',foto_produk='".$fotobaru."' WHERE kode_produk='".$kode."'";
+		$query = "UPDATE produk SET nama_produk='".$nama."', harga_produk='".$harga."',foto_produk='".$fotobaru."',stok='".$stok."' WHERE kode_produk='".$kode."'";
 		$sql = mysqli_query($koneksi, $query); // Eksekusi/ Jalankan query dari variabel $query
 
 		if($sql){ // Cek jika proses simpan ke database sukses atau tidak
@@ -49,7 +50,7 @@ $harga = $_POST['harga'];
 		}
 		}else{
         // Jika gambar gagal diupload, Lakukan :
-        $query = "UPDATE produk SET nama_produk='".$nama."', harga_produk='".$harga."' WHERE kode_produk='".$kode."'";
+        $query = "UPDATE produk SET nama_produk='".$nama."', harga_produk='".$harga."', stok='".$stok."' WHERE kode_produk='".$kode."'";
         $sql = mysqli_query($koneksi, $query); // Eksekusi/ Jalankan query dari variabel $query
         header("location: produk.php");
 	}
