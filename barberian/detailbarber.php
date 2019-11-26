@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+<?php session_start();?>
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -38,15 +39,33 @@
           <a class="nav-item nav-link " href="caribarber.php">Cari Barbershop</a>
           <a class="nav-item nav-link " href="halproduk.php">Produk</a>
     </div>
-    <div class="dropdown">
-        <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Masuk
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <?php if(!isset($_SESSION['username'])){ ?>
+          <div class="dropdown">
+            <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Masuk
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="" data-toggle="modal" data-target="#darkModalForm">Masuk Sebagai Customer</a>
-                <a class="dropdown-item" href="caribarber.html">Masuk Sebagai Barbershop</a>
-                <a class="dropdown-item" href="halaman_order.html">Masuk Sebagai Barberman</a>
-              </div>
+                  <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalLoginForm">Masuk Sebagai Barbershop</a>
+                  <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalForm">Masuk Sebagai Barberman</a>
+                  </div>
+            </div>
+            <?php }else{
+          ?>
+          <div class="dropdown">
+            <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <?php echo $_SESSION['username']?>
+                  </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href='profilcs.php'>Profil</a>
+                  <a class="dropdown-item" href="" >History Order</a>
+                  <a class="dropdown-item" href="lihat_antrian.php" >Lihat Antrian</a>
+                  <a class="dropdown-item" href="logout.php" >Logout</a>
+                </div>
+            </div>
+            <?php }
+            ?>
+          </div>
         </div>
       </div>
     </div>
@@ -117,7 +136,7 @@
                   laborum.</text>
         </div>
         <div class="container">
-        <button type="button" class="btn btn-primary mt-3 " data-toggle="modal"data-target="#antrian" >Ambil Antrian</button>
+        <button type="button" class="btn btn-primary mt-3 " data-toggle="modal" data-target="#antrian" >Ambil Antrian</button>
         <button type="button" class="btn btn-success mt-3 " href="#teamkami">Order</button>
       </div>
         <!-- Section: Team v.1 -->
@@ -134,43 +153,24 @@
         <!-- Grid row -->
         <div class="row">
         
-      
+        <?php 
+        include "koneksi.php";
+        $query1= "SELECT * from  data_barberman where username_bs='$id' ";
+        $result1=mysqli_query($koneksi,$query1) or die(mysqli_error());
+
+        while($rows=mysqli_fetch_object($result1)){
+        ?>
           <!-- Grid column -->
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+          <div class="card<?=$rows -> username_bm?>" style="width: 18rem;">
+            <img s src="barberman/img/<?=$rows -> foto_bm;?>" width ="170px" height="250px"class="card-img-top">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <h5 class="card-title"><?=$rows -> nama_bm?></h5>
+              <p class="card-text"><?=$rows -> email_bm?></p>
               <a href="#" class="btn btn-success">Order</a>
             </div>
           </div>
+        <?php }?>
           <!-- Grid column -->
-      
-          <!-- Grid column -->
-          <div class="card ml-5" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-success">Order</a>
-            </div>
-          </div>
-          <!-- Grid column -->
-      
-          <!-- Grid column -->
-          <div class="col-lg-3 col-md-6">
-            <div class="avatar mx-auto">
-              <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg" class="rounded-circle z-depth-1"
-                alt="Sample avatar" name="foto">
-            </div>
-            <h5 class="font-weight-bold mt-4 mb-3">Tom Adams</h5>
-            <p class="text-uppercase blue-text"><strong>Backend developer</strong></p>
-            <p class="grey-text">Perspiciatis repellendus ad odit consequuntur, eveniet earum nisi qui consectetur
-              totam officia voluptates perferendis voluptatibus aut.</p>
-              <button type="button" class="btn btn-success" name="tombol">ORDER</button>
-          </div>
-          <!-- Grid column -->
-      
         </div>
         <!-- Grid row -->
       
@@ -309,39 +309,28 @@
   </div>
   </form>
   <!-- modal -->
-  <form action="Login/cekloginbm.php" method="POST">
-  <div class="modal fade" id="antrian" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header text-center">
-          <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body mx-3">
-          <div class="md-form mb-5">
-            <label data-error="wrong" data-success="right" for="defaultForm-email">Kode Antrian</label>
-            <input type="username" id="defaultForm-email" class="form-control validate" name="kode_antrian" >
+  <form action="barbermanh.php" method="POST">
+       <div class="modal" id="antrian>"tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Hapus</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+                  </div>
+            <div class="modal-body">
+            <p>Apakah anda ingin menghapus barberman ini?</p>
+              <input type="text" value="" name="username">
+                </div>
+              <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" >Hapus </button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
           </div>
-          <div class="md-form mb-5">
-            <label data-error="wrong" data-success="right" for="defaultForm-email">Tanggal</label>
-            <input type="date" id="defaultForm-email" class="form-control validate" name="tanggal" >
           </div>
-          <div class="md-form mb-4">
-           <label data-error="wrong" data-success="right" for="defaultForm-pass">Nomor Antrian</label>
-            <input type="text" id="defaultForm-pass" class="form-control validate" name="no" >
-          </div>
-  
         </div>
-        <div class="modal-footer d-flex justify-content-center">
-          <button type="submit" class="btn btn-default">Login</button>
         </div>
-      </div>
-    </div>
-  </div>
-  </form>
+    </form>
   <!-- akhir modal -->
   <!-- barang -->
   <div class="container">

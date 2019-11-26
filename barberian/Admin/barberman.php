@@ -90,7 +90,7 @@
                 <td><i class="fas fa-edit bg-success p-2 text-white rounded" data-toggle="modal" data-target="#modaledit<?php echo $no ?>" title="Edit"></i></td>
                 <td><i class="fas fa-trash-alt bg-danger p-2 text-white rounded" data-toggle="modal" data-target=#modalhapus<?php echo $no ?> title="Delete"></i></td>
               </tr>
-                  <!-- Modal hapus barang -->
+                  <!-- Modal hapus barberman -->
                 <form action="barbermanh.php" method="POST">
                 <div class="modal" id="modalhapus<?php echo $no ?>"tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
@@ -113,7 +113,7 @@
                 </div>
               </div>
               </form>
-            <!-- Modal edit barang -->
+            <!-- Modal edit barberman -->
             <form action="barbermane.php" method="POST" enctype="multipart/form-data">
             <div class="modal fade" id="modaledit<?php echo $no?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
               aria-hidden="true">

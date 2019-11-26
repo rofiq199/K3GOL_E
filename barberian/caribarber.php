@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
+  <?php 
+    session_start();
+  ?>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,9 +21,9 @@
   </head>
   <body>
 
-  <!--Navbar-->
+    <!--Navbar-->
   
-  <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
       <a class="navbar-brand" href="index.php">Barberian</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,20 +44,38 @@
                   </div>
             </div>          
       </div>
-    <div class="dropdown">
-        <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Masuk
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <?php if(!isset($_SESSION['username'])){ ?>
+          <div class="dropdown">
+            <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Masuk
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="" data-toggle="modal" data-target="#darkModalForm">Masuk Sebagai Customer</a>
-                <a class="dropdown-item" href="caribarber.html">Masuk Sebagai Barbershop</a>
-                <a class="dropdown-item" href="halaman_order.html">Masuk Sebagai Barberman</a>
-              </div>
+                  <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalLoginForm">Masuk Sebagai Barbershop</a>
+                  <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalForm">Masuk Sebagai Barberman</a>
+                  </div>
+            </div>
+            <?php }else{
+          ?>
+          <div class="dropdown">
+            <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <?php echo $_SESSION['username']?>
+                  </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href='profilcs.php'>Profil</a>
+                  <a class="dropdown-item" href="" >History Order</a>
+                  <a class="dropdown-item" href="lihat_antrian.php" >Lihat Antrian</a>
+                  <a class="dropdown-item" href="logout.php" >Logout</a>
+                </div>
+            </div>
+            <?php }
+            ?>
+          </div>
         </div>
       </div>
     </div>
     </nav>
-  <!-- akhir Navbar -->
+  <!-- akhir Navbar --> 
   <!-- Jumbotron -->
   <!-- Section: Blog v.3 -->
 <?php include "koneksi.php";?>
@@ -110,10 +131,10 @@ while($rows=mysqli_fetch_object($result)){
       <!-- Excerpt -->
       <p class="Deskripsi"><?=$rows -> alamat_bs;?><br>
       <?=$rows -> jam_buka;?>-<?=$rows -> jam_tutup;?></p>
-      <!-- Read more button -->
-      <button type="button" class="btn btn-outline-primary btn-rounded waves-effect" href="detailbarber.php">Lihat Detail</button>
+      <!-- klik ke detail barbershop -->
+      <a type="button" class="btn btn-outline-primary btn-rounded waves-effect" href="detailbarber.php?id=<?=$rows -> username_bs;?>">Lihat Detail</a>
       <div class="border"></div>
-      <p class="mt-5 status">status<br>
+      <p class="mt-5 status">status <?=$rows -> username_bs;?><br>
     </div>
     <!-- Grid column -->
   </div>  
