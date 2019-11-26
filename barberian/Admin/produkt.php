@@ -38,7 +38,7 @@ if(move_uploaded_file($tmp, $path)){ // Cek apakah gambar berhasil diupload atau
 }else{
 	// Jika gambar gagal diupload, Lakukan :
 		// Proses simpan ke Database
-		$query = "INSERT INTO produk VALUES( null,username_bs='".$username."', nama_produk='".$nama."',harga_produk= '".$harga."',stokk= '".$stok."')";
+		$query = "INSERT INTO produk VALUES( null,username_bs='".$username."', nama_produk='".$nama."',harga_produk= '".$harga."',stok= '".$stok."')";
 		$sql = mysqli_query($koneksi, $query); // Eksekusi/ Jalankan query dari variabel $query
 	echo "Maaf, Gambar gagal untuk diupload.";
 	echo "<br><a href='produk.php'>Kembali Ke Form</a>";

@@ -136,7 +136,7 @@
                   laborum.</text>
         </div>
         <div class="container">
-        <button type="button" class="btn btn-primary mt-3 " data-toggle="modal" data-target="#antrian" >Ambil Antrian</button>
+        <a type="button" class="btn btn-primary mt-3 "  href="antrian.php?id=<?php echo $data['username_bs'];?>" >Ambil Antrian</a>
         <button type="button" class="btn btn-success mt-3 " href="#teamkami">Order</button>
       </div>
         <!-- Section: Team v.1 -->

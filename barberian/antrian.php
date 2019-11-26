@@ -1,20 +1,20 @@
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Membuat Login Dengan PHP dan MySQLi Menggunakan MD5 - WWW.MALASNGODING.COM</title>
 </head>
 <body>
-
 <?php 
 include "koneksi.php";
  session_start();
+    $id = $_GET['id'];
     $timezone = time() + (60 * 60 * 7); 
   $today = date("Ymd",$timezone); //untuk mengambil tahun, tanggal dan bulan Hari INI
   $username = $_SESSION['username'];
-  $tanggal = gmdate("Y-m-d H:i:s",$timezone);
-
+  $tanggal = date("Y-m-d H:i:s",$timezone);
    //cari id terakhir ditanggal hari ini
-    $query1 = "SELECT max(kode_jual) as maxID FROM penjualan WHERE kode_jual LIKE '$today%'";
+    $query1 = "SELECT max(kode_antrian) as maxID FROM antrian WHERE kode_antrian LIKE '$today%'";
     $hasil = mysqli_query($koneksi,$query1);
     $data = mysqli_fetch_array($hasil);
     $idMax = $data['maxID'];
@@ -27,20 +27,16 @@ include "koneksi.php";
     $NewID = $today .sprintf('%04s', $NoUrut);
 //$today nanti jadinya misal 20160526 .sprintf('%04s', $NoUrut) urutan id di tanggal hari ini
    //proses simpan data id dengan id yg baru ke database
-   $query = "INSERT INTO penjualan VALUES($NewID, '".$_SESSION['username']."', '".$tanggal."', 3 )";
-   $sql = mysqli_query($koneksi, $query); // Eksekusi/ Jalankan query dari variabel $query
-    
-   foreach ($_SESSION['items'] as $key => $val){
-    $query3 = "INSERT INTO detail_penjualan VALUES ('$NewID','$key','$val')";
-    $hasil3 = mysqli_query($koneksi,$query3);
-    }
+   $query3 = "INSERT INTO antrian VALUES( $NewID,username_bs='".$id."', username_cs='".$username."',tanggal_antrian= '".$tanggal."',null,null')";
+   $sql3 = mysqli_query($koneksi, $query3); // Eksekusi/ Jalankan query dari variabel $query
     //pesan sukses apa enggak
-    if($query) { echo"Data sudah masuk";}
+    if($sql3) { echo"Data sudah masuk";}
     else {echo "Data gagal";}
     
 
 
 ?>
+
 selamat Anda berhasil Cekout <a href="halproduk.php">
 </body>
 </html>

@@ -48,9 +48,27 @@
   </tr>
 </table>
 <center><a type="submit" href="chekout.php">chekout</a><center>
-<p><?php  echo(" waktu :".date('Ymd H:i:s'));?></p>
+<p><?php  echo(" waktu :".date('Ymd H:i:s'));
+    $timezone = time() + (60 * 60 * 7); 
+    echo(" waktu asli:".gmdate('Ymd H:i:s',$timezone)); ?></p>
 <?php
      echo $_SESSION['username'];
 ?>
+<div class="jam-digital-malasngoding">
+		<p id="jam"></p>
+		<p id="menit"></p>
+		<p id="detik"></p>
+</div>
+<script>
+	window.setTimeout("waktu()", 1000);
+ 
+	function waktu() {
+		var waktu = new Date();
+		setTimeout("waktu()", 1000);
+		document.getElementById("jam").innerHTML = waktu.getHours();
+		document.getElementById("menit").innerHTML = waktu.getMinutes();
+		document.getElementById("detik").innerHTML = waktu.getSeconds();
+	}
+</script>
 </body>
 </html>
