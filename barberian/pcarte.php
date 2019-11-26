@@ -14,7 +14,7 @@
     <th align="right" scope="col">Aksi</th>
   </tr>
   <?php
-  session_start();
+   session_start();
   include "koneksi.php";
   $total = 0;
   if (isset($_SESSION['items'])) {
@@ -25,7 +25,6 @@
              
             $jumlah_harga = $rs['harga_produk'] * $val;
             $total += $jumlah_harga;
-            $contoh = unserialize(serialize($_SESSION['items']));
   ?>
   <tr>
     <td><?php echo $rs['kode_produk']; ?></td>
@@ -44,11 +43,14 @@
     <td>&nbsp;</td>
     <td align="right">&nbsp;</td>
     <td align="right">&nbsp;</td>
-    <td align="right"><?php echo number_format($total); ?></td>
+    <td align="right" name="total"><?php echo number_format($total); ?></td>
     <td align="right"><a href="pcart.php?act=clear&amp;ref=pcarte.php">Clear</a></td>
   </tr>
 </table>
-<center><a href="chekout.php">chekout</a><center>
-<p><?php print_r($contoh); ?></p>
+<center><a type="submit" href="chekout.php">chekout</a><center>
+<p><?php  echo(" waktu :".date('Ymd H:i:s'));?></p>
+<?php
+     echo $_SESSION['username'];
+?>
 </body>
 </html>
