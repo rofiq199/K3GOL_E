@@ -1,3 +1,9 @@
+<!doctype html>
+<html lang="en">
+<head>
+<tittle>Keranjang Belanja</tittle>
+</head>
+<body>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="viewer">
   <tr>
     <th align="left" scope="col">Kode Barang</th>
@@ -19,6 +25,7 @@
              
             $jumlah_harga = $rs['harga_produk'] * $val;
             $total += $jumlah_harga;
+            $contoh = unserialize(serialize($_SESSION['items']));
   ?>
   <tr>
     <td><?php echo $rs['kode_produk']; ?></td>
@@ -41,3 +48,7 @@
     <td align="right"><a href="pcart.php?act=clear&amp;ref=pcarte.php">Clear</a></td>
   </tr>
 </table>
+<center><a href="chekout.php">chekout</a><center>
+<p><?php print_r($contoh); ?></p>
+</body>
+</html>
