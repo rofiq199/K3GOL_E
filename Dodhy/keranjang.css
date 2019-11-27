@@ -1,0 +1,28 @@
+.card-text{
+    margin-top: 20px;
+}
+
+.btn{
+    margin-top: 20px;
+    width: 20.5rem;
+    
+}
+.semia{
+    font-family: 'Noto Sans JP', sans-serif;
+    border-bottom: rgb(168, 158, 158);
+}
+
+.tombol{
+    margin-right: auto;
+    color: green;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.quantity{
+    background-color: white;
+}
+
+.def-number-input{
+    margin-top: 40px;
+}
+
