@@ -93,7 +93,7 @@
       </div>
       <div class="col">
         <h2 class="tentangkami">Tentang Kami</h2>
-        <text class="text">Barberian adalah sistem informasi berbasis web yang bertema tempat potong rambut khusus pria atau yang biasa disebut "barbershop". tujuan dari SI web Barberian ini adalah untuk memudahkan pelanggan maupun pihak barber. Adapaun bebrapa fitur yang ada pada SI web Barberian ini adalah fitur cari barber, order, dan katalog.</text>
+        <text class="tentangkami">Barberian adalah sistem informasi berbasis web yang bertema tempat potong rambut khusus pria atau yang biasa disebut "barbershop". tujuan dari SI web Barberian ini adalah untuk memudahkan pelanggan maupun pihak barber. Adapaun bebrapa fitur yang ada pada SI web Barberian ini adalah fitur cari barber, order, dan katalog.</text>
       </div>
     </div>
   
@@ -113,9 +113,9 @@
 
     <!-- Grid column -->
     <div class="col-md-4" id="gambar">
-      <img src="" alt="">
       <h5 class="font-weight-bold my-4">Cari Barber</h5>
-      <p class="grey-text mb-md-0 mb-5">Fitur cari barber bertujuan memudahkan pelanggan untuk menemukan barber mana yang akan didatangi maupun order barberman.
+      <i class="fa fa-search fa-4x"></i>
+      <p class="grey-text mb-md-0 mb-6">Fitur cari barber bertujuan memudahkan pelanggan untuk menemukan barber mana yang akan didatangi maupun order barberman.
       </p>
 
     </div>
@@ -123,9 +123,8 @@
 
     <!-- Grid column -->
     <div class="col-md-4" id="gambar">
-
-      <img src="" alt="">
       <h5 class="font-weight-bold my-4">Katalog</h5>
+      <i class="fa fa-images fa-4x"></i>
       <p class="grey-text mb-md-0 mb-5">Fitur katalog adalah fitur yang menyediakan berbagai gaya rambut, tujuan dari fitur ini adalah memudahkan pelanggan untuk mencari referensi tentang gaya rambut apa yang ingin dicari.
       </p>
 
@@ -134,9 +133,8 @@
 
     <!-- Grid column -->
     <div class="col-md-4" id="gambar">
-
-      <img src="" alt="">
       <h5 class="font-weight-bold my-4">Order</h5>
+      <i class="fa fa-shopping-cart fa-4x"></i>
       <p class="grey-text mb-0">Fitur order adalah fitur untuk memanggil barberman untuk datang ke kediaman pelanggang, sehingga pelanggan tidak perlu datang ke barbershop langsung untuk potong rambut dll. Fitur oerder ini sangatlah cocok untuk para perkerja yang tidak memiliki banyak waktu untuk pergi memotong rambut.
       </p>
 
