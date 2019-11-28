@@ -75,6 +75,7 @@
         <div class="card-header">
           <div class="row">
             <h6>Pilih Semua Item</h6>
+            <a href="" class="ml-auto mr-2 hapus"><strong>Hapus Item</strong></a>
           </div>
         </div>
       </div>
@@ -92,6 +93,9 @@
                     <a href="">Madafaka</a>
                     <h6 class="ml-auto">Rp 0</h6>
                   </div>
+                    <div class="row">
+                      <a href="" class="ml-auto hapus">Hapus</a>
+                    </div>
                   <div class="def-number-input number-input col">
                     <a onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="fas fa-minus-square"></a>
                     <input class="quantity" min="0" name="quantity" value="1" type="number" disabled>
