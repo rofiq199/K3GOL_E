@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Membuat Login Dengan PHP dan MySQLi Menggunakan MD5 - WWW.MALASNGODING.COM</title>
+	<title>antrian</title>
 </head>
 <body>
 <?php 
@@ -25,18 +25,19 @@ include "koneksi.php";
    
    //setelah ketemu id terakhir lanjut membuat id baru dengan format sbb:
     $NewID = $today .sprintf('%04s', $NoUrut);
+    echo "$NewID";
 //$today nanti jadinya misal 20160526 .sprintf('%04s', $NoUrut) urutan id di tanggal hari ini
    //proses simpan data id dengan id yg baru ke database
-   $query3 = "INSERT INTO antrian VALUES( $NewID,username_bs='".$id."', username_cs='".$username."',tanggal_antrian= '".$tanggal."',null,null')";
+   $query3 = "INSERT INTO antrian VALUES ('$NewID' ,'$id','$username','$tanggal',2,belum)";
    $sql3 = mysqli_query($koneksi, $query3); // Eksekusi/ Jalankan query dari variabel $query
     //pesan sukses apa enggak
-    if($sql3) { echo"Data sudah masuk";}
+    if($sql3 == TRUE ) { echo"Data sudah masuk";}
     else {echo "Data gagal";}
     
 
 
 ?>
 
-selamat Anda berhasil Cekout <a href="halproduk.php">
+ selamat Anda berhasil Cekout <a href="halproduk.php">
 </body>
 </html>

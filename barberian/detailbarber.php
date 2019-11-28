@@ -126,8 +126,8 @@
                  $result=mysqli_query($koneksi,$query)
                 ?>
         <div class="container">
-        <?php $data = mysqli_fetch_array($result);?>
-                <h2 class="Deskripsi mt-3"><?php echo $data['nama_bs'];?></h2>
+        <?php $data = mysqli_fetch_object($result);?>
+                <h2 class="Deskripsi mt-3"><?=$data -> nama_bs;?></h2>
                 <text class="text mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
                   ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
                   ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
@@ -136,8 +136,8 @@
                   laborum.</text>
         </div>
         <div class="container">
-        <a type="button" class="btn btn-primary mt-3 "  href="antrian.php?id=<?php echo $data['username_bs'];?>" >Ambil Antrian</a>
-        <button type="button" class="btn btn-success mt-3 " href="#teamkami">Order</button>
+        <a type="button" class="btn btn-primary mt-3 "  href="antrian.php?id=<?=$data -> username_bs;?>" >Ambil Antrian</a>
+        <a  href="pesan.php?id=<?=$data -> username_bs;?>"><button type="button" class="btn btn-success mt-3 " href="pesan.php?id=<?=$data -> username_bs;?>">Order</button></a>
       </div>
         <!-- Section: Team v.1 -->
 <div class="container">

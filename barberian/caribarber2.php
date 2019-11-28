@@ -79,8 +79,8 @@
       <script type="text/javascript">
       $(document).ready(function() {
         <!-- event textbox keyup
-        $("#search").keyup(function() {
-        var strcari = $("#search").val();// <!-- mendapatkan nilai dari textbox -->
+        $("#cari").keyup(function() {
+        var strcari = $("#cari").val();// <!-- mendapatkan nilai dari textbox -->
         if (strcari != "") //<!-- jika value strcari tidak kosong-->
         {
           //$("#result").html("<img src='loading.gif'/>")// <!-- menampilkan animasi loading -->
@@ -90,7 +90,7 @@
           url:"caribarber1.php",
           data:"nama="+ strcari,
           success: function(data){
-            $("#result").html(data);
+            $("#tampil").html(data);
           }
           });
         }
@@ -102,70 +102,15 @@
   <!-- Section: Blog v.3 -->
 <?php include "koneksi.php";?>
 <div class="container">
-<form method="post" action="caribarber.php">
 <div  type="text" name="search" id="search"class="input-group md-form form-sm form-2 pl-0 my-5">
-  <input class="form-control my-0 py-1 amber-border" type="text" name="search" placeholder="cari disini" >
+  <input class="form-control my-0 py-1 amber-border" type="text" id="cari" name="search" placeholder="cari disini" >
   <div class="input-group-append">
     <button type="submit" value="search" class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search text-grey"
         aria-hidden="true"></i></button>
   </div>
 </div>
-</form>
 <section class="my-5 barber">
   <hr class="my-4">
-<?php
-if(isset($_POST['search'])){
-$search = $_POST['search'];
-$query=" SELECT * from  data_barber where nama_bs like '%$search%' ";
-$result=mysqli_query($koneksi,$query) or die(mysqli_error());
-$no=1;
-}else{
-  $query= "SELECT * from  data_barber ";
-  $result=mysqli_query($koneksi,$query) or die(mysqli_error());
-}
-//proses menampilkan data
-while($rows=mysqli_fetch_object($result)){
-?>
-  <!-- Grid row -->
-  <div class="mt-3 card">
-  <div class="card-body">
-  <div class="row">
-
-    <!-- Grid column -->
-    <div class="col-lg-5 col-xl-4">
-
-      <!-- Featured image -->
-      <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
-        <img class="img-fluid" src="admin/img/<?=$rows -> foto;?>" alt="Sample image">
-        <a>
-          <div class="mask rgba-white-slight"></div>
-        </a>
-      </div>
-
-    </div>
-    <!-- Grid column -->
-
-    <!-- Grid column -->
-    <div class="col-lg-7 col-xl-8">
-
-      <!-- Post title -->
-      <h3 class="font-weight-bold mb-3"><strong><?=$rows -> nama_bs;?></strong></h3>
-      <!-- Excerpt -->
-      <p class="Deskripsi"><?=$rows -> alamat_bs;?><br>
-      <?=$rows -> jam_buka;?>-<?=$rows -> jam_tutup;?></p>
-      <!-- klik ke detail barbershop -->
-      <a type="button" class="btn btn-outline-primary btn-rounded waves-effect" href="detailbarber.php?id=<?=$rows -> username_bs;?>">Lihat Detail</a>
-      <div class="border"></div>
-      <p class="mt-5 status">status <?=$rows -> username_bs;?><br>
-    </div>
-    <!-- Grid column -->
-  </div>  
-  </div>
-  </div>
-  <!-- Grid row -->
-<?php
-}
-?>
 </section>
 </div>
 
@@ -237,7 +182,7 @@ while($rows=mysqli_fetch_object($result)){
     </div>
   </div>
   </form>
-  <ul id="result" ></ul>
+  <ul id="tampil" ></ul>
         <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

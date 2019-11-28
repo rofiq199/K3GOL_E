@@ -16,62 +16,76 @@
     <link rel="stylesheet" href="testing.css">
     <script src="pesan.js"></script>
     <title>Barberian</title>
+    <?php session_start();?>
   </head>
   <body>
 <!--Navbar-->
   
 <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-          <a class="navbar-brand" href="index.php">Barberian</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav ml-auto">
-              <a class="nav-item nav-link " href="index.php">Home <span class="sr-only">(current)</span></a>
-              <a class="nav-item nav-link" href="index.php#tentang_kami">Tentang Kami</a>
-              <div class="dropdown">
-            <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Fitur Kami
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="katalog.php">Katalog</a>
-                    <a class="dropdown-item" href="caribarber.php">Cari Barbershop</a>
-                    <a class="dropdown-item" href="halproduk.php">Produk</a>
-                  </div>
-          </div>          
-        </div>
-        <div class="dropdown">
+    <div class="container">
+      <a class="navbar-brand" href="index.php">Barberian</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-item nav-link " href="index.php">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="index.php#tentang_kami">Tentang Kami</a>
+          <a class="nav-item nav-link " href="katalog.html">Katalog</a>
+          <a class="nav-item nav-link " href="caribarber.php">Cari Barbershop</a>
+          <a class="nav-item nav-link " href="halproduk.php">Produk</a>
+    </div>
+    <?php if(!isset($_SESSION['username'])){ ?>
+          <div class="dropdown">
             <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Masuk
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="" data-toggle="modal" data-target="#darkModalForm">Masuk Sebagai Customer</a>
-                    <a class="dropdown-item" href="caribarber.html">Masuk Sebagai Barbershop</a>
-                    <a class="dropdown-item" href="halaman_order.html">Masuk Sebagai Barberman</a>
+                  <a class="dropdown-item" href="" data-toggle="modal" data-target="#darkModalForm">Masuk Sebagai Customer</a>
+                  <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalLoginForm">Masuk Sebagai Barbershop</a>
+                  <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalForm">Masuk Sebagai Barberman</a>
                   </div>
             </div>
+            <?php }else{
+          ?>
+          <div class="dropdown">
+            <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <?php echo $_SESSION['username']?>
+                  </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href='profilcs.php'>Profil</a>
+                  <a class="dropdown-item" href="" >History Order</a>
+                  <a class="dropdown-item" href="lihat_antrian.php" >Lihat Antrian</a>
+                  <a class="dropdown-item" href="logout.php" >Logout</a>
+                </div>
+            </div>
+            <?php }
+            ?>
           </div>
         </div>
-        </nav>
+      </div>
+    </div>
+    </nav>
+  <!-- akhir Navbar -->
         
         <body>
+        <?php 
+          include "koneksi.php";
+          $id = $_GET['id'];
+          $query= "SELECT * from  harga_barber where username_bs='$id' ";
+          $result=mysqli_query($koneksi,$query) or die(mysqli_error());
+          $data = mysqli_fetch_array($result);
+        ?>
     <div class="container">
         <div class="row">
             <div class="col-md-4 mt-2">
               <form>
               <label for="inputCustomer4">Nama Customer</label>
-              <input type="email" class="form-control" id="masukan4" disabled value="Nama Customer">
+              <input type="text" class="form-control" id="masukan4" disabled value="<?php echo $_SESSION['username']; ?>">
               <label for="inputBarberman4" class="mt-1">Nama Barberman</label>
-                <div class="form-group">
-                        <select class="form-control" id="pilihBarberman">
-                          <option>Barber 1</option>
-                          <option>Barber 2</option>
-                          <option>Barber 3</option>
-                        </select>
-                      </div>
+              <input type="text" class="form-control" id="masukan4" disabled value="<?php echo $id; ?>">
               <label for="inputCity">Alamat</label>
-              <input type="text" class="form-control" id="masukan4" disabled value="Alamat">
+              <input type="text" class="form-control" id="masukan4"  value="Alamat">
             </form>
             </div>
             <div class="col-md-8 mt-2">
@@ -79,61 +93,17 @@
               <form action="" id="jumlah">
               <div class="container"> 
                 <center>  <h5>Paket Potong</h5></center>
-                
                 <div class="garis"></div>
                 <div class="row">
-                  <div class="col ml-5 mt-2">
-                      <input type="checkbox" class="form-check-input" id="potongrambut" value="25000" name="produk" onclick="totalit()">
-                      <label class="form-check-label" for="potongrambut">Potong Rambut</label>
+                  <div class="col ml-5 mt-2"> 
+                   <?php while($rows = mysqli_fetch_array($result)){
+                    ?>
                     <div class="barang mt-2">
-                      <input type="checkbox" class="form-check-input" id="keramas" value="10000" name="produk" onclick="totalit()">
-                      <label class="form-check-label" for="keramas">Keramas</label>
+                      <input type="checkbox" class="form-check-input" id="keramas" value="<?php echo $rows['harga_ck']; ?>" name="produk" onclick="totalit()">
+                      <label class="form-check-label" for="keramas" id="nama"><?php echo $rows['nama_ck']; ?></label>
+                      <p name="harga" value="<?php echo $rows['harga_ck']; ?>">Rp. <?php echo number_format($rows['harga_ck']); ?></p>
                     </div>
-                    <div class="barang mt-2">
-                      <input type="checkbox" class="form-check-input" id="hairtato" value="5000" name="produk" onclick="totalit()">
-                      <label class="form-check-label" for="hairtato">Hairtattoo</label>
-                    </div>
-                    <div class="barang mt-2">
-                      <input type="checkbox" class="form-check-input" id="bleaching" value="40000" name="produk" onclick="totalit()">
-                      <label class="form-check-label" for="bleaching">Bleaching</label>
-                    </div>
-                    <div class="barang mt-2">
-                      <div class="form-group">
-                        <select class="form-control col-sm-4 col-form-label" id="potongjanggut" name="potongjanggut" onchange="totalit()">
-                          <option value="0">Potong Janggut</option>
-                          <option value= "5000">Panjang   : Rp. 5000</option>
-                          <option value= "10000">Pendek    : Rp. 10000</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="barang mt-2">
-                      <div class="form-group">
-                        <select class="form-control col-sm-4 col-form-label" id="semir" onchange="semirRambut()">
-                          <option value="0">Semir</option>
-                          <option value="60000">Kualitas Rendah   :   Rp. 60000</option>
-                          <option value="80000">Kualitas Menengah :   Rp. 80000</option>
-                          <option value="100000">Kualitas Tinggi   :   Rp. 100000</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col mt-2 ">
-                      <label class="form-check-label" for="potongrambut" >Rp 25.000</label>
-                    <div class="mt-2">
-                      <label class="form-check-label" for="keramas" >Rp 10.000</label>
-                    </div>
-                    <div class="mt-2">
-                      <label class="form-check-label" for="hairtato" >Rp 5.000</label>
-                    </div>
-                    <div class="mt-2">
-                      <label class="form-check-label" for="bleaching" >Rp 40.000</label>
-                    </div>
-                    <div class="mt-2">
-                      Rp <input type="text" value="0" readonly="readonly" id="pilian">
-                    </div>
-                    <div class="mt-3">
-                    Rp <input type="text" value="0" readonly="readonly" id="pilian1">
-                    </div>
+                    <?php }?>
                   </div>
                 </div>
                 <div class="garis"></div>

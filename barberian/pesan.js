@@ -18,11 +18,11 @@ function semirRambut() {
 
 function totalit() {
   var input = document.getElementsByName("produk");
+  var harga = document.getElementsByName("harga")
   var total = 0;
-  var nilai = parseInt(document.getElementById("pilian").value);
   for (var i = 0; i < input.length; i++) {
     if (input[i].checked) {
-      total += parseInt(input[i].value);
+      total += harga[i].value);
     }
   }
     
