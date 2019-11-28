@@ -28,7 +28,7 @@ include "koneksi.php";
     echo "$NewID";
 //$today nanti jadinya misal 20160526 .sprintf('%04s', $NoUrut) urutan id di tanggal hari ini
    //proses simpan data id dengan id yg baru ke database
-   $query3 = "INSERT INTO antrian VALUES ('$NewID' ,'$id','$username','$tanggal',2,belum)";
+   $query3 = "INSERT INTO antrian VALUES ('$NewID' ,'$id','$username','$tanggal','2','belum')";
    $sql3 = mysqli_query($koneksi, $query3); // Eksekusi/ Jalankan query dari variabel $query
     //pesan sukses apa enggak
     if($sql3 == TRUE ) { echo"Data sudah masuk";}

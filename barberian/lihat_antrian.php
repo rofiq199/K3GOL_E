@@ -71,17 +71,22 @@ session_start();
     <?php      
     include "koneksi.php";
      $query= "SELECT * from  antrian where username_cs='".$_SESSION['username']."'and status_antrian='belum'";
-     $result=mysqli_query($koneksi,$query)?>
+     $result=mysqli_query($koneksi,$query);
+     ?>
     <!-- Form -->
     <form action="pprofilcs.php" method="POST" name="form1" enctype="multipart/form-data" class="mt-5" >
     <div class="container">
     <?php 
      $data = mysqli_fetch_array($result);
+     $barber = $data['username_bs'];
+     $query1= "SELECT * from  antrian where username_bs='".$barber."'and status_antrian='proses' ORDER BY no_antrian DESC ";
+     $result1=mysqli_query($koneksi,$query1);
+     $data1 = mysqli_fetch_array($result1);
     ?>
            <div class="form-group row">
               <label for="nomor" class="col-sm-2 col-form-label">Nomor Antrianmu :</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="nomor" disabled value="<?php echo $data['username_cs']; ?>" >
+                <input type="text" class="form-control" name="nomor" disabled value="<?php echo $data1['no_antrian']; ?>" >
               </div>
             </div>
             <div class="form-group row">
