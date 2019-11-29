@@ -72,4 +72,6 @@
     #popuppp{
         background-image: url('iki_nyobak.jpg');
         background-size: cover;
-    }       
+    }
+.quantity{ border: none 
+}       

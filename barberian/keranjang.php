@@ -109,11 +109,11 @@
                     <h6 class="ml-auto">Rp. <?php echo number_format($rs['harga_produk']); ?></h6>
                   </div>
                     <div class="row">
-                      <a href="" class="ml-auto hapus">Hapus</a>
+                      <a href="pcart.php?act=del&amp;barang_id=<?php echo $key; ?>&amp;ref=keranjang.php" class="ml-auto hapus">Hapus</a>
                     </div>
                   <div class="def-number-input number-input col">
                     <a onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="fas fa-minus-square"></a>
-                    <input class="quantity" min="1" max="<?php echo $rs['stok'];?>" name="quantity" value="1" type="number" disabled>
+                    <input class="quantity" min="1" max="<?php echo $rs['stok'];?>" name="quantity" type="number">
                     <a onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="fas fa-plus-square"></a>
                   </div>
                 </div>
@@ -131,7 +131,6 @@
             <p class="card-text">Total Harga</p>
             <p class="card-text">Rp <?php echo $total ?></p>
               <div class="border-bottom"></div>
-            <a href="#" class="btn btn-success text-white"><strong>Beli</strong></a>
             </div>
         </div>
 </div>
@@ -139,6 +138,7 @@
   </div>
 </div>
 </div>
+       </form>
        <?php } ?>
 <!-- Modal -->
 <div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
