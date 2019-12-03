@@ -112,9 +112,9 @@
                       <a href="pcart.php?act=del&amp;barang_id=<?php echo $key; ?>&amp;ref=keranjang.php" class="ml-auto hapus">Hapus</a>
                     </div>
                   <div class="def-number-input number-input col">
-                    <a onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="fas fa-minus-square"></a>
-                    <input class="quantity" min="1" max="<?php echo $rs['stok'];?>" name="quantity" type="number">
-                    <a onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="fas fa-plus-square"></a>
+                    <a href="pcart.php?act=min&amp;barang_id=<?php echo $key; ?>&amp;ref=keranjang.php" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="fas fa-minus-square"></a>
+                    <input class="quantity" min="1" max="<?php echo $rs['stok'];?>" name="quantity" value="<?php echo $val    ?>" type="number">
+                    <a href="pcart.php?act=plus&amp;barang_id=<?php echo $key; ?>&amp;ref=keranjang.php" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="fas fa-plus-square"></a>
                   </div>
                 </div>
             </div>
@@ -129,8 +129,9 @@
             <p class="card-title"><strong>Ringkasan Belanja</strong></p>
               <div class="border-bottom"></div>
             <p class="card-text">Total Harga</p>
-            <p class="card-text">Rp <?php echo $total ?></p>
+            <p class="card-text" name="total" value="<?php echo $total ?>" >Rp <?php echo $total ?></p>
               <div class="border-bottom"></div>
+            <button  data-toggle="modal" data-target="#modalck" class="btn btn-success text-white"><strong>Beli</strong></button>
             </div>
         </div>
 </div>
@@ -138,7 +139,6 @@
   </div>
 </div>
 </div>
-       </form>
        <?php } ?>
 <!-- Modal -->
 <div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -323,6 +323,30 @@
     <!--/.Content-->
   </div>
 </div>
+<!-- form modal -->
+      <form action="chekout.php" method="POST">
+        <div class="modal" id="modalck"tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Hapus</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Apakah anda yakin membeli produk ini?</p>
+              <input type="hidden" value="<?php echo $total;?>" name="total2">
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary" >Beli</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </form>
+      <!-- akhir form -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -12,8 +12,7 @@ include "koneksi.php";
   $today = date("Ymd",$timezone); //untuk mengambil tahun, tanggal dan bulan Hari INI
   $username = $_SESSION['username'];
   $tanggal = gmdate("Y-m-d H:i:s",$timezone);
-  $jumlah = $_POST['quantity'];
-
+  $total = $_POST['total2'];
    //cari id terakhir ditanggal hari ini
     $query1 = "SELECT max(kode_jual) as maxID FROM penjualan WHERE kode_jual LIKE '$today%'";
     $hasil = mysqli_query($koneksi,$query1);
@@ -28,13 +27,15 @@ include "koneksi.php";
     $NewID = $today .sprintf('%04s', $NoUrut);
 //$today nanti jadinya misal 20160526 .sprintf('%04s', $NoUrut) urutan id di tanggal hari ini
    //proses simpan data id dengan id yg baru ke database
-   $query = "INSERT INTO penjualan VALUES($NewID, '".$_SESSION['username']."', '".$tanggal."', 3 )";
+   $query = "INSERT INTO penjualan VALUES($NewID, '".$_SESSION['username']."', '".$tanggal."', '".$total."' )";
    $sql = mysqli_query($koneksi, $query); // Eksekusi/ Jalankan query dari variabel $query
     
    foreach ($_SESSION['items'] as $key => $val){
-    $query3 = "INSERT INTO detail_penjualan VALUES ('$NewID','$key','$jumlah')";
+    $query3 = "INSERT INTO detail_penjualan VALUES ('$NewID','$key','$val')";
     $hasil3 = mysqli_query($koneksi,$query3);
     }
+
+    //unset($_SESSION['items']);
     //pesan sukses apa enggak
     if($query) { echo"Data sudah masuk";}
     else {echo "Data gagal";}

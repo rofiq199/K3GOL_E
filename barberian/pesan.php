@@ -95,15 +95,18 @@
                 <center>  <h5>Paket Potong</h5></center>
                 <div class="garis"></div>
                 <div class="row">
-                  <div class="col ml-5 mt-2"> 
+                  <div class="col mt-2"> 
                    <?php while($rows = mysqli_fetch_array($result)){
                     ?>
                     <div class="barang mt-2">
                       <input type="checkbox" class="form-check-input" id="keramas" value="<?php echo $rows['harga_ck']; ?>" name="produk" onclick="totalit()">
                       <label class="form-check-label" for="keramas" id="nama"><?php echo $rows['nama_ck']; ?></label>
-                      <p name="harga" value="<?php echo $rows['harga_ck']; ?>">Rp. <?php echo number_format($rows['harga_ck']); ?></p>
+                    </div>
+                    <div class="col mt-2 ml-5">
+                    <p name="harga" value="<?php echo $rows['harga_ck']; ?>">Rp. <?php echo number_format($rows['harga_ck']); ?></p>
                     </div>
                     <?php }?>
+                    </div>
                   </div>
                 </div>
                 <div class="garis"></div>
