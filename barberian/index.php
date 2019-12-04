@@ -125,7 +125,7 @@
     <div class="col-md-4" id="gambar">
       <h5 class="font-weight-bold my-4">Katalog</h5>
       <i class="fa fa-images fa-4x"></i>
-      <p class="grey-text mb-md-0 mb-5">Fitur katalog adalah fitur yang menyediakan berbagai gaya rambut, tujuan dari fitur ini adalah memudahkan pelanggan untuk mencari referensi tentang gaya rambut apa yang ingin dicari.
+      <p class="grey-text mb-md-0 mb-5" style="text-align:justify">Fitur katalog adalah fitur yang menyediakan berbagai gaya rambut, tujuan dari fitur ini adalah memudahkan pelanggan untuk mencari referensi tentang gaya rambut apa yang ingin dicari.
       </p>
 
     </div>

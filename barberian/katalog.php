@@ -80,55 +80,97 @@
             <div class="row">
           
               <!-- Grid column -->
-              <div class="col-lg-6 col-md-6 mb-lg-0 mb-5">
+              <div class="col-lg-4 col-md-6 mb-lg-0 mb-5">
                 <div class="avatar mx-auto">
                   <!-- Masukkan Gambar disini -->
-                  <img src="spike.png" width="400px" height="410px" class="rounded-circle z-depth-1"
+                  <img src="spike.png" width="300px" height="310px" class="rounded-circle z-depth-1"
                     alt="Sample avatar">
                   <!--  -->
                 </div>
                 <h5 class="font-weight-bold mt-4 mb-3">SPIKE</h5>
               </div>
-              <div class="col-lg-6 col-md-6 mb-lg-0 mb-5">
+              <div class="col-lg-4 col-md-6 mb-lg-0 mb-5">
                 <div class="avatar mx-auto">
-                  <img src="undercut.png" width="400px" height="410px" class="rounded-circle z-depth-1"
+                  <img src="undercut.png" width="300px" height="310px" class="rounded-circle z-depth-1"
                     alt="sample avatar">
                 </div>
                 <h5 class="font-weight-bold mt-4 mb-3">UNDERCUT</h5>
               </div>
-              <div class="col-lg-6 col-md-6 mb-lg-0 mb-5">
+              <div class="col-lg-4 col-md-6 mb-lg-0 mb-5">
                 <div class="avatar mx-auto">
                   <!-- Masukkan gambar disini -->
-                  <img src="army.png" width="400px" height="410px" class="rounded-circle z-depth-1"
+                  <img src="army.png" width="300px" height="310px" class="rounded-circle z-depth-1"
                     alt="Sample avatar">
                   <!--  -->
                 </div>
                 <h5 class="font-weight-bold mt-4 mb-3">ARMY</h5>
               </div>
-              <div class="col-lg-6 col-md-6 mb-lg-0 mb-5">
+              <div class="col-lg-4 col-md-6 mb-lg-0 mb-5">
                 <div class="avatar mx-auto">
-                  <img src="bald.png" width="400px" height="410px" class="rounded-circle z-depth-1"
+                  <img src="bald.png" width="300px" height="310px" class="rounded-circle z-depth-1"
                     alt="Sample avatar">
                 </div>
                 <h5 class="font-weight-bold mt-4 mb-3">BALD</h5>
               </div>
+            <div class="col-lg-4 col-md-6 mb-lg-0 mb-5">
+                <div class="avatar mx-auto">
+                  <img src="fading.png" width="300px" height="310px" class="rounded-circle z-depth-1"
+                    alt="Sample avatar">
+                </div>
+                <h5 class="font-weight-bold mt-4 mb-3">FADING</h5>
+              </div>
+              <div class="col-lg-4 col-md-6 mb-lg-0 mb-5">
+                <div class="avatar mx-auto">
+                  <img src="messy.png" width="300px" height="310px" class="rounded-circle z-depth-1"
+                    alt="Sample avatar">
+                </div>
+                <h5 class="font-weight-bold mt-4 mb-3">MESSY</h5>
+              </div>
+              <div class="col-lg-4 col-md-6 mb-lg-0 mb-5">
+                <div class="avatar mx-auto">
+                  <img src="mohawk.png" width="300px" height="310px" class="rounded-circle z-depth-1"
+                    alt="Sample avatar">
+                </div>
+                <h5 class="font-weight-bold mt-4 mb-3">MOHAWK</h5>
+              </div>
+              <div class="col-lg-4 col-md-6 mb-lg-0 mb-5">
+                <div class="avatar mx-auto">
+                  <img src="pompadour.png" width="300px" height="310px" class="rounded-circle z-depth-1"
+                    alt="Sample avatar">
+                </div>
+                <h5 class="font-weight-bold mt-4 mb-3">POMPADOUR</h5>
+              </div>
+              <div class="col-lg-4 col-md-6 mb-lg-0 mb-5">
+                  <div class="avatar mx-auto">
+                    <img src="sidepart.png" width="300px" height="310px" class="rounded-circle z-depth-1"
+                      alt="Sample avatar">
+                  </div>
+                  <h5 class="font-weight-bold mt-4 mb-3">SIDEPART</h5>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-lg-0 mb-5">
+                  <div class="avatar mx-auto">
+                    <img src="twoblocks.png" width="300px" height="310px" class="rounded-circle z-depth-1"
+                      alt="Sample avatar">
+                  </div>
+                  <h5 class="font-weight-bold mt-4 mb-3">TWOBLOCKS</h5>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-lg-0 mb-5">
+                    <div class="avatar mx-auto">
+                      <img src="kim.png" width="300px" height="310px" class="rounded-circle z-depth-1"
+                        alt="Sample avatar">
+                    </div>
+                    <h5 class="font-weight-bold mt-4 mb-3">KIM JONG UN HARICUT</h5>
+                  </div>
+                  <div class="col-lg-4 col-md-6 mb-lg-0 mb-5">
+                    <div class="avatar mx-auto">
+                      <img src="quiff.png" width="300px" height="310px" class="rounded-circle z-depth-1"
+                        alt="Sample avatar">
+                    </div>
+                    <h5 class="font-weight-bold mt-4 mb-3">QUIFF</h5>
+                  </div>
             </div>
         
-        <nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><<</a>
-    </li>
-    <li class="page-item active" aria-current="page">
-      <a class="page-link" href="katalog.php">1 <span class="sr-only">(current)</span></a>
-    </li>
-    <li class="page-item"><a class="page-link" href="katalog2.php">2</a></li>
-    <li class="page-item"><a class="page-link" href="katalog3.php">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="katalog2.php">>></a>
-    </li>
-  </ul>
-</nav>
+        
     <!-- akhir Jumbotron -->
     <!-- Modal -->
 <div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
