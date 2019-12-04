@@ -22,3 +22,8 @@
 }
 
 /* akhir Navbar */
+.fas {
+    font-size: 30px;
+    cursor: pointer;
+    user-select: none;
+  }
