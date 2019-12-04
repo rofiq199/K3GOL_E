@@ -14,7 +14,7 @@
 
     <!--My CSS-->
     <link rel="stylesheet" href="testing.css">
-    <script src="pesan.js"></script>
+    <!-- <script src="pesan.js"></script> -->
     <title>Barberian</title>
     <?php session_start();?>
   </head>
@@ -73,12 +73,12 @@
           include "koneksi.php";
           $id = $_GET['id'];
           $total = 0;
-          if (isset($_SESSION['items'])) {
-          print_r($_SESSION['items']);
-          $query1= "SELECT * from  data_barberman where nama_bm='$id' ";
+          print_r($_SESSION['cukur']);
+          $query1= "SELECT * from  data_barberman where username_bm='$id' ";
           $result1 = mysqli_query($koneksi,$query1) or die(mysqli_error());
           $data1 = mysqli_fetch_array($result1);
           $barbershop = $data1['username_bs'];
+          $nama = $data1['nama_bm'];
 
           $query = "SELECT * from  harga_barber where username_bs='$barbershop' ";
           $result= mysqli_query($koneksi,$query) or die(mysqli_error());
@@ -92,7 +92,7 @@
     <td>nama cukur</td>
     <td>harga</td>
     </tr>
-    <?php   foreach ($_SESSION['items'] as $key => $val){
+    <?php   foreach ($_SESSION['cukur'] as $key => $val){
        $query2 = "SELECT * from  harga_barber where username_bs='$barbershop' and kode_ck = '$key' ";
        $result2= mysqli_query($koneksi,$query2) ;
        $tampil = mysqli_fetch_array($result2);
@@ -113,7 +113,7 @@
               <label for="inputCustomer4">Nama Customer</label>
               <input type="text" class="form-control" id="masukan4" disabled value="<?php echo $_SESSION['username']; ?>">
               <label for="inputBarberman4" class="mt-1">Nama Barberman</label>
-              <input type="text" class="form-control" id="masukan4" disabled value="<?php echo $id; ?>">
+              <input type="text" class="form-control" id="masukan4" disabled value="<?php echo $nama; ?>">
               <label for="inputCity">Alamat</label>
               <input type="text" class="form-control" id="masukan4"  value="Alamat">
             </form>
@@ -161,7 +161,6 @@
         </div>
     </div>
     <div>
-    <?php  }?>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

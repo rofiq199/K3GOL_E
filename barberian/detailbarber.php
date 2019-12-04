@@ -163,7 +163,7 @@
             <div class="card-body">
               <h5 class="card-title"><?=$rows -> nama_bm?></h5>
               <p class="card-text"><?=$rows -> email_bm?></p>
-              <a href="pesan.php?id=<?=$rows -> nama_bm;?>" class="btn btn-success">Order</a>
+              <a href="pesan.php?id=<?=$rows -> username_bm;?>" class="btn btn-success">Order</a>
             </div>
           </div>
         <?php }?>
