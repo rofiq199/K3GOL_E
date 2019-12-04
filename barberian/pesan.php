@@ -30,12 +30,18 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link " href="index.php">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="index.php#tentang_kami">Tentang Kami</a>
-          <a class="nav-item nav-link " href="katalog.html">Katalog</a>
-          <a class="nav-item nav-link " href="caribarber.php">Cari Barbershop</a>
-          <a class="nav-item nav-link " href="halproduk.php">Produk</a>
-    </div>
-    <?php if(!isset($_SESSION['username'])){ ?>
+          <a class="nav-item nav-link" href="index.php">Tentang Kami</a>
+          <div class="dropdown">
+            <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Fitur Kami
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="katalog.php">Katalog</a>
+                    <a class="dropdown-item" href="caribarber.php">Cari Barbershop</a>
+                    <a class="dropdown-item" href="halproduk.php">Produk</a>
+                  </div>
+              </div>
+              <?php if(!isset($_SESSION['username'])){ ?>
           <div class="dropdown">
             <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Masuk
@@ -63,9 +69,9 @@
             ?>
           </div>
         </div>
-      </div>
     </div>
     </nav>
+  <!-- akhir Navbar -->
   <!-- akhir Navbar -->
         
         <body>

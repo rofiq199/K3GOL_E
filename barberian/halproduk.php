@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
+  <?php 
+    session_start();
+  ?>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -74,6 +77,7 @@
   <div class="container">
     <div class="card-body border mt-5">
        <a class="fas fa-shopping-cart" onclick="redirect('keranjang.php')"></a>
+       <span class = "badge badge-danger">+9</span>
     </div>
     <div class="mt-5 row">
     <?php
