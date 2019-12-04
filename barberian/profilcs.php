@@ -1,5 +1,6 @@
 <!doctype html>
 <?php include "koneksi.php" ;
+    session_start ();
 ?>
 <html lang="en">
   <head>
@@ -74,7 +75,6 @@
       </nav>
 
     <?php 
-    session_start ();
     $username = $_SESSION['username']; 
     $query = "SELECT * FROM data_customer  WHERE username_cs='".$username."'";
     $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
