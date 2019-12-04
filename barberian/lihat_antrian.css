@@ -25,9 +25,7 @@ form{
     font-family: Viga;
     position :relative;
 }
-label{
-    font-size: 40px;
-}
+
 #popup{
     background-image: url('tim-mossholder-q49oU8NeOHQ-unsplash.jpg');
     background-size: cover;
