@@ -11,11 +11,8 @@ include "koneksi.php";
         if ($act == "add") {
             if (isset($_GET['barang_id'])) {
                 $barang_id = $_GET['barang_id'];
-                if (isset($_SESSION['items'][$barang_id])) {
-                    $_SESSION['items'][$barang_id] += 1;
-                } else {
                     $_SESSION['items'][$barang_id] = 1; 
-                }
+                
             }
         } elseif ($act == "plus") {
             if (isset($_GET['barang_id'])) {

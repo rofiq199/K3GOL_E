@@ -72,10 +72,40 @@
         <?php 
           include "koneksi.php";
           $id = $_GET['id'];
-          $query= "SELECT * from  harga_barber where username_bs='$id' ";
-          $result=mysqli_query($koneksi,$query) or die(mysqli_error());
+          $total = 0;
+          if (isset($_SESSION['items'])) {
+          print_r($_SESSION['items']);
+          $query1= "SELECT * from  data_barberman where nama_bm='$id' ";
+          $result1 = mysqli_query($koneksi,$query1) or die(mysqli_error());
+          $data1 = mysqli_fetch_array($result1);
+          $barbershop = $data1['username_bs'];
+
+          $query = "SELECT * from  harga_barber where username_bs='$barbershop' ";
+          $result= mysqli_query($koneksi,$query) or die(mysqli_error());
           $data = mysqli_fetch_array($result);
+          
         ?>
+
+<table>
+    <tr>
+    <td>kode ck</td>
+    <td>nama cukur</td>
+    <td>harga</td>
+    </tr>
+    <?php   foreach ($_SESSION['items'] as $key => $val){
+       $query2 = "SELECT * from  harga_barber where username_bs='$barbershop' and kode_ck = '$key' ";
+       $result2= mysqli_query($koneksi,$query2) ;
+       $tampil = mysqli_fetch_array($result2);
+       $total += $tampil['harga_ck'];
+      ?>
+    <tr>
+    <td><?php echo $key; ?></td>
+    <td><?php echo $tampil['nama_ck']; ?></td>
+    <td><?php echo $tampil['harga_ck'] ?></td>
+    </tr>
+    <?php }?>
+    </table>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-4 mt-2">
@@ -89,26 +119,27 @@
             </form>
             </div>
             <div class="col-md-8 mt-2">
-               
-              <form action="" id="jumlah">
               <div class="container"> 
                 <center>  <h5>Paket Potong</h5></center>
                 <div class="garis"></div>
                 <div class="row">
                   <div class="col mt-2"> 
+                  <div class="barang mt-2">
                    <?php while($rows = mysqli_fetch_array($result)){
                     ?>
-                    <div class="barang mt-2">
                       <input type="checkbox" class="form-check-input" id="keramas" value="<?php echo $rows['harga_ck']; ?>" name="produk" onclick="totalit()">
-                      <label class="form-check-label" for="keramas" id="nama"><?php echo $rows['nama_ck']; ?></label>
-                    </div>
-                    <div class="col mt-2 ml-5">
-                    <p name="harga" value="<?php echo $rows['harga_ck']; ?>">Rp. <?php echo number_format($rows['harga_ck']); ?></p>
-                    </div>
-                    <?php }?>
-                    </div>
-                  </div>
+                      <label class="form-check-label" for="keramas" id="nama"><?php echo $rows['nama_ck']; ?><a href="pesan1.php?act=add&amp;barang_id=<?php echo $rows['kode_ck']; ?>&amp;ref=pesan.php?id=<?php echo $id ?>">add</a></label><br>
+                      <?php 
+                   }
+                    ?>
+                  </div>   
                 </div>
+                <div class="col mt-2 ml-5">
+                      <?php for ($i=1; $i <= mysqli_num_rows($result); $i++) {  ?>
+                      <p class="form-check-label" >a</p>
+                    <?php }?>
+                  </div>
+              </div>
                 <div class="garis"></div>
                 <div class="row">
                   <div class="col mt-2">
@@ -118,19 +149,19 @@
                     </div>
                   </div>
                   <div class="col mt-2 ml-5">
-                      Rp <input type="text" value="0" readonly="readonly" id="tot" >
+                      Rp <input type="text" value="5000" readonly="readonly" id="tot" >
                     <div class="mt-2">
-                      Rp <input type="text" value="0" readonly="readonly" id="total">
+                      Rp <input type="text" value="<?php echo $total; ?>" readonly="readonly" id="total">
                     </div>
-                    <button type="button" class="btn btn-outline-success waves-effect mt-4 ml-4">Pesan</button>
+                    <a href="pesan2.php?id=<?php echo $id ?>" type="button" class="btn btn-outline-success waves-effect mt-4 ml-4">Pesan</a>
                   </div>
                 </div>
               </div>
-              </form>
             </div>
         </div>
     </div>
-    
+    <div>
+    <?php  }?>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

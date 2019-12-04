@@ -135,28 +135,18 @@
         <div class="container">
         <?php $data = mysqli_fetch_object($result);?>
                 <h2 class="Deskripsi mt-3"><?=$data -> nama_bs;?></h2>
-                <text class="text mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-                  ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-                  ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-                  reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
-                  occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est 
-                  laborum.</text>
         </div>
         <div class="container">
         <a type="button" class="btn btn-primary mt-3 "  href="antrian.php?id=<?=$data -> username_bs;?>" >Ambil Antrian</a>
-        <a  href="pesan.php?id=<?=$data -> username_bs;?>"><button type="button" class="btn btn-success mt-3 " href="pesan.php?id=<?=$data -> username_bs;?>">Order</button></a>
+        <a type="button" class="btn btn-success mt-3 " href="#barberman">Order</a>
       </div>
         <!-- Section: Team v.1 -->
 <div class="container">
 <section class="team-section text-center my-5">
 
         <!-- Section heading -->
-        <h2 class="h1-responsive font-weight-bold my-5" id="teamkami">Our amazing team</h2>
+        <h2 class="h1-responsive font-weight-bold my-5" id="barberman">List Barberman</h2>
         <!-- Section description -->
-        <p class="grey-text w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam
-          eum porro a pariatur veniam.</p>
-      
         <!-- Grid row -->
         <div class="row">
         
@@ -173,7 +163,7 @@
             <div class="card-body">
               <h5 class="card-title"><?=$rows -> nama_bm?></h5>
               <p class="card-text"><?=$rows -> email_bm?></p>
-              <a href="#" class="btn btn-success">Order</a>
+              <a href="pesan.php?id=<?=$rows -> nama_bm;?>" class="btn btn-success">Order</a>
             </div>
           </div>
         <?php }?>
@@ -391,23 +381,6 @@
         </div>
     </form>
   <!-- akhir modal -->
-  <!-- barang -->
-  <div class="container">
-    <section class="team-section text-center my-5">
-    
-            <!-- Section heading -->
-            <h2 class="h1-responsive font-weight-bold my-5">Lihat Juga Barang Kami</h2>
-            <!-- Section description -->
-          
-            <!-- Grid row -->
-            <div class="row">
-
-                <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                  </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
