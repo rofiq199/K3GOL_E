@@ -77,7 +77,12 @@
   <div class="container">
     <div class="card-body border mt-5">
        <a class="fas fa-shopping-cart" onclick="redirect('keranjang.php')"></a>
-       <span class = "badge badge-danger">+9</span>
+       <?php if(!isset($_SESSION['items'])){ ?>
+       <span class = "badge badge-danger">0</span>
+       <?php }else {
+        ?>
+        <span class = "badge badge-danger"><?php  echo count($_SESSION['items']);?></span>   
+       <?php } ?>    
     </div>
     <div class="mt-5 row">
     <?php
