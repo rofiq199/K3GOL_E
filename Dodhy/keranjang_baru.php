@@ -1,29 +1,23 @@
-<!doctype html>
+<!docname html>
 <html lang="en">
   <head>
-  <?php 
-    session_start();
-  ?>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="keranjang.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" rel="stylesheet">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
-
-    <!--My CSS-->
-    <link rel="stylesheet" href="caribarber.css">
-    <title>Barberian</title>
+    <script src="https://kit.fontawesome.com/6b0af4bcb3.js" crossorigin="anonymous"></script>
+    <script src="keranjang.js"></script>
   </head>
   <body>
-
-    <!--Navbar-->
-  
-    <nav class="navbar navbar-expand-lg navbar-light">
+  <!--Navbar-->
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
       <a class="navbar-brand" href="index.php">Barberian</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +26,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link " href="index.php">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="index.php#tentang_kami">Tentang Kami</a>
+          <a class="nav-item nav-link" href="index.php">Tentang Kami</a>
           <div class="dropdown">
             <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Fitur Kami
@@ -42,136 +36,100 @@
                     <a class="dropdown-item" href="caribarber.php">Cari Barbershop</a>
                     <a class="dropdown-item" href="halproduk.php">Produk</a>
                   </div>
-            </div>          
-      </div>
-      <?php if(!isset($_SESSION['username'])){ ?>
-          <div class="dropdown">
-            <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Masuk
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="" data-toggle="modal" data-target="#darkModalForm">Masuk Sebagai Customer</a>
-                  <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalLoginForm">Masuk Sebagai Barbershop</a>
-                  <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalForm">Masuk Sebagai Barberman</a>
-                  </div>
-            </div>
-            <?php }else{
-          ?>
-          <div class="dropdown">
-            <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <?php echo $_SESSION['username']?>
-                  </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href='profilcs.php'>Profil</a>
-                  <a class="dropdown-item" href="hisbeli.php" >History Order</a>
-                  <a class="dropdown-item" href="lihat_antrian.php" >Lihat Antrian</a>
-                  <a class="dropdown-item" href="logout.php" >Logout</a>
-                </div>
-            </div>
-            <?php }
+              </div>
+                <?php if(!isset($_SESSION['username'])){ ?>
+            <div class="dropdown">
+              <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Masuk
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="" data-toggle="modal" data-target="#darkModalForm">Masuk Sebagai Customer</a>
+                      <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalLoginForm">Masuk Sebagai Barbershop</a>
+                      <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalForm">Masuk Sebagai Barberman</a>
+                    </div>
+              </div>
+              <?php }else{
             ?>
+            <div class="dropdown">
+              <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <?php echo $_SESSION['username']?>
+                    </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href='profilcs.php'>Profil</a>
+                    <a class="dropdown-item" href="" >History Order</a>
+                    <a class="dropdown-item" href="" >Lihat Antrian</a>
+                    <a class="dropdown-item" href="logout.php" >Logout</a>
+                  </div>
+              </div>
+              <?php }
+              ?>
+            </div>
+          </div>
+      </div>
+      </nav>
+      <!-- akhir navbar -->
+<div class="kartu mt-3">
+  <div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="ml-4">
+            <input type="checkbox" class="form-check-input" onchange="checkAll(this)" name="chk[]">
+            <label class="form-check-label" for="potongrambut">Pilih Semua Item</label>
+            </div>
+            <a href="" class="ml-auto mr-2 hapus"><strong>Hapus Item</strong></a>
           </div>
         </div>
       </div>
-    </div>
-    </nav>
-    <script src="jquery-1.7.1.min.js" type="text/javascript"></script>
-      <script type="text/javascript">
-      $(document).ready(function() {
-        <!-- event textbox keyup
-        $("#search").keyup(function() {
-        var strcari = $("#search").val();// <!-- mendapatkan nilai dari textbox -->
-        if (strcari != "") //<!-- jika value strcari tidak kosong-->
-        {
-          //$("#result").html("<img src='loading.gif'/>")// <!-- menampilkan animasi loading -->
-        // <!-- request data ke cari.php lalu menampilkan ke <div id="hasil"></div> -->
-          $.ajax({
-          type:"post",
-          url:"caribarber1.php",
-          data:"nama="+ strcari,
-          success: function(data){
-            $("#result").html(data);
-          }
-          });
-        }
-        });
-          });
-      </script>
-  <!-- akhir Navbar --> 
-  <!-- Jumbotron -->
-  <!-- Section: Blog v.3 -->
-<?php include "koneksi.php";?>
-<div class="container">
-<form method="post" action="caribarber.php">
-<div  type="text" name="search" id="search"class="input-group md-form form-sm form-2 pl-0 my-5">
-  <input class="form-control my-0 py-1 amber-border" type="text" name="search" placeholder="cari disini" >
-  <div class="input-group-append">
-    <button type="submit" value="search" class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search text-grey"
-        aria-hidden="true"></i></button>
-  </div>
-</div>
-</form>
-<section class="my-5 barber">
-  <hr class="my-4">
-<?php
-if(isset($_POST['search'])){
-$search = $_POST['search'];
-$query=" SELECT * from  data_barber where nama_bs like '%$search%' ";
-$result=mysqli_query($koneksi,$query) or die(mysqli_error());
-$no=1;
-}else{
-  $query= "SELECT * from  data_barber ";
-  $result=mysqli_query($koneksi,$query) or die(mysqli_error());
-}
-//proses menampilkan data
-while($rows=mysqli_fetch_object($result)){
-?>
-  <!-- Grid row -->
-  <div class="mt-3 card">
-  <div class="card-body">
-  <div class="row">
-
-    <!-- Grid column -->
-    <div class="col-lg-5 col-xl-4">
-
-      <!-- Featured image -->
-      <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
-        <img class="img-fluid" src="admin/img/<?=$rows -> foto;?>" alt="Sample image">
-        <a>
-          <div class="mask rgba-white-slight"></div>
-        </a>
+      <div class="card mt-2">
+        <div class="card-header" name="judul">
+            <div class="ml-2">
+            <input type="checkbox" class="form-check-input"  name="chkbox[]">
+            <label class="form-check-label" for="potongrambut">ini Nama Tokonya</label>
+            </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-4 col-xl-3">
+              <img class="img-thumbnail" src="https://akcdn.detik.net.id/community/media/visual/2015/06/25/fd06dfea-00ae-4f11-8ce2-d6e41a00aad7_43.jpg?w=780&q=90" alt="">
+            </div>
+                <div class="col-lg-7 col-xl-8">
+                  <div class="row">
+                    <a href="">Madafaka</a>
+                    <h6 class="ml-auto">Rp 0</h6>
+                  </div>
+                    <div class="row">
+                      <a href="" class="ml-auto hapus">Hapus</a>
+                    </div>
+                  <div class="def-number-input number-input col">
+                    <a onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="fas fa-minus-square"></a>
+                    <input class="quantity" min="0" name="quantity" value="1" type="number" disabled>
+                    <a onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="fas fa-plus-square"></a>
+                  </div>
+                </div>
+            </div>
+        </div>
       </div>
-
     </div>
-    <!-- Grid column -->
-
-    <!-- Grid column -->
-    <div class="col-lg-7 col-xl-8">
-
-      <!-- Post title -->
-      <h3 class="font-weight-bold mb-3"><strong><?=$rows -> nama_bs;?></strong></h3>
-      <!-- Excerpt -->
-      <p class="Deskripsi"><?=$rows -> alamat_bs;?><br>
-      <?=$rows -> jam_buka;?>-<?=$rows -> jam_tutup;?></p>
-      <!-- klik ke detail barbershop -->
-      <a type="button" class="btn btn-outline-primary btn-rounded waves-effect" href="detailbarber.php?id=<?=$rows -> username_bs;?>">Lihat Detail</a>
-      <div class="border"></div>
-      <p class="mt-5 status">status <?=$rows -> username_bs;?><br>
-    </div>
-    <!-- Grid column -->
-  </div>  
-  </div>
-  </div>
-  <!-- Grid row -->
-<?php
-}
-?>
-</section>
+    <div class="col-6 col-md-4">
+    <div class="card" style="width: 25rem;">
+        <div class="card-body">
+        <div class="container">
+            <p class="card-title"><strong>Ringkasan Belanja</strong></p>
+              <div class="border-bottom"></div>
+            <p class="card-text">Total Harga</p>
+            <p class="card-text">Rp 0</p>
+              <div class="border-bottom"></div>
+            <a href="#" class="btn btn-success text-white"><strong>Beli</strong></a>
+            </div>
+        </div>
 </div>
-
-<!-- Section: Blog v.3 -->
-  <!-- akhir Jumbotron -->
-<!-- Modal -->
+    </div>
+  </div>
+</div>
+</div>
 <!-- Modal -->
 <div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
@@ -355,12 +313,10 @@ while($rows=mysqli_fetch_object($result)){
     <!--/.Content-->
   </div>
 </div>
-  <ul id="result" ></ul>
-        <!-- Optional JavaScript -->
+    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/6b0af4bcb3.js" crossorigin="anonymous"></script>
-    </body>
-  </html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
