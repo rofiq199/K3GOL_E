@@ -5,8 +5,6 @@
     session_start();
     include "koneksi.php";
     $total = 0;
-    if (isset($_SESSION['items'])) {
-      print_r($_SESSION['items']);
   ?>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -87,6 +85,7 @@
         </div>
       </div>
       <?php 
+          if (isset($_SESSION['items'])) {
        foreach ($_SESSION['items'] as $key => $val){
         $query = mysqli_query ($koneksi,"select * from produk where kode_produk = '$key'");
         $rs = mysqli_fetch_array($query);
@@ -134,12 +133,13 @@
             <button  data-toggle="modal" data-target="#modalck" class="btn btn-success text-white"><strong>Beli</strong></button>
             </div>
         </div>
+        <?php } ?>
 </div>
     </div>
   </div>
 </div>
 </div>
-       <?php } ?>
+
 <!-- Modal -->
 <div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">

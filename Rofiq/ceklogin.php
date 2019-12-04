@@ -10,7 +10,7 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 // menyeleksi data admin dengan username dan password yang sesuai
-$data = mysqli_query($koneksi,"select * from data_barber where username_bs='$username' and password_bs='$password'");
+$data = mysqli_query($koneksi,"select * from data_customer where username_cs='$username' and password_cs='$password'");
 
 // menghitung jumlah data yang ditemukan
 $cek = mysqli_num_rows($data);
