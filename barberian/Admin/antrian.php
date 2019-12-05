@@ -1,5 +1,15 @@
 <!doctype html>
 <html lang="en">
+  <?php 
+  include "../koneksi.php";
+  session_start();
+  // Ambil data NIS yang dikirim oleh index.php melalui URL
+  $username = $_SESSION['username'];
+  // Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
+  $query = "SELECT * FROM antrian  WHERE ( status_antrian='belum' or status_antrian='proses') and username_bs='".$username."' ";
+  $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
+  ?>
+  ?>
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -51,55 +61,31 @@
           <table class="table table-striped table-bordered">
             <thead>
               <tr>
-                <th scope="col">NO</th>
-                <th scope="col">NAMA</th>
-                <th scope="col">NOMOR ANTRIAN</th>
+                <th scope="col">No</th>
+                <th scope="col">Nama</th>
+                <th scope="col">Nomor Antrian</th>
+                <th scope="col">Status Antrian</th>
                 <th colspan="3" scope="col">STATUS</th>
               </tr>
             </thead>
             <tbody>
+        <?php 
+          $no = 1;
+          while($data = mysqli_fetch_array($sql)){ ?>
               <tr>
-                <th scope="row">1</th>
-                <td>IFAR KENCROT</td>
-                <td>01</td>
-                <td><i class="fas fa-edit bg-success p-2 text-white rounded" data-toggle="tooltip" title="Edit"></i></td>
-                <td><i class="fas fa-trash-alt bg-danger p-2 text-white rounded" data-toggle="tooltip" title="Delete"></i></td>
+                <th scope="row"><?php echo $no++; ?></th>
+                <td><?php echo $data['username_cs']; ?></td>
+                <td><?php echo $data['no_antrian']; ?></td>
+                <td><?php echo $data['status_antrian']; ?></td>
+                <?php if ($data['status_antrian'] == 'belum'){ ?>
+                  <td><i class="fas fa-edit bg-success p-2 text-white rounded" data-toggle="tooltip" title="Edit">Proses</i></td>
+                <td><i class="fas fa-trash-alt bg-danger p-2 text-white rounded" data-toggle="tooltip" title="Delete">Batal</i></td>
+                <?php }else{ ?>
+                  <td><i class="fas fa-edit bg-success p-2 text-white rounded" data-toggle="tooltip" title="Edit">Selesai</i></td>
+                <td><i class="fas fa-trash-alt bg-danger p-2 text-white rounded" data-toggle="tooltip" title="Delete">Batal</i></td>
+                <?php } ?>
               </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>DODHY BOY </td>
-                <td>02</td>
-                <td><i class="fas fa-edit bg-success p-2 text-white rounded" data-toggle="tooltip" title="Edit"></i></td>
-                <td><i class="fas fa-trash-alt bg-danger p-2 text-white rounded" data-toggle="tooltip" title="Delete"></i></td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>RAMMA POSTMAN</td>
-                <td>03</td>
-                <td><i class="fas fa-edit bg-success p-2 text-white rounded" data-toggle="tooltip" title="Edit"></i></td>
-                <td><i class="fas fa-trash-alt bg-danger p-2 text-white rounded" data-toggle="tooltip" title="Delete"></i></td>
-              </tr>
-              <tr>
-                <th scope="row">4</th>
-                <td>RESTU GUN</td>
-                <td>04</td>
-                <td><i class="fas fa-edit bg-success p-2 text-white rounded" data-toggle="tooltip" title="Edit"></i></td>
-                <td><i class="fas fa-trash-alt bg-danger p-2 text-white rounded" data-toggle="tooltip" title="Delete"></i></td>
-              </tr>
-              <tr>
-                <th scope="row">5</th>
-                <td>ROFIQ EDI</td>
-                <td>05</td>
-                <td><i class="fas fa-edit bg-success p-2 text-white rounded" data-toggle="tooltip" title="Edit"></i></td>
-                <td><i class="fas fa-trash-alt bg-danger p-2 text-white rounded" data-toggle="tooltip" title="Delete"></i></td>
-              </tr>
-              <tr>
-                <th scope="row">6</th>
-                <td>INI RIJAL</td>
-                <td>06</td>
-                <td><i class="fas fa-edit bg-success p-2 text-white rounded" data-toggle="tooltip" title="Edit"></i></td>
-                <td><i class="fas fa-trash-alt bg-danger p-2 text-white rounded" data-toggle="tooltip" title="Delete"></i></td>
-              </tr>
+        <?php }?>
             </tbody>
           </table>
 

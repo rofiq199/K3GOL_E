@@ -55,7 +55,7 @@
                           <a class="nav-link text-white" href="profil.php"><i class="fas fa-user-edit mr-2"></i>UBAH PROFIL</a><hr class="bg-secondary">
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link text-white" href="file:///E:/instalan/xamp/htdocs/template_admin2/ANTRIAN_ADMIN.html"><i class="fas fa-money-check mr-2"></i>LIHAT ANTRIAN</a><hr class="bg-secondary">
+                          <a class="nav-link text-white" href="antrian.php"><i class="fas fa-money-check mr-2"></i>LIHAT ANTRIAN</a><hr class="bg-secondary">
                         </li>
                        
                       </ul>
