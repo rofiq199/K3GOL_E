@@ -49,7 +49,7 @@
                           <a class="nav-link active text-white" href="produk.php"><i class="fas fa-tags mr-2"></i>LIHAT PRODUK</a><hr class="bg-secondary">
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link text-white" href="#"><i class="fas fa-store mr-2"></i>LIHAT BARBERMAN</a><hr class="bg-secondary">
+                          <a class="nav-link text-white" href="barberman.php"><i class="fas fa-store mr-2"></i>LIHAT BARBERMAN</a><hr class="bg-secondary">
                         </li>
                         <li class="nav-item">
                           <a class="nav-link text-white" href="profil.php"><i class="fas fa-user-edit mr-2"></i>UBAH PROFIL</a><hr class="bg-secondary">
@@ -57,8 +57,11 @@
                         <li class="nav-item">
                           <a class="nav-link text-white" href="ANTRIAN_ADMIN.html"><i class="fas fa-money-check mr-2"></i>LIHAT ANTRIAN</a><hr class="bg-secondary">
                         </li>
-                       
+                        <li class="nav-item">
+                          <a class="nav-link text-white" href="#"><i class="fas fa-dollar-sign mr-3 ml-2"></i>LIST HARGA</a><hr class="bg-secondary">
+                        </li>
                       </ul>
+
         </div>
         <div class="col-md-8 p-5 pt-2">
           <h3><i class="fas fa-store mr-2"></i> LIHAT BARBERMAN</h3><hr>
