@@ -27,7 +27,7 @@ include "koneksi.php";
     $NewID = $today .sprintf('%04s', $NoUrut);
 //$today nanti jadinya misal 20160526 .sprintf('%04s', $NoUrut) urutan id di tanggal hari ini
    //proses simpan data id dengan id yg baru ke database
-   $query = "INSERT INTO pesan VALUES ($NewID,$id, '".$_SESSION['username']."', '".$tanggal."','sd','belum','5000')";
+   $query = "INSERT INTO pesan VALUES ($NewID,$id, '".$username."', '".$tanggal."','sd','belum','5000')";
    $sql = mysqli_query($koneksi, $query); // Eksekusi/ Jalankan query dari variabel $query
     
    foreach ($_SESSION['cukur'] as $key => $val){
@@ -39,7 +39,7 @@ include "koneksi.php";
     //pesan sukses apa enggak
     if($query== TRUE) { echo"Data sudah masuk";}
     else {echo "Data gagal";}
-echo $NewID
+echo $NewID;
 
 ?>
 selamat Anda berhasil Cekout <a href="halproduk.php">

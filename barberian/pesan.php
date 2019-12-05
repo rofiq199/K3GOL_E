@@ -117,9 +117,9 @@
             <div class="col-md-4 mt-2">
               <form>
               <label for="inputCustomer4">Nama Customer</label>
-              <input type="text" class="form-control" id="masukan4" disabled value="<?php echo $_SESSION['username']; ?>">
+              <input type="text" class="form-control" id="masukan4"  value="<?php echo $_SESSION['username']; ?>">
               <label for="inputBarberman4" class="mt-1">Nama Barberman</label>
-              <input type="text" class="form-control" id="masukan4" disabled value="<?php echo $nama; ?>">
+              <input type="text" class="form-control" id="masukan4"  value="<?php echo $nama; ?>">
               <label for="inputCity">Alamat</label>
               <input type="text" class="form-control" id="masukan4"  value="Alamat">
             </form>
