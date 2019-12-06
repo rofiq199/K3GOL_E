@@ -137,8 +137,8 @@
                 <h2 class="Deskripsi mt-3"><?=$data -> nama_bs;?></h2>
         </div>
         <div class="container">
-        <a type="button" class="btn btn-primary mt-3 "  href="antrian.php?id=<?=$data -> username_bs;?>" >Ambil Antrian</a>
-        <a type="button" class="btn btn-success mt-3 " href="#barberman">Order</a>
+        <button type="button" class="btn btn-primary mt-3 "  onclick="window.location.href='antrian.php?id=<?=$data -> username_bs;?>'" >Ambil Antrian</buutton>
+        <button type="button" class="btn btn-success mt-3 " onclick="window.location.href='#barberman'">Order</button>
       </div>
         <!-- Section: Team v.1 -->
 <div class="container">
