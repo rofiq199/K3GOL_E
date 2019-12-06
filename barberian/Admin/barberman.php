@@ -27,25 +27,28 @@
       $query = "SELECT * FROM data_barberman  WHERE username_bs='".$username."'";
       $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
       ?>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand text-white" href="../index.php">BARBERSHOP</a>
-        
-          <form class="form-inline my-2 my-lg-0 ml-auto">
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <a class="navbar-brand text-white" >BARBERIAN</a>
+        <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+          <i class="fas fa-bars"></i> 
+        </button>
+        <form class="form-inline my-2 my-lg-0 ml-auto">
             
-          </form>
-          <div class="icon ml-4">
-              <h5>
-                  <i class="fas fa-sign-out-alt mr-3 text-white" data-toggle="tooltip" title="Sign Out"></i>
-              </h5>
-
-          </div>
-        </div>
-      </nav>
+            </form>
+            <div class="icon ml-4">
+                <h5>
+                    <i class="fas fa-sign-out-alt mr-3 text-white" data-toggle="tooltip" title="Sign Out"></i>
+                </h5>
+  
+            </div>
+        </nav>
 
       <div class="row no-gutters">
-        <div class="col-md-2,5 bg-dark mt-2 pr-3 pt-4">
-                <ul class="nav flex-column ml-3 mb-5">
-                        <li class="nav-item">
+      <div class="col-md-2,5 bg-dark  pt-4 ">
+              <ul class="nav flex-column">
+                  <ul class="nav flex-column">
+                      <ul class="sidebar navbar-nav">
+                      <li class="nav-item">
                           <a class="nav-link active text-white" href="produk.php"><i class="fas fa-tags mr-2"></i>LIHAT PRODUK</a><hr class="bg-secondary">
                         </li>
                         <li class="nav-item">
@@ -55,13 +58,12 @@
                           <a class="nav-link text-white" href="profil.php"><i class="fas fa-user-edit mr-2"></i>UBAH PROFIL</a><hr class="bg-secondary">
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link text-white" href="ANTRIAN_ADMIN.html"><i class="fas fa-money-check mr-2"></i>LIHAT ANTRIAN</a><hr class="bg-secondary">
+                          <a class="nav-link text-white" href="antrian.php"><i class="fas fa-money-check mr-2"></i>LIHAT ANTRIAN</a><hr class="bg-secondary">
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link text-white" href="#"><i class="fas fa-dollar-sign mr-3 ml-2"></i>LIST HARGA</a><hr class="bg-secondary">
+                          <a class="nav-link text-white" href="list_harga.html"><i class="fas fa-dollar-sign mr-3 ml-2"></i>LIST HARGA</a><hr class="bg-secondary">
                         </li>
-                      </ul>
-
+                    </ul>
         </div>
         <div class="col-md-8 p-5 pt-2">
           <h3><i class="fas fa-store mr-2"></i> LIHAT BARBERMAN</h3><hr>
@@ -95,7 +97,7 @@
               </tr>
                   <!-- Modal hapus barberman -->
                 <form action="barbermanh.php" method="POST">
-                <div class="modal" id="modalhapus<?php echo $no ?>"tabindex="-1" role="dialog">
+                <div class="modal fade" id="modalhapus<?php echo $no ?>"tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -109,8 +111,8 @@
                       <input type="hidden" value="<?php echo $data['username_bm'];?>" name="username">
                     </div>
                     <div class="modal-footer">
-                      <button type="submit" class="btn btn-primary" >Hapus </button>
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                      <button type="submit" class="btn btn-danger" >Hapus </button>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">Batal</button>
                     </div>
                   </div>
                 </div>
@@ -129,38 +131,37 @@
                     </button>
                   </div>
                   <div class="modal-body mx-3">
-                  <div class="md-form mb-5">
-                      <input type="hidden" value="<?php echo $data['username_bm'];?>" name="username">
-                    </div>
-                    <div class="md-form mb-5">
-                      <label data-error="wrong" data-success="right" for="defaultForm-email">Nama Barberman</label>
-                      <input type="text" id="defaultForm-email" class="form-control validate" value="<?php echo $data['nama_bm'];?>" name="nama">
-                    </div>
-                    <div class="md-form mb-5">
-                      <label data-error="wrong" data-success="right" for="defaultForm-email">E-mail</label>
-                      <input type="text" id="defaultForm-email" class="form-control validate" value="<?php echo $data['email_bm'];?>" name="email">
-                    </div>
-                    <div class="md-form mb-5">
-                      <label data-error="wrong" data-success="right" for="defaultForm-email">Alamat</label>
-                      <input type="text" id="defaultForm-email" class="form-control validate" value="<?php echo $data['alamat_bm'];?>" name="alamat">
-                    </div>
-                    <div class="md-form mb-5">
-                      <label data-error="wrong" data-success="right" for="defaultForm-email">Nomor telepon</label>
-                      <input type="text" id="defaultForm-email" class="form-control validate" value="<?php echo $data['no_bm'];?>" name="no">
-                    </div>
-                    <div class="md-form mb-5">
-                      <label data-error="wrong" data-success="right" for="defaultForm-email">Password</label>
-                      <input type="password" id="defaultForm-email" class="form-control validate" value="<?php echo $data['password_bm'];?>" name="password">
-                    </div>
-                    <div class="md-form mb-4">
-                    <label data-error="wrong" data-success="right" for="defaultForm-email">Foto</label>
+                  <div class="md-form mb-2">
                     <br>
                       <input type="file" name="foto" >
                     </div>
+                  <div class="md-form mb-2">
+                      <input type="hidden" value="<?php echo $data['username_bm'];?>" name="username">
+                    </div>
+                    <div class="md-form mb-2">
+                      <input type="text" id="defaultForm-email" class="form-control validate" value="<?php echo $data['nama_bm'];?>" name="nama" placeholder="Nama Barberman">
+                    </div>
+                    <div class="md-form mb-2">
+                      
+                      <input type="text" id="defaultForm-email" class="form-control validate" value="<?php echo $data['email_bm'];?>" name="email" placeholder="Email">
+                    </div>
+                    <div class="md-form mb-2">
+                    
+                      <input type="text" id="defaultForm-email" class="form-control validate" value="<?php echo $data['alamat_bm'];?>" name="alamat" placeholder="Alamat">
+                    </div>
+                    <div class="md-form mb-2">
+                     
+                      <input type="text" id="defaultForm-email" class="form-control validate" value="<?php echo $data['no_bm'];?>" name="no" placeholder="Nomor Telepon">
+                    </div>
+                    <div class="md-form mb-2">
+                     
+                      <input type="password" id="defaultForm-email" class="form-control validate" value="<?php echo $data['password_bm'];?>" name="password" placeholder="Masukkan Password">
+                    </div>
+                    
                   </div>
                   <div class="modal-footer d-flex justify-content-center">
                     <button type="submit" class="btn btn-primary">Edit</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
                   </div>
                 </div>
               </div>
@@ -180,39 +181,33 @@
                   </button>
                 </div>
                 <div class="modal-body mx-3">
-                <div class="md-form mb-5">
-                    <label>Username</label>
-                    <input type="text" class="form-control validate" name="username">
-                  </div>
-                  <div class="md-form mb-5">
-                    <label data-error="wrong" data-success="right" for="defaultForm-email">Nama Barberman</label>
-                    <input type="text" id="defaultForm-name" class="form-control validate"  name="nama">
-                  </div>
-                  <div class="md-form mb-5">
-                    <label data-error="wrong" data-success="right" for="defaultForm-email">E-Mail</label>
-                    <input type="text" id="defaultForm-email" class="form-control validate" name="email">
-                  </div>
-                  <div class="md-form mb-5">
-                    <label data-error="wrong" data-success="right" for="defaultForm-email">Alamat</label>
-                    <input type="text" id="defaultForm-address" class="form-control validate" name="alamat">
-                  </div>
-                  <div class="md-form mb-5">
-                    <label data-error="wrong" data-success="right" for="defaultForm-email">Nomor Telepon</label>
-                    <input type="text" id="defaultForm-numbr" class="form-control validate" name="no">
-                  </div>
-                  <div class="md-form mb-5">
-                    <label data-error="wrong" data-success="right" for="defaultForm-email">Password</label>
-                    <input type="password" id="defaultForm-password" class="form-control validate" name="password">
-                  </div>
-                  <div class="md-form mb-4">
-                  <label data-error="wrong" data-success="right" for="defaultForm-email">Foto</label>
+                <div class="md-form mb-2">
                   <br>
                     <input type="file" name="foto" >
                   </div>
+                <div class="md-form mb-2">
+                    <input type="text" class="form-control validate" name="username" placeholder="Username">
+                  </div>
+                  <div class="md-form mb-2">
+                    <input type="text" id="defaultForm-name" class="form-control validate"  name="nama" placeholder="Nama Barberman">
+                  </div>
+                  <div class="md-form mb-2">
+                    <input type="text" id="defaultForm-email" class="form-control validate" name="email" placeholder="Email">
+                  </div>
+                  <div class="md-form mb-2">
+                    <input type="text" id="defaultForm-address" class="form-control validate" name="alamat" placeholder="Alamat">
+                  </div>
+                  <div class="md-form mb-2">
+                    <input type="text" id="defaultForm-numbr" class="form-control validate" name="no" placeholder="Nomor Telepon">
+                  </div>
+                  <div class="md-form mb-2">
+                    <input type="password" id="defaultForm-password" class="form-control validate" name="password" placeholder="Masukkan Password">
+                  </div>
+                  
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
                   <button type="submit" class="btn btn-primary">Tambah</button>
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
                 </div>
               </div>
             </div>

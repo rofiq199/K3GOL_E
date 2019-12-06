@@ -27,26 +27,29 @@
       $query = "SELECT * FROM produk  WHERE username_bs='".$username."'";
       $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
       ?>
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-        <a class="navbar-brand text-white" href="#">BARBERSHOP</a>
-        
-          <form class="form-inline my-2 my-lg-0 ml-auto">
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <a class="navbar-brand text-white" >BARBERIAN</a>
+        <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+          <i class="fas fa-bars"></i> 
+        </button>
+        <form class="form-inline my-2 my-lg-0 ml-auto">
             
-          </form>
-          <div class="icon ml-4">
-              <h5>
-                  <a href="../logout.php" class="fas fa-sign-out-alt mr-3 text-white" data-toggle="tooltip" title="Sign Out"></a>
-              </h5>
+            </form>
+            <div class="icon ml-4">
+                <h5>
+                    <i class="fas fa-sign-out-alt mr-3 text-white" data-toggle="tooltip" title="Sign Out"></i>
+                </h5>
+  
+            </div>
+        </nav>
 
-          </div>
-        </div>
-      </nav>
-
-      <div class="row no-gutters mt-5">
-        <div class="col-md-2,5 bg-dark mt-2 pr-3 pt-4">
-                <ul class="nav flex-column ml-3 mb-5">
-                        <li class="nav-item">
-                          <a class="nav-link active text-white" href="#"><i class="fas fa-tags mr-2"></i>LIHAT PRODUK</a><hr class="bg-secondary">
+      <div class="row no-gutters">
+      <div class="col-md-2,5 bg-dark  pt-4 ">
+              <ul class="nav flex-column">
+                  <ul class="nav flex-column">
+                      <ul class="sidebar navbar-nav">
+                      <li class="nav-item">
+                          <a class="nav-link active text-white" href="produk.php"><i class="fas fa-tags mr-2"></i>LIHAT PRODUK</a><hr class="bg-secondary">
                         </li>
                         <li class="nav-item">
                           <a class="nav-link text-white" href="barberman.php"><i class="fas fa-store mr-2"></i>LIHAT BARBERMAN</a><hr class="bg-secondary">
@@ -57,12 +60,13 @@
                         <li class="nav-item">
                           <a class="nav-link text-white" href="antrian.php"><i class="fas fa-money-check mr-2"></i>LIHAT ANTRIAN</a><hr class="bg-secondary">
                         </li>
-                       
-                      </ul>
+                        <li class="nav-item">
+                          <a class="nav-link text-white" href="list_harga.html"><i class="fas fa-dollar-sign mr-3 ml-2"></i>LIST HARGA</a><hr class="bg-secondary">
+                        </li>
+                    </ul>
         </div>
         <div class="col-md-8 p-5 pt-2">
           <h3><i class="fas fa-tags mr-2"></i> LIHAT PRODUK</h3><hr>
-          <p id="pesan">halo</p>
           <a class="btn btn-primary mb-3"data-toggle="modal" data-target="#modalplus" title="plus" ><i class="fas fa-plus-square mr-2"></i>Tambah Produk</a>
           <table class="table table-striped table-bordered">
             <thead>
@@ -90,7 +94,7 @@
           
           <!-- Modal hapus barang -->
         <form action="produkh.php" method="POST">
-        <div class="modal" id="modalhapus<?php echo $no ?>"tabindex="-1" role="dialog">
+        <div class="modal fade" id="modalhapus<?php echo $no ?>"tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -104,8 +108,8 @@
               <input type="hidden" value="<?php echo $data['kode_produk'];?>" name="kode2">
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-primary" >Hapus </button>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+              <button type="submit" class="btn btn-danger" >Hapus </button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Batal</button>
             </div>
           </div>
         </div>
@@ -124,29 +128,27 @@
               </button>
             </div>
             <div class="modal-body mx-3">
-            <div class="md-form mb-5">
-                <input type="hidden" value="<?php echo $data['kode_produk'];?>" name="kode">
-              </div>
-              <div class="md-form mb-5">
-                <label data-error="wrong" data-success="right" for="defaultForm-email">Nama Produk</label>
-                <input type="username" id="defaultForm-email" class="form-control validate" value="<?php echo $data['nama_produk'];?>" name="nama">
-              </div>
-              <div class="md-form mb-5">
-                <label data-error="wrong" data-success="right" for="defaultForm-email">Harga Produk</label>
-                <input type="username" id="defaultForm-email" class="form-control validate" value="<?php echo $data['harga_produk'];?>" name="harga">
-              </div>
-              <div class="md-form mb-5">
-                <label data-error="wrong" data-success="right" for="defaultForm-email">stok Produk</label>
-                <input type="text" id="defaultForm-email" class="form-control validate" value="<?php echo $data['stok'];?>" name="harga">
-              </div>
-              <div class="md-form mb-4">
-              <label data-error="wrong" data-success="right" for="defaultForm-email">Foto</label>
+            <div class="md-form mb-4">
                <br>
                 <input type="file" name="foto" >
               </div>
+            <div class="md-form mb-2">
+                <input type="hidden" value="<?php echo $data['kode_produk'];?>" name="kode">
+              </div>
+              <div class="md-form mb-2">
+                <input type="username" id="defaultForm-email" class="form-control validate" value="<?php echo $data['nama_produk'];?>" name="nama" placeholder="Nama Produk">
+              </div>
+              <div class="md-form mb-2">
+                <input type="username" id="defaultForm-email" class="form-control validate" value="<?php echo $data['harga_produk'];?>" name="harga" placeholder="Harga Produk">
+              </div>
+              <div class="md-form mb-2">
+                <input type="text" id="defaultForm-email" class="form-control validate" value="<?php echo $data['stok'];?>" name="harga" placeholder="Masukkan Jumlah Stok">
+              </div>
+              
             </div>
             <div class="modal-footer d-flex justify-content-center">
-              <button type="submit" class="btn btn-primary">Edit</button>
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
             </div>
           </div>
         </div>
@@ -166,26 +168,24 @@
               </button>
             </div>
             <div class="modal-body mx-3">
-              <div class="md-form mb-5">
-                <label data-error="wrong" data-success="right" for="defaultForm-email">Nama Produk</label>
-                <input type="username" id="nama" class="form-control validate"  name="nama1">
-              </div>
-              <div class="md-form mb-5">
-                <label data-error="wrong" data-success="right" for="defaultForm-email">Harga Produk</label>
-                <input type="username" id="harga" class="form-control validate" name="harga1">
-              </div>
-              <div class="md-form mb-5">
-                <label data-error="wrong" data-success="right" for="defaultForm-email">stok</label>
-                <input type="text" id="harga" class="form-control validate" name="stok1">
-              </div>
-              <div class="md-form mb-4">
-              <label data-error="wrong" data-success="right" for="defaultForm-email">Foto</label>
+            <div class="md-form mb-4">
                <br>
                 <input type="file" name="foto1" >
               </div>
+              <div class="md-form mb-2">
+                <input type="username" id="nama" class="form-control validate"  name="nama1" placeholder="Nama Produk">
+              </div>
+              <div class="md-form mb-2">
+                <input type="username" id="harga" class="form-control validate" name="harga1" placeholder="Harga Produk">
+              </div>
+              <div class="md-form mb-2">
+                <input type="text" id="harga" class="form-control validate" name="stok1" placeholder="Masukkan Jumlah Stok">
+              </div>
+              
             </div>
             <div class="modal-footer d-flex justify-content-center">
-              <button type="submit" class="btn btn-default">Tambah</button>
+                  <button type="submit" class="btn btn-primary">Tambah</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
             </div>
           </div>
         </div>
