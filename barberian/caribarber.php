@@ -155,9 +155,13 @@ while($rows=mysqli_fetch_object($result)){
       <p class="Deskripsi"><?=$rows -> alamat_bs;?><br>
       <?=$rows -> jam_buka;?>-<?=$rows -> jam_tutup;?></p>
       <!-- klik ke detail barbershop -->
-      <a type="button" class="btn btn-outline-primary btn-rounded waves-effect" href="detailbarber.php?id=<?=$rows -> username_bs;?>">Lihat Detail</a>
-      <div class="border"></div>
-      <p class="mt-5 status">status <?=$rows -> username_bs;?><br>
+      <?php if(($rows -> status_bs) == 'buka'){ ?>
+      <button type = "button" class="btn btn-outline-primary btn-rounded waves-effect" onclick="window.location.href='detailbarber.php?id=<?=$rows -> username_bs;?>'">Lihat Detail</button>
+      <?php }else{ ?>
+        <button type = "button" disabled class="btn btn-outline-primary btn-rounded waves-effect" onclick="window.location.href='detailbarber.php?id=<?=$rows -> username_bs;?>'">Lihat Detail</button>
+      <?php }?>
+        <div class="border"></div>
+      <p class="mt-5 status">status <strong><?=$rows -> status_bs;?></strong><br>
     </div>
     <!-- Grid column -->
   </div>  
