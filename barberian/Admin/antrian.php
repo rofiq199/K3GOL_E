@@ -31,7 +31,7 @@
             </form>
             <div class="icon ml-4">
                 <h5>
-                    <i class="fas fa-sign-out-alt mr-3 text-white" data-toggle="tooltip" title="Sign Out"></i>
+                    <a href="../logout.php" class="fas fa-sign-out-alt mr-3 text-white" data-toggle="tooltip" title="Sign Out"></a>
                 </h5>
   
             </div>
@@ -59,8 +59,8 @@
                     </ul>
         </div>
         <div class="col-md-8 p-5 pt-2">
-          <h3><i class="fas fa-money-check mr-2"></i> LIHAT ANTRIAN</h3><hr>
-          <a href="#" class="btn btn-primary mb-3"><i class="fas fa-plus-square mr-2"></i>TAMBAH ANTRIAN</a>
+          <h3><i class="fas fa-money-check mr-2"></i> Lihat Antrian</h3><hr>
+          <a href="#" class="btn btn-primary mb-3"><i class="fas fa-plus-square mr-2"></i>Tambah Antrian</a>
           <table class="table table-striped table-bordered">
             <thead>
               <tr>
@@ -81,11 +81,11 @@
                 <td><?php echo $data['no_antrian']; ?></td>
                 <td><?php echo $data['status_antrian']; ?></td>
                 <?php if ($data['status_antrian'] == 'belum'){ ?>
-                  <td><i class="fas fa-edit bg-success p-2 text-white rounded" data-toggle="tooltip" title="Edit">Proses</i></td>
-                <td><i class="fas fa-trash-alt bg-danger p-2 text-white rounded" data-toggle="tooltip" title="Delete">Batal</i></td>
+                  <td><a href="antrianproses.php?act=proses&amp;id=<?php echo $data['kode_antrian'] ;?>&amp;ref=antrian.php" class="fas fa-edit bg-success p-2 text-white rounded" data-toggle="tooltip" title="Proses">Proses</a></td>
+                <td><a href="antrianproses.php?act=batal&amp;id=<?php echo $data['kode_antrian'] ;?>&amp;ref=antrian.php" class="fas fa-trash-alt bg-danger p-2 text-white rounded" data-toggle="tooltip" title="Batal">Batal</a></td>
                 <?php }else{ ?>
-                  <td><i class="fas fa-edit bg-success p-2 text-white rounded" data-toggle="tooltip" title="Edit">Selesai</i></td>
-                <td><i class="fas fa-trash-alt bg-danger p-2 text-white rounded" data-toggle="tooltip" title="Delete">Batal</i></td>
+                  <td><a href="antrianproses.php?act=selesai&amp;id=<?php echo $data['kode_antrian'] ;?>&amp;ref=antrian.php" class="fas fa-edit bg-success p-2 text-white rounded" data-toggle="tooltip" title="Selesai">Selesai</a></td>
+                <td><a href="antrianproses.php?act=batal&amp;id=<?php echo $data['kode_antrian'] ;?>&amp;ref=antrian.php" class="fas fa-trash-alt bg-danger p-2 text-white rounded" data-toggle="tooltip" title="Batal">Batal</a></td>
                 <?php } ?>
               </tr>
         <?php }?>
