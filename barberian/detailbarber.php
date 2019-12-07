@@ -14,6 +14,7 @@
         <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
     
         <!--My CSS-->
         <link rel="stylesheet" href="DetailBarber.css">
@@ -34,7 +35,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link " href="index.php">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="index.php#tentang_kami">Tentang Kami</a>
+          <a class="nav-item nav-link" href="index.php">Tentang Kami</a>
           <div class="dropdown">
             <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Fitur Kami
@@ -79,53 +80,10 @@
     </nav>
   <!-- akhir Navbar -->
        
-            <!--Carousel Wrapper-->
-            <div id="carousel-example-2" class="carousel slide carousel-fade mt-3" data-ride="carousel">
-                    <!--Indicators-->
-                    <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-2" data-slide-to="1"></li>
-                    <li data-target="#carousel-example-2" data-slide-to="2"></li>
-                    </ol>
-                    <!--/.Indicators-->
-                    <!--Slides-->
-                    <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item active">
-                        <div class="view">
-                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
-                            alt="First slide">
-                        <div class="mask rgba-black-light"></div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <!--Mask color-->
-                        <div class="view">
-                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg"
-                            alt="Second slide">
-                        <div class="mask rgba-black-strong"></div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <!--Mask color-->
-                        <div class="view">
-                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg"
-                            alt="Third slide">
-                        <div class="mask rgba-black-slight"></div>
-                        </div>
-                    </div>
-                    </div>
-                    <!--/.Slides-->
-                    <!--Controls-->
-                    <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                    </a>
-                    <!--/.Controls-->
-                </div>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container"></div>
+    </div>
+              
                 <!--/.Carousel Wrapper-->
                 <?php  
                 include "koneksi.php";
@@ -134,11 +92,11 @@
                 ?>
         <div class="container">
         <?php $data = mysqli_fetch_object($result);?>
-                <h2 class="Deskripsi mt-3"><?=$data -> nama_bs;?></h2>
+                <h2 class="Deskripsi mt-3" style="font-family: 'Cairo', sans-serrif;"><?=$data -> nama_bs;?></h2>
         </div>
         <div class="container">
         <button type="button" class="btn btn-primary mt-3 "  onclick="window.location.href='antrian.php?id=<?=$data -> username_bs;?>'" >Ambil Antrian</buutton>
-        <button type="button" class="btn btn-success mt-3 " onclick="window.location.href='#barberman'">Order</button>
+        <button type="button" class="btn btn-success mt-3 ml-2 " onclick="window.location.href='#barberman'">Order</button>
       </div>
         <!-- Section: Team v.1 -->
 <div class="container">
@@ -158,12 +116,13 @@
         while($rows=mysqli_fetch_object($result1)){
         ?>
           <!-- Grid column -->
-          <div class="card<?=$rows -> username_bm?>" style="width: 18rem;">
+          <div class="card ml-2 <?=$rows -> username_bm?>" style="width: 16rem;">
             <img s src="barberman/img/<?=$rows -> foto_bm;?>" width ="170px" height="250px"class="card-img-top">
             <div class="card-body">
               <h5 class="card-title"><?=$rows -> nama_bm?></h5>
               <p class="card-text"><?=$rows -> email_bm?></p>
-              <a href="pesan.php?id=<?=$rows -> username_bm;?>" class="btn btn-success">Order</a>
+              <a href="pesan.php?id=<?=$rows -> username_bm;?>" class="btn btn-primary pesan">Order</a>
+              
             </div>
           </div>
         <?php }?>

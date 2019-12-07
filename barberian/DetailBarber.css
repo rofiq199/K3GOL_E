@@ -21,14 +21,24 @@
     background: black;
 }
 /* akhir Navbar */
-body{
-    background-color: #B0AAA9;
-}
 #popup{
     background-image: url('tim-mossholder-q49oU8NeOHQ-unsplash.jpg');
     background-size: cover;
-    
+
  }
- .card{
-     background: transparent;
+ .card-body{
+     height: 200px;
+     font-family: 'Cairo', sans-serif ;
  }
+ .pesan{
+     margin-top: 50px;
+ }
+ .jumbotron{
+    background-image: url(Background.jpg);
+    background-size: cover;
+    height: 617px;
+    position: relative;
+}
+html{
+    scroll-behavior: smooth;
+}
