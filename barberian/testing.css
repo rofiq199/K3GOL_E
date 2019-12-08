@@ -121,9 +121,20 @@ body{
     }
 
     form{
-        font-family: Viga;
+        font-family: 'Roboto', sans-serif;
+        font-weight: bolder;
+        font-size: 20px;
     }
 
     .garis{
         border-bottom: 2px solid black;
+    }
+    table{
+        display: none;
+    }
+    .fa-check{
+        color: green;
+    }
+    .fa-times{
+        color: red;
     }

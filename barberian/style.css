@@ -23,9 +23,8 @@ html{
 .jumbotron{
     background-image: url(Background.jpg);
     background-size: cover;
-    height: 617px;
-    margin-top: -70px;
-    position: relative;
+    height: 540px;
+    
 }
 
 .jumbotron .display-4{
@@ -81,6 +80,7 @@ html{
         background-size: cover;
         height: 617px;
         margin-top: -70px;
+        position: relative; 
     }
 
     .fitur{
