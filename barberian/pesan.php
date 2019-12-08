@@ -11,9 +11,11 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
     <!--My CSS-->
     <link rel="stylesheet" href="testing.css">
+    <script src="https://kit.fontawesome.com/6b0af4bcb3.js" crossorigin="anonymous"></script>
     <!-- <script src="pesan.js"></script> -->
     <title>Barberian</title>
     <?php session_start();?>
@@ -127,37 +129,39 @@
             </div>
             <div class="col-md-8 mt-2">
               <div class="container"> 
-                <center>  <h5>Paket Potong</h5></center>
+                <center>  <h3>Paket Potong</h3></center>
                 <div class="garis"></div>
                 <div class="row">
-                  <div class="col mt-2"> 
-                  <div class="barang mt-2">
+                  <div class="col mt-2">
+                  <div class="barang mt-4">
                    <?php while($rows = mysqli_fetch_array($result)){
                     ?>
-                      <input type="checkbox" class="form-check-input" id="keramas" value="<?php echo $rows['harga_ck']; ?>" name="produk" onclick="totalit()">
-                      <label class="form-check-label" for="keramas" id="nama"><?php echo $rows['nama_ck']; ?><a href="pesan1.php?act=add&amp;barang_id=<?php echo $rows['kode_ck']; ?>&amp;ref=pesan.php?id=<?php echo $id ?>">add</a></label><br>
+                      <i class="fas fa-times"></i>
+                      <a class="fas fa-check " href="pesan1.php?act=add&amp;barang_id=<?php echo $rows['kode_ck']; ?>&amp;ref=pesan.php?id=<?php echo $id ?>"></a>
+                      <label class="form-check-label" for="keramas" id="nama"><?php echo $rows['nama_ck']; ?></label><br>
+                      
                       <?php 
                    }
                     ?>
                   </div>   
                 </div>
-                <div class="col mt-2 ml-5">
-                      <?php for ($i=1; $i <= mysqli_num_rows($result); $i++) {  ?>
+                <div class="col mt-3 ml-5">
+                      <?php for ($i=2; $i <= mysqli_num_rows($result); $i++) {  ?>
                       <p class="form-check-label" >a</p>
                     <?php }?>
                   </div>
               </div>
-                <div class="garis"></div>
+                <div class="garis mt-3"></div>
                 <div class="row">
-                  <div class="col mt-2">
+                  <div class="col mt-3">
                       <label class="ml-5" id="biayat">Biaya Tambahan</label>
-                    <div class="mt-2">
+                    <div class="mt-3">
                       <label class="ml-5" id="biayatot">Biaya Total</label>
                     </div>
                   </div>
-                  <div class="col mt-2 ml-5">
+                  <div class="col mt-3 ml-5">
                       Rp <input type="text" value="5000" readonly="readonly" id="tot" >
-                    <div class="mt-2">
+                    <div class="mt-3">
                       Rp <input type="text" value="<?php echo $total+'5000'; ?>" readonly="readonly" name="total" id="total">
                     </div>
                     <button type="submit" href=""  class="btn btn-outline-success waves-effect mt-4 ml-4">Pesan</button>
