@@ -49,5 +49,6 @@ include "koneksi.php";
          
         header ("location:" . $ref);
     }   
+    print_r ($_SESSION['items']);
      
 ?>
