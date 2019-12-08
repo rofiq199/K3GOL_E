@@ -24,17 +24,16 @@
   </head>
   <body>
 
-  <!--Navbar-->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top sticky">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
       <a class="navbar-brand" href="index.php">Barberian</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link js-scroll-trigger" href="index.php">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link js-scroll-trigger" href="#tentang_kami">Tentang Kami</a>
+          <a class="nav-item nav-link " href="index.php">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="index.php">Tentang Kami</a>
           <div class="dropdown">
             <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Fitur Kami
@@ -44,8 +43,8 @@
                     <a class="dropdown-item" href="caribarber.php">Cari Barbershop</a>
                     <a class="dropdown-item" href="halproduk.php">Produk</a>
                   </div>
-          </div>          
-          <?php if(!isset($_SESSION['username'])){ ?>
+              </div>
+              <?php if(!isset($_SESSION['username'])){ ?>
           <div class="dropdown">
             <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Masuk
@@ -93,7 +92,7 @@
       </div>
       <div class="col">
         <h2 class="tentangkami">Tentang Kami</h2>
-        <text class="tentangkami">Barberian adalah sistem informasi berbasis web yang bertema tempat potong rambut khusus pria atau yang biasa disebut "barbershop". tujuan dari SI web Barberian ini adalah untuk memudahkan pelanggan maupun pihak barber. Adapaun bebrapa fitur yang ada pada SI web Barberian ini adalah fitur cari barber, order, dan katalog.</text>
+        <text class="tentangkami">Barberian adalah sistem informasi berbasis web yang bertema tempat potong rambut khusus pria atau yang biasa disebut "Barbershop". tujuan dari SI web Barberian ini adalah untuk memudahkan pelanggan maupun pihak barber.</text>
       </div>
     </div>
   
@@ -125,7 +124,7 @@
     <div class="col-md-4" id="gambar">
       <h5 class="font-weight-bold my-4">Katalog</h5>
       <i class="fa fa-images fa-4x"></i>
-      <p class="grey-text mb-md-0 mb-5" style="text-align:justify">Fitur katalog adalah fitur yang menyediakan berbagai gaya rambut, tujuan dari fitur ini adalah memudahkan pelanggan untuk mencari referensi tentang gaya rambut apa yang ingin dicari.
+      <p class="grey-text mb-md-0 mb-5">Fitur katalog adalah fitur yang menyediakan berbagai gaya rambut, tujuan dari fitur ini adalah memudahkan pelanggan untuk mencari referensi tentang gaya rambut apa yang ingin dicari.
       </p>
 
     </div>
