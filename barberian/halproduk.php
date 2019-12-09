@@ -100,7 +100,7 @@
             <div class="card-body">
               <input type="text" id="produk" value="<?=$rows -> kode_produk?>">
               <h5 class="card-title"><?=$rows -> nama_produk;?></h5>
-              <p class="card-text">Rp. <?=number_format($rows -> harga_produk);?></p>
+              <p class="card-text">Rp. <?=number_format($rows -> harga_produk, 0, ",", ".");?></p>
               <h6 class="card-title"><?=$rows -> nama_bs;?></h6>
               <button id ="cari">meleh</button>
               <p><a href="pcart.php?act=add&amp;barang_id=<?=$rows->kode_produk?>&amp;ref=halproduk.php">belii</a></p>
@@ -123,120 +123,7 @@
 
 </div>
 <!-- Error dimulai -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<script>
-  var mycart = [];
-        $(function () {
-            if (localStorage.mycart)
-            {
-                mycart = JSON.parse(localStorage.mycart);
-                showCart();
-            }
-        });
-
-      
-      // mengambil data button ketika button dengan class add di click
-      $('.add').click(function(){
-
-        var id   = $(this).data("id");
-        var nama   = $(this).data("nama");
-        var qty   = $(this).data("qty");
-        var price   = $(this).data("price");
-        var subtotal = price * qty;
-        addToCart(id,nama,qty,price,subtotal);   //kirimkan nilai ke fungsi addToCart, berhati - hati penggunaan inserting data usahakan serverside process, ini hanya untuk pembelajaran
-
-      })
-
-      function addToCart(id,nama,qty,price,subtotal) {
-           //cek data in cart then update qty
-            for (var i in mycart) {
-                if(mycart[i].Id == id)
-                {
-                    //jika data available then
-                    mycart[i].Qty = mycart[i].Qty+qty;
-                    mycart[i].Subtotal = subtotal * mycart[i].Qty;
-                    showCart(); //panggil fungsi showCart
-                    saveCart(); // panggil fungsi saveCart untuk insert data
-                    return;
-                  
-                }
-            
-            }
-
-
-            // jika tidak ada insert all
-
-            var item = { Id: id, Nama:nama, Qty:qty, Price:price, Subtotal:subtotal}; 
-            mycart.push(item);
-            saveCart();
-            showCart();
-        }
-
-        function deleteItem(index){
-            mycart.splice(index,1); // hapus item berdasarkan index
-            showCart();
-            saveCart();
-        }
-
-        function saveCart() {
-            if ( window.localStorage)
-            {
-                localStorage.mycart = JSON.stringify(mycart);
-            }
-        }
-
-        function showCart() {
-          if (mycart.length == 0) { //cek nilai mycart, jika kosong maka hidden div dengan id cart
-                $("#cart").css("visibility", "hidden");
-                return;
-          }
-
-          $("#cart").css("visibility", "visible"); // jika tersedia maka tampilkan 
-          $("#cartBody").empty();
-
-          for (var i in mycart) { //tampilkan data dari local storage mycart, template bisa anda sesuaikan
-            var item = mycart[i];
-            var row = '<div class="media"><div class="media-left media-top"></div><div class="media-body"><div class="col-lg-12"><div class="col-lg-10"><p>Nama Produk <span style="padding-left:0.8em">: </span>'
-                        + item.Nama +'</p><p>Jumlah <span style="padding-left:4em">:</span> '+ item.Qty +'</p><p>Harga <span style="padding-left:4.5em">:</span> '+ item.Price +'</p></div><div class="col-lg-2"><p>Subtotal <span style="padding-left:4em">:</span> '+ item.Subtotal +'</p><br><button class="btn btn-danger btn-circle" onclick="deleteItem(' 
-                              + i + ')"><i class="fa fa-trash"  > </i>hapus</button></div></div></div></div><hr>' ;
-    
-            $("#cartBody").append(row); //append ul dengan id cartbody
-          }
-
-          // untuk total
-          var total = 0;
-          for(var i = 0; i < mycart.length; i++) {
-              total += mycart[i].Subtotal; //jumlahkan keseluruhan row subtotal dari mycart untuk mendapatkan total
-          }
-          totalCart.innerHTML='<label>Total Belanja Anda : '+total+'  </label><br><br><button class="cekout">Chekout</button><br>'; 
-          //isikan div dengan id totalcart dengan nilai diatas
-        }
-</script>
-      <script type="text/javascript">
-      $(document).ready(function(){
-        $(".cekout").click(function(){
-          var data = $('.item').serialize();
-          $.ajax({
-            type: 'POST',
-            url: "aksi.php",
-            data: data,
-            success: function() {
-              $('.tampildata').load("tampil.php");
-            }
-          });
-        });
-      });
-      </script>
-
-  <script>
-    function redirect(url){
-        location.href = url;
-    }
-  
-  
-  </script>
     <!-- akhir tampilkan produk -->
     <div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">

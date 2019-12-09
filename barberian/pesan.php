@@ -135,11 +135,11 @@
                   <div class="col mt-2">
                   <div class="barang mt-4">
                    <?php while($rows = mysqli_fetch_array($result)){
-                    ?>
-                      <i class="fas fa-times"></i>
-                      <a class="fas fa-check " href="pesan1.php?act=add&amp;barang_id=<?php echo $rows['kode_ck']; ?>&amp;ref=pesan.php?id=<?php echo $id ?>"></a>
-                      <label class="form-check-label" for="keramas" id="nama"><?php echo $rows['nama_ck']; ?></label><br>
-                      
+                     if ($rows['kode_ck'] == $key){ ?>
+                      <a href="pesan1.php?act=del&amp;barang_id=<?php echo $rows['kode_ck']; ?>&amp;ref=pesan.php?id=<?php echo $id ?>" class="fas fa-times"></a>
+                     <?php  }else{ ?>
+                     <a class="fas fa-check " href="pesan1.php?act=add&amp;barang_id=<?php echo $rows['kode_ck']; ?>&amp;ref=pesan.php?id=<?php echo $id ?>"></a><?php }?>
+                      <label class="form-check-label" for="keramas" id="nama"><?php echo $rows['nama_ck']; ?></label><br>                      
                       <?php 
                    }
                     ?>

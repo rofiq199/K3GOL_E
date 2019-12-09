@@ -9,9 +9,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="admin2.css">
     <script src="https://kit.fontawesome.com/ef8e8d5793.js" crossorigin="anonymous"></script>
-    <title>HALAMAN LIST HARGA</title>
+    <title>Halaman List Harga</title>
   </head>
   <body>
+  <?php 
+  include "../koneksi.php";
+  session_start();
+  $username = $_SESSION['username'];
+  $query = "SELECT * FROM harga_barber  WHERE username_bs='".$username."'";
+  $sql = mysqli_query($koneksi, $query); 
+  ?>
     <nav class="navbar navbar-expand-lg navbar-light ">
       <a class="navbar-brand text-white" >BARBERIAN</a>
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
@@ -56,37 +63,71 @@
           <table class="table table-striped table-bordered">
             <thead>
               <tr>
-                <th scope="col">NO</th>
-                <th scope="col">JENIS PELAYANAN</th>
-                <th scope="col">HARGA</th>
-                <th colspan="3" scope="col">AKSI</th>
+                <th scope="col">No</th>
+                <th scope="col">Jenis Pelayanan</th>
+                <th scope="col">Harga</th>
+                <th colspan="3" scope="col">Aksi</th>
               </tr>
             </thead>
             <tbody>
+              <?php 
+              $no = 1;
+               while($data= mysqli_fetch_array($sql)){ ?>
               <tr>
-                <th scope="row">1</th>
-                <td>POTONG RAMBUT</td>
-                <td>Rp 25.000,00</td>
-                <td><i class="fas fa-edit bg-success p-2 text-white rounded" data-toggle="tooltip" title="Edit"></i></td>
+                <th scope="row"><?php echo $no++; ?></th>
+                <td><?php  echo $data['nama_ck']; ?></td>
+                <td>Rp <?php  echo number_format($data['harga_ck']); ?></td>
+                <td><i class="fas fa-edit bg-success p-2 text-white rounded" data-toggle="modal" data-target="#modaledit" title="Edit"></i></td>
                 <td><i class="fas fa-trash-alt bg-danger p-2 text-white rounded" data-toggle="tooltip" title="Delete"></i></td>
               </tr>
               <tr>
-                <th scope="row">2</th>
-                <td>CUCI RAMBUT</td>
-                <td>Rp 10.000,00</td>
-                <td><i class="fas fa-edit bg-success p-2 text-white rounded" data-toggle="tooltip" title="Edit"></i></td>
-                <td><i class="fas fa-trash-alt bg-danger p-2 text-white rounded" data-toggle="tooltip" title="Delete"></i></td>
-              </tr>
-              <tr>
+              <?php }?>
               
             </tbody>
           </table>
 
+          <form action="listhargaproses.php?act=edit&amp;ref=listharga.php" method="POST">
+          <div class="modal fade" id="modaledit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header text-center">
+                  <h4 class="modal-title w-100 font-weight-bold">Edit Harga 
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body mx-3">
+                <div class="md-form mb-2">
+                    <input type="text" class="form-control validate" name="nama" placeholder="Nama pelayanan">
+                  </div>
+                  <div class="md-form mb-2">
+                    <input type="text" id="harga" class="form-control validate"  name="harga" placeholder="Harga Pelayanan">
+                  </div>                 
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                  <button type="submit" class="btn btn-primary">Tambah</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </form>  
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="../js/jquery-3.4.1.min.js" ></script>
+    <script src="../js/jquery.mask.min.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script type="text/javascript" src="admin2.js"></script>
+    <script type="text/javascript">
+            $(document).ready(function(){
+
+                // Format mata uang.
+                $( '#harga' ).mask('000.000.000', {reverse: true});
+
+            })
+        </script>
   </body>
 </html>
