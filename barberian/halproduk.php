@@ -3,6 +3,7 @@
   <head>
   <?php 
     session_start();
+    print_r($_SESSION);
   ?>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -102,9 +103,8 @@
               <h5 class="card-title"><?=$rows -> nama_produk;?></h5>
               <p class="card-text">Rp. <?=number_format($rows -> harga_produk, 0, ",", ".");?></p>
               <h6 class="card-title"><?=$rows -> nama_bs;?></h6>
-              <button id ="cari">meleh</button>
-              <p><a href="pcart.php?act=add&amp;barang_id=<?=$rows->kode_produk?>&amp;ref=halproduk.php">belii</a></p>
-              <button class="add btn btn-success" data-id="<?=$rows -> kode_produk?>" data-nama="<?=$rows -> nama_produk?>" data-qty="1" data-price="<?=$rows -> harga_produk?>"><i class="fa fa-shopping-cart" aria-hidden="true" ></i> Add</button>
+              <button id ="cari">meleh</button><br><br>
+              <button class="add btn btn-success" onclick="window.location.href='pcart.php?act=add&amp;barang_id=<?=$rows->kode_produk?>&amp;ref=halproduk.php'"><i class="fa fa-shopping-cart" aria-hidden="true" ></i> Add</button>
             </div>
           </div>
         </div>
