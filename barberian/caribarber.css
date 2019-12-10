@@ -5,12 +5,12 @@
 }
 .navbar-brand{
     font-family: Viga;
-    font-size: 32px;
+    font-size: 22px;
     color: white !important;
 }
 .nav-link{
     font-family: 'Titillium Web';
-    font-size: 20px;
+    font-size: 18px;
     margin-right: 27px;
     font-style: normal;
     color: white !important;
@@ -21,27 +21,31 @@
         background: black;
     
 }
-
-/* akhir Navbar */
-
-img{
-    width: 1080px;
+.dropdown-menu{
+    background-color: #323131;
+}
+.dropdown-item{
+    font-family: 'Titillium Web';
+    color: white !important;
+}
+.dropdown-item:hover{
+    content: '';
+    display: block;
+    background: black;
 }
 
-.barber{
-    color: black;
+/* akhir Navbar */
+img{
+    width: 1000px;
+    height: 10px;
 }
 
 .card{
-    background-color: whitesmoke;
+    background-color: transparent;
     font-family: 'Titillium Web';
-    height: auto;
+    font-size: 16px;
 }
 
-
-body{
-    background-color:  white;
-}
 #popup{
     background-image: url('tim-mossholder-q49oU8NeOHQ-unsplash.jpg');
     background-size: cover;
@@ -55,22 +59,28 @@ body{
 .status{
     border: gray;
 }
-.input-group.md-form.form-sm.form-1 input{
-    border: 1px solid #bdbdbd;
-    border-top-right-radius: 0.25rem;
-    border-bottom-right-radius: 0.25rem;
+ 
+
+@media (min-width: 992px) {
+    .navbar-brand{
+        font-size: 32px;
     }
-    .input-group.md-form.form-sm.form-2 input {
-    border: 1px solid #bdbdbd;
-    border-top-left-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
+    .nav-link{
+        font-size: 20px;
     }
-    .input-group.md-form.form-sm.form-2 input.red-border {
-    border: 1px solid #ef9a9a;
+
+    img{
+        width: 1080px;
     }
-    .input-group.md-form.form-sm.form-2 input.lime-border {
-    border: 1px solid #cddc39;
+    .dropdown-menu{
+        background-color: white;
     }
-    .input-group.md-form.form-sm.form-2 input.amber-border {
-    border: 1px solid #ffca28;
+    .dropdown-item{
+        color: black !important;
     }
+    .dropdown-item:hover{
+        content: '';
+        display: block;
+        background: grey;
+    } 
+} 

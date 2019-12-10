@@ -116,15 +116,18 @@
         while($rows=mysqli_fetch_object($result1)){
         ?>
           <!-- Grid column -->
-          <div class="card ml-2 <?=$rows -> username_bm?>" style="width: 16rem;">
-            <img s src="barberman/img/<?=$rows -> foto_bm;?>" width ="170px" height="250px"class="card-img-top">
+          
+        <div class="col-sm-3">
+
+          <div class="card <?=$rows -> username_bm?>">
+            <img src="barberman/img/<?=$rows -> foto_bm;?>" width ="170px" height="250px"class="card-img-top">
             <div class="card-body">
               <h5 class="card-title"><?=$rows -> nama_bm?></h5>
               <p class="card-text"><?=$rows -> email_bm?></p>
               <a href="pesan.php?id=<?=$rows -> username_bm;?>" class="btn btn-primary pesan">Order</a>
-              
             </div>
           </div>
+        </div>
         <?php }?>
           <!-- Grid column -->
         </div>

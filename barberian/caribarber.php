@@ -32,7 +32,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link " href="index.php">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="index.php#tentang_kami">Tentang Kami</a>
+          <a class="nav-item nav-link" href="index.php">Tentang Kami</a>
           <div class="dropdown">
             <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Fitur Kami
@@ -42,9 +42,8 @@
                     <a class="dropdown-item" href="caribarber.php">Cari Barbershop</a>
                     <a class="dropdown-item" href="halproduk.php">Produk</a>
                   </div>
-            </div>          
-      </div>
-      <?php if(!isset($_SESSION['username'])){ ?>
+              </div>
+              <?php if(!isset($_SESSION['username'])){ ?>
           <div class="dropdown">
             <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Masuk
@@ -72,7 +71,6 @@
             ?>
           </div>
         </div>
-      </div>
     </div>
     </nav>
     <script src="jquery-1.7.1.min.js" type="text/javascript"></script>
@@ -104,16 +102,15 @@
 <div class="container">
 <form method="post" action="caribarber.php">
 <div  type="text" name="search" id="search"class="input-group md-form form-sm form-2 pl-0 my-5">
-  <input class="form-control my-0 py-1 amber-border" type="text" id='cari' name="search" placeholder="cari disini" >
+  <input class="form-control my-0 py-1 amber-border" type="text" id='cari' name="search" placeholder="Cari Disini" >
   <div class="input-group-append">
     <button type="submit" value="search" class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search text-grey"
         aria-hidden="true"></i></button>
   </div>
 </div>
 </form>
-<section class="my-5 barber">
+<section class="my-5">
 <div id="tampil"> 
-  <hr class="my-4">
 <?php
 if(isset($_POST['search'])){
 $search = $_POST['search'];
@@ -136,7 +133,7 @@ while($rows=mysqli_fetch_object($result)){
     <div class="col-lg-5 col-xl-4">
 
       <!-- Featured image -->
-      <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
+      <div class="view overlay rounded mb-lg-0 mb-4">
         <img class="img-fluid" src="admin/img/<?=$rows -> foto;?>" alt="Sample image">
         <a>
           <div class="mask rgba-white-slight"></div>
@@ -160,8 +157,7 @@ while($rows=mysqli_fetch_object($result)){
       <?php }else{ ?>
         <button type = "button" disabled class="btn btn-outline-primary btn-rounded waves-effect" onclick="window.location.href='detailbarber.php?id=<?=$rows -> username_bs;?>'">Lihat Detail</button>
       <?php }?>
-        <div class="border"></div>
-      <p class="mt-5 status">status <strong><?=$rows -> status_bs;?></strong><br>
+      <p class="mt-5 status"><strong><?=$rows -> status_bs;?></strong><br>
     </div>
     <!-- Grid column -->
   </div>  
