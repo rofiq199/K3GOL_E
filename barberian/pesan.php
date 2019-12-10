@@ -164,6 +164,7 @@
                     <div class="mt-3">
                       Rp <input type="text" value="<?php echo $total+'5000'; ?>" readonly="readonly" name="total" id="total">
                     </div>
+                    <small><strong><label>Aplikasi ini Hanya berlaku untuk daerah banyuwangi kota saja</label></strong></small>
                     <button type="submit" href=""  class="btn btn-outline-success waves-effect mt-4 ml-4">Pesan</button>
                   </div>
                 </div>

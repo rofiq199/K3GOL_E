@@ -61,7 +61,7 @@
                           <a class="nav-link text-white" href="antrian.php"><i class="fas fa-money-check mr-2"></i>LIHAT ANTRIAN</a><hr class="bg-secondary">
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link text-white" href="list_harga.html"><i class="fas fa-dollar-sign mr-3 ml-2"></i>LIST HARGA</a><hr class="bg-secondary">
+                          <a class="nav-link text-white" href="listharga.php"><i class="fas fa-dollar-sign mr-3 ml-2"></i>LIST HARGA</a><hr class="bg-secondary">
                         </li>
                     </ul>
         </div>
@@ -113,11 +113,12 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="inputPassword6">Password</label>
-                <input type="password" id="inputPassword6" class="form-control" name="password" value="<?php echo $data['password_bs']; ?>">
+                <input type="password" id="password" class="form-control" name="password" value="<?php echo $data['password_bs']; ?>">
             </div>
             <div class="form-group col-md-6">
                 <label for="inputPassword6">Konfirmasi Password</label>
-                <input type="password" id="inputPassword6" class="form-control" name="password1" value="<?php echo $data['password_bs']; ?>">
+                <input type="password" id="password1" class="form-control" name="password1" value="<?php echo $data['password_bs']; ?>">
+                <label class="pesan"></label>
                 <small id="passwordHelpInline" class="text-muted">
                   Harus sama dengan password
                 </small>
@@ -125,16 +126,31 @@
             <div class="form-group col-md-6">
             </div>
             <div class="form-group col-md-6">
-            <button type="submit" class="btn btn-primary">SIMPAN PERUBAHAN</button>
+            <button type="submit" id="submit"class="btn btn-primary">SIMPAN PERUBAHAN</button>
           </form>
           
            
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="../js/jquery-3.4.1.min.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script type="text/javascript" src="admin2.js"></script>
+    <script type="text/javascript">
+    document.getElementById("submit").disabled = true;
+    function cekPass() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("password1").value;
+        if (password != confirmPassword) { 
+        	document.getElementById("submit").disabled = true;
+            $('.pesan').html('<h5 class="text-danger"> Password tidak sesuai ! </h5>');
+            return false;
+        }
+        document.getElementById("submit").disabled = false;
+        $('.pesan').html('<h5 class="text-success"> Password sesuai ! </h5>');
+        return true;
+    }
+</script>
   </body>
 </html>
