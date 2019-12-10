@@ -18,6 +18,7 @@
 
     <!--My CSS-->
     <link rel="stylesheet" href="regcustomer.css">
+    <script  href="script.js"></script>
     <title>Barberian</title>
   </head>
   <body>
@@ -33,8 +34,16 @@
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link js-scroll-trigger" href="#">Home <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link js-scroll-trigger" href="#tentang_kami">Tentang Kami</a>
-          <a class="nav-item nav-link js-scroll-trigger" href="katalog.html">Katalog</a>
-          <a class="nav-item nav-link js-scroll-trigger" href="caribarber.php">Cari Barbershop</a>
+          <div class="dropdown">
+            <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Fitur Kami
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="katalog.php">Katalog</a>
+                    <a class="dropdown-item" href="caribarber.php">Cari Barbershop</a>
+                    <a class="dropdown-item" href="halproduk.php">Produk</a>
+                  </div>
+          </div>
           <?php if(!isset($_SESSION['username'])){ ?>
           <div class="dropdown">
             <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -54,8 +63,8 @@
                   </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href='profilcs.php'>Profil</a>
-                  <a class="dropdown-item" href="" >History Order</a>
-                  <a class="dropdown-item" href="" >Lihat Antrian</a>
+                  <a class="dropdown-item" href="hisbeli.php" >History Order</a>
+                  <a class="dropdown-item" href="antrian.php" >Lihat Antrian</a>
                   <a class="dropdown-item" href="logout.php" >Logout</a>
                 </div>
             </div>
@@ -122,7 +131,7 @@
             <div class="form-group row">
                 <label for="password" class="col-sm-2 col-form-label">Password</label>
                     <div class="col-sm-10">
-                      <input type="password" class="form-control" id="passWord" placeholder="Password" value='' data-bv-notempty='true' data-bv-notempty-message='The password is required and cannot be empty' data-bv-identical='true' data-bv-identical-field='password_confirmation' data-bv-identical-message='The password and its confirmation are not the same'>
+                      <input  onSubmit="return validasi(this);" type="password" class="form-control" id="passWord" placeholder="Password" value='' name="pass">
                     </div>
             </div>
             <div class="form-group row"> 
@@ -145,5 +154,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
   </body>
 </html>
