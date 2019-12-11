@@ -9,7 +9,7 @@
 include "koneksi.php";
  session_start();
     $id = $_GET['id'];
-    $timezone = time() + (60 * 60 * 7); 
+    $timezone = time() + (60 * 60 * 6); 
   $today = date("Ymd",$timezone); //untuk mengambil tahun, tanggal dan bulan Hari INI
   $username = $_SESSION['username'];
   $tanggal = date("Y-m-d H:i:s",$timezone);

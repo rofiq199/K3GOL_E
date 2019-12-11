@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <?php 
+    include "../koneksi.php";
+    session_start();
+  $username = $_SESSION['username'];
+  $query = "SELECT * FROM pesan inner join data_customer on pesan.username_cs=data_customer.username_cs WHERE ( status_pesan='belum' or status_pesan='proses') and username_bm='".$username."' ";
+  $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
+    ?>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -38,7 +45,7 @@
                             <a class="nav-link active text-white" href="dashboard.php"><i class="fas fa-shopping-cart mr-2"></i>DASHBOARD</a><hr class="bg-secondary">
                          </li>
                          <li class="nav-item">
-                              <a class="nav-link active text-white" href="Orderan.html"><i class="fas fa-tags mr-2"></i>LIHAT ORDERAN</a><hr class="bg-secondary">
+                              <a class="nav-link active text-white" href=""><i class="fas fa-tags mr-2"></i>LIHAT ORDERAN</a><hr class="bg-secondary">
                          </li>
                          <li class="nav-item">
                               <a class="nav-link active text-white" href="profilbm.php"><i class="fas fa-user mr-2"></i>LIHAT PROFIL</a><hr class="bg-secondary">
@@ -71,16 +78,19 @@
                 <td><i class="fas fa-check bg-success p-2 text-white rounded" data-toggle="tooltip" title="Terima"></i></td>
                 <td><i class="fas fa-ban bg-danger p-2 text-white rounded" data-toggle="tooltip" title="Tolak"></i></td>
               </tr>
+              <?php 
+          $no = 1;
+          while($data = mysqli_fetch_array($sql)){ ?>
               <tr>
-                  <th scope="row">2</th>
-                  <td>Dodhy Kurnia</td>
+                  <th scope="row"><?php echo $no++; ?></th>
+                  <td><?php echo $data['nama_cs']; ?></td>
                   <td>Cukur Rambut</td>
                   <td>Rp 25.000,00</td>
-                  <td>Klatak - Banyuwangi</td>
+                  <td><?php echo $data['alamat_pesan']; ?></td>
                   <td><i class="fas fa-check bg-success p-2 text-white rounded" data-toggle="tooltip" title="Terima"></i></td>
                   <td><i class="fas fa-ban bg-danger p-2 text-white rounded" data-toggle="tooltip" title="Tolak"></i></td>
                 </tr>
-
+          <?php }?>
             </tbody>
           </table>
 

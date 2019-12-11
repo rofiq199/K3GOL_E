@@ -42,17 +42,17 @@
                         <li class="nav-item" id="barberman">
                           <a class="nav-link text-white" ><i class="fas fa-store mr-2"></i>List Barberman</a><hr class="bg-secondary">
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" id="customer">
                           <a class="nav-link text-white" ><i class="fas fa-user-edit mr-2"></i>List Customer</a><hr class="bg-secondary">
                         </li>
-                        <li class="nav-item">
-                          <a class="nav-link text-white" href="antrian.php"><i class="fas fa-money-check mr-2"></i>List Order</a><hr class="bg-secondary">
+                        <li class="nav-item" id="order">
+                          <a class="nav-link text-white" ><i class="fas fa-money-check mr-2"></i>List Order</a><hr class="bg-secondary">
                         </li>
-                        <li class="nav-item">
-                          <a class="nav-link text-white" href="listharga.php"><i class="fas fa-dollar-sign mr-3 ml-2"></i>List Penjualan</a><hr class="bg-secondary">
+                        <li class="nav-item" id="penjualan">
+                          <a class="nav-link text-white" ><i class="fas fa-dollar-sign mr-3 ml-2"></i>List Penjualan</a><hr class="bg-secondary">
                         </li>
-                        <li class="nav-item">
-                          <a class="nav-link text-white" href="listharga.php"><i class="fas fa-dollar-sign mr-3 ml-2"></i>List Harga</a><hr class="bg-secondary">
+                        <li class="nav-item" id="harga">
+                          <a class="nav-link text-white" ><i class="fas fa-dollar-sign mr-3 ml-2"></i>List Harga</a><hr class="bg-secondary">
                         </li>
                         <li class="nav-item">
                           <a class="nav-link text-white" href="listharga.php"><i class="fas fa-dollar-sign mr-3 ml-2"></i>List Produk</a><hr class="bg-secondary">
@@ -83,10 +83,14 @@
 				$('.badan').load('barbershop.php');						
 			}else if(menu == "barberman"){
 				$('.badan').load('barberman.php');						
-			}else if(menu == "tutorial"){
-				$('.badan').load('tutorial.php');						
-			}else if(menu == "sosmed"){
-				$('.badan').load('sosmed.php');						
+			}else if(menu == "customer"){
+				$('.badan').load('customer.php');						
+			}else if(menu == "order"){
+				$('.badan').load('order.php');						
+			}else if(menu == "penjualan"){
+				$('.badan').load('penjualan.php');						
+			}else if(menu == "harga"){
+				$('.badan').load('harga.php');						
 			}
 		});
     });
