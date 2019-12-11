@@ -21,6 +21,7 @@
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
     <!--My CSS-->
     <link rel="stylesheet" href="histori_order.css">
@@ -110,7 +111,7 @@
       <div class="container">
       <div class="card-footer">
         <p id="collapseExample">Detail Pembelian </p>
-        <table cellspacing="0" width="50%">
+        <table cellspacing="0" width="70%">
         <tr>
         <td>Foto</td>
         <td>Nama Produk</td>

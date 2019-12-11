@@ -1,16 +1,15 @@
 .navbar{
     background-color: #323131;
     opacity: 100%;
-    position: relative;
 }
 .navbar-brand{
     font-family: Viga;
-    font-size: 32px;
+    font-size: 22px;
     color: white !important;
 }
 .nav-link{
     font-family: 'Titillium Web';
-    font-size: 20px;
+    font-size: 18px;
     margin-right: 27px;
     font-style: normal;
     color: white !important;
@@ -20,31 +19,56 @@
     display: block;
     background: black;
 }
-
-.barber{
-    color: black;
+.dropdown-menu{
+    background-color: #323131;
+}
+.dropdown-item{
+    font-family: 'Titillium Web';
+    color: white !important;
+}
+.dropdown-item:hover{
+    content: '';
+    display: block;
+    background-color: black !important ;
 }
 
 .card{
     margin-top: 20px;
     background-color: transparent;
+    font-family: 'Roboto', sans-serif;
 }
 
-body{
-    background-color:  white;
-}
+
 #popup{
     background-image: url('tim-mossholder-q49oU8NeOHQ-unsplash.jpg');
     background-size: cover;
-    
-    }
+}
     /* akhir */
-    #popupp{
-        background-image: url('nyoba_tok.jpg');
-        background-size: cover;
-    }
+#popupp{
+    background-image: url('nyoba_tok.jpg');
+    background-size: cover;
+}
     /* akhir */
-    #popuppp{
-        background-image: url('iki_nyobak.jpg');
-        background-size: cover;
-    }  
+#popuppp{
+    background-image: url('iki_nyobak.jpg');
+    background-size: cover;
+}  
+@media (min-width : 992px){
+    .navbar-brand{
+        font-size: 32px;
+    }
+    .nav-link{
+        font-size: 20px;
+    }
+    .dropdown-menu{
+        background-color: white ;
+    }
+    .dropdown-item{
+        color: black !important;
+    }
+    .dropdown-item:hover{
+        content: '';
+        display: block;
+        background-color: whitesmoke !important ;
+    }
+}

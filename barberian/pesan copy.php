@@ -94,7 +94,7 @@
           
         ?>
 <?php  if (isset($_SESSION['cukur'])){ ?>
-<table class="hidden">
+<table>
     <tr>
     <td>kode ck</td>
     <td>nama cukur</td>
@@ -134,15 +134,28 @@
                 <div class="row">
                   <div class="col mt-2">
                   <table cellspacing="2" width="100%">
-                    <tr>
-                    <td>Aksi</td>
-                    <td>Nama Layanan</td>
-                    <td>Harga</td>
-                    </tr>
+                    <td>aaaa</td>
+                    <td>harga</td>
                   </table>
-                  <div class="garis"></div>
+                  <div class="barang mt-4">
+                   <?php while($rows = mysqli_fetch_array($result)){
+                     if ($rows['kode_ck'] == $key){ ?>
+                      <a href="pesan1.php?act=del&amp;barang_id=<?php echo $rows['kode_ck']; ?>&amp;ref=pesan.php?id=<?php echo $id ?>" class="fas fa-times"></a>
+                     <?php  }else{ ?>
+                     <a class="fas fa-check " href="pesan1.php?act=add&amp;barang_id=<?php echo $rows['kode_ck']; ?>&amp;ref=pesan.php?id=<?php echo $id ?>"></a><?php }?>
+                      <label class="form-check-label" for="keramas" id="nama"><?php echo $rows['nama_ck']; ?></label><br>                      
+                      <?php 
+                   }
+                    ?>
+                  </div>   
+                </div>
+                <div class="col mt-3 ml-5">
+                      <?php for ($i=2; $i <= mysqli_num_rows($result); $i++) {  ?>
+                      <p class="form-check-label" >a</p>
+                    <?php }?>
                   </div>
-                  
+              </div>
+                <div class="garis mt-3"></div>
                 <div class="row">
                   <div class="col mt-3">
                       <label class="ml-5" id="biayat">Biaya Tambahan</label>
