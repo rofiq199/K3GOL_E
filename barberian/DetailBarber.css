@@ -41,7 +41,6 @@
 .card{
     width: 16rem;
     margin-top: 20px;
-    margin-left: 100px;
 }
  
  .jumbotron{
@@ -53,6 +52,21 @@
 html{
     scroll-behavior: smooth;
 }
+#popup{
+    background-image: url('tim-mossholder-q49oU8NeOHQ-unsplash.jpg');
+    background-size: cover;
+    
+}
+    /* akhir */
+#popupp{
+    background-image: url('nyoba_tok.jpg');
+    background-size: cover;
+}
+    /* akhir */
+#popuppp{
+    background-image: url('iki_nyobak.jpg');
+    background-size: cover;
+}  
 @media (min-width: 992px) {
     .jumbotron{
         background-image: url(Background.jpg);
@@ -81,3 +95,4 @@ html{
         margin-right: 100px;
     }
 }
+/*  */

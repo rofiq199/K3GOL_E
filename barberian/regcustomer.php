@@ -24,16 +24,16 @@
   <body>
 
   <!--Navbar-->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top sticky">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand" href="#">Barberian</a>
+      <a class="navbar-brand" href="index.php">Barberian</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link js-scroll-trigger" href="#">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link js-scroll-trigger" href="#tentang_kami">Tentang Kami</a>
+          <a class="nav-item nav-link " href="index.php">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="index.php">Tentang Kami</a>
           <div class="dropdown">
             <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Fitur Kami
@@ -43,54 +43,26 @@
                     <a class="dropdown-item" href="caribarber.php">Cari Barbershop</a>
                     <a class="dropdown-item" href="halproduk.php">Produk</a>
                   </div>
-          </div>
-          <?php if(!isset($_SESSION['username'])){ ?>
+              </div>
           <div class="dropdown">
             <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Masuk
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="" data-toggle="modal" data-target="#darkModalForm">Masuk Sebagai Customer</a>
-                    <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalLoginForm">Masuk Sebagai Barbershop</a>
-                    <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalForm">Masuk Sebagai Barberman</a>
+                  <a class="dropdown-item" href="" data-toggle="modal" data-target="#darkModalForm">Masuk Sebagai Customer</a>
+                  <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalLoginForm">Masuk Sebagai Barbershop</a>
+                  <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalForm">Masuk Sebagai Barberman</a>
                   </div>
             </div>
-            <?php }else{
-          ?>
-          <div class="dropdown">
-            <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <?php echo $_SESSION['username']?>
-                  </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href='profilcs.php'>Profil</a>
-                  <a class="dropdown-item" href="hisbeli.php" >History Order</a>
-                  <a class="dropdown-item" href="antrian.php" >Lihat Antrian</a>
-                  <a class="dropdown-item" href="logout.php" >Logout</a>
-                </div>
-            </div>
-            <?php }
-            ?>
           </div>
         </div>
     </div>
     </nav>
   <!-- akhir Navbar -->
-
-    <?php 
-    session_start ();
-    $username = $_SESSION['username']; 
-    $query = "SELECT * FROM data_customer  WHERE username_cs='".$username."'";
-    $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
-    $data = mysqli_fetch_array($sql); // Ambil data dari hasil eksekusi $sql
-    ?>
     <!-- Form -->
     <form action="pprofilcs.php" method="POST" name="form1" enctype="multipart/form-data" >
     <div class="container">
-        <h3>Form Pendaftaran</h3>
-            <div class="gambar">
-            <center><img  valign='bottom' src="img/<?php echo $data['foto_cs']; ?>"></center>
-            </div>
-
+        <h3 class="text-center">Form Pendaftaran</h3>
             <div class="form-group row">
                 <label for="foto" class="col-sm-2 col-form-label">Upload Foto</label>
                 <div class="col-sm-10">
@@ -101,31 +73,31 @@
             <div class="form-group row">
               <label for="username" class="col-sm-2 col-form-label">Username</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="username" value="<?php echo $data['username_cs']; ?>" >
+                <input type="text" class="form-control" name="username" value="">
               </div>
             </div>
             <div class="form-group row">
               <label for="nama" class="col-sm-2 col-form-label">Nama Lengkap</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="nama" value="<?php echo $data['nama_cs']; ?>">
+                <input type="text" class="form-control" name="nama" value="">
               </div>
             </div>
             <div class="form-group row">
               <label for="email" class="col-sm-2 col-form-label">Email</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="email" value="<?php echo $data['email_cs']; ?>">
+                <input type="text" class="form-control" name="email" value="">
               </div>
             </div>
             <div class="form-group row">
                     <label for="alamat"  class="col-sm-2 col-form-label">Alamat Rumah</label>
                     <div class="col-sm-10">
-                    <textarea class="form-control" type="text" name="alamat" rows="3"><?php echo $data['alamat_cs']; ?></textarea>
+                    <textarea class="form-control" type="text" name="alamat" rows="3"></textarea>
                     </div>
             </div>
             <div class="form-group row">
                     <label for="no" class="col-sm-2 col-form-label">Nomor Telepon</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="no" value="<?php echo $data['no_cs']; ?>">
+                      <input type="text" class="form-control" name="no" value="">
                     </div>
                   </div>
             <div class="form-group row">
@@ -147,6 +119,189 @@
           </form>
     </div>
     <!-- akhir Form -->
+<!-- Modal -->
+<div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog form-dark" role="document">
+    <!--Content-->
+    <form action="login/ceklogin.php" method="POST">
+    <div class="modal-content card card-image" id="popup">
+      <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
+        <!--Header-->
+        <div class="modal-header text-center pb-4">
+          <h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel"><strong>SIGN</strong> <a
+              class="green-text font-weight-bold"><strong> IN</strong></a></h3>
+          <button type="button" class="close white-text" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <!--Body-->
+        <div class="modal-body">
+          <!--Body-->
+          <div class="md-form mb-5">
+            <input type="username" name="username" class="form-control validate white-text">
+            <label data-error="wrong" data-success="right" id="username" value=""for="Form-email5">Your email</label>
+          </div>
+
+          <div class="md-form pb-3">
+            <input type="password" name="password" class="form-control validate white-text">
+            <label data-error="wrong" data-success="right" id="password" value=""for="Form-pass5">Your password</label>
+          </div>
+
+          <!--Grid row-->
+          <div class="row d-flex align-items-center mb-4">
+
+            <!--Grid column-->
+            <div class="text-center mb-3 col-md-12">
+              <button type="submit" id="tombollogin" class="btn btn-success btn-block btn-rounded z-depth-1">Sign In</button>
+            </div>
+            <!--Grid column-->
+
+          </div>
+          <!--Grid row-->
+
+          <!--Grid row-->
+          <div class="row">
+
+            <!--Grid column-->
+            <div class="col-md-12">
+              <p class="font-small white-text d-flex justify-content-end">Don't Have an account? <a href="#" class="green-text ml-1 font-weight-bold">
+                  Sign Up</a></p>
+            </div>
+            <!--Grid column-->
+
+          </div>
+          <!--Grid row-->
+
+        </div>
+      </div>
+    </div>
+    </form>
+    <!--/.Content-->
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog form-dark" role="document">
+    <!--Contect-->
+    <form action="Login/cekloginbs.php" method="POST">
+    <div class="modal-content card card-image" id="popupp">
+      <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
+    <!--Header-->
+    <div class="modal-header text-center pb-4">
+      <h3 class="modal-title w-100 white-text font-wight-bold" id="myModalLabel"><strong>SIGN</strong> <a
+          class="green-text font-weight-bold"><strong>IN</strong></a></h3>   
+        <button type="button" class="close white-text" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!--Body-->
+      <div class="modal-body">
+      <!--Body-->
+      <div class="md-form mb-5">
+        <input type="username" id="defaultForm-email" class="form-control validate white-text" name="username">
+        <label data-error="wrong" data-success="right" for="defaultForm-email">Username</label>
+        </div>
+
+        <div class="md-form pb-3">
+          <input type="password" id="defaultForm-pass" class="form-control validate white-text" name="password" >
+          <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
+        </div>
+        
+        <!--Grid row-->
+        <div class="row d-flex align-items-center mb-4">
+
+        <!--Grid column-->
+        <div class="text-center mb-3 col-md-12">
+          <button type="submit" class="btn btn-success btn-block btn-rounded z-depth-1">Login</button>
+        </div>
+        <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+        <!--Grid row-->
+        <div class="row">
+
+          <!--Grid column-->
+          <div class="col-md-12">
+            <p class="font-small white-text d-flex justify-content-end">Don't Have an Account? <a href="#" class="green-text ml-1 font-weight-bold">
+                Sign Up</a></p>
+          </div>
+          <!--Grid column-->
+
+    </div>
+    <!--Grid row-->
+
+    </div>
+      </div>
+    </div>
+    </form>
+    <!--/.Content-->
+  </div>
+</div>  
+<!-- Modal -->
+<div class="modal fade" id="modalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog form-dark" role="document">
+    <!--Content-->
+    <form action="/K3GOL_E/barberian/Login/cekloginbm.php " method="POST">
+    <div class="modal-content card card-image" id="popuppp">
+      <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
+        <!--Header-->
+        <div class="modal-header text-center pb-4">
+          <h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel"><strong>SIGN</strong> <a
+              class="green-text font-weight-bold"><strong> IN</strong></a></h3>
+          <button type="button" class="close white-text" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <!--Body-->
+        <div class="modal-body">
+          <!--Body-->
+          <div class="md-form mb-5">
+            <input type="username" name="username" class="form-control validate white-text">
+            <label data-error="wrong" data-success="right" for="Form-email5">Your email</label>
+          </div>
+
+          <div class="md-form pb-3">
+            <input type="password" name="password" class="form-control validate white-text">
+            <label data-error="wrong" data-success="right" for="Form-pass5">Your password</label>
+          </div>
+
+          <!--Grid row-->
+          <div class="row d-flex align-items-center mb-4">
+
+            <!--Grid column-->
+            <div class="text-center mb-3 col-md-12">
+              <button type="submit" class="btn btn-success btn-block btn-rounded z-depth-1">Sign In</button>
+            </div>
+            <!--Grid column-->
+
+          </div>
+          <!--Grid row-->
+
+          <!--Grid row-->
+          <div class="row">
+
+            <!--Grid column-->
+            <div class="col-md-12">
+              <p class="font-small white-text d-flex justify-content-end">Don't Have an account? <a href="#" class="green-text ml-1 font-weight-bold">
+                  Sign Up</a></p>
+            </div>
+            <!--Grid column-->
+
+          </div>
+          <!--Grid row-->
+
+        </div>
+      </div>
+    </div>
+    </form>
+    <!--/.Content-->
+  </div>
+</div>
 
   <!-- akhir Navbar -->
 <!-- Optional JavaScript -->

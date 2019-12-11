@@ -45,9 +45,8 @@
                     <a class="dropdown-item" href="caribarber.php">Cari Barbershop</a>
                     <a class="dropdown-item" href="halproduk.php">Produk</a>
                   </div>
-          </div>          
-    </div>
-    <?php if(!isset($_SESSION['username'])){ ?>
+              </div>
+              <?php if(!isset($_SESSION['username'])){ ?>
           <div class="dropdown">
             <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Masuk
@@ -75,7 +74,6 @@
             ?>
           </div>
         </div>
-      </div>
     </div>
     </nav>
   <!-- akhir Navbar -->
@@ -100,7 +98,7 @@
       </div>
         <!-- Section: Team v.1 -->
 <div class="container">
-<section class="team-section text-center my-5">
+<section class="text-center my-5">
 
         <!-- Section heading -->
         <h2 class="h1-responsive font-weight-bold my-5" id="barberman">List Barberman</h2>
@@ -119,7 +117,7 @@
           
         <div class="col-sm-3">
 
-          <div class="card <?=$rows -> username_bm?>">
+        <div class="card center <?=$rows -> username_bm?>">
             <img src="barberman/img/<?=$rows -> foto_bm;?>" width ="170px" height="250px"class="card-img-top">
             <div class="card-body">
               <h5 class="card-title"><?=$rows -> nama_bm?></h5>
@@ -133,7 +131,7 @@
         </div>
         <!-- Grid row -->
       
-      </section>
+</section>
 </div>
       <!-- Section: Team v.1 -->
 <!-- Modal -->
@@ -320,28 +318,6 @@
   </div>
 </div>
 
-  <form action="barbermanh.php" method="POST">
-       <div class="modal" id="antrian>"tabindex="-1" role="dialog">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">Hapus</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                  </button>
-                  </div>
-            <div class="modal-body">
-            <p>Apakah anda ingin menghapus barberman ini?</p>
-              <input type="text" value="" name="username">
-                </div>
-              <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" >Hapus </button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-          </div>
-          </div>
-        </div>
-        </div>
-    </form>
   <!-- akhir modal -->
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
