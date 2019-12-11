@@ -123,7 +123,7 @@
     while($data1 = mysqli_fetch_array($sql1)){
     ?>
         <tr>
-        <td><img src="img/<?php echo $data1['foto_produk']; ?>" width="50px" height="50px"></td>
+        <td><img src="admin/img/<?php echo $data1['foto_produk']; ?>" width="100px" height="100px"></td>
         <td><?php echo $data1['nama_produk']; ?></td>
         <td><?php echo $data1['username_bs']; ?></td>
         <td>Rp.<?php echo $data1['harga_produk']; ?></td>

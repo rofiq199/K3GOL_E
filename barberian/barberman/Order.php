@@ -5,7 +5,7 @@
     include "../koneksi.php";
     session_start();
   $username = $_SESSION['username'];
-  $query = "SELECT * FROM pesan inner join data_customer on pesan.username_cs=data_customer.username_cs WHERE ( status_pesan='belum' or status_pesan='proses') and username_bm='".$username."' ";
+  $query = "SELECT * FROM pesan inner join data_customer on pesan.username_cs=data_customer.username_cs  WHERE ( status_pesan='belum' or status_pesan='proses') and username_bm='".$username."' ";
   $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
     ?>
     <!-- Required meta tags -->
@@ -63,7 +63,7 @@
                 <th scope="col">NO</th>
                 <th scope="col">NAMA CUSTOMER</th>
                 <th scope="col">ORDERAN</th>
-                <th scope="col">HARGA</th>
+                <th scope="col">Total</th>
                 <th scope="col">ALAMAT</th>
                 <th colspan="3" scope="col">PILIH</th>
               </tr>
@@ -85,10 +85,15 @@
                   <th scope="row"><?php echo $no++; ?></th>
                   <td><?php echo $data['nama_cs']; ?></td>
                   <td>Cukur Rambut</td>
-                  <td>Rp 25.000,00</td>
+                  <td>Rp. <?php echo number_format($data['total_pesan'],0,",","."); ?></td>
                   <td><?php echo $data['alamat_pesan']; ?></td>
-                  <td><i class="fas fa-check bg-success p-2 text-white rounded" data-toggle="tooltip" title="Terima"></i></td>
-                  <td><i class="fas fa-ban bg-danger p-2 text-white rounded" data-toggle="tooltip" title="Tolak"></i></td>
+                  <?php if($data['status_pesan']=='belum'){?>
+                  <td><i class="fas fa-check bg-success p-2 text-white rounded" data-toggle="tooltip" title="Terima" onclick="window.location.href='orderproses.php?act=proses&amp;id=<?php echo $data['kode_pesan'];?>&amp;ref=order.php'"></i></td>
+                  <td><i class="fas fa-ban bg-danger p-2 text-white rounded" data-toggle="tooltip" title="Tolak" onclick="window.location.href='orderproses.php?act=batal&amp;id=<?php echo $data['kode_pesan'];?>&amp;ref=order.php'" ></i></td>
+                  <?php }else{ ?>
+                  <td><i class="fas fa-check bg-success p-2 text-white rounded" data-toggle="tooltip" title="Selesai" onclick="window.location.href='orderproses.php?act=selesai&amp;id=<?php echo $data['kode_pesan'];?>&amp;ref=order.php'"></i></td>
+                  <td><i class="fas fa-ban bg-danger p-2 text-white rounded" data-toggle="tooltip" title="Tolak"  onclick="window.location.href='orderproses.php?act=batal&amp;id=<?php echo $data['kode_pesan'];?>&amp;ref=order.php'" ></i></td>
+                  <?php }?>
                 </tr>
           <?php }?>
             </tbody>
