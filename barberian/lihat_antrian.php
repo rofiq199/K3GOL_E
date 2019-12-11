@@ -98,7 +98,7 @@ session_start();
               </div>
             </div>
             <div class="form-group row">
-              <label for="nomor2" class="col-sm-2 col-form-label">Nomor Antrian Saat : Ini</label>
+              <label for="nomor2" class="col-sm-2 col-form-label">Nomor Antrian Sekarang : </label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" name="nomor2" disabled value="<?php echo $data['no_antrian']; ?>">
               </div>

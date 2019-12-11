@@ -69,7 +69,7 @@
                   </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href='profilcs.php'>Profil</a>
-                  <a class="dropdown-item" href="" >History Order</a>
+                  <a class="dropdown-item" href="hisbeli.php" >History Order</a>
                   <a class="dropdown-item" href="lihat_antrian.php" >Lihat Antrian</a>
                   <a class="dropdown-item" href="logout.php" >Logout</a>
                 </div>
@@ -96,20 +96,26 @@
 <div class="container">
 <?php while($data = mysqli_fetch_array($sql)){?>
   <div class="card">
+  <div class="card-header">
+  <h5 class="card-title">Kode Transaksi : <?php echo $data['kode_jual']; ?></h5>
+  </div>
     <div class="card-body">
-      <h5 class="card-title">Kode Transaksi : <?php echo $data['kode_jual']; ?></h5>
+      
       <p class="card-text">Total Harga : Rp <?php echo $data['total_harga']; ?></p>
       <p class="card-text">Tanggal : <?php echo $data['tanggal_jual']; ?></p>
       <a href="#collapseExample<?php echo $data['kode_jual']; ?>" class="btn btn-primary" data-toggle="collapse" >Lihat Detail</a>
     </div>
     <div class="collapse" id="collapseExample<?php echo $data['kode_jual']; ?>">
       <div class="collapse-content">
+      <div class="container">
+      <div class="card-footer">
         <p id="collapseExample">Detail Pembelian </p>
-        <table>
+        <table cellspacing="0" width="50%">
         <tr>
-        <th>Nama Produk</th>
-        <th>Toko</th>
-        <th>Harga Produk</th>
+        <td>Foto</td>
+        <td>Nama Produk</td>
+        <td>Toko</td>
+        <td>Harga Produk</td>
         </tr>
      <?php   
      $query1 ="SELECT * FROM detail_penjualan inner join produk on detail_penjualan.kode_produk=produk.kode_produk where kode_jual='".$data['kode_jual']."' ";
@@ -117,30 +123,20 @@
     while($data1 = mysqli_fetch_array($sql1)){
     ?>
         <tr>
-        <th><?php echo $data1['nama_produk']; ?></th>
-        <th><?php echo $data1['username_bs']; ?></th>
-        <th>Rp.<?php echo $data1['harga_produk']; ?></th>
+        <td><img src="img/<?php echo $data1['foto_produk']; ?>" width="50px" height="50px"></td>
+        <td><?php echo $data1['nama_produk']; ?></td>
+        <td><?php echo $data1['username_bs']; ?></td>
+        <td>Rp.<?php echo $data1['harga_produk']; ?></td>
         </tr>
     <?php }?>
         </table>
+        </div>
+        </div>
       </div>
     </div>
 
   </div>
   <?php }?>
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Kode Transaksi</h5>
-      <p class="card-text">Harga : Rp 200.000</p>
-      <p class="card-text">Tanggal : 12-12-2019</p>
-      <a href="#collapseExample2" class="btn btn-primary" data-toggle="collapse" >Button</a>
-    </div>
-    <div class="collapse" id="collapseExample2">
-      <div class="collapse-content">
-        <p id="collapseExample1">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
-      </div>
-    </div>
-  </div>
 </div>
 
 <!-- collapse -->
