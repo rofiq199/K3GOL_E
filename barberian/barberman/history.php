@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="en">
   <head>
+  <?php 
+    include "../koneksi.php";
+    session_start();
+    $username = $_SESSION['username'];
+    $query = "SELECT * FROM pesan inner join data_customer on pesan.username_cs=data_customer.username_cs  WHERE ( status_pesan='selesai' or status_pesan='batal') and username_bm='".$username."' ";
+    $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
+    ?>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,14 +16,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="admin1.css">
     <script src="https://kit.fontawesome.com/ef8e8d5793.js" crossorigin="anonymous"></script>
-    <title>HISTORY</title>
+    <title>History</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-        <a class="navbar-brand text-white" href="file:///C:/xampp/htdocs/template_admin/Admin_Barberman.html">BARBERIAN</a>
-        <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
           <i class="fas fa-bars"></i> 
         </button>
+        <a class="navbar-brand text-white" href="">BARBERIAN</a>
 
           <form class="form-inline my-2 my-lg-0 ml-auto">
             
@@ -45,7 +52,7 @@
                                   <a class="nav-link active text-white" href="profilbm.php"><i class="fas fa-user mr-2"></i>LIHAT PROFIL</a><hr class="bg-secondary">
                              </li>
                              <li class="nav-item">
-                                  <a class="nav-link text-white" href="History.html"><i class="fas fa-history mr-2"></i>HISTORY ORDER</a><hr class="bg-secondary">
+                                  <a class="nav-link text-white" href="history.php"><i class="fas fa-history mr-2"></i>HISTORY ORDER</a><hr class="bg-secondary">
                              </li>
                       </ul>
         </div>
@@ -63,22 +70,18 @@
               </tr>
             </thead>
             <tbody>
+            <?php 
+            $no=1;
+            while($data=mysqli_fetch_array($sql)){ ?>
               <tr>
-                <th scope="row">1</th>
-                <td>IFAR FATWA MAHENDRA</td>
-                <td>Cukur Rambut</td>
-                <td>Rp 25.000</td>
-                <td>2 Oktober 2019</TD>
-                <td>Diterima</td>
-            </tbody>
-
-            <tbody>
-                    <th scope="row">2</th>
-                    <td>Dodhy Kurnia</td>
-                    <td>Cukur Rambut</td>
-                    <td>Rp 25.000</td>
-                    <td>2 Oktober 2019</TD>
-                    <td>Diterima</td>
+                  <th scope="row"><?php echo $no++;?></th>
+                  <td><?php echo $data['nama_cs'];?></td>
+                  <td>Cukur Rambut</td>
+                  <td>Rp <?php echo number_format($data['total_pesan'],0,",",".");?></td>
+                  <td><?php echo date("d F Y",strtotime($data['tanggal_pesan']));?></TD>
+                  <td><?php echo $data['status_pesan'];?></td>
+              </tr>
+            <?php }?>
             </tbody>
           </table>
 

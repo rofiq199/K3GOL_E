@@ -19,7 +19,7 @@ $penghasilan = mysqli_query($koneksi, "SELECT hasil_penjualan FROM penjualan WHE
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-        <a class="navbar-brand text-white" href="file:///C:/xampp/htdocs/template_admin/Admin_Barberman.html">BARBERIAN</a>
+        <a class="navbar-brand text-white" href="">BARBERIAN</a>
         <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
           <i class="fas fa-bars"></i> 
         </button>
@@ -51,7 +51,7 @@ $penghasilan = mysqli_query($koneksi, "SELECT hasil_penjualan FROM penjualan WHE
                                   <a class="nav-link active text-white" href="profilbm.php"><i class="fas fa-user mr-2"></i>LIHAT PROFIL</a><hr class="bg-secondary">
                              </li>
                              <li class="nav-item">
-                                  <a class="nav-link text-white" href="History.html"><i class="fas fa-history mr-2"></i>HISTORY ORDER</a><hr class="bg-secondary">
+                                  <a class="nav-link text-white" href="history.php"><i class="fas fa-history mr-2"></i>HISTORY ORDER</a><hr class="bg-secondary">
                              </li>
                       </ul>
         </div>

@@ -29,7 +29,7 @@
           </form>
           <div class="icon ml-4">
               <h5>
-                  <i class="fas fa-sign-out-alt mr-3 text-white" data-toggle="tooltip" title="Sign Out"></i>
+                  <i onclick="window.location.href='../logout.php'" class="fas fa-sign-out-alt mr-3 text-white" data-toggle="tooltip" title="Sign Out"></i>
               </h5>
 
           </div>
@@ -60,24 +60,16 @@
           <table class="table table-striped table-bordered">
             <thead>
               <tr>
-                <th scope="col">NO</th>
-                <th scope="col">NAMA CUSTOMER</th>
-                <th scope="col">ORDERAN</th>
+                <th scope="col">No</th>
+                <th scope="col">Nama customer</th>
+                <th scope="col">Jenis layanan</th>
                 <th scope="col">Total</th>
-                <th scope="col">ALAMAT</th>
-                <th colspan="3" scope="col">PILIH</th>
+                <th scope="col">Alamat</th>
+                <th scope="col">Status</th>
+                <th colspan="3" scope="col">Pilih</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>IFAR FATWA MAHENDRA</td>
-                <td>Cukur Rambut</td>
-                <td>Rp 25.000,00</td>
-                <td>Klatak - Banyuwangi</td>
-                <td><i class="fas fa-check bg-success p-2 text-white rounded" data-toggle="tooltip" title="Terima"></i></td>
-                <td><i class="fas fa-ban bg-danger p-2 text-white rounded" data-toggle="tooltip" title="Tolak"></i></td>
-              </tr>
               <?php 
           $no = 1;
           while($data = mysqli_fetch_array($sql)){ ?>
@@ -87,12 +79,13 @@
                   <td>Cukur Rambut</td>
                   <td>Rp. <?php echo number_format($data['total_pesan'],0,",","."); ?></td>
                   <td><?php echo $data['alamat_pesan']; ?></td>
+                  <td><?php echo $data['status_pesan']; ?></td>
                   <?php if($data['status_pesan']=='belum'){?>
-                  <td><i class="fas fa-check bg-success p-2 text-white rounded" data-toggle="tooltip" title="Terima" onclick="window.location.href='orderproses.php?act=proses&amp;id=<?php echo $data['kode_pesan'];?>&amp;ref=order.php'"></i></td>
+                  <td><i class="fas fa-check bg-success p-2 text-white rounded" data-toggle="tooltip" title="Terima" onclick="window.location.href='orderproses.php?act=proses&amp;id=<?php echo $data['kode_pesan'];?>&amp;ref=order.php'">terima</i></td>
                   <td><i class="fas fa-ban bg-danger p-2 text-white rounded" data-toggle="tooltip" title="Tolak" onclick="window.location.href='orderproses.php?act=batal&amp;id=<?php echo $data['kode_pesan'];?>&amp;ref=order.php'" ></i></td>
                   <?php }else{ ?>
-                  <td><i class="fas fa-check bg-success p-2 text-white rounded" data-toggle="tooltip" title="Selesai" onclick="window.location.href='orderproses.php?act=selesai&amp;id=<?php echo $data['kode_pesan'];?>&amp;ref=order.php'"></i></td>
-                  <td><i class="fas fa-ban bg-danger p-2 text-white rounded" data-toggle="tooltip" title="Tolak"  onclick="window.location.href='orderproses.php?act=batal&amp;id=<?php echo $data['kode_pesan'];?>&amp;ref=order.php'" ></i></td>
+                  <td><i class="fas fa-check bg-success p-2 text-white rounded" data-toggle="tooltip" title="Selesai" onclick="window.location.href='orderproses.php?act=selesai&amp;id=<?php echo $data['kode_pesan'];?>&amp;ref=order.php'">selesai</i></td>
+                  <td><i class="fas fa-ban bg-danger p-2 text-white rounded" data-toggle="tooltip" title="Batal"  onclick="window.location.href='orderproses.php?act=batal&amp;id=<?php echo $data['kode_pesan'];?>&amp;ref=order.php'" ></i></td>
                   <?php }?>
                 </tr>
           <?php }?>

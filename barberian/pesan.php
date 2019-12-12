@@ -81,7 +81,7 @@
           include "koneksi.php";
           $id = $_GET['id'];
           $total = 0;
-          print_r($_SESSION['cukur']);
+          //print_r($_SESSION['cukur']);
           $query1= "SELECT * from  data_barberman where username_bm='$id' ";
           $result1 = mysqli_query($koneksi,$query1) or die(mysqli_error());
           $data1 = mysqli_fetch_array($result1);
@@ -90,11 +90,10 @@
 
           $query = "SELECT * from  harga_barber where username_bs='$barbershop' ";
           $result= mysqli_query($koneksi,$query) or die(mysqli_error());
-          $data = mysqli_fetch_array($result);
           
         ?>
 <?php  if (isset($_SESSION['cukur'])){ ?>
-<table class="hidden">
+<table class="">
     <tr>
     <td>kode ck</td>
     <td>nama cukur</td>
@@ -139,6 +138,13 @@
                     <td>Nama Layanan</td>
                     <td>Harga</td>
                     </tr>
+                    <?php while($data=mysqli_fetch_array($result)) {?>
+                    <tr>
+                    <td><a href="pesan1.php?act=del&amp;barang_id=<?php echo $data['kode_ck']; ?>&amp;ref=pesan.php?id=<?php echo $id ?>" class="fas fa-times"></a>  <a class="fas fa-check " href="pesan1.php?act=add&amp;barang_id=<?php echo $data['kode_ck']; ?>&amp;ref=pesan.php?id=<?php echo $id ?>"></td>
+                    <td><?php echo $data['nama_ck']; ?></td>
+                    <td>Rp. <?php echo number_format($data['harga_ck'],0,",","."); ?></td>
+                    </tr>
+                  <?php }?>
                   </table>
                   <div class="garis"></div>
                   </div>
