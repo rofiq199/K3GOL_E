@@ -15,6 +15,7 @@
         <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     
         <!--My CSS-->
         <link rel="stylesheet" href="DetailBarber.css">
@@ -90,11 +91,13 @@
                 ?>
         <div class="container">
         <?php $data = mysqli_fetch_object($result);?>
-                <h2 class="Deskripsi mt-3" style="font-family: 'Cairo', sans-serrif;"><?=$data -> nama_bs;?></h2>
+                <h2 class="Deskripsi mt-3"><?=$data -> nama_bs;?></h2>
         </div>
         <div class="container">
-        <button type="button" class="btn btn-primary mt-3 "  onclick="window.location.href='antrian.php?id=<?=$data -> username_bs;?>'" >Ambil Antrian</buutton>
-        <button type="button" class="btn btn-success mt-3 ml-2 " onclick="window.location.href='#barberman'">Order</button>
+        <div class="tombol">
+          <button type="button" class="btn btn-primary mt-3 "  data-toggle="modal" data-target="#modalambil" >Ambil Antrian</buutton>
+          <button type="button" class="btn btn-success mt-3 ml-2 " onclick="window.location.href='#barberman'" >Order</button>
+        </div>
       </div>
         <!-- Section: Team v.1 -->
 <div class="container">
@@ -319,6 +322,27 @@
 </div>
 
   <!-- akhir modal -->
+  <form action="" method="POST">
+                <div class="modal fade" id="modalambil"tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Apakah anda ingin mengambil antrian?</p>
+                      <input type="hidden"  name="antrian">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="submit" class="btn btn-success" >Ya </button>
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">Tidak</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </form>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

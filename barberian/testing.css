@@ -73,11 +73,6 @@ html{
         visibility: visible;
     }
     /* akhir */
-    #popup{
-    background-image: url('tim-mossholder-q49oU8NeOHQ-unsplash.jpg');
-    background-size: cover;
-    
-    }
     
 }
 
@@ -101,21 +96,21 @@ body{
     
 }
 
-    form{
-        font-family: 'Roboto', sans-serif;
-        font-weight: bolder;
-        font-size: 20px;
-    }
+form{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    font-size: 20px;
+}
 
-    .garis{
-        border-bottom: 2px solid black;
-    }
+.garis{
+    border-bottom: 2px solid black;
+}
     /* table{
         display: none;
     } */
-    .fa-check{
-        color: green;
-    }
-    .fa-times{
-        color: red;
-    }
+.fa-check{
+    color: green;
+}
+.fa-times{
+    color: red;
+}

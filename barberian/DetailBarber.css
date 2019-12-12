@@ -67,6 +67,16 @@ html{
     background-image: url('iki_nyobak.jpg');
     background-size: cover;
 }  
+#modalambil{
+    font-family: 'Roboto', sans-serif;
+}
+
+.tombol{
+    font-family: 'Roboto', sans-serif;
+}
+.deskripsi{
+    font-family: 'Roboto', sans-serif;
+}
 @media (min-width: 992px) {
     .jumbotron{
         background-image: url(Background.jpg);
