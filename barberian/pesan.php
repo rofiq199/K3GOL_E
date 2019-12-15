@@ -162,16 +162,12 @@
                       Rp <?php echo $total+'5000'; ?>
                     </div>
                     <small><strong><label class="mt-2">Aplikasi ini Hanya berlaku untuk daerah banyuwangi kota saja</label></strong></small>
-                    <button type="submit" data-toggle="modal" data-target="#modalubah" class="btn btn-outline-success waves-effect mt-4 ml-4">Pesan</button>
+                    <button type="button" data-toggle="modal" data-target="#modalubah" class="btn btn-outline-success waves-effect mt-4 ml-4">Pesan</button>
                   </div>
                 </div>
               </div>
             </div>
-        </form>
-      </div>
-      <!-- modal -->
-      <form action="barbermanh.php" method="POST">
-                <div class="modal fade" id="modalubah"tabindex="-1" role="dialog">
+            <div class="modal fade" id="modalubah"tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -182,15 +178,20 @@
                     </div>
                     <div class="modal-body">
                       <p>Apakah anda ingin melanjutkan transaksi?</p>
-                      <input type="hidden" value="<?php echo $data['username_bm'];?>" name="username">
                     </div>
                     <div class="modal-footer">
+                    <input type="hidden" name="total" value="<?php echo $total+'5000' ?>">
                       <button type="submit" class="btn btn-success" >Ya</button>
                       <button type="button" class="btn btn-danger" data-dismiss="modal">Tidak</button>
                     </div>
                   </div>
                 </div>
               </div>
+        </form>
+      </div>
+      <!-- modal -->
+      <form action="barbermanh.php" method="POST">
+ 
               </form>
       <!--  -->
     </div>

@@ -86,7 +86,7 @@
   ?>
        
     <div class="jumbotron jumbotron-fluid">
-    <img src="admin/img/<?=$data -> foto_bs ?>" >
+    <img src="admin/img/<?=$data -> foto_bs ?>">
         <div class="container"></div>
     </div>           
                 <!--/.Carousel Wrapper-->
