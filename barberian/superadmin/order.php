@@ -30,8 +30,8 @@
                 <th scope="row"><?php echo $data['kode_pesan']; ?></th>
                 <td><?php echo $data['username_cs']; ?></td>
                 <td><?php echo $data['username_bm']; ?></td>
-                <td><?php echo $data['tanggal_pesan']; ?></td>
-                <td><?php echo $data['status']; ?></td>
+                <td><?php echo date("h:i , d F Y ",strtotime($data['tanggal_pesan'])); ?></td>
+                <td><?php echo $data['status_pesan']; ?></td>
                 <td><?php echo $data['alamat_pesan']; ?></td>
                 <td><?php echo $data['total_pesan']; ?></td>
                 <td><i class="fas fa-edit bg-success p-2 text-white rounded" data-toggle="modal" data-target="#modaledit<?php echo $no ?>" title="Edit"></i></td>

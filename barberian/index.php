@@ -1,4 +1,5 @@
 <?php
+
   session_start();
 ?>
 <!doctype html>
@@ -166,14 +167,15 @@
         <div class="modal-body">
           <!--Body-->
           <div class="md-form mb-5">
-            <input type="username" name="username" class="form-control validate white-text">
-            <label data-error="wrong" data-success="right" id="username" value=""for="Form-email5">Your email</label>
+            <input type="username" id="username" name="username" class="form-control validate white-text">
+            <label data-error="wrong" data-success="right" id="username" value=""for="Form-email5">Your Username</label>
           </div>
 
           <div class="md-form pb-3">
-            <input type="password" name="password" class="form-control validate white-text">
-            <label data-error="wrong" data-success="right" id="password" value=""for="Form-pass5">Your password</label>
+            <input type="password" id="password" name="password" class="form-control validate white-text">
+            <label data-error="wrong" data-success="right" value=""for="Form-pass5">Your password</label>
           </div>
+          <input type="checkbox" class="lihat" name="lihat" id="show"><label for="checkbox">Show password</label>
 
           <!--Grid row-->
           <div class="row d-flex align-items-center mb-4">
@@ -227,12 +229,12 @@
       <div class="modal-body">
       <!--Body-->
       <div class="md-form mb-5">
-        <input type="username" id="defaultForm-email" class="form-control validate white-text" name="username">
+        <input type="username" id="usernamebs" class="form-control validate white-text" name="username">
         <label data-error="wrong" data-success="right" for="defaultForm-email">Username</label>
         </div>
 
         <div class="md-form pb-3">
-          <input type="password" id="defaultForm-pass" class="form-control validate white-text" name="password" >
+          <input type="password" id="passwordbs" class="form-control validate white-text" name="password" >
           <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
         </div>
         
@@ -241,7 +243,7 @@
 
         <!--Grid column-->
         <div class="text-center mb-3 col-md-12">
-          <button type="submit" class="btn btn-success btn-block btn-rounded z-depth-1">Login</button>
+          <button type="submit" id="tombolloginbs" class="btn btn-success btn-block btn-rounded z-depth-1">Login</button>
         </div>
         <!--Grid column-->
 
@@ -338,5 +340,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/6b0af4bcb3.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="login.js"></script>
+    <script src="js/formvalidasi.js"></script>
   </body>
 </html>

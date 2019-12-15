@@ -1,13 +1,27 @@
-<?php  
-    session_start();
-    include "../koneksi.php";
-      $username = $_SESSION['username'];
-      // Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
-      $query = "SELECT * FROM data_barberman ";
-      $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
-      ?>
+<?php 
+include "../../koneksi.php";
+$ref = $_GET['ref'];
+$username = $_GET['username'];
+// if (isset($_GET['act'])){
+//     $act = $_GET['act'];
+//     $kode = $_GET['id'];
+//     if ($act == 'tambah'){
+//         $query = "INSERT INTO antrian  ";
+//         $sql = mysqli_query($koneksi,$query);
+//     }else if ($act == 'proses'){
+//         $query1 = "UPDATE antrian SET status_antrian= 'proses' WHERE kode_antrian='$kode'";
+//         $sql1 = mysqli_query($koneksi,$query1);
+//     }else if ($act == 'selesai'){
+//         $query2 = "UPDATE antrian set status_antrian='selesai' where kode_antrian='$kode'";
+//         $sql2 = mysqli_query($koneksi,$query2);
+//     }else if($act == 'batal'){
+//         $query = "UPDATE antrian set status_antrian='batal' where kode_antrian='$kode'" ;
+//         $sql = mysqli_query($koneksi,$query);   
+//     }
+// header ("location:" . $ref);
+// }
+?>
 <div class="halaman">
-  <p class="username"></p>
           <h3><i class="fas fa-store mr-2"></i> LIHAT BARBERMAN</h3><hr>
           <a class="btn btn-primary mb-3" data-toggle="modal" data-target="#modalplus" title="plus" ><i class="fas fa-plus-square mr-2"></i>Tambah Barberman</a>
           <table class="table table-striped table-bordered">
@@ -158,24 +172,3 @@
               <?php }?>
             </tbody>
           </table>
-<script src="../js/jquery-3.4.1.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-  
-	$("#tambah").click(function(){
-    var data1 = $('.formtambah').serialize();
-    var username = $('#username').val();
-		$.ajax({
-			type: 'POST',
-			url: "proses/barberman.php",
-			data: 'username='+username,
-			success: function() {
-        //reload("barberman.php");
-        console.log(data1);
-        $('.username').load('proses/barberman.php?'+username);
-			}
-		});
-	});
-});
-
-</script>

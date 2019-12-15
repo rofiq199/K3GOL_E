@@ -78,19 +78,19 @@
     </div>
     </nav>
   <!-- akhir Navbar -->
+  <?php  
+    include "koneksi.php";
+    $query= "SELECT * from  data_barber where username_bs='".$id."'";
+     $result=mysqli_query($koneksi,$query);
+     $data = mysqli_fetch_object($result);
+  ?>
        
     <div class="jumbotron jumbotron-fluid">
+    <img src="admin/img/<?=$data -> foto_bs ?>" >
         <div class="container"></div>
-    </div>
-              
+    </div>           
                 <!--/.Carousel Wrapper-->
-                <?php  
-                include "koneksi.php";
-                 $query= "SELECT * from  data_barber where username_bs='".$id."'";
-                 $result=mysqli_query($koneksi,$query)
-                ?>
         <div class="container">
-        <?php $data = mysqli_fetch_object($result);?>
                 <h2 class="Deskripsi mt-3"><?=$data -> nama_bs;?></h2>
         </div>
         <div class="container">

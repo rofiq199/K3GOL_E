@@ -27,7 +27,7 @@
               <tr>
                 <th scope="row"><?php echo $data['kode_jual']; ?></th>
                 <td><?php echo $data['username_cs']; ?></td>
-                <td><?php echo $data['tanggal_jual']; ?></td>
+                <td><?php echo date("h:i , d F Y ",strtotime($data['tanggal_jual'])); ?></td>
                 <td><?php echo $data['alamat_jual']; ?></td>
                 <td><?php echo $data['total_harga']; ?></td>
                 <td><?php echo $data['status']; ?></td>
