@@ -50,6 +50,9 @@
                   <ul class="nav flex-column">
                       <ul class="sidebar navbar-nav">
                       <li class="nav-item">
+                          <a class="nav-link active text-white" href="dashboard.php"><i class="fas fa-cart-arrow-down mr-2"></i>DASHBOARD</a><hr class="bg-secondary">
+                        </li>
+                      <li class="nav-item">
                           <a class="nav-link active text-white" href="produk.php"><i class="fas fa-tags mr-2"></i>LIHAT PRODUK</a><hr class="bg-secondary">
                         </li>
                         <li class="nav-item">
