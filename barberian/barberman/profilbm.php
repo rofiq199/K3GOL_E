@@ -42,7 +42,7 @@
             </form>
             <div class="icon ml-4">
                 <h5>
-                    <i class="fas fa-sign-out-alt mr-3 text-white" data-toggle="tooltip" title="Sign Out"></i>
+                <i onclick="window.location.href='../logout.php'" class="fas fa-sign-out-alt mr-3 text-white" data-toggle="tooltip" title="Sign Out"></i>
                 </h5>
   
             </div>

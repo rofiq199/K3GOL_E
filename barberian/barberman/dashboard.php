@@ -4,6 +4,9 @@ $bulan       = mysqli_query($koneksi, "SELECT bulan FROM penjualan WHERE tahun='
 $penghasilan = mysqli_query($koneksi, "SELECT hasil_penjualan FROM penjualan WHERE tahun='2016' order by id asc");
 ?>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -29,7 +32,8 @@ $penghasilan = mysqli_query($koneksi, "SELECT hasil_penjualan FROM penjualan WHE
           </form>
           <div class="icon ml-4">
               <h5>
-                  <i class="fas fa-sign-out-alt mr-3 text-white" data-toggle="tooltip" title="Sign Out"></i>
+              <i class="fas fa-bell text-white mr-3"></i>
+              <i onclick="window.location.href='../logout.php'" class="fas fa-sign-out-alt mr-3 text-white" data-toggle="tooltip" title="Sign Out"></i>
               </h5>
 
           </div>
@@ -59,17 +63,20 @@ $penghasilan = mysqli_query($koneksi, "SELECT hasil_penjualan FROM penjualan WHE
           <h3><i class="fas fa-shopping-cart mr-2"></i>DASHBOARD</h3><hr>
           <table class="table table-striped table-bordered">
 
-         <center><h1>GRAFIK PENJUALAN</h1></center>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
+        
+          <html>
+    <head>
+        <title>grafik</title>
         <script src="Chart.bundle.js"></script>
+ 
         <style type="text/css">
             .container {
-                width: 75%;
+                width: 50%;
                 margin: 15px auto;
             }
         </style>
-
+    </head>
+    <body>
         <div class="container">
             <canvas id="myChart" width="100" height="100"></canvas>
         </div>
