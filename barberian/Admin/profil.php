@@ -29,10 +29,10 @@
       $data = mysqli_fetch_array($sql); // Ambil data dari hasil eksekusi $sql
       ?>
     <nav class="navbar navbar-expand-lg navbar-light ">
-        <a class="navbar-brand text-white" >BARBERIAN</a>
-        <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
-          <i class="fas fa-bars"></i> 
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+        <i class="fas fa-bars"></i> 
         </button>
+        <a class="navbar-brand text-white" >BARBERIAN</a>
         <form class="form-inline my-2 my-lg-0 ml-auto">
             
             </form>
@@ -120,16 +120,16 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="inputPassword6">Konfirmasi Password</label>
-                <input type="password" id="password1" class="form-control" name="password1" value="<?php echo $data['password_bs']; ?>">
+                <input type="password" id="konpassword" class="form-control" name="password1" value="<?php echo $data['password_bs']; ?>">
                 <label class="pesan"></label>
                 <small id="passwordHelpInline" class="text-muted">
-                  Harus sama dengan password
+                  <strong id="ingat"></strong>
                 </small>
             </div>
             <div class="form-group col-md-6">
             </div>
             <div class="form-group col-md-6">
-            <button type="submit" id="submit"class="btn btn-primary">SIMPAN PERUBAHAN</button>
+            <button type="submit" id="ubah"class="btn btn-primary">SIMPAN PERUBAHAN</button>
           </form>
           
            
@@ -141,19 +141,19 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script type="text/javascript" src="admin2.js"></script>
     <script type="text/javascript">
-    document.getElementById("submit").disabled = true;
-    function cekPass() {
-        var password = document.getElementById("password").value;
-        var confirmPassword = document.getElementById("password1").value;
-        if (password != confirmPassword) { 
-        	document.getElementById("submit").disabled = true;
-            $('.pesan').html('<h5 class="text-danger"> Password tidak sesuai ! </h5>');
-            return false;
-        }
-        document.getElementById("submit").disabled = false;
-        $('.pesan').html('<h5 class="text-success"> Password sesuai ! </h5>');
-        return true;
-    }
-</script>
+       $(document).ready(function() {
+            $("#ubah").on('click',function () {
+                var password = $("#password").val();
+                var confirmPassword = $("#konpassword").val();
+                if (password != confirmPassword) {
+                    // alert("Passwords do not match.");
+                    $('#ingat').append("Konfirmasi Password Tidak Sesuai !!!!");
+                    return false;
+                }
+                return true;
+            });
+        });    
+    
+    </script>
   </body>
 </html>

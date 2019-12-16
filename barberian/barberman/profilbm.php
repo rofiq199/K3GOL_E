@@ -33,8 +33,8 @@
   $data1 = mysqli_fetch_array($sql1); // Ambil data dari hasil eksekusi $sql
 	?>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <a class="navbar-brand text-white" href="../index.php">BARBERIAN</a>
-        <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
           <i class="fas fa-bars"></i> 
         </button>
         <form class="form-inline my-2 my-lg-0 ml-auto">
@@ -42,7 +42,7 @@
             </form>
             <div class="icon ml-4">
                 <h5>
-                    <i class="fas fa-sign-out-alt mr-3 text-white" data-toggle="tooltip" title="Sign Out"></i>
+                    <i class="fas fa-sign-out-alt mr-3 text-white" onclick="window.location.href='../logout.php'" data-toggle="tooltip" title="Sign Out"></i>
                 </h5>
   
             </div>
@@ -86,11 +86,11 @@
               <div class="form-group">
               <div class="form-group col-md-6">
                 <label for="inputemail4">USERNAME BARBERMAN</label>
-                <input type="email" class="form-control" id="inputEmail14" disabled value="<?php echo $data['username_bm'] ?>">
+                <p><?php echo $data['username_bm'] ?></p>
               </div>              
               <div class="form-group col-md-6">
-                <label for="email">BARBERSHOP</label>
-                <input type="email" class="form-control" id="inputEmail14" disabled value="<?php echo $data1['nama_bs']; ?>">
+                <label for="barbershop">BARBERSHOP</label>
+                <p><?php echo $data1['nama_bs']; ?></p>
               </div>
               <div class="form-group col col-md-6">
                 <label for="inputEmail4">NAMA LENGKAP</label>
@@ -110,44 +110,58 @@
               </div>
             <div class="form-group col-md-6">
                 <label for="inputPassword6">PASSWORD</label>
-                <input type="password" id="inputPassword6" class="form-control" name="password" value="<?php echo $data['password_bm']; ?>">
+                <input type="password" id="password" class="form-control" name="password" value="<?php echo $data['password_bm']; ?>">
                 <div></div>
                 <label for="inputPassword6"> Konfirmasi Password</label>
-                <input type="password" id="inputPassword6" class="form-control" name="password1"placeholder="Masukkan Ulang Password Baru">
+                <input type="password" id="konpassword" class="form-control" name="password1"  value="<?php echo $data['password_bm']; ?>" placeholder="Masukkan Ulang Password Baru">
                 <small id="passwordHelpInline" class="text-muted">
-                  Konfirmasi Password
+                  <strong id="ingat"></strong>
                 </small>
             </div>
             <div class="form-group col-md-6">
-            <button type="submit" class="btn btn-primary">SIMPAN PERUBAHAN</button>
+            <button type="submit" id="ubah" class="btn btn-primary">SIMPAN PERUBAHAN</button>
           </form>
           
            
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="../js/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script type="text/javascript" src="admin1.js"></script>
+    <script type="text/javascript">
+       $(document).ready(function() {
+            $("#ubah").on('click',function () {
+                var password = $("#password").val();
+                var confirmPassword = $("#konpassword").val();
+                if (password != confirmPassword) {
+                    // alert("Passwords do not match.");
+                    $('#ingat').append("Konfirmasi Password Tidak Sesuai !!!!");
+                    return false;
+                }
+                return true;
+            });
+        });    
+    </script>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
 
   <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <!-- <script src="vendor/jquery-easing/jquery.easing.min.js"></script> -->
 
   <!-- Page level plugin JavaScript-->
-  <script src="vendor/chart.js/Chart.min.js"></script>
+  <!-- <script src="vendor/chart.js/Chart.min.js"></script>
   <script src="vendor/datatables/jquery.dataTables.js"></script>
-  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.js"></script> -->
 
   <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin.min.js"></script>
+  <!-- <script src="js/sb-admin.min.js"></script> -->
 
   <!-- Demo scripts for this page-->
-  <script src="js/demo/datatables-demo.js"></script>
-  <script src="js/demo/chart-area-demo.js"></script>
+  <!-- <script src="js/demo/datatables-demo.js"></script>
+  <script src="js/demo/chart-area-demo.js"></script> -->
   </body>
 </html>

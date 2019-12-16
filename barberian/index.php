@@ -152,7 +152,7 @@
   aria-hidden="true">
   <div class="modal-dialog form-dark" role="document">
     <!--Content-->
-    <form action="login/ceklogin.php" method="POST">
+    <form class="customer" action="login/ceklogin.php" method="POST">
     <div class="modal-content card card-image" id="popup">
       <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
         <!--Header-->
@@ -194,7 +194,7 @@
 
             <!--Grid column-->
             <div class="col-md-12">
-              <p class="font-small white-text d-flex justify-content-end">Don't Have an account? <a href="#" class="green-text ml-1 font-weight-bold">
+              <p class="font-small white-text d-flex justify-content-end">Don't Have an account? <a href="regcustomer.php" class="green-text ml-1 font-weight-bold">
                   Sign Up</a></p>
             </div>
             <!--Grid column-->
@@ -335,11 +335,34 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/6b0af4bcb3.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="login.js"></script>
     <script src="js/formvalidasi.js"></script>
+    <!-- <script type="text/javascript">
+        function ajax_login(){
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var data = $('.customer').serialize();
+            $.ajax({
+                url:"login/ceklogin.php",
+                type:"POST",
+                data:{
+                    username:username,
+                    password:password
+                },
+                success:function(result){
+                    //$("#hasil").html(result);
+                    alert('berhasil login');
+                    $('.navbar navbar-expand-lg navbar-light').load('navbar.php');
+                    console.log(data);
+                    // window.location.href="index2.php"
+                }
+            });
+        }
+    </script> -->
   </body>
 </html>

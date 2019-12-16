@@ -1,6 +1,7 @@
 <!doctype html>
-<?php include "koneksi.php" ;
-    session_start ();
+<?php 
+  include "koneksi.php" ;
+    include "navbar.php";
 ?>
 <html lang="en">
   <head>
@@ -22,58 +23,6 @@
     <title>Barberian</title>
   </head>
   <body>
-
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container">
-      <a class="navbar-brand" href="index.php">Barberian</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link " href="index.php">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="index.php">Tentang Kami</a>
-          <div class="dropdown">
-            <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Fitur Kami
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="katalog.php">Katalog</a>
-                    <a class="dropdown-item" href="caribarber.php">Cari Barbershop</a>
-                    <a class="dropdown-item" href="halproduk.php">Produk</a>
-                  </div>
-              </div>
-                <?php if(!isset($_SESSION['username'])){ ?>
-            <div class="dropdown">
-              <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Masuk
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="" data-toggle="modal" data-target="#darkModalForm">Masuk Sebagai Customer</a>
-                      <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalLoginForm">Masuk Sebagai Barbershop</a>
-                      <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalForm">Masuk Sebagai Barberman</a>
-                    </div>
-              </div>
-              <?php }else{
-            ?>
-            <div class="dropdown">
-              <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <?php echo $_SESSION['username']?>
-                    </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href='profilcs.php'>Profil</a>
-                    <a class="dropdown-item" href="hisbeli.php" >History Order</a>
-                    <a class="dropdown-item" href="lihat_antrian.php" >Lihat Antrian</a>
-                    <a class="dropdown-item" href="logout.php" >Logout</a>
-                  </div>
-              </div>
-              <?php }
-              ?>
-            </div>
-          </div>
-      </div>
-      </nav>
-
     <?php 
     $username = $_SESSION['username']; 
     $query = "SELECT * FROM data_customer  WHERE username_cs='".$username."'";
@@ -98,7 +47,7 @@
             <div class="form-group row">
               <label for="username" class="col-sm-2 col-form-label">Username</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="username" value="<?php echo $data['username_cs']; ?>" >
+                <input type="hidden" class="form-control" name="username" value="<?php echo $data['username_cs'];?>" ><p><?php echo $data['username_cs']; ?></p>
               </div>
             </div>
             <div class="form-group row">
@@ -129,18 +78,20 @@
             <div class="form-group row">
               <label for="password" class="col-sm-2 col-form-label">Password</label>
                 <div class="col-sm-10">
-                  <input type="password" class="form-control" name="password" id="passWord" placeholder="Password" value=<?php echo $data['password_cs']; ?> data-bv-notempty='true' data-bv-notempty-message='The password is required and cannot be empty' data-bv-identical='true' data-bv-identical-field='password_confirmation' data-bv-identical-message='The password and its confirmation are not the same'>
+                  <input type="password" class="form-control" name="password" id="password" placeholder="Password" value=<?php echo $data['password_cs']; ?> data-bv-notempty='true' data-bv-notempty-message='The password is required and cannot be empty' data-bv-identical='true' data-bv-identical-field='password_confirmation' data-bv-identical-message='The password and its confirmation are not the same'>
                 </div>
             </div>
             <div class="form-group row"> 
                 <label for="ConPassword" class="col-sm-2 col-form-label">Konfirmasi Password</label> 
                 <div class="col-sm-10"> 
-                    <input type="password" id="konpassWord" class="form-control" placeholder="Konfirmasi Password" name="password1" value="<?php echo $data['password_cs']; ?>" data-bv-notempty='true' data-bv-notempty-message='The password confirmation is required and cannot be empty' data-bv-identical='true' data-bv-identical-field='password' data-bv-identical-message='The password and its confirmation are not the same' /> 
-                    <small class="form-text text-muted">Ulangi password diatas sekali lagi.</small> 
+                    <input type="password" id="konpassword" class="form-control" placeholder="Konfirmasi Password" name="password1" value="<?php echo $data['password_cs']; ?>" data-bv-notempty='true' data-bv-notempty-message='The password confirmation is required and cannot be empty' data-bv-identical='true' data-bv-identical-field='password' data-bv-identical-message='The password and its confirmation are not the same' /> 
+                    <small class="form-text text-muted">Ulangi password diatas sekali lagi.
+                    <br>
+                    <strong><p id="ingat"></p></strong></small> 
                 </div> 
             </div>
             <div class="col-sm-10 offset-sm-2">
-                    <button type="submit" class="btn btn-primary mb-2">Ubah</button>
+                    <button type="submit" id="ubah"class="btn btn-primary mb-2">Ubah</button>
                     <button type="reset" class="btn btn-danger mb-2">Batal</button>
             </div>
           </form>
@@ -331,8 +282,23 @@
   <!-- akhir Navbar -->
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+       $(document).ready(function() {
+         console.log('siappp');
+            $("#ubah").on('click',function () {
+                var password = $("#password").val();
+                var confirmPassword = $("#konpassword").val();
+                if (password != confirmPassword) {
+                    // alert("Passwords do not match.");
+                    $('#ingat').append("Konfirmasi Password Tidak Sesuai !!!!");
+                    return false;
+                }
+                return true;
+            });
+        });    
+    </script>
   </body>
 </html>

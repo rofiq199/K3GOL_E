@@ -11,7 +11,6 @@ $email = $_POST['email'];
 $alamat = $_POST['alamat'];
 $no = $_POST['no'];
 $password =  $_POST['password'];
-$password1 =  $_POST['password1'];
 	// Ambil data foto yang dipilih dari form
 	$foto = $_FILES['foto']['name'];
 	$tmp = $_FILES['foto']['tmp_name'];
@@ -21,9 +20,6 @@ $password1 =  $_POST['password1'];
 	
 	// Set path folder tempat menyimpan fotonya
 	$path = "img/".$fotobaru;
-	if($password!=$password1){
-		echo "<script>alert('PASSWORD TIDAK SAMA');history.go(-1);</script>";
-	}
 	// Proses upload
 	elseif( mysqli_num_rows(mysqli_query($koneksi,"SELECT * FROM data_customer WHERE username_cs='$username'")) < 1 ){
 		echo "<script>alert('USERNAME TIDAK BOLEH DIGANTII!!!!');

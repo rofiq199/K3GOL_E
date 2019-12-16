@@ -19,10 +19,10 @@ $cek = mysqli_num_rows($data);
 if($cek > 0){
 	$_SESSION['username'] = $username;
 	$_SESSION['status'] = "login";
-	header("location:/K3GOL_E/barberian/index.php");
-	echo ('yes');
+	echo "<script>alert('Selamat Anda Berhasil Login');history.go(-1)</script>";
+	// header("location:/K3GOL_E/barberian/index.php");
 }else{
-	header("location:/K3GOL_E/barberian/index.php");
-	echo("no");
+	// header("location:/K3GOL_E/barberian/index.php");
+	echo "<script>alert('Username/Password Salah!!!');history.go(-1)</script>";
 }
 ?>

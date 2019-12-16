@@ -11,12 +11,13 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 //melakukan pengecekan username dan password
 if ($username == $username_benar && $password == $password_benar) {
-    echo "username dan password benar, anda akan diredirect ke halaman utama";
+    // echo "username dan password benar, anda akan diredirect ke halaman utama";
     /*
      * pada praktek sebenarnya lakukan pendaftaran session
      * di sini kemudian lakukan redirect ke halaman utama
      */
+    echo $_SESSION['username']=$username_benar;
 }  else {
     echo "username / password salah";
 }
-?
+?>

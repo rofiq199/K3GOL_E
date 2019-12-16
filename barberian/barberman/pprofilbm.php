@@ -42,17 +42,18 @@ $password =  $_POST['password'];
 		$query = "UPDATE data_barberman SET nama_bm='".$nama."', email_bm='".$email."', alamat_bm='".$alamat."', no_bm='".$no."', password_bm='".$password."', foto_bm='".$fotobaru."' WHERE username_bm='".$username."'";
 		$sql = mysqli_query($koneksi, $query); // Eksekusi/ Jalankan query dari variabel $query
 
-		if($sql){ // Cek jika proses simpan ke database sukses atau tidak
+			if($sql){ // Cek jika proses simpan ke database sukses atau tidak
 			// Jika Sukses, Lakukan :
 			header("location: profilbm.php"); // Redirect ke halaman index.php
-		}else{
+			}else{
 			// Jika Gagal, Lakukan :
 			echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";
 			echo "<br><a href='profilbm.php'>Kembali Ke Form</a>";
-		}
-		}else{
+			}
+	}else{
 		// Jika gambar gagal diupload, Lakukan :
-		echo "Maaf, Gambar gagal untuk diupload.";
-		echo "<br><a href='profilbm.php'>Kembali Ke Form</a>";
+		$query = "UPDATE data_barberman SET nama_bm='".$nama."', email_bm='".$email."', alamat_bm='".$alamat."', no_bm='".$no."', password_bm='".$password."' WHERE username_bm='".$username."'";
+		$sql = mysqli_query($koneksi, $query); // Eksekusi/ Jalankan query dari variabel $query
+		header("location: profilbm.php");
 	}
 ?>
