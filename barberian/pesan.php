@@ -18,64 +18,8 @@
     <script src="https://kit.fontawesome.com/6b0af4bcb3.js" crossorigin="anonymous"></script>
     <!-- <script src="pesan.js"></script> -->
     <title>Barberian</title>
-    <?php session_start();?>
+    <?php include "navbar.php" ;?>
   </head>
-  <body>
-<!--Navbar-->
-  
-<nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container">
-      <a class="navbar-brand" href="index.php">Barberian</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link " href="index.php">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="index.php">Tentang Kami</a>
-          <div class="dropdown">
-            <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Fitur Kami
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="katalog.php">Katalog</a>
-                    <a class="dropdown-item" href="caribarber.php">Cari Barbershop</a>
-                    <a class="dropdown-item" href="halproduk.php">Produk</a>
-                  </div>
-              </div>
-              <?php if(!isset($_SESSION['username'])){ ?>
-          <div class="dropdown">
-            <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Masuk
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="" data-toggle="modal" data-target="#darkModalForm">Masuk Sebagai Customer</a>
-                  <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalLoginForm">Masuk Sebagai Barbershop</a>
-                  <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalForm">Masuk Sebagai Barberman</a>
-                  </div>
-            </div>
-            <?php }else{
-          ?>
-          <div class="dropdown">
-            <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <?php echo $_SESSION['username']?>
-                  </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href='profilcs.php'>Profil</a>
-                  <a class="dropdown-item" href="hisbeli.php" >History Order</a>
-                  <a class="dropdown-item" href="lihat_antrian.php" >Lihat Antrian</a>
-                  <a class="dropdown-item" href="logout.php" >Logout</a>
-                </div>
-            </div>
-            <?php }
-            ?>
-          </div>
-        </div>
-    </div>
-    </nav>
-  <!-- akhir Navbar -->
-  <!-- akhir Navbar -->
-        
         <body>
         <?php 
           include "koneksi.php";
@@ -189,11 +133,6 @@
               </div>
         </form>
       </div>
-      <!-- modal -->
-      <form action="barbermanh.php" method="POST">
- 
-              </form>
-      <!--  -->
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

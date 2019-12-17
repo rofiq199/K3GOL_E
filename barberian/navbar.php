@@ -75,7 +75,7 @@
       </script>
   <!-- akhir Navbar --> 
 
-  <!-- Modal -->
+ <!-- Modal -->
 <div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog form-dark" role="document">
@@ -122,7 +122,7 @@
 
             <!--Grid column-->
             <div class="col-md-12">
-              <p class="font-small white-text d-flex justify-content-end">Don't Have an account? <a href="#" class="green-text ml-1 font-weight-bold">
+              <p class="font-small white-text d-flex justify-content-end">Don't Have an account? <a href="regcustomer.php" class="green-text ml-1 font-weight-bold">
                   Sign Up</a></p>
             </div>
             <!--Grid column-->
@@ -165,6 +165,7 @@
           <input type="password" id="passwordbs" class="form-control validate white-text" name="password" >
           <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
         </div>
+        <input type="checkbox" class="lihatbs" id="showbs"><label >Show password</label>
         
         <!--Grid row-->
         <div class="row d-flex align-items-center mb-4">
@@ -218,44 +219,34 @@
         <div class="modal-body">
           <!--Body-->
           <div class="md-form mb-5">
-            <input type="username" name="username" class="form-control validate white-text">
+            <input type="username" id="usernamebm" name="username" class="form-control validate white-text">
             <label data-error="wrong" data-success="right" for="Form-email5">Your email</label>
           </div>
 
           <div class="md-form pb-3">
-            <input type="password" name="password" class="form-control validate white-text">
+            <input type="password" id="passwordbm" name="password" class="form-control validate white-text">
             <label data-error="wrong" data-success="right" for="Form-pass5">Your password</label>
           </div>
-
+          <input type="checkbox" class="lihatbm" id="showbs"><label >Show password</label>
           <!--Grid row-->
           <div class="row d-flex align-items-center mb-4">
 
             <!--Grid column-->
             <div class="text-center mb-3 col-md-12">
-              <button type="submit" class="btn btn-success btn-block btn-rounded z-depth-1">Sign In</button>
+              <button type="submit" class="btn btn-success btn-block btn-rounded z-depth-1" id="tombolloginbm">Sign In</button>
             </div>
             <!--Grid column-->
 
           </div>
           <!--Grid row-->
 
-          <!--Grid row-->
-          <div class="row">
-
-            <!--Grid column-->
-            <div class="col-md-12">
-              <p class="font-small white-text d-flex justify-content-end">Don't Have an account? <a href="#" class="green-text ml-1 font-weight-bold">
-                  Sign Up</a></p>
-            </div>
-            <!--Grid column-->
-
-          </div>
-          <!--Grid row-->
 
         </div>
       </div>
     </div>
     </form>
-    <!--/.Content-->
+    </div>
   </div>
-</div>
+    <!--/.Content-->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/formvalidasi.js"></script>

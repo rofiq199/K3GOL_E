@@ -34,7 +34,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link " href="index.php">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="index.php">Tentang Kami</a>
+          <a class="nav-item nav-link" href="#tentang_kami">Tentang Kami</a>
           <div class="dropdown">
             <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Fitur Kami
@@ -237,6 +237,7 @@
           <input type="password" id="passwordbs" class="form-control validate white-text" name="password" >
           <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
         </div>
+        <input type="checkbox" class="lihatbs" id="showbs"><label >Show password</label>
         
         <!--Grid row-->
         <div class="row d-flex align-items-center mb-4">
@@ -290,39 +291,27 @@
         <div class="modal-body">
           <!--Body-->
           <div class="md-form mb-5">
-            <input type="username" name="username" class="form-control validate white-text">
+            <input type="username" id="usernamebm" name="username" class="form-control validate white-text">
             <label data-error="wrong" data-success="right" for="Form-email5">Your email</label>
           </div>
 
           <div class="md-form pb-3">
-            <input type="password" name="password" class="form-control validate white-text">
+            <input type="password" id="passwordbm" name="password" class="form-control validate white-text">
             <label data-error="wrong" data-success="right" for="Form-pass5">Your password</label>
           </div>
-
+          <input type="checkbox" class="lihatbm" id="showbs"><label >Show password</label>
           <!--Grid row-->
           <div class="row d-flex align-items-center mb-4">
 
             <!--Grid column-->
             <div class="text-center mb-3 col-md-12">
-              <button type="submit" class="btn btn-success btn-block btn-rounded z-depth-1">Sign In</button>
+              <button type="submit" class="btn btn-success btn-block btn-rounded z-depth-1" id="tombolloginbm">Sign In</button>
             </div>
             <!--Grid column-->
 
           </div>
           <!--Grid row-->
 
-          <!--Grid row-->
-          <div class="row">
-
-            <!--Grid column-->
-            <div class="col-md-12">
-              <p class="font-small white-text d-flex justify-content-end">Don't Have an account? <a href="#" class="green-text ml-1 font-weight-bold">
-                  Sign Up</a></p>
-            </div>
-            <!--Grid column-->
-
-          </div>
-          <!--Grid row-->
 
         </div>
       </div>
@@ -335,12 +324,11 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+    <script src="js/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/6b0af4bcb3.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="login.js"></script>
     <script src="js/formvalidasi.js"></script>
     <!-- <script type="text/javascript">
         function ajax_login(){
