@@ -34,7 +34,7 @@ include "koneksi.php";
     if($sql3 == TRUE ) { echo"Data sudah masuk";}
     else {echo "Data gagal";}
     
-
+header("location: lihat_antrian.php");
 
 ?>
 

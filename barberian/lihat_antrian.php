@@ -27,7 +27,7 @@ include "navbar.php";
      $result=mysqli_query($koneksi,$query);
      ?>
     <!-- Form -->
-    <form action="pprofilcs.php" method="POST" name="form1" enctype="multipart/form-data" class="mt-5" >
+    <form action="" method="POST" name="form1" enctype="multipart/form-data" class="mt-5" >
     <div class="container">
     <?php 
      $data = mysqli_fetch_array($result);

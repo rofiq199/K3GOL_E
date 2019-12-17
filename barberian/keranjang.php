@@ -78,7 +78,7 @@
             <p class="card-text">Total Harga</p>
             <p class="card-text" name="total" value="<?php echo $total ?>" >Rp <?php echo $total ?></p>
               <div class="border-bottom"></div>
-            <button  data-toggle="modal" data-target="#modalck" class="btn btn-success text-white"><strong>Beli</strong></button>
+            <button   data-toggle="modal" data-target="#modalck" class="btn btn-success text-white"><strong>Beli</strong></button>
             </div>
         </div>
         <?php } ?>

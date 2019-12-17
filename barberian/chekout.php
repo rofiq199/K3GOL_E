@@ -27,7 +27,7 @@ include "koneksi.php";
     $NewID = $today .sprintf('%04s', $NoUrut);
 //$today nanti jadinya misal 20160526 .sprintf('%04s', $NoUrut) urutan id di tanggal hari ini
    //proses simpan data id dengan id yg baru ke database
-   $query = "INSERT INTO penjualan VALUES($NewID, '".$_SESSION['username']."', '".$tanggal."', '".$total."' )";
+   $query = "INSERT INTO penjualan VALUES($NewID, '".$_SESSION['username']."', '".$tanggal."', '".$total."','0','belum' )";
    $sql = mysqli_query($koneksi, $query); // Eksekusi/ Jalankan query dari variabel $query
     
    foreach ($_SESSION['items'] as $key => $val){
