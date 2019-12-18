@@ -51,7 +51,7 @@
                               <a class="nav-link active text-white" href="profilbm.php"><i class="fas fa-user mr-2"></i>LIHAT PROFIL</a><hr class="bg-secondary">
                          </li>
                          <li class="nav-item">
-                              <a class="nav-link text-white" href="History.html"><i class="fas fa-history mr-2"></i>HISTORY ORDER</a><hr class="bg-secondary">
+                              <a class="nav-link text-white" href="History.php"><i class="fas fa-history mr-2"></i>HISTORY ORDER</a><hr class="bg-secondary">
                          </li>
                   </ul>
         </div>
