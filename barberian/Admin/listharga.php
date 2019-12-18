@@ -163,7 +163,7 @@
                           <input type="text" class="form-control validate"  name="nama" placeholder="Nama pelayanan">
                         </div>
                         <div class="md-form mb-2">
-                          <input type="number" id="harga"class="form-control validate" " name="harga" placeholder="Harga Pelayanan">
+                          <input type="number" id="harga"class="form-control validate"  name="harga" placeholder="Harga Pelayanan">
                         </div>                 
                       </div>
                       <div class="modal-footer d-flex justify-content-center">

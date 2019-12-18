@@ -81,7 +81,7 @@
             </div>
             <h5 class="card-title">BARANG TERJUAL</h5>
             <div class="display-4">2</div>
-            <a href=""><p class="card-text text-white">Lihat Detail <i class="fas fa-angle-double-right ml-2"></i></p></a>
+            
           </div>
       </div>
 
@@ -92,10 +92,15 @@
             </div>
             <h5 class="card-title">JUMLAH PEMESANAN</h5>
             <div class="display-4">5</div>
-            <a href=""><p class="card-text text-white">Lihat Detail <i class="fas fa-angle-double-right ml-2"></i></p></a>
+            
           </div>
       </div>
-        
+      <div class="form-group col-md-10">
+      </div>
+      <div class="form-group col-md-10">
+      <button type="button" class="btn btn-primary btn-sm">BUKA</button>
+      <button type="button" class="btn btn-danger btn-sm">TUTUP</button>
+      
         <!-- Akhir form tambah -->
 
     <!-- Optional JavaScript -->

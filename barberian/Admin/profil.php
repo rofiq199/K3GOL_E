@@ -29,10 +29,10 @@
       $data = mysqli_fetch_array($sql); // Ambil data dari hasil eksekusi $sql
       ?>
     <nav class="navbar navbar-expand-lg navbar-light ">
-    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+        <a class="navbar-brand text-white" >BARBERIAN</a>
+        <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i> 
         </button>
-        <a class="navbar-brand text-white" >BARBERIAN</a>
         <form class="form-inline my-2 my-lg-0 ml-auto">
             
             </form>
