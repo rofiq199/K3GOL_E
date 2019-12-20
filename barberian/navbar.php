@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="style.css">
  <!--Navbar-->
-  <?php session_start(); ?>
+  <?php session_start();
+  ?>
  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
       <a class="navbar-brand" href="index.php">Barberian</a>
@@ -21,7 +22,8 @@
                     <a class="dropdown-item" href="halproduk.php">Produk</a>
                   </div>
               </div>
-              <?php if(!isset($_SESSION['username'])){ ?>
+              <?php if(!isset($_SESSION['username'])){
+                ?>
           <div class="dropdown">
             <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Masuk
@@ -36,12 +38,13 @@
           ?>
           <div class="dropdown">
             <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <?php echo $_SESSION['username']?>
+                    <?php echo $_SESSION['username'];?>
                   </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href='profilcs.php'>Profil</a>
                   <a class="dropdown-item" href="hisbeli.php" >History Order</a>
                   <a class="dropdown-item" href="lihat_antrian.php" >Lihat Antrian</a>
+                  <a class="dropdown-item" href="halamanpesan.php" >Lihat Pesan</a>
                   <a class="dropdown-item" href="logout.php" >Logout</a>
                 </div>
             </div>

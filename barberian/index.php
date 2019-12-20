@@ -66,6 +66,7 @@
                   <a class="dropdown-item" href='profilcs.php'>Profil</a>
                   <a class="dropdown-item" href="hisbeli.php" >History Pembelian</a>
                   <a class="dropdown-item" href="lihat_antrian.php" >Lihat Antrian</a>
+                  <a class="dropdown-item" href="halamanpesan.php" >Lihat Pesan</a>
                   <a class="dropdown-item" href="logout.php" >Logout</a>
                 </div>
             </div>

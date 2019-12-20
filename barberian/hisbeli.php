@@ -88,7 +88,7 @@
 <?php 
    $username = $_SESSION['username'];
    // Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
-   $query ="SELECT * FROM penjualan  WHERE username_cs='".$username."'";
+   $query ="SELECT * FROM penjualan  WHERE username_cs='".$username."' order by kode_jual desc";
    $sql = mysqli_query($koneksi, $query)  // Eksekusi/Jalankan query dari variabel $query
    //$query ="SELECT * penjualan ";
    //$sql = mysqli_query($koneksi, $query)  // Eksekusi/Jalankan query dari variabel $query

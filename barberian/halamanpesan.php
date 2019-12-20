@@ -3,6 +3,13 @@
   <head>
   <?php 
     include "navbar.php";
+    include "koneksi.php";
+    $query= "SELECT * from  pesan where username_cs='".$_SESSION['username']."'and status_pesan='belum' order by kode_pesan DESC";
+    $result=mysqli_query($koneksi,$query);
+    $tampil =mysqli_fetch_array($result);
+    $kode= $tampil['kode_pesan'];
+    $query1= "SELECT * from  detail_pesan INNER JOIN harga_barber ON detail_pesan.kode_ck = harga_barber.kode_ck where  kode_pesan='$kode'";
+    $result1=mysqli_query($koneksi,$query1);
   ?>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -23,12 +30,12 @@
             <div class="col-sm-8">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Kode Pemesanan</h5>
+                        <h5>Kode Pemesanan : <?php echo $tampil['kode_pesan']; ?></h5>
                     </div>
                     <div class="card-body">
-                        <p class="card-text">Nama Barberman</p>
-                        <p class="card-text">Alamat</p>
-                        <p class="card-text">Jam Pesan</p>
+                        <p class="card-text">Nama Barberman :<?php echo $tampil['username_bm']; ?></p>
+                        <p class="card-text">Alamat :<?php echo $tampil['alamat_pesan']; ?> </p>
+                        <p class="card-text">Jam Pesan : <?php echo date('H:i', strtotime($tampil['tanggal_pesan'])); ?></p>
                         <div class="card mb-2">
                             <div class="card-header">
                             <table cellspacing="2" width="85%">
@@ -40,14 +47,16 @@
                             </div>
                             <div class="card-body">
                             <table cellspacing="2" width="85%">
+                            <?php while($data=mysqli_fetch_array($result1)){ ?>
                                 <tr>
-                                    <td>Nama Layanan</td>
-                                    <td>Harga</td>
+                                    <td><?php echo $data['nama_ck']; ?></td>
+                                    <td>RP. <?php echo number_format($data['harga_ck'],0,',','.'); ?></td>
                                 </tr>
+                            <?php }?>
                             </table>
                             </div>
                         </div>
-                        <center><a href="#" class="btn btn-success">Bayar</a></center>
+                        <center><a href="#" class="btn btn-success">selesai</a></center>
                     </div>
                 </div>
             
