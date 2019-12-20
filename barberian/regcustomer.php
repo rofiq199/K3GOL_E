@@ -61,13 +61,13 @@ include "navbar.php";
             <div class="form-group row">
                     <label for="no" class="col-sm-2 col-form-label">Nomor Telepon</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="no" value="">
+                      <input type="tel" pattern="^/d{10}" title="masukkan angka minimal 10" class="form-control" name="no" value="">
                     </div>
                   </div>
             <div class="form-group row">
                 <label for="password" class="col-sm-2 col-form-label">Password</label>
                     <div class="col-sm-10">
-                      <input type="password" class="form-control" id="password2" placeholder="Password" value='' name="password">
+                      <input type="password" pattern="(?=.*/d)(?=.*[a-z]).{8,}" title="Password minimal harus 8!!!" class="form-control" id="password2" placeholder="Password" value='' name="password">
                     </div>
             </div>
             <div class="form-group row"> 
