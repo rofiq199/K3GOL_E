@@ -24,26 +24,17 @@
   <div class="container">
   <div class="row">
     <div class="col-12 col-sm-6 col-md-8">
-      <div class="card">
-        <div class="card-header">
-          <div class="row">
-            <h6>Pilih Semua Item</h6>
-            <a href="" class="ml-auto mr-2 hapus"><strong>Hapus Item</strong></a>
-          </div>
-        </div>
-      </div>
       <?php 
           if (isset($_SESSION['items'])) {
        foreach ($_SESSION['items'] as $key => $val){
-        $query = mysqli_query ($koneksi,"select * from produk where kode_produk = '$key'");
+        $query = mysqli_query ($koneksi,"select * from produk join data_barber on produk.username_bs = data_barber.username_bs where kode_produk = '$key'");
         $rs = mysqli_fetch_array($query);
-         
         $jumlah_harga = $rs['harga_produk'] * $val;
         $total += $jumlah_harga;
       ?>
       <div class="card mt-2">
         <div class="card-header" name="judul">
-          <h6>Ini Nama Tokonya</h6>
+          <h6><?php echo $rs['nama_bs'] ?></h6>
         </div>
         <div class="card-body">
           <div class="row">
@@ -52,7 +43,7 @@
             </div>
                 <div class="col-lg-7 col-xl-8">
                   <div class="row">
-                    <a href=""><?php echo $rs['nama_produk']; ?></a>
+                    <p><?php echo $rs['nama_produk']; ?></p>
                     <h6 class="ml-auto">Rp. <?php echo number_format($rs['harga_produk']); ?></h6>
                   </div>
                     <div class="row">
@@ -70,7 +61,7 @@
        <?php }?>
     </div>
     <div class="col-6 col-md-4">
-    <div class="card" style="width: 25rem;">
+    <div class="card mt-2" style="width: 25rem;">
         <div class="card-body">
         <div class="container">
             <p class="card-title"><strong>Ringkasan Belanja</strong></p>
