@@ -22,7 +22,7 @@
       }
       session_start();
       // Ambil data NIS yang dikirim oleh index.php melalui URL
-      $username = $_SESSION['username'];
+      $username = $_SESSION['usernamebs'];
       // Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
       $query = "SELECT * FROM data_barberman  WHERE username_bs='".$username."'";
       $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query

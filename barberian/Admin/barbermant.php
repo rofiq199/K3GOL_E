@@ -7,7 +7,7 @@
     echo "Koneksi database gagal : " . mysqli_connect_error();
 	}
 	session_start();
-	$username = $_SESSION['username'];
+	$username = $_SESSION['usernamebs'];
 
 // Ambil Data yang Dikirim dari Form
 $username = $_POST['username'];

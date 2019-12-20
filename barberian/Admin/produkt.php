@@ -7,7 +7,7 @@
     echo "Koneksi database gagal : " . mysqli_connect_error();
 	}
 	session_start();
-	$username = $_SESSION['username'];
+	$username = $_SESSION['usernamebs'];
 
 // Ambil Data yang Dikirim dari Form
 $nama = $_POST['nama1'];
@@ -24,7 +24,7 @@ $path = "img/".$fotobaru;
 // Proses upload
 if(move_uploaded_file($tmp, $path)){ // Cek apakah gambar berhasil diupload atau tidak
 	// Proses simpan ke Database
-	$query = "INSERT INTO produk VALUES(null, '".$_SESSION['username']."', '".$nama."', '".$harga."', '".$fotobaru."', '".$stok."')";
+	$query = "INSERT INTO produk VALUES(null, '".$_SESSION['usernamebs']."', '".$nama."', '".$harga."', '".$fotobaru."', '".$stok."')";
 	$sql = mysqli_query($koneksi, $query); // Eksekusi/ Jalankan query dari variabel $query
 
 	if($sql){ // Cek jika proses simpan ke database sukses atau tidak

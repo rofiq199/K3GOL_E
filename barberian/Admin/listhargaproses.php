@@ -1,7 +1,7 @@
 <?php 
 include "../koneksi.php";
 session_start();
-$username = $_SESSION['username'];
+$username = $_SESSION['usernamebs'];
 $ref = $_GET['ref'];
 $act =$_GET['act'];
     if ($act == 'edit'){

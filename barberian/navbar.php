@@ -23,6 +23,7 @@
                   </div>
               </div>
               <?php if(!isset($_SESSION['username'])){
+                header('location: index.php');
                 ?>
           <div class="dropdown">
             <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -54,28 +55,6 @@
         </div>
     </div>
     </nav>
-    <script src="jquery-1.7.1.min.js" type="text/javascript"></script>
-      <script type="text/javascript">
-      $(document).ready(function() {
-        <!-- event textbox keyup
-        $("#search").keyup(function() {
-        var strcari = $("#search").val();// <!-- mendapatkan nilai dari textbox -->
-        if (strcari != "") //<!-- jika value strcari tidak kosong-->
-        {
-          //$("#result").html("<img src='loading.gif'/>")// <!-- menampilkan animasi loading -->
-        // <!-- request data ke cari.php lalu menampilkan ke <div id="hasil"></div> -->
-          $.ajax({
-          type:"post",
-          url:"caribarber1.php",
-          data:"nama="+ strcari,
-          success: function(data){
-            $("#result").html(data);
-          }
-          });
-        }
-        });
-          });
-      </script>
   <!-- akhir Navbar --> 
 
  <!-- Modal -->
@@ -230,7 +209,7 @@
             <input type="password" id="passwordbm" name="password" class="form-control validate white-text">
             <label data-error="wrong" data-success="right" for="Form-pass5">Your password</label>
           </div>
-          <input type="checkbox" class="lihatbm" id="showbs"><label >Show password</label>
+          <input type="checkbox" class="lihatbm" id="showbm"><label >Show password</label>
           <!--Grid row-->
           <div class="row d-flex align-items-center mb-4">
 

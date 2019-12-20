@@ -4,7 +4,7 @@
   include "../koneksi.php";
   session_start();
   // Ambil data NIS yang dikirim oleh index.php melalui URL
-  $username = $_SESSION['username'];
+  $username = $_SESSION['usernamebs'];
   // Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
   $query = "SELECT * FROM antrian  WHERE ( status_antrian='belum' or status_antrian='proses') and username_bs='".$username."' ";
   $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
