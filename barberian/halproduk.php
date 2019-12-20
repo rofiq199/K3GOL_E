@@ -4,9 +4,7 @@
   <?php 
     include  "navbar.php";
     include "koneksi.php";
-    print_r($_SESSION);
     $json = json_encode($_SESSION);
-    var_dump(json_decode($json,true));
   ?>
     <!-- Required meta tags -->
     <meta charset="utf-8">
