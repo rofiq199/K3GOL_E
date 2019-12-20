@@ -4,7 +4,7 @@
     <?php 
     include "../koneksi.php";
     session_start();
-  $username = $_SESSION['username'];
+  $username = $_SESSION['usernamebm'];
   $query = "SELECT * FROM pesan inner join data_customer on pesan.username_cs=data_customer.username_cs  WHERE ( status_pesan='belum' or status_pesan='proses') and username_bm='".$username."' ";
   $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
     ?>

@@ -17,7 +17,7 @@ $data = mysqli_query($koneksi,"select * from data_barberman where username_bm='$
 $cek = mysqli_num_rows($data);
 
 if($cek > 0){
-	$_SESSION['username'] = $username;
+	$_SESSION['usernamebm'] = $username;
 	$_SESSION['status'] = "login";
 	header("location:../barberman/barberman.html");
 }else{

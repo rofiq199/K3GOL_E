@@ -7,9 +7,9 @@
 		echo "Koneksi database gagal : " . mysqli_connect_error();
 	}
   session_start();
-  if(!isset($_SESSION['username']))header("location: K3GOL_E/barberian/index.php");
+  if(!isset($_SESSION['usernamebm']))header("location: K3GOL_E/barberian/index.php");
 // Ambil data Username yang dikirim oleh profilcs.php 
-$username = $_SESSION['username'];
+$username = $_SESSION['usernamebm'];
 
 // Ambil Data yang Dikirim dari Form
 $nama = $_POST['nama'];

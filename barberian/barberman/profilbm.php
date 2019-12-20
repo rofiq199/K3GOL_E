@@ -22,7 +22,7 @@
 	}
 	session_start();
 	// Ambil data NIS yang dikirim oleh index.php melalui URL
-	$username = $_SESSION['username'];
+	$username = $_SESSION['usernamebm'];
 	// Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
 	$query = "SELECT * FROM data_barberman  WHERE username_bm='".$username."'";
 	$sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
@@ -86,7 +86,7 @@
               <div class="form-group">
               <div class="form-group col-md-6">
                 <label for="inputemail4">USERNAME BARBERMAN</label>
-                <p><?php echo $data['username_bm'] ?></p>
+                <p><?php echo $data['username_bm']; ?></p>
               </div>              
               <div class="form-group col-md-6">
                 <label for="barbershop">BARBERSHOP</label>
