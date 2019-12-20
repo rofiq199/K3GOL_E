@@ -106,7 +106,7 @@
               </div>
               <div class="form-group col-md-6">
               <label for="inputAddress2">NOMOR TELEPON</label>
-              <input type="text" class="form-control" id="inputZip" name="no" value="<?php echo $data['no_bm']; ?>">
+              <input type="tel" pattern="^\d{>9}" title="masukkan angka minimal 10" class="form-control" name="no" value="<?php echo $data['no_bm']; ?> " required>
               </div>
             <div class="form-group col-md-6">
                 <label for="inputPassword6">PASSWORD</label>
@@ -119,7 +119,8 @@
                 </small>
             </div>
             <div class="form-group col-md-6">
-            <button type="submit" id="ubah" class="btn btn-primary">SIMPAN PERUBAHAN</button>
+            <button type="submit" id="ubah" class="btn btn-primary">Ubah</button>
+            <button type="reset" class="btn btn-danger mb-2"> Batal</button>
           </form>
           
            

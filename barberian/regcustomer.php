@@ -1,6 +1,5 @@
 <!doctype html>
 <?php include "koneksi.php";
-include "navbar.php";
 ?>
 <html lang="en">
   <head>
@@ -234,7 +233,7 @@ include "navbar.php";
             <input type="password" id="passwordbm" name="password" class="form-control validate white-text">
             <label data-error="wrong" data-success="right" for="Form-pass5">Your password</label>
           </div>
-          <input type="checkbox" class="lihatbm" id="showbs"><label >Show password</label>
+          <input type="checkbox" class="lihatbm" id="showbm"><label >Show password</label>
           <!--Grid row-->
           <div class="row d-flex align-items-center mb-4">
 
@@ -296,13 +295,13 @@ include "navbar.php";
             <div class="form-group row">
                     <label for="no" class="col-sm-2 col-form-label">Nomor Telepon</label>
                     <div class="col-sm-10">
-                      <input type="tel" pattern="^/d{10}" title="masukkan angka minimal 10" class="form-control" name="no" value="">
+                      <input type="tel" pattern="^/d{>9}" title="masukkan angka minimal 10" class="form-control" name="no" value="">
                     </div>
                   </div>
             <div class="form-group row">
                 <label for="password" class="col-sm-2 col-form-label">Password</label>
                     <div class="col-sm-10">
-                      <input type="password" pattern="(?=.*/d)(?=.*[a-z]).{8,}" title="Password minimal harus 8!!!" class="form-control" id="password2" placeholder="Password" value='' name="password">
+                      <input type="password" pattern="(?=.*/d)(?=.*[a-z]).{>7}" title="Password minimal harus 8!!!" class="form-control" id="password2" placeholder="Password" value='' name="password">
                     </div>
             </div>
             <div class="form-group row"> 

@@ -23,7 +23,10 @@
                   </div>
               </div>
               <?php if(!isset($_SESSION['username'])){
-                header('location: index.php');
+                echo "<script>alert('Anda Harus Login Terlebih Dahulu!!!');
+                window.location='index.php'</script>";
+                //header('location: index.php');
+                
                 ?>
           <div class="dropdown">
             <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

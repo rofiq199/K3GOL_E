@@ -37,7 +37,9 @@ $cek_user=mysqli_num_rows(mysqli_query($koneksi,"SELECT * FROM data_customer WHE
 
 					if($sql){ // Cek jika proses simpan ke database sukses atau tidak
 						// Jika Sukses, Lakukan :
-						header("location: index.php"); // Redirect ke halaman index.php
+						echo "<script>alert('Selamat Anda Berhasil Mendaftar');
+								window.location='index.php';	
+								</script>";
 					}else{
 						// Jika Gagal, Lakukan :
 						echo "Maaf, Terjadi kesalahan saat mencoba untuk menyimpan data ke database.";

@@ -21,6 +21,6 @@ if($cek > 0){
 	$_SESSION['status'] = "login";
 	header("location:../barberman/barberman.html");
 }else{
-	echo "salah!!!! ";
+	echo "<script>alert('Username/Password Salah!!!');history.go(-1)</script>";
 }
 ?>

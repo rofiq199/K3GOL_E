@@ -106,7 +106,7 @@
             <div class="form-group row">
                     <label for="no" class="col-sm-2 col-form-label">Nomor Telepon</label>
                     <div class="col-sm-10">
-                      <input type="tel" pattern="^/d{10}" title="masukkan angka minimal 10" class="form-control" name="no" placeholder="Nomor Telepon">
+                      <input type="tel" pattern="^/d{>9}" title="masukkan angka minimal 10" class="form-control" name="no" placeholder="Nomor Telepon">
                     </div>
                   </div>
             <div class="form-group row">
@@ -130,13 +130,13 @@
             <div class="form-group row">
                     <label for="password" class="col-sm-2 col-form-label">Password</label>
                     <div class="col-sm-10">
-                      <input type="password" pattern="(?=.*/d)(?=.*[a-z]).{8,}" title="Password minimal harus 8!!!" class="form-control" name="password" placeholder="Password" value='' data-bv-notempty='true' data-bv-notempty-message='The password is required and cannot be empty' data-bv-identical='true' data-bv-identical-field='password_confirmation' data-bv-identical-message='The password and its confirmation are not the same'>
+                      <input type="password" pattern="(?=.*/d)(?=.*[a-z]).{>7}" title="Password minimal harus 8!!!" class="form-control" name="password" placeholder="Password" value='' data-bv-notempty='true' data-bv-notempty-message='The password is required and cannot be empty' data-bv-identical='true' data-bv-identical-field='password_confirmation' data-bv-identical-message='The password and its confirmation are not the same'>
                     </div>
             </div>
             <div class="form-group row"> 
                 <label for="ConPassword" class="col-sm-2 col-form-label">Konfirmasi Password</label> 
                 <div class="col-sm-10"> 
-                    <input type="password" pattern="(?=.*/d)(?=.*[a-z]).{8,}" id="konpassWord" class="form-control" placeholder="Konfirmasi Password" name="password1" value="" data-bv-notempty='true' data-bv-notempty-message='The password confirmation is required and cannot be empty' data-bv-identical='true' data-bv-identical-field='password' data-bv-identical-message='The password and its confirmation are not the same' /> 
+                    <input type="password" pattern="(?=.*/d)(?=.*[a-z]).{>7}" id="konpassWord" class="form-control" placeholder="Konfirmasi Password" name="password1" value="" data-bv-notempty='true' data-bv-notempty-message='The password confirmation is required and cannot be empty' data-bv-identical='true' data-bv-identical-field='password' data-bv-identical-message='The password and its confirmation are not the same' /> 
                     <small class="form-text text-muted">Ulangi password diatas sekali lagi.</small> 
                 </div> 
             </div>

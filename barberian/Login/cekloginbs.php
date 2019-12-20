@@ -21,6 +21,6 @@ if($cek > 0){
 	$_SESSION['status'] = "login";
 	header("location:/K3GOL_E/barberian/admin/barberman.php");
 }else{
-	echo "salah!!!! ";
+	echo "<script>alert('Username/Password Salah!!!');history.go(-1)</script>";
 }
 ?>
