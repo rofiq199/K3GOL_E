@@ -1,29 +1,37 @@
+<?php
+  $koneksi = mysqli_connect("localhost","root","","barberian");
+  // Check connection
+  if (mysqli_connect_errno()){
+    echo "Koneksi database gagal : " . mysqli_connect_error();
+  }
+  session_start();
+?>
 <!doctype html>
 <html lang="en">
   <head>
-  <?php 
-    session_start();
-  ?>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <script src="script.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
     <!--My CSS-->
-    <link rel="stylesheet" href="gaya.css">
+    <link rel="stylesheet" href="histori_order.css">
+  
     <title>Barberian</title>
   </head>
   <body>
 
-    <!--Navbar-->
-  
-    <nav class="navbar navbar-expand-lg navbar-light">
+  <!--Navbar-->
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
       <a class="navbar-brand" href="index.php">Barberian</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +40,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link " href="index.php">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="index.php#tentang_kami">Tentang Kami</a>
+          <a class="nav-item nav-link" href="index.php">Tentang Kami</a>
           <div class="dropdown">
             <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Fitur Kami
@@ -42,9 +50,8 @@
                     <a class="dropdown-item" href="caribarber.php">Cari Barbershop</a>
                     <a class="dropdown-item" href="halproduk.php">Produk</a>
                   </div>
-            </div>          
-      </div>
-      <?php if(!isset($_SESSION['username'])){ ?>
+              </div>
+              <?php if(!isset($_SESSION['username'])){ ?>
           <div class="dropdown">
             <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Masuk
@@ -72,113 +79,71 @@
             ?>
           </div>
         </div>
-      </div>
     </div>
     </nav>
-    <script src="jquery-1.7.1.min.js" type="text/javascript"></script>
-      <script type="text/javascript">
-      $(document).ready(function() {
-        <!-- event textbox keyup
-        $("#search").keyup(function() {
-        var strcari = $("#search").val();// <!-- mendapatkan nilai dari textbox -->
-        if (strcari != "") //<!-- jika value strcari tidak kosong-->
-        {
-          //$("#result").html("<img src='loading.gif'/>")// <!-- menampilkan animasi loading -->
-        // <!-- request data ke cari.php lalu menampilkan ke <div id="hasil"></div> -->
-          $.ajax({
-          type:"post",
-          url:"caribarber1.php",
-          data:"nama="+ strcari,
-          success: function(data){
-            $("#result").html(data);
-          }
-          });
-        }
-        });
-          });
-      </script>
-  <!-- akhir Navbar --> 
-  <!-- Jumbotron -->
-  <!-- Section: Blog v.3 -->
-<?php include "koneksi.php";?>
+  <!-- akhir Navbar -->
+  
+<!-- Section: Features v.1 -->
+<!-- akhir Fitur -->
+<?php 
+   $username = $_SESSION['username'];
+   // Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
+   $query ="SELECT * FROM penjualan  WHERE username_cs='".$username."' order by kode_jual desc";
+   $sql = mysqli_query($koneksi, $query)  // Eksekusi/Jalankan query dari variabel $query
+   //$query ="SELECT * penjualan ";
+   //$sql = mysqli_query($koneksi, $query)  // Eksekusi/Jalankan query dari variabel $query
+?>
+<!-- Body -->
 <div class="container">
-<form method="post" action="caribarber.php">
-<div  type="text" name="search" id="search"class="input-group md-form form-sm form-2 pl-0 my-5">
-  <input class="form-control my-0 py-1 amber-border" type="text" id='cari' name="search" placeholder="cari disini" >
-  <div class="input-group-append">
-    <button type="submit" value="search" class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search text-grey"
-        aria-hidden="true"></i></button>
+<?php while($data = mysqli_fetch_array($sql)){?>
+  <div class="card">
+  <div class="card-header">
+  <h5 class="card-title">Kode Transaksi : <?php echo $data['kode_jual']; ?></h5>
   </div>
-</div>
-</form>
-<section class="my-5 barber">
-<div id="tampil"> 
-  <hr class="my-4">
-<?php
-if(isset($_POST['search'])){
-$search = $_POST['search'];
-$query=" SELECT * from  data_barber where nama_bs like '%$search%' ";
-$result=mysqli_query($koneksi,$query) or die(mysqli_error());
-$no=1;
-}else{
-  $query= "SELECT * from  data_barber ";
-  $result=mysqli_query($koneksi,$query) or die(mysqli_error());
-}
-//proses menampilkan data
-while($rows=mysqli_fetch_object($result)){
-?>
-  <!-- Grid row -->
-  <div class="mt-3 card">
-  <div class="card-body">
-  <div class="row">
-
-    <!-- Grid column -->
-    <div class="col-lg-5 col-xl-4">
-
-      <!-- Featured image -->
-      <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
-        <img class="img-fluid" src="admin/img/<?=$rows -> foto;?>" alt="Sample image">
-        <a>
-          <div class="mask rgba-white-slight"></div>
-        </a>
+    <div class="card-body">
+      
+      <p class="card-text">Total Harga : Rp <?php echo $data['total_harga']; ?></p>
+      <p class="card-text">Tanggal : <?php echo $data['tanggal_jual']; ?></p>
+      <a href="#collapseExample<?php echo $data['kode_jual']; ?>" class="btn btn-primary" data-toggle="collapse" >Lihat Detail</a>
+    </div>
+    <div class="collapse" id="collapseExample<?php echo $data['kode_jual']; ?>">
+      <div class="collapse-content">
+      <div class="container">
+      <div class="card-footer">
+        <p id="collapseExample">Detail Pembelian </p>
+        <table cellspacing="0" width="70%">
+        <tr>
+        <td>Foto</td>
+        <td>Nama Produk</td>
+        <td>Toko</td>
+        <td>Harga Produk</td>
+        </tr>
+     <?php   
+     $query1 ="SELECT * FROM detail_penjualan inner join produk on detail_penjualan.kode_produk=produk.kode_produk where kode_jual='".$data['kode_jual']."' ";
+    $sql1 = mysqli_query($koneksi, $query1);  // Eksekusi/Jalankan query dari variabel $query
+    while($data1 = mysqli_fetch_array($sql1)){
+    ?>
+        <tr>
+        <td><img src="admin/img/<?php echo $data1['foto_produk']; ?>" width="100px" height="100px"></td>
+        <td><?php echo $data1['nama_produk']; ?></td>
+        <td><?php echo $data1['username_bs']; ?></td>
+        <td>Rp.<?php echo $data1['harga_produk']; ?></td>
+        </tr>
+    <?php }?>
+        </table>
+        </div>
+        </div>
       </div>
-
     </div>
-    <!-- Grid column -->
 
-    <!-- Grid column -->
-    <div class="col-lg-7 col-xl-8">
-
-      <!-- Post title -->
-      <h3 class="font-weight-bold mb-3"><strong><?=$rows -> nama_bs;?></strong></h3>
-      <!-- Excerpt -->
-      <p class="Deskripsi"><?=$rows -> alamat_bs;?><br>
-      <?=$rows -> jam_buka;?>-<?=$rows -> jam_tutup;?></p>
-      <!-- klik ke detail barbershop -->
-      <?php if(($rows -> status_bs) == 'buka'){ ?>
-      <button type = "button" class="btn btn-outline-primary btn-rounded waves-effect" onclick="window.location.href='detailbarber.php?id=<?=$rows -> username_bs;?>'">Lihat Detail</button>
-      <?php }else{ ?>
-        <button type = "button" disabled class="btn btn-outline-primary btn-rounded waves-effect" onclick="window.location.href='detailbarber.php?id=<?=$rows -> username_bs;?>'">Lihat Detail</button>
-      <?php }?>
-        <div class="border"></div>
-      <p class="mt-5 status">status <strong><?=$rows -> status_bs;?></strong><br>
-    </div>
-    <!-- Grid column -->
-  </div>  
   </div>
-  </div>
-  <!-- Grid row -->
-<?php
-}
-?>
-</div>
-</section>
+  <?php }?>
 </div>
 
-<!-- Section: Blog v.3 -->
-  <!-- akhir Jumbotron -->
-<!-- Modal -->
-<!-- Modal -->
+<!-- collapse -->
+
+<!-- collapse -->
+<!-- body -->
 <div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog form-dark" role="document">
@@ -361,13 +326,13 @@ while($rows=mysqli_fetch_object($result)){
     <!--/.Content-->
   </div>
 </div>
-  <ul id="result" ></ul>
-        <!-- Optional JavaScript -->
+
+
+    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/search.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/6b0af4bcb3.js" crossorigin="anonymous"></script>
-    </body>
-  </html>
+  </body>
+</html>

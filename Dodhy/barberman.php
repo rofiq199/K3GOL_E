@@ -8,56 +8,68 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="admin.css">
-    
-
-    <!-- font -->
-    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <!--  -->
     <script src="https://kit.fontawesome.com/ef8e8d5793.js" crossorigin="anonymous"></script>
-    
-    <title>HALAMAN LIHAT BARBERMAN</title>
+    <title>HALAMAN LIHAT PROFIL</title>
   </head>
   <body>
-      <?php
-      // Load file koneksi.php 
-      $koneksi = mysqli_connect("localhost","root","","barberian");
-      
-      // Check connection
-      if (mysqli_connect_errno()){
-        echo "Koneksi database gagal : " . mysqli_connect_error();
-      }
-      session_start();
-      // Ambil data NIS yang dikirim oleh index.php melalui URL
-      $username = $_SESSION['username'];
-      // Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
-      $query = "SELECT * FROM data_barberman  WHERE username_bs='".$username."'";
-      $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
-      ?>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand text-white" >BARBERSHOP</a>
-        
-          <form class="form-inline my-2 my-lg-0 ml-auto">
+  <?php
+	// Load file koneksi.php 
+	$koneksi = mysqli_connect("localhost","root","","barberian");
+	
+	// Check connection
+	if (mysqli_connect_errno()){
+		echo "Koneksi database gagal : " . mysqli_connect_error();
+	}
+	session_start();
+	// Ambil data NIS yang dikirim oleh index.php melalui URL
+	$username = $_SESSION['username'];
+	// Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
+	$query = "SELECT * FROM data_barberman  WHERE username_bm='".$username."'";
+	$sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
+  $data = mysqli_fetch_array($sql); // Ambil data dari hasil eksekusi $sql
+  $bs =$data['username_bs'];
+  $query1 = "SELECT * FROM data_barber  WHERE username_bs='".$bs."'";
+	$sql1 = mysqli_query($koneksi, $query1);  // Eksekusi/Jalankan query dari variabel $query
+  $data1 = mysqli_fetch_array($sql1); // Ambil data dari hasil eksekusi $sql
+	?>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <a class="navbar-brand text-white" href="../index.php">BARBERIAN</a>
+        <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+          <i class="fas fa-bars"></i> 
+        </button>
+        <form class="form-inline my-2 my-lg-0 ml-auto">
             
-          </form>
-          <div class="icon ml-4">
-              <h5>
-                  <i class="fas fa-sign-out-alt mr-3 text-white" data-toggle="tooltip" title="Sign Out"></i>
-              </h5>
+            </form>
+            <div class="icon ml-4">
+                <h5>
+                    <i class="fas fa-sign-out-alt mr-3 text-white" data-toggle="tooltip" title="Sign Out"></i>
+                </h5>
+  
+            </div>
+        </nav>
 
-          </div>
+      <div class="row no-gutters">
+      <div class="col-md-2,5 bg-dark mt-2 pt-4 ">
+              <ul class="nav flex-column">
+                  <ul class="nav flex-column">
+                      <ul class="sidebar navbar-nav">
+                      <li class="nav-item">
+                          <a class="nav-link active text-white" href="produk.php"><i class="fas fa-tags mr-2"></i>LIHAT PRODUK</a><hr class="bg-secondary">
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link text-white" href="barberman.php"><i class="fas fa-store mr-2"></i>LIHAT BARBERMAN</a><hr class="bg-secondary">
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link text-white" href="profil.php"><i class="fas fa-user-edit mr-2"></i>UBAH PROFIL</a><hr class="bg-secondary">
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link text-white" href="ANTRIAN_ADMIN.html"><i class="fas fa-money-check mr-2"></i>LIHAT ANTRIAN</a><hr class="bg-secondary">
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link text-white" href="#"><i class="fas fa-dollar-sign mr-3 ml-2"></i>LIST HARGA</a><hr class="bg-secondary">
+                        </li>
+                    </ul>
         </div>
-      </nav>
-
-      <div class="sidenav">
-        <a href="produk.php">Produk</a>
-        <a href="barberman.php">Lihat Barberman</a>
-        <a href="profil.php">Ubah Profil</a>
-        <a href="antrian.php">Antrian</a>
-        <a href="list_harga.html ">List Potong</a>
-    </div>
-
-        </div>
-        <div class="main">
         <div class="col-md-8 p-5 pt-2">
           <h3><i class="fas fa-store mr-2"></i> LIHAT BARBERMAN</h3><hr>
           <a class="btn btn-primary mb-3" data-toggle="modal" data-target="#modalplus" title="plus" ><i class="fas fa-plus-square mr-2"></i>Tambah Barberman</a>
@@ -90,6 +102,29 @@
               </tr>
                   <!-- Modal hapus barberman -->
                 <form action="barbermanh.php" method="POST">
+                <div class="modal" id="modalhapus<?php echo $no ?>"tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Hapus</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Apakah anda ingin menghapus barberman ini?</p>
+                      <input type="hidden" value="<?php echo $data['username_bm'];?>" name="username">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="submit" class="btn btn-primary" >Hapus </button>
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </form>
+              <!-- Modal hapus barberman -->
+              <form action="barbermanh.php" method="POST">
                 <div class="modal" id="modalhapus<?php echo $no ?>"tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
@@ -211,13 +246,35 @@
           </div>
           </form>  
               <?php }?>
-            </tbody>
+              </tbody>
           </table>
-     <!-- Optional JavaScript -->
+          
+           
+
+    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="admin2.js"></script>
+    <script type="text/javascript" src="admin.js"></script>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Page level plugin JavaScript-->
+  <script src="vendor/chart.js/Chart.min.js"></script>
+  <script src="vendor/datatables/jquery.dataTables.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin.min.js"></script>
+
+  <!-- Demo scripts for this page-->
+  <script src="js/demo/datatables-demo.js"></script>
+  <script src="js/demo/chart-area-demo.js"></script>
   </body>
 </html>
