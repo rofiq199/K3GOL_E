@@ -22,7 +22,7 @@
       }
       session_start();
       // Ambil data NIS yang dikirim oleh index.php melalui URL
-      $username = $_SESSION['username'];
+      $username = $_SESSION['usernamebs'];
       // Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
       $query = "SELECT * FROM data_barber  WHERE username_bs='".$username."'";
       $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
@@ -107,7 +107,7 @@
               </div>  
             <div class="form-group col-md-6">
               <label for="inputAddress2">Nomor telepon</label>
-              <input type="text" class="form-control" name="no" value="<?php echo $data['no_bs']; ?>">
+              <input type="tel" pattern="^\d{>9}" title="masukkan angka minimal 10" class="form-control" name="no" value="<?php echo $data['no_bs']; ?>">
             </div>
             <div class="form-group">
               <div class="form-group col-md-6">

@@ -202,7 +202,7 @@
                     <input type="text" id="defaultForm-address" class="form-control validate" name="alamat" placeholder="Alamat">
                   </div>
                   <div class="md-form mb-2">
-                    <input type="text" id="defaultForm-numbr" class="form-control validate" name="no" placeholder="Nomor Telepon">
+                    <input type="tel" pattern="^\d{>9}" title="masukkan angka minimal 10" id="defaultForm-numbr" class="form-control validate" name="no" placeholder="Nomor Telepon">
                   </div>
                   <div class="md-form mb-2">
                     <input type="password" id="defaultForm-password" class="form-control validate" name="password" placeholder="Masukkan Password">

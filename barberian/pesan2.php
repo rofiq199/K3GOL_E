@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Halaman Chekout</title>
-</head>
-<body>
-
 <?php 
 include "koneksi.php";
  session_start();
@@ -39,11 +32,9 @@ include "koneksi.php";
 
     //unset($_SESSION['items']);
     //pesan sukses apa enggak
-    if($sql == TRUE) { echo"Data sudah masuk";}
+    if($sql == TRUE) { echo"Data sudah masuk";
+      header("location: halamanpesan.php");}
     else {echo "Data gagal";}
-echo $NewID;
+    
 
 ?>
-selamat Anda berhasil Pesan <a href="index.php">menu utama</a>
-</body>
-</html>

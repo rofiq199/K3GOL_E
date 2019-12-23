@@ -7,7 +7,7 @@
     echo "Koneksi database gagal : " . mysqli_connect_error();
 	}
 	session_start();
-	$username = $_SESSION['usernamebs'];
+	$usernamebs = $_SESSION['usernamebs'];
 
 // Ambil Data yang Dikirim dari Form
 $username = $_POST['username'];
@@ -28,7 +28,7 @@ $path = "../barberman/img/".$fotobaru;
 // Proses upload
 if(move_uploaded_file($tmp, $path)){ // Cek apakah gambar berhasil diupload atau tidak
 	// Proses simpan ke Database
-	$query = "INSERT INTO data_barberman VALUES('".$username."', '".$_SESSION['username']."', '".$nama."', '".$email."', '".$alamat."', '".$no."', '".$password."', '".$fotobaru."','kosong')";
+	$query = "INSERT INTO data_barberman VALUES('".$username."', '".$_SESSION['usernamebs']."', '".$nama."', '".$email."', '".$alamat."', '".$no."', '".$password."', '".$fotobaru."','kosong')";
 	$sql = mysqli_query($koneksi, $query); // Eksekusi/ Jalankan query dari variabel $query
 
 	if($sql){ // Cek jika proses simpan ke database sukses atau tidak
@@ -42,7 +42,7 @@ if(move_uploaded_file($tmp, $path)){ // Cek apakah gambar berhasil diupload atau
 }else{
 	// Jika gambar gagal diupload, Lakukan :
 		// Proses simpan ke Database
-		$query =  "INSERT INTO data_barberman VALUES('".$username."', '".$_SESSION['username']."', '".$nama."', '".$email."', '".$alamat."', '".$no."', '".$password."')";
+		$query =  "INSERT INTO data_barberman VALUES('".$username."', '".$_SESSION['usernamebs']."', '".$nama."', '".$email."', '".$alamat."', '".$no."', '".$password."')";
 		$sql = mysqli_query($koneksi, $query); // Eksekusi/ Jalankan query dari variabel $query
 }
 ?>

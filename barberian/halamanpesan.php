@@ -4,7 +4,7 @@
   <?php 
     include "navbar.php";
     include "koneksi.php";
-    $query= "SELECT * from  pesan where username_cs='".$_SESSION['username']."'and status_pesan='belum' order by kode_pesan DESC";
+    $query= "SELECT * from  pesan where username_cs='".$_SESSION['username']."'and status_pesan='belum' or status_pesan='proses' order by kode_pesan DESC";
     $result=mysqli_query($koneksi,$query);
     $tampil =mysqli_fetch_array($result);
     $kode= $tampil['kode_pesan'];
@@ -55,8 +55,9 @@
                             <?php }?>
                             </table>
                             </div>
+                            <p class="card-text">Status Pesan :<?php echo $tampil['status_pesan']; ?> </p>
+                            <p class="card-text">Total :<?php echo $tampil['total_pesan']; ?> </p>
                         </div>
-                        <center><a href="#" class="btn btn-success">selesai</a></center>
                     </div>
                 </div>
             
