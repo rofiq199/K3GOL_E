@@ -2,9 +2,7 @@
 <html lang="en">
   <head>
   <?php 
-    include  "navbar.php";
-    include "koneksi.php";
-    $json = json_encode($_SESSION);
+   include "koneksi.php";
   ?>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -20,6 +18,8 @@
     <!--My CSS-->
     <link rel="stylesheet" href="halproduk.css">
     <title>Barberian</title>
+    <?php  include  "navbar.php"; 
+     $json = json_encode($_SESSION);?>
   </head>
   <body>
   <!-- tampilkan produk -->
@@ -51,7 +51,7 @@
               <p class="card-text">Rp. <?=number_format($rows -> harga_produk, 0, ",", ".");?></p>
               <h6 class="card-title"><?=$rows -> nama_bs;?></h6>
               <button hidden id ="cari">meleh</button><br><br>
-              <button class="add btn btn-success" onclick="window.location.href='pcart.php?act=add&amp;barang_id=<?=$rows->kode_produk?>&amp;ref=halproduk.php'"><i class="fa fa-shopping-cart" aria-hidden="true" ></i> Add</button>
+              <center><button class="add btn btn-success" onclick="window.location.href='pcart.php?act=add&amp;barang_id=<?=$rows->kode_produk?>&amp;ref=halproduk.php'"><i class="fa fa-shopping-cart" aria-hidden="true" ></i> Add</button></center>
             </div>
           </div>
         </div>
