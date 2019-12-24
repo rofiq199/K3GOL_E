@@ -1,39 +1,4 @@
 /* Navbar */
-.navbar{
-    background-color: #323131;
-    opacity: 100%;
-}
-.navbar-brand{
-    font-family: Viga;
-    font-size: 22px;
-    color: white !important;
-}
-.nav-link{
-    font-family: 'Titillium Web';
-    font-size: 18px;
-    margin-right: 27px;
-    color: white !important;
-}
-.nav-link:hover{
-    content: '';
-    display: block;
-    background: black;
-}
-
-.dropdown-menu{
-    background-color: #323131;
-}
-.dropdown-item{
-    color: white !important;
-    font-family: 'Titillium Web';
-}
-.dropdown-item:hover{
-    content: '';
-    display: block;
-    background: black;
-}
-/* akhir Navbar */
-
  .card-body{
      height: 200px;
      font-family: 'Cairo', sans-serif ;
@@ -71,29 +36,8 @@ html{
     font-family: 'Roboto', sans-serif;
 }
 @media (min-width: 992px) {
-    .navbar-brand{
-        font-size: 32px;
-    }
-    .nav-link{
-        font-size: 20px;
-    }
-    .dropdown-menu{
-        background-color: white !important;
-    }
-    .dropdown-item{
-        color: black !important;
-    }
-    .dropdown-item:hover{
-        content: '';
-        display: block;
-        background-color: whitesmoke !important;
-    }
-    .card{
+        .card{
         margin-right: 100px;
-    }
-    img{
-        width: 100%;
-        height: 500px;
     }
 }
 /*  */

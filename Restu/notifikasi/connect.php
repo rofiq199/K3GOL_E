@@ -1,4 +1,4 @@
 <?php 
 //connect.php;
-$connect = mysqli_connect("localhost", "root", "", "testing");
+$connect = mysqli_connect("localhost", "root", "", "barberian");
 ?>
