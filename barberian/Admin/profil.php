@@ -14,13 +14,8 @@
   <body>
       <?php
       // Load file koneksi.php 
-      $koneksi = mysqli_connect("localhost","root","","barberian");
-      
-      // Check connection
-      if (mysqli_connect_errno()){
-        echo "Koneksi database gagal : " . mysqli_connect_error();
-      }
-      session_start();
+      include "../koneksi.php";
+      include "navbar.php";
       // Ambil data NIS yang dikirim oleh index.php melalui URL
       $username = $_SESSION['usernamebs'];
       // Query untuk menampilkan data siswa berdasarkan NIS yang dikirim

@@ -14,7 +14,7 @@
   <body>
   <?php 
   include "../koneksi.php";
-  session_start();
+  include "navbar.php";
   $username = $_SESSION['usernamebs'];
   $query = "SELECT * FROM harga_barber  WHERE username_bs='".$username."'";
   $sql = mysqli_query($koneksi, $query); 
