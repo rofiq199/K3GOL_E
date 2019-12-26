@@ -13,6 +13,17 @@
     
   </head>
   <body>
+  <?php 
+include "koneksi.php";
+session_start();
+$query=" SELECT * from penjualan where username_cs='". $_SESSION['username']."' order by kode_jual DESC";
+$result=mysqli_query($koneksi,$query);
+$data =mysqli_fetch_array($result);
+$query1=" SELECT * from detail_penjualan join produk on detail_penjualan.kode_produk=produk.kode_produk where kode_jual='".$data['kode_jual']."' ";
+$result1=mysqli_query($koneksi,$query1);
+$query2=" SELECT * from detail_penjualan join produk on detail_penjualan.kode_produk=produk.kode_produk where kode_jual='".$data['kode_jual']."' ";
+$result2=mysqli_query($koneksi,$query2);
+?>
     <!-- Navbar -->
     <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="#">
@@ -35,14 +46,14 @@
                         <div class="border-bottom"></div>
                         <div class="row mt-2">
                             <div class="col">
-                                <p class="card-text">Tanggal Transaksi</p>
+                                <p class="card-text">Tanggal </p>
                             </div>
                             <div class="col-4 ml-5">
-                                <p class="card-text tanggal">ini tempatnya tanggal</p>
+                                <p class="card-text tanggal"><?php echo date("d F Y H:i",   strtotime($data['tanggal_jual'])); ?></p>
                             </div>
                         </div>
                         <div class="border-bottom"></div>
-                        <p class="card-text mt-2">Ini kode Pembelian</p>
+                        <p class="card-text mt-2"><?php echo $data['kode_jual']; ?></p>
                     </div>
                 </div>
                 <div class="card detil" style="width: 31rem;">
@@ -52,14 +63,19 @@
                             <div class="col">
                                 <p class="card-text">Nama Produk</p>
                                 <!-- Perulangan mulai dari sini -->
-                                <p class="card-text produk">produk</p>
+                                <?php while($data1 = mysqli_fetch_array($result1)){ ?>
+                                <p class="card-text produk"><?php echo $data1['nama_produk'];?></p>
                                 <!-- akhir -->
+                            <?php }?>
                             </div>
                             <div class="col-4 ml-5">
                                 <p class="card-text">Harga</p>
+                                <?php while($data2 = mysqli_fetch_array($result2)){ ?>
                                 <!-- perulangan mulai dari sini -->
-                                <p class="card-text produk">disini harga</p>
+                                <p class="card-text produk">Rp. <?php echo number_format($data2['harga_produk'],0,',','.');?></p>
                                 <!-- akhir -->
+                                <?php 
+                            }?>
                             </div>
                         </div>
                     </div>
@@ -72,7 +88,7 @@
                                 <p class="card-text">Metode Pembayaran</p>
                             </div>
                             <div class="col-4 ml-5">
-                                <p class="card-text tanggal">Langsung</p>
+                                <p class="card-text tanggal">Cash</p>
                             </div>
                             
                         </div>
@@ -82,7 +98,7 @@
                                 <h6 class="card-text tanggal">Total Pembayaran</h6>
                             </div>
                             <div class="col-4 ml-5">
-                                <p class="card-text harga">Langsung</p>
+                                <p class="card-text harga">Rp. <?php echo number_format($data['total_harga'],0,',','.');?></p>
                             </div>
                         </div>
                         <div class="border-bottom"></div>

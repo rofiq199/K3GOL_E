@@ -82,7 +82,7 @@ while($rows=mysqli_fetch_object($result)){
       <p class="mt-5 status"><strong>Buka</strong><br>
       <?php }else{
         ?>
-      <button type = "button" disabled class="btn btn-outline-primary btn-rounded waves-effect" onclick="window.location.href='detailbarber.php?id=<?=$rows -> username_bs;?>'">Lihat Detail</button>
+      <button type = "button" disabled class="btn btn-outline-secondary btn-rounded waves-effect" onclick="window.location.href='detailbarber.php?id=<?=$rows -> username_bs;?>'">Lihat Detail</button>
       <p class="mt-5 status"><strong>Tutup</strong><br>
     <?php }?>
       
