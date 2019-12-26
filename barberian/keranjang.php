@@ -1,11 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-  <?php 
-    include "navbar.php";
-    include "koneksi.php";
-    $total = 0;
-  ?>
+  
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,6 +14,11 @@
     <link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/6b0af4bcb3.js" crossorigin="anonymous"></script>
+    <?php 
+    include "navbar.php";
+    include "koneksi.php";
+    $total = 0;
+  ?>
   </head>
   <body>
 <div class="kartu mt-3">

@@ -1,7 +1,5 @@
 <!doctype html>
-<?php include "koneksi.php" ;
-include "navbar.php";
-?>
+
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -20,6 +18,9 @@ include "navbar.php";
     <!--My CSS-->
     <link rel="stylesheet" href="lihat_antrian.css">
     <title>Barberian</title>
+    <?php include "koneksi.php" ;
+include "navbar.php";
+?>
   </head>
   <body>
     <?php      

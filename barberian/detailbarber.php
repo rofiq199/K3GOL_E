@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<?php include "navbar.php";?>
+
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -22,6 +22,7 @@
         <title>Barberian</title>
         <!-- FontAwesome -->
         <script src="https://kit.fontawesome.com/6b0af4bcb3.js" crossorigin="anonymous"></script>
+        <?php include "navbar.php";?>
     </head>
     <body>
 <?php $id = $_GET['id'];?>

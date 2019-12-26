@@ -1,15 +1,15 @@
 .navbar-brand{
-    font-family: Viga;
+    font-family: 'Dancing Script';
     font-size: 22px;
 }
 .nav-link{
-    font-family: 'Titillium Web';
+    font-family: 'IBM Plex Sans', sans-serif;
     font-size: 18px;
     margin-right: 27px;
     font-style: normal;
 }
 .dropdown-item{
-    font-family: 'Titillium Web';
+    font-family: 'IBM Plex Sans', sans-serif;
 }
 html{
     scroll-behavior: smooth;
