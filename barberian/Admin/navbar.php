@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 <nav class="navbar navbar-expand-lg navbar-light ">
         <a class="navbar-brand text-white" >BARBERIAN</a>
         <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
