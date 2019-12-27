@@ -28,6 +28,9 @@
       <li class="nav-item active">
         <a class="nav-link" href="#"><i class="far fa-bell"></i></a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i></a>
+      </li>
     </ul>
   </div>
 </nav>

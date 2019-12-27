@@ -13,21 +13,37 @@
     <title>Barberian</title>
   </head>
   <?php
-    include "../koneksi.php";
-    include "sidebar.php";
-    $username = $_SESSION['usernamebm'];
-	// Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
-	$query = "SELECT * FROM data_barberman  WHERE username_bm='".$username."'";
-	$sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
-  $data = mysqli_fetch_array($sql); // Ambil data dari hasil eksekusi $sql
-  $bs =$data['username_bs'];
-  $query1 = "SELECT * FROM data_barber  WHERE username_bs='".$bs."'";
-	$sql1 = mysqli_query($koneksi, $query1);  // Eksekusi/Jalankan query dari variabel $query
-  $data1 = mysqli_fetch_array($sql1); // Ambil data dari hasil eksekusi $sql
+  include "../koneksi.php";
+  include "sidebar.php";
+  $username = $_SESSION['usernamebm'];
+  // Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
+  $query = "SELECT * FROM data_barberman  WHERE username_bm='".$username."'";
+  $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
+$data = mysqli_fetch_array($sql); // Ambil data dari hasil eksekusi $sql
+$bs =$data['username_bs'];
+$query1 = "SELECT * FROM data_barber  WHERE username_bs='".$bs."'";
+  $sql1 = mysqli_query($koneksi, $query1);  // Eksekusi/Jalankan query dari variabel $query
+$data1 = mysqli_fetch_array($sql1); // Ambil data dari hasil eksekusi $sql
   ?>
-  <body>
-  <div class="col-md-8 p-5 pt-2">
-          <h3><i class="fas fa-user-edit mr-2"></i>LIHAT PROFIL</h3><hr>
+    <div class="content">
+   		<nav class="navbar navbar-expand-lg">
+   			<i class="fas fa-align-justify" id="sidebarCollapse"></i>
+   		
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"><i class="far fa-bell"></i></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<h3><i class="fas fa-user-edit mr-2"></i>LIHAT PROFIL</h3><hr>
 
             <form class="md-form" method="POST" action="pprofilbm.php" enctype="multipart/form-data" >
               <div class="file-field">
@@ -81,6 +97,7 @@
             <button type="submit" id="ubah" class="btn btn-primary">Ubah</button>
             <button type="reset" class="btn btn-danger mb-2"> Batal</button>
           </form>
+</div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
