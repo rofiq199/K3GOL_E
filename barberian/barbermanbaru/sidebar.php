@@ -15,7 +15,7 @@
    				<a href="lihatpesanan.php">Lihat Pesanan</a> 
    			</li>
    			<li>
-   				<a href="#">Histori Pemesanan</a>
+   				<a href="historipesanan.php">Histori Pemesanan</a>
    			</li>
    		</ul>	
    	</nav>
