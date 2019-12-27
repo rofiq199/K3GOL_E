@@ -88,22 +88,17 @@
       </div>
     </div>
   <!-- akhir Jumbotron -->
-<!-- container -->
-  <div class="container" id="tentang_kami">
   <!-- Tentang Kami -->
-    <div class="row workingspace">
-      <div class="col">
-        <img src="logo barber.png" alt="workingspace" height="250x">
-      </div>
-      <div class="col">
+  <div class="container" id="tentang_kami">
+      <center>
         <h2 class="tentangkami">Tentang Kami</h2>
-        <text class="tentangkami">Barberian adalah sistem informasi berbasis web yang bertema tempat potong rambut khusus pria atau yang biasa disebut "Barbershop". tujuan dari SI web Barberian ini adalah untuk memudahkan pelanggan maupun pihak barber.</text>
-      </div>
+        <text class="penjelasan">Barberian adalah sistem informasi berbasis web yang bertema tempat potong rambut khusus pria atau yang biasa disebut "Barbershop". tujuan dari SI web Barberian ini adalah untuk memudahkan pelanggan maupun pihak barber.</text>
+      </center>
+
     </div>
   
   <!-- akhir Tentang Kami -->
-  </div>
-<!-- akhir container -->
+ 
 <!-- Fitur -->
 <!-- Section: Features v.1 -->
 <section class="text-center my-5 fitur">
