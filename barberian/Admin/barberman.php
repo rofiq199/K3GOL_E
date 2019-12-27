@@ -109,7 +109,7 @@
                     </div>
                     <div class="md-form mb-2">
                      
-                      <input type="text" id="defaultForm-email" class="form-control validate" value="<?php echo $data['no_bm'];?>" name="no" placeholder="Nomor Telepon">
+                      <input type="tel" pattern="^\d{>9}" title="isi nomor dengan angka"  class="form-control" value="<?php echo $data['no_bm'];?>" name="no" placeholder="Nomor Telepon">
                     </div>
                     <div class="md-form mb-2">
                      

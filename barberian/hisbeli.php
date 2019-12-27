@@ -47,7 +47,7 @@ include "navbar.php";
     <div class="card-body">
       
       <p class="card-text">Total Harga : Rp <?php echo $data['total_harga']; ?></p>
-      <p class="card-text">Tanggal : <?php echo $data['tanggal_jual']; ?></p>
+      <p class="card-text">Tanggal : <?php echo date("d F Y H:i",   strtotime($data['tanggal_jual'])); ?></p>
       <a href="#collapseExample<?php echo $data['kode_jual']; ?>" class="btn btn-primary" data-toggle="collapse" >Lihat Detail</a>
     </div>
     <div class="collapse" id="collapseExample<?php echo $data['kode_jual']; ?>">

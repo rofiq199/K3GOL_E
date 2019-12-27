@@ -68,6 +68,7 @@
                   <a class="dropdown-item" href="hisbeli.php" >Histori Pembelian</a>
                   <a class="dropdown-item" href="hispesan.php">Histori Pemesanan</a>
                   <a class="dropdown-item" href="lihat_antrian.php" >Lihat Antrian</a>
+                  <a class="dropdown-item" href="invoice.php">Lihat Pembelian</a>
                   <a class="dropdown-item" href="halamanpesan.php" >Lihat Pesan</a>
                   <a class="dropdown-item" href="logout.php" >Logout</a>
                 </div>
