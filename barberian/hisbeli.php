@@ -1,7 +1,4 @@
-<?php
-include "koneksi.php";
-include "navbar.php";
-?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -21,7 +18,10 @@ include "navbar.php";
 
     <!--My CSS-->
     <link rel="stylesheet" href="histori_order.css">
-  
+    <?php
+include "koneksi.php";
+include "navbar.php";
+?>
     <title>Barberian</title>
   </head>
   <body>

@@ -6,7 +6,7 @@
            <div class="sidebar-header">
               Barberian 
            </div>
-           <p>Username Login</p>
+           <center><p>Username Login</p></center>
    		<ul class="list-unstyled components">
    			<li>
    				<a href="ubahprofil.php">Ubah Profil</a>
