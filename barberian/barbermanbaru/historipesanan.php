@@ -19,7 +19,6 @@
     $query = "SELECT * FROM pesan inner join data_customer on pesan.username_cs=data_customer.username_cs  WHERE ( status_pesan='selesai' or status_pesan='batal') and username_bm='".$username."' ";
     $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
     ?>
-  ?>
     <div class="content">
    		<nav class="navbar navbar-expand-lg">
    			<i class="fas fa-align-justify" id="sidebarCollapse"></i>
