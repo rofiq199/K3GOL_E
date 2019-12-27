@@ -34,7 +34,6 @@
 
           $query = "SELECT * from  harga_barber where username_bs='$barbershop' ";
           $result= mysqli_query($koneksi,$query) or die(mysqli_error());
-          print_r($_SESSION['cukur']);
           
         ?>
 <?php  if (isset($_SESSION['cukur'])){ ?>
@@ -87,12 +86,6 @@
                       //print_r($data);?>
                     <tr>
                     <td>
-                    <?php 
-                    if ($_SESSION['cukur'] == $data['kode_ck']){ ?>
-                    <input type="checkbox" check="window.location.href='index.php'" name="cek" id="cek"><label for="">h</label>
-                    <?php }else{ ?>
-                    <input type="checkbox" check="window.location.href='index.php'" name="cek" id="cek"><label for="">p</label>
-                    <?php }?>
                     <a href="pesan1.php?act=del&amp;barang_id=<?php echo $data['kode_ck']; ?>&amp;ref=pesan.php?id=<?php echo $id ?>" class="fas fa-times"></a>  <a class="fas fa-check " href="pesan1.php?act=add&amp;barang_id=<?php echo $data['kode_ck']; ?>&amp;ref=pesan.php?id=<?php echo $id ?>"></td>
                     <td><?php echo $data['nama_ck']; ?></td>
                     <td>Rp. <?php echo number_format($data['harga_ck'],0,",","."); ?></td>
