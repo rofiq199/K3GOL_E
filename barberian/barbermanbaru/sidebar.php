@@ -9,10 +9,10 @@
            <p>Username Login</p>
    		<ul class="list-unstyled components">
    			<li>
-   				<a href="#">Ubah Profil</a>
+   				<a href="ubahprofil.php">Ubah Profil</a>
    			</li>
    			<li>
-   				<a href="#">Lihat Pesanan</a> 
+   				<a href="lihatpesanan.php">Lihat Pesanan</a> 
    			</li>
    			<li>
    				<a href="#">Histori Pemesanan</a>
