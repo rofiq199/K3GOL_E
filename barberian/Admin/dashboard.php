@@ -17,10 +17,11 @@
       include "../koneksi.php";
       include "navbar.php";
       // Ambil data NIS yang dikirim oleh index.php melalui URL
-      $username = $_SESSION['username'];
+      $username = $_SESSION['usernamebs'];
       // Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
-      $query = "SELECT * FROM produk  WHERE username_bs='".$username."'";
+      $query = "SELECT * FROM antrian  WHERE username_bs='".$username."'";
       $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
+      $jumlah = mysqli_num_rows($sql);
       ?>
                 <div class="col-md-8 p-5 pt-2">
                 <h3><i class="fas fa-cart-arrow-down mr-2"></i>DASHBOARD</h3><hr>
@@ -33,7 +34,7 @@
             <i class="fas fa-shopping-bag"></i>
             </div>
             <h5 class="card-title">BARANG TERJUAL</h5>
-            <div class="display-4">2</div>
+            <div class="display-4">3</div>
             
           </div>
       </div>
@@ -43,8 +44,8 @@
             <div class="card-body-icon">
             <i class="fas fa-money-check-alt"></i>
             </div>
-            <h5 class="card-title">JUMLAH PEMESANAN</h5>
-            <div class="display-4">5</div>
+            <h5 class="card-title">Jumlah Antrian</h5>
+            <div class="display-4"><?php  echo $jumlah; ?></div>
             
           </div>
       </div>
