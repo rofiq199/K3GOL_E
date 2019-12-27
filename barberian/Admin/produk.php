@@ -15,7 +15,7 @@
   <?php
       // Load file koneksi.php 
       include "../koneksi.php";
-      include "navbar.php"
+      include "navbar.php";
       // Ambil data NIS yang dikirim oleh index.php melalui URL
       $username = $_SESSION['usernamebs'];
       // Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
