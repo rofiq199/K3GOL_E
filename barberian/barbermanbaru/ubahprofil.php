@@ -45,10 +45,10 @@ $data1 = mysqli_fetch_array($sql1); // Ambil data dari hasil eksekusi $sql
 </nav>
 <h3><i class="fas fa-user-edit mr-2"></i>LIHAT PROFIL</h3><hr>
 
-            <form class="md-form" method="POST" action="pprofilbm.php" enctype="multipart/form-data" >
+            <form class="md-form" method="POST" action="fungsiprofil.php" enctype="multipart/form-data" >
               <div class="file-field">
                 <div class="mb-4">
-                  <center><img src="img/<?php echo $data['foto_bm']; ?>"
+                  <center><img src="../barberman/img/<?php echo $data['foto_bm']; ?>"
                     width = 240px height = 240px class="rounded-circle z-depth-1-half avatar-pic" ><center>
                 </div>
                 <div class="d-flex justify-content-center">
