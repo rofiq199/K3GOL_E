@@ -32,8 +32,6 @@
      $result=mysqli_query($koneksi,$query);
      $data = mysqli_fetch_object($result);
   ?>
-       
-       
           <div class="container">
             <img src="Admin/img/<?=$data -> foto; ?>" alt="">
           
@@ -85,6 +83,28 @@
       
 </section>
 </div>
+
+<!-- modal -->
+<div class="modal fade" id="modalambil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       Apakah anda yakin akan mengambil antrian ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" onclick="window.location.href='antrian.php?id=<?php echo $id ;?>'" class="btn btn-primary">iya</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">tidak</button>
+      </div>
+    </div>
+  </div>
+</div>
+
       <!-- Section: Team v.1 -->
 
         <!-- Optional JavaScript -->

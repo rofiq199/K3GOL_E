@@ -8,6 +8,7 @@
   // Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
   $query = "SELECT * FROM antrian  WHERE ( status_antrian='belum' or status_antrian='proses') and username_bs='".$username."' ";
   $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
+  $jumlah =mysqli_num_rows($sql);
   ?>
   <head>
     <!-- Required meta tags -->

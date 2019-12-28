@@ -14,7 +14,7 @@ if (isset($_GET['act'])){
         $query1 = "UPDATE pesan SET status_pesan= 'selesai' WHERE kode_pesan='$kode'";
         $sql1 = mysqli_query($koneksi,$query1);
     }else if($act == 'batal'){
-        $$query1 = "UPDATE pesan SET status_pesan= 'proses' WHERE kode_pesan='$kode'";
+        $query1 = "UPDATE pesan SET status_pesan= 'batal' WHERE kode_pesan='$kode'";
         $sql1 = mysqli_query($koneksi,$query1);
     }
 header ("location:" . $ref);

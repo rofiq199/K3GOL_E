@@ -78,7 +78,7 @@
                   <td><?php echo $data['nama_cs'];?></td>
                   <td>Cukur Rambut</td>
                   <td>Rp <?php echo number_format($data['total_pesan'],0,",",".");?></td>
-                  <td><?php echo date("d F Y",strtotime($data['tanggal_pesan']));?></TD>
+                  <td><?php echo date("d F Y H:i",strtotime($data['tanggal_pesan']));?></TD>
                   <td><?php echo $data['status_pesan'];?></td>
               </tr>
             <?php }?>

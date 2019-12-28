@@ -24,7 +24,7 @@ include "navbar.php";
   </head>
   <body>
     <?php      
-     $query= "SELECT * from  antrian where username_cs='".$_SESSION['username']."'and status_antrian='belum'";
+     $query= "SELECT * from  antrian where username_cs='".$_SESSION['username']."'and status_antrian='belum' ORDER BY kode_antrian DESC";
      $result=mysqli_query($koneksi,$query);
      ?>
     <!-- Form -->
@@ -33,7 +33,7 @@ include "navbar.php";
     <?php 
      $data = mysqli_fetch_array($result);
      $barber = $data['username_bs'];
-     $query1= "SELECT * from  antrian where username_bs='".$barber."'and status_antrian='proses' ORDER BY no_antrian DESC ";
+     $query1= "SELECT * from  antrian where username_bs='".$barber."'and (status_antrian='proses' or status_antrian='selesai') ORDER BY no_antrian DESC ";
      $result1=mysqli_query($koneksi,$query1);
      $data1 = mysqli_fetch_array($result1);
     ?>

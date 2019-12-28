@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php session_start(); 
+  $username = $_SESSION['usernamebs'];
+  // Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
+  $query = "SELECT * FROM antrian  WHERE ( status_antrian='belum' or status_antrian='proses') and username_bs='".$username."' ";
+  $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
+  $jumlah =mysqli_num_rows($sql);
+?>
 <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 <nav class="navbar navbar-expand-lg navbar-light ">
 <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
@@ -35,7 +41,7 @@
                           <a class="nav-link text-white" href="profil.php"><i class="fas fa-user-edit mr-2"></i>UBAH PROFIL</a><hr class="bg-secondary">
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link text-white" href="antrian.php"><i class="fas fa-money-check mr-2"></i>LIHAT ANTRIAN</a><hr class="bg-secondary">
+                          <a class="nav-link text-white" href="antrian.php"><i class="fas fa-money-check mr-2"></i>LIHAT ANTRIAN <span class = "badge badge-danger"><?php echo $jumlah; ?></span></a><hr class="bg-secondary">
                         </li>
                         <li class="nav-item">
                           <a class="nav-link text-white" href="listharga.php"><i class="fas fa-dollar-sign mr-3 ml-2"></i>LIST HARGA</a><hr class="bg-secondary">

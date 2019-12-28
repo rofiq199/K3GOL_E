@@ -7,6 +7,7 @@
   $username = $_SESSION['usernamebm'];
   $query = "SELECT * FROM pesan inner join data_customer on pesan.username_cs=data_customer.username_cs  WHERE ( status_pesan='belum' or status_pesan='proses') and username_bm='".$username."' ";
   $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
+  $jumlah =mysqli_num_rows($sql);
     ?>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -45,7 +46,7 @@
                             <a class="nav-link active text-white" href="dashboard.php"><i class="fas fa-shopping-cart mr-2"></i>DASHBOARD</a><hr class="bg-secondary">
                          </li>
                          <li class="nav-item">
-                              <a class="nav-link active text-white" href=""><i class="fas fa-tags mr-2"></i>LIHAT ORDERAN</a><hr class="bg-secondary">
+                              <a class="nav-link active text-white" href=""><i class="fas fa-tags mr-2"></i>LIHAT ORDERAN <span class = "badge badge-danger"><?php echo $jumlah; ?></span></a><hr class="bg-secondary">
                          </li>
                          <li class="nav-item">
                               <a class="nav-link active text-white" href="profilbm.php"><i class="fas fa-user mr-2"></i>LIHAT PROFIL</a><hr class="bg-secondary">
