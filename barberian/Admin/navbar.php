@@ -16,8 +16,7 @@
             </form>
             <div class="icon ml-4">
                 <h5>
-                  <a href="#" class="far fa-bell mr-3 text-white" data-toggle="tooltip" title="Notifikasi"></a>  
-                  <a href="../logout.php" class="fas fa-sign-out-alt mr-3 text-white" data-toggle="tooltip" title="Sign Out"></a> 
+                <a href="../logout.php" class="fas fa-sign-out-alt mr-3 text-white" data-toggle="tooltip" title="Sign Out"></a> 
                 </h5>
             
               
