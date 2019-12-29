@@ -71,14 +71,14 @@
             <div class="form-group row">
                     <label for="no" class="col-sm-2 col-form-label">Nomor Telepon</label>
                     <div class="col-sm-10">
-                      <input type="text" pattern="^/d{10}" title="masukkan angka minimal 10" class="form-control" name="no" value="<?php echo $data['no_cs']; ?>">
+                      <input type="text" pattern="^/d{>9}" title="masukkan angka minimal 10" class="form-control" name="no" value="<?php echo $data['no_cs']; ?>">
                     </div>
                   </div>
             <div class="border"></div>
             <div class="form-group row">
               <label for="password" class="col-sm-2 col-form-label">Password</label>
                 <div class="col-sm-10">
-                  <input type="password" class="form-control" name="password" id="password" placeholder="Password" value=<?php echo $data['password_cs']; ?> data-bv-notempty='true' data-bv-notempty-message='The password is required and cannot be empty' data-bv-identical='true' data-bv-identical-field='password_confirmation' data-bv-identical-message='The password and its confirmation are not the same'>
+                  <input type="password" class="form-control" name="password" id="passwordcs" placeholder="Password" value=<?php echo $data['password_cs']; ?> data-bv-notempty='true' data-bv-notempty-message='The password is required and cannot be empty' data-bv-identical='true' data-bv-identical-field='password_confirmation' data-bv-identical-message='The password and its confirmation are not the same'>
                 </div>
             </div>
             <div class="form-group row"> 
@@ -100,14 +100,13 @@
   <!-- akhir Navbar -->
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery-3.4.1.min.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script type="text/javascript">
        $(document).ready(function() {
-         console.log('siappp');
             $("#ubah").on('click',function () {
-                var password = $("#password").val();
+                var password = $("#passwordcs").val();
                 var confirmPassword = $("#konpassword").val();
                 if (password != confirmPassword) {
                     // alert("Passwords do not match.");
@@ -117,6 +116,7 @@
                 return true;
             });
         });    
+    
     </script>
   </body>
 </html>
