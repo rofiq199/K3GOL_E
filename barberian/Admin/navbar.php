@@ -16,13 +16,15 @@
             </form>
             <div class="icon ml-4">
                 <h5>
-                    <a href="../logout.php" class="fas fa-sign-out-alt mr-3 text-white" data-toggle="tooltip" title="Sign Out"></a>  
+                  <a href="#" class="far fa-bell mr-3 text-white" data-toggle="tooltip" title="Notifikasi"></a>  
+                  <a href="../logout.php" class="fas fa-sign-out-alt mr-3 text-white" data-toggle="tooltip" title="Sign Out"></a> 
                 </h5>
-                <a class="nav-link" href="#"><i class="far fa-bell"></i></a>
+            
+              
   
             </div>
         </nav>
-
+        
       <div class="row no-gutters">
       <div class="col-md-2,5 bg-dark  pt-4 ">
               <ul class="nav flex-column">
