@@ -38,15 +38,15 @@ $result2=mysqli_query($koneksi,$query2);
                 <div class="card mt-1" style="width: 31rem;">
                     <div class="card-body">
                         <p class="card-text">Status</p>
-                        <?php if(($data['status']) == 'selesai'){ ?>
+                        <?php if(($data['status_jual']) == 'selesai'){ ?>
                         <h6 class="transaksi-sukses">Transaksi Berhasil</h6>
                         <!-- Transaksi Jika gagal -->
-                        <?php }else if(($data['status']) == 'proses'){ ?>
+                        <?php }else if(($data['status_jual']) == 'proses'){ ?>
                         <h6 class="transaksi-sukses">Proses Pengiriman</h6>
-                        <?php }else if(($data['status']) == 'batal'){ ?>
+                        <?php }else if(($data['status_jual']) == 'batal'){ ?>
                         <h6 class="transaksi-gagal">Transaksi Gagal</h6>
                         <!-- akhir -->
-                        <?php }else if(($data['status']) == 'belum'){?>
+                        <?php }else if(($data['status_jual']) == 'belum'){?>
                         <h6 class="verifikasi">Proses Verifikasi</h6>
                         <?php }?>
                         <div class="border-bottom"></div>
