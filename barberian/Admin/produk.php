@@ -99,7 +99,7 @@
                 <input type="username" id="defaultForm-email" class="form-control validate" value="<?php echo $data['harga_produk'];?>" name="harga" placeholder="Harga Produk">
               </div>
               <div class="md-form mb-2">
-                <input type="text" id="defaultForm-email" class="form-control validate" value="<?php echo $data['stok'];?>" name="harga" placeholder="Masukkan Jumlah Stok">
+                <input type="text" id="defaultForm-email" class="form-control validate" value="<?php echo $data['stok'];?>" name="stok" placeholder="Masukkan Jumlah Stok">
               </div>
               
             </div>

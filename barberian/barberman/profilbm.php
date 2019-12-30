@@ -48,7 +48,7 @@
             </div>
         </nav>
 
-      <div class="row no-gutters">
+      <div class="row no-gutters mt-5">
       <div class="col-md-2,5 bg-dark mt-2 pt-4 ">
               <ul class="nav flex-column">
                   <ul class="nav flex-column">
@@ -117,7 +117,7 @@
             </div>
             <div class="form-group col-md-6">
             <button type="submit" id="ubah" class="btn btn-primary">Ubah</button>
-            <button type="reset" class="btn btn-danger mb-2"> Batal</button>
+            <button type="reset" class="btn btn-danger mb"> Batal</button>
           </form>
           
            

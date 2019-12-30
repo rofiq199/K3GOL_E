@@ -4,6 +4,10 @@
   $query = "SELECT * FROM antrian  WHERE ( status_antrian='belum' or status_antrian='proses') and username_bs='".$username."' ";
   $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
   $jumlah =mysqli_num_rows($sql);
+
+  $bs ="SELECT * FROM data_barber where username_bs='$username'";
+  $barbershop = mysqli_query($koneksi,$bs);
+  $tampil = mysqli_fetch_array($barbershop);
 ?>
 <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 <nav class="navbar navbar-expand-lg navbar-light ">
@@ -16,8 +20,11 @@
             </form>
             <div class="icon ml-4">
                 <h5>
-                <button type="button" class="btn btn-primary btn-sm">BUKA</button>
-                <button type="button" class="btn btn-danger btn-sm">TUTUP</button>
+                <?php if($tampil['status_bs'] == 'buka'){ ?>
+                <button type="button" onclick="window.location.href='buka.php?act=tutup'" class="btn btn-danger btn-sm">TUTUP</button>
+                <?php }else{?>
+                <button type="button" class="btn btn-primary btn-sm" onclick="window.location.href='buka.php?act=buka'">BUKA</button>
+                <?php }?>
                 <a href="../logout.php" class="fas fa-sign-out-alt mr-3 text-white" data-toggle="tooltip" title="Sign Out"></a> 
                 </h5>
             

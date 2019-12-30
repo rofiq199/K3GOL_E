@@ -38,13 +38,13 @@ include "navbar.php";
      $data1 = mysqli_fetch_array($result1);
     ?>
            <div class="form-group row">
-              <label for="nomor" class="col-sm-2 col-form-label">Nomor Antrianmu :</label>
+              <label for="nomor" class="col-sm-2 col-form-label">Nomor Antrian sekarang :</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" name="nomor" disabled value="<?php echo $data1['no_antrian']; ?>" >
               </div>
             </div>
             <div class="form-group row">
-              <label for="nomor2" class="col-sm-2 col-form-label">Nomor Antrian Sekarang : </label>
+              <label for="nomor2" class="col-sm-2 col-form-label">Nomor Antrianmu : </label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" name="nomor2" disabled value="<?php echo $data['no_antrian']; ?>">
               </div>
