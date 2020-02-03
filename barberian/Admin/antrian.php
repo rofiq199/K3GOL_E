@@ -24,7 +24,7 @@
   <body>
         <div class="col-md-8 p-5 pt-2">
           <h3><i class="fas fa-money-check mr-2"></i> Lihat Antrian</h3><hr>
-          <a href="#modalplus" class="btn btn-primary mb-3" data-toggle="modal"><i class="fas fa-plus-square mr-2"></i>Tambah Antrian</a>
+          <!-- <a href="#modalplus" class="btn btn-primary mb-3" data-toggle="modal"><i class="fas fa-plus-square mr-2"></i>Tambah Antrian</a> -->
           <table class="table table-striped table-bordered">
             <thead>
               <tr>

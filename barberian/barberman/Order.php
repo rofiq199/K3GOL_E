@@ -74,7 +74,14 @@
               <tr>
                   <th scope="row"><?php echo $no++; ?></th>
                   <td><?php echo $data['nama_cs']; ?></td>
-                  <td>Cukur Rambut</td>
+                  <td><?php 
+                  $kode = $data['kode_pesan'];
+                  $query1 ="SELECT * FROM detail_pesan join harga_barber on detail_pesan.kode_ck=harga_barber.kode_ck where kode_pesan='$kode'"; 
+                  $sql1 = mysqli_query($koneksi,$query1);
+                  while($data2=mysqli_fetch_array($sql1)){
+                    echo $data2['nama_ck'].',';  
+                  }
+                  ?></td>
                   <td>Rp. <?php echo number_format($data['total_pesan'],0,",","."); ?></td>
                   <td><?php echo $data['alamat_pesan']; ?></td>
                   <td><?php echo $data['status_pesan']; ?></td>
