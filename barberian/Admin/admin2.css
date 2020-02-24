@@ -4,10 +4,12 @@
   
   .card-text{
     font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
   }
   
   .navbar-brand{
     font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
   }
   
   .navbar{
@@ -22,7 +24,9 @@
   .nav{
     height: 950px;
   }
- 
+  .nav-item{
+    font-family: 'Open Sans', sans-serif;
+  }
   
   .sidebar {
     width: 90px !important;

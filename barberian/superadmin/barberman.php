@@ -1,7 +1,6 @@
 <?php  
     session_start();
     include "../koneksi.php";
-      $username = $_SESSION['username'];
       // Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
       $query = "SELECT * FROM data_barberman ";
       $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
@@ -9,7 +8,6 @@
 <div class="halaman">
   <p class="username"></p>
           <h3><i class="fas fa-store mr-2"></i> LIHAT BARBERMAN</h3><hr>
-          <a class="btn btn-primary mb-3" data-toggle="modal" data-target="#modalplus" title="plus" ><i class="fas fa-plus-square mr-2"></i>Tambah Barberman</a>
           <table class="table table-striped table-bordered">
             <thead>
               <tr>
@@ -34,148 +32,9 @@
                 <td><?php echo $data['alamat_bm'];?></td>
                 <td><?php echo $data['no_bm'];?></td>
                 <td><?php echo $data['password_bm'];?></td>  
-                <td><i class="fas fa-edit bg-success p-2 text-white rounded" data-toggle="modal" data-target="#modaledit<?php echo $no ?>" title="Edit"></i></td>
-                <td><i class="fas fa-trash-alt bg-danger p-2 text-white rounded" data-toggle="modal" data-target=#modalhapus<?php echo $no ?> title="Delete"></i></td>
+                <td><i class="fas fa-trash-alt bg-danger p-2 text-white rounded"  onclick="window.location.href='proses/barberman.php?id=<?php echo $data['username_bm']?>'" title="Delete"></i></td>
               </tr>
-                  <!-- Modal hapus barberman -->
-                <form action="barbermanh.php" method="POST">
-                <div class="modal fade" id="modalhapus<?php echo $no ?>"tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title">Hapus</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <p>Apakah anda ingin menghapus barberman ini?</p>
-                      <input type="text" value="<?php echo $data['username_bm'];?>" name="username">
-                    </div>
-                    <div class="modal-footer">
-                      <button type="submit" class="btn btn-danger" >Hapus </button>
-                      <button type="button" class="btn btn-primary" data-dismiss="modal">Batal</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              </form>
-            <!-- Modal edit barberman -->
-            <form action="barbermane.php" method="POST" enctype="multipart/form-data">
-            <div class="modal fade" id="modaledit<?php echo $no?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-              aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header text-center">
-                    <h4 class="modal-title w-100 font-weight-bold">Edit</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body mx-3">
-                  <div class="md-form mb-2">
-                    <br>
-                      <input type="file" name="foto" >
-                    </div>
-                  <div class="md-form mb-2">
-                      <input type="hidden" value="<?php echo $data['username_bm'];?>" name="username">
-                    </div>
-                    <div class="md-form mb-2">
-                      <input type="text" id="defaultForm-email" class="form-control validate" value="<?php echo $data['nama_bm'];?>" name="nama" placeholder="Nama Barberman">
-                    </div>
-                    <div class="md-form mb-2">
-                      
-                      <input type="text" id="defaultForm-email" class="form-control validate" value="<?php echo $data['email_bm'];?>" name="email" placeholder="Email">
-                    </div>
-                    <div class="md-form mb-2">
-                    
-                      <input type="text" id="defaultForm-email" class="form-control validate" value="<?php echo $data['alamat_bm'];?>" name="alamat" placeholder="Alamat">
-                    </div>
-                    <div class="md-form mb-2">
-                     
-                      <input type="text" id="defaultForm-email" class="form-control validate" value="<?php echo $data['no_bm'];?>" name="no" placeholder="Nomor Telepon">
-                    </div>
-                    <div class="md-form mb-2">
-                     
-                      <input type="password" id="defaultForm-email" class="form-control validate" value="<?php echo $data['password_bm'];?>" name="password" placeholder="Masukkan Password">
-                    </div>
-                    
-                  </div>
-                  <div class="modal-footer d-flex justify-content-center">
-                    <button type="submit" class="btn btn-primary">Edit</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            </form> 
-
-            <!-- Modal tambah barang -->
-          <form class="formtambah" action="barbermant.php" method="POST" enctype="multipart/form-data">
-          <div class="modal fade" id="modalplus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header text-center">
-                  <h4 class="modal-title w-100 font-weight-bold">Tambah Barberman
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body mx-3">
-                <div class="md-form mb-2">
-                  <br>
-                    <input type="file" name="foto" >
-                  </div>
-                <div class="md-form mb-2">
-                    <input type="text" id="username" class="form-control validate" name="username" placeholder="Username">
-                  </div>
-                  <div class="md-form mb-2">
-                    <input type="text" id="defaultForm-name" class="form-control validate"  name="nama" placeholder="Nama Barberman">
-                  </div>
-                  <div class="md-form mb-2">
-                    <input type="text" id="defaultForm-email" class="form-control validate" name="email" placeholder="Email">
-                  </div>
-                  <div class="md-form mb-2">
-                    <input type="text" id="defaultForm-address" class="form-control validate" name="alamat" placeholder="Alamat">
-                  </div>
-                  <div class="md-form mb-2">
-                    <input type="text" id="defaultForm-numbr" class="form-control validate" name="no" placeholder="Nomor Telepon">
-                  </div>
-                  <div class="md-form mb-2">
-                    <input type="password" id="defaultForm-password" class="form-control validate" name="password" placeholder="Masukkan Password">
-                  </div>
-                  
-                </div>
-                <div class="modal-footer d-flex justify-content-center">
-                  <button type="submit" id="tambah" class="btn btn-primary">Tambah</button>
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          </form>  
               <?php }?>
             </tbody>
           </table>
 <script src="../js/jquery-3.4.1.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-  
-	$("#tambah").click(function(){
-    var data1 = $('.formtambah').serialize();
-    var username = $('#username').val();
-		$.ajax({
-			type: 'POST',
-			url: "proses/barberman.php",
-			data: 'username='+username,
-			success: function() {
-        //reload("barberman.php");
-        console.log(data1);
-        $('.username').load('proses/barberman.php?'+username);
-			}
-		});
-	});
-});
-
-</script>

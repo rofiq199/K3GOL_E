@@ -48,14 +48,11 @@
             </div>
         </nav>
 
-      <div class="row no-gutters">
+      <div class="row no-gutters mt-5">
       <div class="col-md-2,5 bg-dark mt-2 pt-4 ">
               <ul class="nav flex-column">
                   <ul class="nav flex-column">
-                      <ul class="sidebar navbar-nav">
-                           <li class="nav-item">
-                                  <a class="nav-link active text-white" href="dashboard.php"><i class="fas fa-shopping-cart mr-2"></i>DASHBOARD</a><hr class="bg-secondary">
-                           </li>      
+                      <ul class="sidebar navbar-nav">    
                            <li class="nav-item">
                                 <a class="nav-link active text-white" href="Order.php"><i class="fas fa-tags mr-2"></i>LIHAT ORDERAN</a><hr class="bg-secondary">
                            </li>
@@ -120,7 +117,7 @@
             </div>
             <div class="form-group col-md-6">
             <button type="submit" id="ubah" class="btn btn-primary">Ubah</button>
-            <button type="reset" class="btn btn-danger mb-2"> Batal</button>
+            <button type="reset" class="btn btn-danger mb"> Batal</button>
           </form>
           
            
@@ -145,24 +142,5 @@
             });
         });    
     </script>
-
-  <!-- Bootstrap core JavaScript-->
-  <!-- <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
-
-  <!-- Core plugin JavaScript-->
-  <!-- <script src="vendor/jquery-easing/jquery.easing.min.js"></script> -->
-
-  <!-- Page level plugin JavaScript-->
-  <!-- <script src="vendor/chart.js/Chart.min.js"></script>
-  <script src="vendor/datatables/jquery.dataTables.js"></script>
-  <script src="vendor/datatables/dataTables.bootstrap4.js"></script> -->
-
-  <!-- Custom scripts for all pages-->
-  <!-- <script src="js/sb-admin.min.js"></script> -->
-
-  <!-- Demo scripts for this page-->
-  <!-- <script src="js/demo/datatables-demo.js"></script>
-  <script src="js/demo/chart-area-demo.js"></script> -->
   </body>
 </html>

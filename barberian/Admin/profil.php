@@ -14,60 +14,16 @@
   <body>
       <?php
       // Load file koneksi.php 
-      $koneksi = mysqli_connect("localhost","root","","barberian");
-      
-      // Check connection
-      if (mysqli_connect_errno()){
-        echo "Koneksi database gagal : " . mysqli_connect_error();
-      }
-      session_start();
+      include "../koneksi.php";
+      include "navbar.php";
       // Ambil data NIS yang dikirim oleh index.php melalui URL
-      $username = $_SESSION['username'];
+      $username = $_SESSION['usernamebs'];
       // Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
       $query = "SELECT * FROM data_barber  WHERE username_bs='".$username."'";
       $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
       $data = mysqli_fetch_array($sql); // Ambil data dari hasil eksekusi $sql
       ?>
-    <nav class="navbar navbar-expand-lg navbar-light ">
-        <a class="navbar-brand text-white" >BARBERIAN</a>
-        <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
-        <i class="fas fa-bars"></i> 
-        </button>
-        <form class="form-inline my-2 my-lg-0 ml-auto">
-            
-            </form>
-            <div class="icon ml-4">
-                <h5>
-                <a href="../logout.php" class="fas fa-sign-out-alt mr-3 text-white" data-toggle="tooltip" title="Sign Out"></a>
-                </h5>
-  
-            </div>
-        </nav>
 
-      <div class="row no-gutters">
-      <div class="col-md-2,5 bg-dark  pt-4 ">
-              <ul class="nav flex-column">
-                      <ul class="sidebar navbar-nav">
-                      <li class="nav-item">
-                          <a class="nav-link active text-white" href="dashboard.php"><i class="fas fa-cart-arrow-down mr-2"></i>DASHBOARD</a><hr class="bg-secondary">
-                        </li>
-                      <li class="nav-item">
-                          <a class="nav-link active text-white" href="produk.php"><i class="fas fa-tags mr-2"></i>LIHAT PRODUK</a><hr class="bg-secondary">
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link text-white" href="barberman.php"><i class="fas fa-store mr-2"></i>LIHAT BARBERMAN</a><hr class="bg-secondary">
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link text-white" href="profil.php"><i class="fas fa-user-edit mr-2"></i>UBAH PROFIL</a><hr class="bg-secondary">
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link text-white" href="antrian.php"><i class="fas fa-money-check mr-2"></i>LIHAT ANTRIAN</a><hr class="bg-secondary">
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link text-white" href="listharga.php"><i class="fas fa-dollar-sign mr-3 ml-2"></i>LIST HARGA</a><hr class="bg-secondary">
-                        </li>
-                    </ul>
-        </div>
         <div class="col-md-8 p-5 pt-2">
           <h3><i class="fas fa-user-edit mr-2"></i>UBAH PROFIL</h3><hr>
 
@@ -107,7 +63,7 @@
               </div>  
             <div class="form-group col-md-6">
               <label for="inputAddress2">Nomor telepon</label>
-              <input type="text" class="form-control" name="no" value="<?php echo $data['no_bs']; ?>">
+              <input type="tel" pattern="^\d{>9}" title="masukkan angka minimal 10" class="form-control" name="no" value="<?php echo $data['no_bs']; ?>">
             </div>
             <div class="form-group">
               <div class="form-group col-md-6">

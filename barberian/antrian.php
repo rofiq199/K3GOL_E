@@ -26,16 +26,25 @@ include "koneksi.php";
    //setelah ketemu id terakhir lanjut membuat id baru dengan format sbb:
     $NewID = $today .sprintf('%04s', $NoUrut);
     echo "$NewID";
-//$today nanti jadinya misal 20160526 .sprintf('%04s', $NoUrut) urutan id di tanggal hari ini
-   //proses simpan data id dengan id yg baru ke database
-   $query3 = "INSERT INTO antrian VALUES ('$NewID' ,'$id','$username','$tanggal','2','belum')";
+    //nomor antrian
+    $query2 = "SELECT max(no_antrian) as maxno FROM antrian where username_bs='$id' and kode_antrian LIKE '$today%'";
+    $hasil1 = mysqli_query($koneksi,$query2);
+    $data1 = mysqli_fetch_array($hasil1);
+    $noantrian = $data1['maxno'];
+    $antrian = (int) substr($noantrian, 0,3);
+    $antrian++;
+    $baru = sprintf('%03s', $antrian);
+    echo($baru);
+    print_r ($data1);
+// $today nanti jadinya misal 20160526 .sprintf('%04s', $NoUrut) urutan id di tanggal hari ini
+  //  proses simpan data id dengan id yg baru ke database
+   $query3 = "INSERT INTO antrian VALUES ('$NewID' ,'$id','$username','$tanggal','$baru','belum')";
    $sql3 = mysqli_query($koneksi, $query3); // Eksekusi/ Jalankan query dari variabel $query
     //pesan sukses apa enggak
     if($sql3 == TRUE ) { echo"Data sudah masuk";}
     else {echo "Data gagal";}
     
 header("location: lihat_antrian.php");
-
 ?>
 
  selamat Anda berhasil Cekout <a href="halproduk.php">

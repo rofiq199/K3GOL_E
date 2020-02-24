@@ -82,9 +82,11 @@
                     <td>Nama Layanan</td>
                     <td>Harga</td>
                     </tr>
-                    <?php while($data=mysqli_fetch_array($result)) {?>
+                    <?php while($data=mysqli_fetch_array($result)) {
+                      //print_r($data);?>
                     <tr>
-                    <td><a href="pesan1.php?act=del&amp;barang_id=<?php echo $data['kode_ck']; ?>&amp;ref=pesan.php?id=<?php echo $id ?>" class="fas fa-times"></a>  <a class="fas fa-check " href="pesan1.php?act=add&amp;barang_id=<?php echo $data['kode_ck']; ?>&amp;ref=pesan.php?id=<?php echo $id ?>"></td>
+                    <td>
+                    <a href="pesan1.php?act=del&amp;barang_id=<?php echo $data['kode_ck']; ?>&amp;ref=pesan.php?id=<?php echo $id ?>" class="fas fa-times"></a>  <a class="fas fa-check " href="pesan1.php?act=add&amp;barang_id=<?php echo $data['kode_ck']; ?>&amp;ref=pesan.php?id=<?php echo $id ?>"></td>
                     <td><?php echo $data['nama_ck']; ?></td>
                     <td>Rp. <?php echo number_format($data['harga_ck'],0,",","."); ?></td>
                     </tr>

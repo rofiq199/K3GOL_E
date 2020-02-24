@@ -1,21 +1,21 @@
 .navbar-brand{
-    font-family: Viga;
+    font-family: 'Dancing Script';
     font-size: 22px;
 }
 .nav-link{
-    font-family: 'Titillium Web';
+    font-family: 'IBM Plex Sans', sans-serif;
     font-size: 18px;
     margin-right: 27px;
     font-style: normal;
 }
 .dropdown-item{
-    font-family: 'Titillium Web';
+    font-family: 'IBM Plex Sans', sans-serif;
 }
 html{
     scroll-behavior: smooth;
 }
 .jumbotron{
-    background-image: url(Background.jpg);
+    background-image: url(img/268682-P5602W-935.jpg);
     background-size: cover;
     height: 540px;
     
@@ -29,7 +29,7 @@ html{
     margin-top: 210px;
     text-align: center;
 }
-.tentangkami{
+.tentang_kami{
     font-family: Viga;
     text-align: center;
 }
@@ -86,7 +86,7 @@ html{
     }
     .jumbotron .container{
         position: relative;
-        z-index: 1;
+        z-index: 0;
     }       
     .jumbotron::after{
         content:'';

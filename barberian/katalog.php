@@ -11,13 +11,13 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|IBM+Plex+Sans&display=swap" rel="stylesheet">
 
     <!--My CSS-->
     <link rel="stylesheet" href="katalog.css">
     <title>Barberian</title>
   </head>
   <body>
-  <link rel="stylesheet" href="style.css">
  <!--Navbar-->
   <?php session_start();
   ?>
@@ -61,7 +61,8 @@
                   </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href='profilcs.php'>Profil</a>
-                  <a class="dropdown-item" href="hisbeli.php" >History Order</a>
+                  <a class="dropdown-item" href="hisbeli.php" >Histori Pembelian</a>
+                  <a href="hispesan.php" class="dropdown-item">Histori Pemesanan</a>
                   <a class="dropdown-item" href="lihat_antrian.php" >Lihat Antrian</a>
                   <a class="dropdown-item" href="halamanpesan.php" >Lihat Pesan</a>
                   <a class="dropdown-item" href="logout.php" >Logout</a>

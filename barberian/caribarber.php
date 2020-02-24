@@ -21,6 +21,8 @@
   <!-- Section: Blog v.3 -->
 <?php include "koneksi.php";
       include "navbar.php";
+      $jam = date('H:i:s', time()+60*60*6);
+      echo $jam;
   ?>
 <div class="container">
 <form method="post" action="caribarber.php">
@@ -75,12 +77,15 @@ while($rows=mysqli_fetch_object($result)){
       <p class="Deskripsi"><?=$rows -> alamat_bs;?><br>
       <?=$rows -> jam_buka;?>-<?=$rows -> jam_tutup;?></p>
       <!-- klik ke detail barbershop -->
-      <?php if(($rows -> status_bs) == 'buka'){ ?>
+      <?php if(($rows -> status_bs) == 'buka' && ($rows -> jam_buka) <= $jam && ($rows -> jam_tutup) >= $jam ){ ?>
       <button type = "button" class="btn btn-outline-primary btn-rounded waves-effect" onclick="window.location.href='detailbarber.php?id=<?=$rows -> username_bs;?>'">Lihat Detail</button>
-      <?php }else{ ?>
-        <button type = "button" disabled class="btn btn-outline-primary btn-rounded waves-effect" onclick="window.location.href='detailbarber.php?id=<?=$rows -> username_bs;?>'">Lihat Detail</button>
-      <?php }?>
-      <p class="mt-5 status"><strong><?=$rows -> status_bs;?></strong><br>
+      <p class="mt-5 status"><strong>Buka</strong><br>
+      <?php }else{
+        ?>
+      <button type = "button" disabled class="btn btn-outline-secondary btn-rounded waves-effect" onclick="window.location.href='detailbarber.php?id=<?=$rows -> username_bs;?>'">Lihat Detail</button>
+      <p class="mt-5 status"><strong>Tutup</strong><br>
+    <?php }?>
+      
     </div>
     <!-- Grid column -->
   </div>  

@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
 
     <!--My CSS-->
     <link rel="stylesheet" href="style.css">
@@ -64,8 +65,10 @@
                   </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href='profilcs.php'>Profil</a>
-                  <a class="dropdown-item" href="hisbeli.php" >History Pembelian</a>
+                  <a class="dropdown-item" href="hisbeli.php" >Histori Pembelian</a>
+                  <a class="dropdown-item" href="hispesan.php">Histori Pemesanan</a>
                   <a class="dropdown-item" href="lihat_antrian.php" >Lihat Antrian</a>
+                  <a class="dropdown-item" href="invoice.php">Lihat Pembelian</a>
                   <a class="dropdown-item" href="halamanpesan.php" >Lihat Pesan</a>
                   <a class="dropdown-item" href="logout.php" >Logout</a>
                 </div>
@@ -81,26 +84,21 @@
   <!-- Jumbotron -->
   <div class="jumbotron jumbotron-fluid">
       <div class="container">
-        <h1 class="display-4">#UDAHPOTONGRAMBUTHARIINI?</h1>
+        <h1 class="display-4">Potong Rambutmu<br>Kapanpun Dan Dimanapun</h1>
       </div>
     </div>
   <!-- akhir Jumbotron -->
-<!-- container -->
-  <div class="container" id="tentang_kami">
   <!-- Tentang Kami -->
-    <div class="row workingspace">
-      <div class="col">
-        <img src="logo barber.png" alt="workingspace" height="250x">
-      </div>
-      <div class="col">
+  <div class="container" id="tentang_kami">
+      <center>
         <h2 class="tentangkami">Tentang Kami</h2>
-        <text class="tentangkami">Barberian adalah sistem informasi berbasis web yang bertema tempat potong rambut khusus pria atau yang biasa disebut "Barbershop". tujuan dari SI web Barberian ini adalah untuk memudahkan pelanggan maupun pihak barber.</text>
-      </div>
+        <text class="penjelasan">Barberian adalah sistem informasi berbasis web yang bertema tempat potong rambut khusus pria atau yang biasa disebut "Barbershop". tujuan dari SI web Barberian ini adalah untuk memudahkan pelanggan maupun pihak barber.</text>
+      </center>
+
     </div>
   
   <!-- akhir Tentang Kami -->
-  </div>
-<!-- akhir container -->
+ 
 <!-- Fitur -->
 <!-- Section: Features v.1 -->
 <section class="text-center my-5 fitur">

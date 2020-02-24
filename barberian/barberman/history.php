@@ -7,6 +7,7 @@
     $username = $_SESSION['usernamebm'];
     $query = "SELECT * FROM pesan inner join data_customer on pesan.username_cs=data_customer.username_cs  WHERE ( status_pesan='selesai' or status_pesan='batal') and username_bm='".$username."' ";
     $sql = mysqli_query($koneksi, $query);  // Eksekusi/Jalankan query dari variabel $query
+
     ?>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -43,9 +44,6 @@
                     <ul class="nav flex-column">
                         <ul class="sidebar navbar-nav">     
                              <li class="nav-item">
-                                <a class="nav-link active text-white" href="dashboard.php"><i class="fas fa-shopping-cart mr-2"></i>DASHBOARD</a><hr class="bg-secondary">
-                             </li>
-                             <li class="nav-item">
                                   <a class="nav-link active text-white" href="Order.php"><i class="fas fa-tags mr-2"></i>LIHAT ORDERAN</a><hr class="bg-secondary">
                              </li>
                              <li class="nav-item">
@@ -64,7 +62,7 @@
                 <th scope="col">NO</th>
                 <th scope="col">NAMA CUSTOMER</th>
                 <th scope="col">ORDERAN</th>
-                <th scope="col">HARGA</th>
+                <th scope="col">TOTAL HARGA</th>
                 <th scope="col">TANGGAL</th>
                 <th scope="col">STATUS ORDERAN</th>
               </tr>
@@ -76,9 +74,16 @@
               <tr>
                   <th scope="row"><?php echo $no++;?></th>
                   <td><?php echo $data['nama_cs'];?></td>
-                  <td>Cukur Rambut</td>
+                  <td><?php 
+                  $kode = $data['kode_pesan'];
+                  $query1 ="SELECT * FROM detail_pesan join harga_barber on detail_pesan.kode_ck=harga_barber.kode_ck where kode_pesan='$kode'"; 
+                  $sql1 = mysqli_query($koneksi,$query1);
+                  while($data2=mysqli_fetch_array($sql1)){
+                    echo $data2['nama_ck'].',';  
+                  }
+                  ?></td>
                   <td>Rp <?php echo number_format($data['total_pesan'],0,",",".");?></td>
-                  <td><?php echo date("d F Y",strtotime($data['tanggal_pesan']));?></TD>
+                  <td><?php echo date("d F Y H:i",strtotime($data['tanggal_pesan']));?></TD>
                   <td><?php echo $data['status_pesan'];?></td>
               </tr>
             <?php }?>

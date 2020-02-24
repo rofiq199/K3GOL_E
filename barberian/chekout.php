@@ -41,8 +41,7 @@ include "koneksi.php";
     else {echo "Data gagal";}
     
 
-
+    header("location: invoice.php");
 ?>
-selamat Anda berhasil Cekout <a href="halproduk.php">
 </body>
 </html>

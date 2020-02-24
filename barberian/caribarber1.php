@@ -12,6 +12,7 @@ $no=1;
    $query= "SELECT * from  data_barber ";
    $result=mysqli_query($koneksi,$query) or die(mysqli_error());
 }
+$jam = date('H:i:s', time()+60*60*6);
 //proses menampilkan data
 while($rows=mysqli_fetch_object($result)){
 ?>
@@ -43,9 +44,14 @@ while($rows=mysqli_fetch_object($result)){
       <p class="Deskripsi"><?=$rows -> alamat_bs;?><br>
       <?=$rows -> jam_buka;?>-<?=$rows -> jam_tutup;?></p>
       <!-- klik ke detail barbershop -->
-      <a type="button" class="btn btn-outline-primary btn-rounded waves-effect" href="detailbarber.php?id=<?=$rows -> username_bs;?>">Lihat Detail</a>
-      <div class="border"></div>
-      <p class="mt-5 status">status <?=$rows -> username_bs;?><br>
+      <?php if(($rows -> status_bs) == 'buka' && ($rows -> jam_buka) <= $jam && ($rows -> jam_tutup) >= $jam ){ ?>
+      <button type = "button" class="btn btn-outline-primary btn-rounded waves-effect" onclick="window.location.href='detailbarber.php?id=<?=$rows -> username_bs;?>'">Lihat Detail</button>
+      <p class="mt-5 status"><strong>Buka</strong><br>
+      <?php }else{
+        ?>
+      <button type = "button" disabled class="btn btn-outline-primary btn-rounded waves-effect" onclick="window.location.href='detailbarber.php?id=<?=$rows -> username_bs;?>'">Lihat Detail</button>
+      <p class="mt-5 status"><strong>Tutup</strong><br>
+    <?php }?>
     </div>
     <!-- Grid column -->
   </div>  

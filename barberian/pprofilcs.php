@@ -21,11 +21,7 @@ $password =  $_POST['password'];
 	// Set path folder tempat menyimpan fotonya
 	$path = "img/".$fotobaru;
 	// Proses upload
-	elseif( mysqli_num_rows(mysqli_query($koneksi,"SELECT * FROM data_customer WHERE username_cs='$username'")) < 1 ){
-		echo "<script>alert('USERNAME TIDAK BOLEH DIGANTII!!!!');
-			window.location='profilcs.php';	
-			</script>";
-	}else if(move_uploaded_file($tmp, $path)){ // Cek apakah gambar berhasil diupload atau tidak
+	if(move_uploaded_file($tmp, $path)){ // Cek apakah gambar berhasil diupload atau tidak
 		// Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
 		$query = "SELECT * FROM data_customer WHERE username_cs='".$username."'";
 		$sql = mysqli_query($koneksi, $query); // Eksekusi/Jalankan query dari variabel $query

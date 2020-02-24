@@ -1,4 +1,6 @@
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script|IBM+Plex+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="navbar.css">
  <!--Navbar-->
   <?php session_start();
   ?>
@@ -46,8 +48,10 @@
                   </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href='profilcs.php'>Profil</a>
-                  <a class="dropdown-item" href="hisbeli.php" >History Order</a>
+                  <a class="dropdown-item" href="hisbeli.php" >Histori Pembelian</a>
+                  <a href="hispesan.php" class="dropdown-item">Histori Pemesanan</a>
                   <a class="dropdown-item" href="lihat_antrian.php" >Lihat Antrian</a>
+                  <a class="dropdown-item" href="invoice.php" >Lihat Pembelian</a>
                   <a class="dropdown-item" href="halamanpesan.php" >Lihat Pesan</a>
                   <a class="dropdown-item" href="logout.php" >Logout</a>
                 </div>
@@ -70,7 +74,7 @@
       <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
         <!--Header-->
         <div class="modal-header text-center pb-4">
-          <h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel"><strong>SIGN</strong> <a
+          <h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel"><strong>LOG</strong> <a
               class="green-text font-weight-bold"><strong> IN</strong></a></h3>
           <button type="button" class="close white-text" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -132,7 +136,7 @@
       <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
     <!--Header-->
     <div class="modal-header text-center pb-4">
-      <h3 class="modal-title w-100 white-text font-wight-bold" id="myModalLabel"><strong>SIGN</strong> <a
+      <h3 class="modal-title w-100 white-text font-wight-bold" id="myModalLabel"><strong>LOG</strong> <a
           class="green-text font-weight-bold"><strong>IN</strong></a></h3>   
         <button type="button" class="close white-text" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -194,7 +198,7 @@
       <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
         <!--Header-->
         <div class="modal-header text-center pb-4">
-          <h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel"><strong>SIGN</strong> <a
+          <h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel"><strong>LOG</strong> <a
               class="green-text font-weight-bold"><strong> IN</strong></a></h3>
           <button type="button" class="close white-text" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>

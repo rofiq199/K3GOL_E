@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|IBM+Plex+Sans&display=swap" rel="stylesheet">
 
     <!--My CSS-->
     <link rel="stylesheet" href="regadmin.css">
@@ -20,9 +20,9 @@
   </head>
   <body>
 
-  <!--Navbar-->
-  <!--Navbar-->
-  <nav class="navbar navbar-expand-lg navbar-light">
+  <?php session_start();
+  ?>
+ <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
       <a class="navbar-brand" href="index.php">Barberian</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,36 +42,38 @@
                     <a class="dropdown-item" href="halproduk.php">Produk</a>
                   </div>
               </div>
-                <?php if(!isset($_SESSION['username'])){ ?>
-            <div class="dropdown">
-              <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Masuk
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="" data-toggle="modal" data-target="#darkModalForm">Masuk Sebagai Customer</a>
-                      <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalLoginForm">Masuk Sebagai Barbershop</a>
-                      <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalForm">Masuk Sebagai Barberman</a>
-                    </div>
-              </div>
-              <?php }else{
-            ?>
-            <div class="dropdown">
-              <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <?php echo $_SESSION['username']?>
-                    </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href='profilcs.php'>Profil</a>
-                    <a class="dropdown-item" href="" >History Order</a>
-                    <a class="dropdown-item" href="lihat_antrian.php" >Lihat Antrian</a>
-                    <a class="dropdown-item" href="logout.php" >Logout</a>
+              <?php if(!isset($_SESSION['username'])){
+                ?>
+          <div class="dropdown">
+            <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Masuk
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="" data-toggle="modal" data-target="#darkModalForm">Masuk Sebagai Customer</a>
+                  <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalLoginForm">Masuk Sebagai Barbershop</a>
+                  <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalForm">Masuk Sebagai Barberman</a>
                   </div>
-              </div>
-              <?php }
-              ?>
             </div>
+            <?php }else{
+          ?>
+          <div class="dropdown">
+            <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <?php echo $_SESSION['username'];?>
+                  </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href='profilcs.php'>Profil</a>
+                  <a class="dropdown-item" href="hisbeli.php" >History Order</a>
+                  <a class="dropdown-item" href="lihat_antrian.php" >Lihat Antrian</a>
+                  <a class="dropdown-item" href="halamanpesan.php" >Lihat Pesan</a>
+                  <a class="dropdown-item" href="logout.php" >Logout</a>
+                </div>
+            </div>
+            <?php }
+            ?>
           </div>
-      </div>
-      </nav>
+        </div>
+    </div>
+    </nav>
   <!-- akhir Navbar -->
     <!-- Form -->
     <form action="psimpanbs.php" method="post" name="form1" enctype="multipart/form-data">

@@ -8,7 +8,7 @@ $data = mysqli_query($koneksi,"SELECT * from admin where username='$username' an
 // menghitung jumlah data yang ditemukan
 $cek = mysqli_num_rows($data);
 if($cek > 0){
-	$_SESSION['username'] = $username;
+	$_SESSION['admin'] = $username;
 	$_SESSION['status'] = "login";
 	header("location:menuutama.php");
 	echo ('yes');

@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|IBM+Plex+Sans&display=swap" rel="stylesheet">
 
     <!--My CSS-->
     <link rel="stylesheet" href="regcustomer.css">
@@ -22,8 +22,6 @@
     <title>Barberian</title>
   </head>
   <body>
-
-  <link rel="stylesheet" href="style.css">
  <!--Navbar-->
   <?php session_start();
   ?>

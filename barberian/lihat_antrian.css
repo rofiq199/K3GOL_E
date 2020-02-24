@@ -1,37 +1,3 @@
-.navbar{
-    background-color: #323131;
-    opacity: 100%;
-}
-.navbar-brand{
-    color: white !important;
-    font-family: Viga;
-    font-size: 22px;
-}
-
-.nav-link{
-    font-family: 'Titillium Web';
-    font-size: 18px;
-    margin-right: 27px;
-    font-style: normal;
-    color: white !important;
-}
-.nav-link:hover{
-    content: '';
-    display: block;
-    background: black;
-}
-.dropdown-menu{
-    background-color: #323131;
-}
-.dropdown-item{
-    font-family: 'Titillium Web';
-    color: white !important;
-}
-.dropdown-item:hover{
-    content: '';
-    display: block;
-    background-color: black !important;
-}
 
 form{
     font-family: Viga;
@@ -52,22 +18,3 @@ form{
         background-image: url('iki_nyobak.jpg');
         background-size: cover;
     }   
-@media (min-width : 992px){
-    .navbar-brand{
-        font-size: 32px;
-    }
-    .nav-link{
-        font-size: 20px;
-    }
-    .dropdown-menu{
-        background-color: white !important;
-    }
-    .dropdown-item{
-        color: black !important;
-    }
-    .dropdown-item:hover{
-        content: '';
-        display: block;
-        background-color: whitesmoke !important;
-    }
-}

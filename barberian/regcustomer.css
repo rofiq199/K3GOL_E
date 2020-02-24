@@ -4,12 +4,12 @@
 }
 .navbar-brand{
     color: white !important;
-    font-family: Viga;
+    font-family: 'Dancing Script', cursive;
     font-size: 22px;
 }
 
 .nav-link{
-    font-family: 'Titillium Web';
+    font-family: 'IBM Plex Sans', sans-serif;
     font-size: 18px;
     margin-right: 27px;
     font-style: normal;
@@ -27,7 +27,7 @@
 }
 .dropdown-item{
     color: white !important;
-    font-family: 'Titillium Web';
+    font-family: 'IBM Plex Sans', sans-serif;
 }
 .dropdown-item:hover{
     content: '';

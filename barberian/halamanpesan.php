@@ -1,16 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-  <?php 
-    include "navbar.php";
-    include "koneksi.php";
-    $query= "SELECT * from  pesan where username_cs='".$_SESSION['username']."'and status_pesan='belum' order by kode_pesan DESC";
-    $result=mysqli_query($koneksi,$query);
-    $tampil =mysqli_fetch_array($result);
-    $kode= $tampil['kode_pesan'];
-    $query1= "SELECT * from  detail_pesan INNER JOIN harga_barber ON detail_pesan.kode_ck = harga_barber.kode_ck where  kode_pesan='$kode'";
-    $result1=mysqli_query($koneksi,$query1);
-  ?>
+  
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,6 +14,16 @@
     <link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/6b0af4bcb3.js" crossorigin="anonymous"></script>
+    <?php 
+    include "navbar.php";
+    include "koneksi.php";
+    $query= "SELECT * from  pesan where username_cs='".$_SESSION['username']."'and status_pesan='belum' or status_pesan='proses' order by kode_pesan DESC";
+    $result=mysqli_query($koneksi,$query);
+    $tampil =mysqli_fetch_array($result);
+    $kode= $tampil['kode_pesan'];
+    $query1= "SELECT * from  detail_pesan INNER JOIN harga_barber ON detail_pesan.kode_ck = harga_barber.kode_ck where  kode_pesan='$kode'";
+    $result1=mysqli_query($koneksi,$query1);
+  ?>
   </head>
   <body>
     <div class="container">
@@ -55,8 +56,9 @@
                             <?php }?>
                             </table>
                             </div>
+                            <p class="card-text">Status Pesan :<?php echo $tampil['status_pesan']; ?> </p>
+                            <p class="card-text">Total :<?php echo $tampil['total_pesan']; ?> </p>
                         </div>
-                        <center><a href="#" class="btn btn-success">selesai</a></center>
                     </div>
                 </div>
             

@@ -3,6 +3,10 @@
   <?php 
   include "../koneksi.php";
   session_start();
+  if(!isset($_SESSION['admin'])){
+    echo "<script>alert('Anda Harus Login Terlebih Dahulu!!!');
+                window.location='index.html'</script>";
+  }
   ?>
   <head>
     <!-- Required meta tags -->

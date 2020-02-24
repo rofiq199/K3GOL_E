@@ -4,7 +4,6 @@
   if (mysqli_connect_errno()){
     echo "Koneksi database gagal : " . mysqli_connect_error();
   }
-  session_start();
 ?>
 <!doctype html>
 <html lang="en">
@@ -29,66 +28,13 @@
     <title>Barberian</title>
   </head>
   <body>
-
-  <!--Navbar-->
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container">
-      <a class="navbar-brand" href="index.php">Barberian</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link " href="index.php">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="index.php">Tentang Kami</a>
-          <div class="dropdown">
-            <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Fitur Kami
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="katalog.php">Katalog</a>
-                    <a class="dropdown-item" href="caribarber.php">Cari Barbershop</a>
-                    <a class="dropdown-item" href="halproduk.php">Produk</a>
-                  </div>
-              </div>
-              <?php if(!isset($_SESSION['username'])){ ?>
-          <div class="dropdown">
-            <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Masuk
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="" data-toggle="modal" data-target="#darkModalForm">Masuk Sebagai Customer</a>
-                  <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalLoginForm">Masuk Sebagai Barbershop</a>
-                  <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalForm">Masuk Sebagai Barberman</a>
-                  </div>
-            </div>
-            <?php }else{
-          ?>
-          <div class="dropdown">
-            <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <?php echo $_SESSION['username']?>
-                  </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href='profilcs.php'>Profil</a>
-                  <a class="dropdown-item" href="hisbeli.php" >History Order</a>
-                  <a class="dropdown-item" href="lihat_antrian.php" >Lihat Antrian</a>
-                  <a class="dropdown-item" href="logout.php" >Logout</a>
-                </div>
-            </div>
-            <?php }
-            ?>
-          </div>
-        </div>
-    </div>
-    </nav>
-  <!-- akhir Navbar -->
-  
+  <?php include 'navbar.php'; ?>
 <!-- Section: Features v.1 -->
 <!-- akhir Fitur -->
 <?php 
    $username = $_SESSION['username'];
    // Query untuk menampilkan data siswa berdasarkan NIS yang dikirim
-   $query ="SELECT * FROM penjualan  WHERE username_cs='".$username."' order by kode_jual desc";
+   $query ="SELECT * FROM pesan  join data_barberman on pesan.username_bm=data_barberman.username_bm WHERE username_cs='".$username."' order by kode_pesan desc";
    $sql = mysqli_query($koneksi, $query)  // Eksekusi/Jalankan query dari variabel $query
    //$query ="SELECT * penjualan ";
    //$sql = mysqli_query($koneksi, $query)  // Eksekusi/Jalankan query dari variabel $query
@@ -98,36 +44,32 @@
 <?php while($data = mysqli_fetch_array($sql)){?>
   <div class="card">
   <div class="card-header">
-  <h5 class="card-title">Kode Transaksi : <?php echo $data['kode_jual']; ?></h5>
+  <h5 class="card-title">Kode Transaksi : <?php echo $data['kode_pesan']; ?></h5>
   </div>
     <div class="card-body">
-      
-      <p class="card-text">Total Harga : Rp <?php echo $data['total_harga']; ?></p>
-      <p class="card-text">Tanggal : <?php echo $data['tanggal_jual']; ?></p>
-      <a href="#collapseExample<?php echo $data['kode_jual']; ?>" class="btn btn-primary" data-toggle="collapse" >Lihat Detail</a>
+      <p class="card-text">Nama Barberman : <?php echo $data['nama_bm']; ?></p>
+      <p class="card-text">Total Harga : Rp <?php echo $data['total_pesan']; ?></p>
+      <p class="card-text">Tanggal : <?php echo date("d F Y H:i",strtotime($data['tanggal_pesan'])); ?></p>
+      <a href="#collapseExample<?php echo $data['kode_pesan']; ?>" class="btn btn-primary" data-toggle="collapse" >Lihat Detail</a>
     </div>
-    <div class="collapse" id="collapseExample<?php echo $data['kode_jual']; ?>">
+    <div class="collapse" id="collapseExample<?php echo $data['kode_pesan']; ?>">
       <div class="collapse-content">
       <div class="container">
       <div class="card-footer">
         <p id="collapseExample">Detail Pembelian </p>
         <table cellspacing="0" width="70%">
         <tr>
-        <td>Foto</td>
-        <td>Nama Produk</td>
-        <td>Toko</td>
-        <td>Harga Produk</td>
+        <td><strong>Nama Layanan<strong></td>
+        <td><strong>Harga Produk<strong></td>
         </tr>
      <?php   
-     $query1 ="SELECT * FROM detail_penjualan inner join produk on detail_penjualan.kode_produk=produk.kode_produk where kode_jual='".$data['kode_jual']."' ";
+     $query1 ="SELECT * FROM detail_pesan inner join harga_barber on detail_pesan.kode_ck=harga_barber.kode_ck where kode_pesan='".$data['kode_pesan']."' ";
     $sql1 = mysqli_query($koneksi, $query1);  // Eksekusi/Jalankan query dari variabel $query
     while($data1 = mysqli_fetch_array($sql1)){
     ?>
         <tr>
-        <td><img src="admin/img/<?php echo $data1['foto_produk']; ?>" width="100px" height="100px"></td>
-        <td><?php echo $data1['nama_produk']; ?></td>
-        <td><?php echo $data1['username_bs']; ?></td>
-        <td>Rp.<?php echo $data1['harga_produk']; ?></td>
+        <td><?php echo $data1['nama_ck']; ?></td>
+        <td>Rp.<?php echo $data1['harga_ck']; ?></td>
         </tr>
     <?php }?>
         </table>
